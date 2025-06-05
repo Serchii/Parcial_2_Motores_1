@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundCheckRadius = 0.2f;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] GameObject currentOneWayPlatform;
+    [SerializeField] float disableCollisionTime = 0.25f;
 
     void Start()
     {
@@ -24,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = Input.GetAxisRaw("Horizontal");
 
-        // Checkear si está en el suelo
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
         // Salto
@@ -32,10 +34,43 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+
+        if (Input.GetButtonDown("Down") && isGrounded)
+        {
+            if (currentOneWayPlatform != null)
+            {
+                StartCoroutine(DisableCollision());
+            }
+        }
     }
 
     void FixedUpdate()
     {
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("OneWayPlatform"))
+        {
+            currentOneWayPlatform = col.gameObject;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("OneWayPlatform"))
+        {
+            currentOneWayPlatform = null;
+        }
+    }
+
+    IEnumerator DisableCollision()
+    {
+        EdgeCollider2D currentCollider = currentOneWayPlatform.GetComponent<EdgeCollider2D>();
+
+        Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), currentCollider);
+        yield return new WaitForSeconds(disableCollisionTime);
+        Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), currentCollider, false);
     }
 }
