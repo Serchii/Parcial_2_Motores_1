@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Parcial 2 Motores.sln"
+    "dotnet.defaultSolution": "Parcial_2_Motores_1.sln"
 }
