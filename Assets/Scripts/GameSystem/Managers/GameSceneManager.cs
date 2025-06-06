@@ -6,6 +6,7 @@ using System.Collections;
 public class GameSceneManager : MonoBehaviour
 {
     public static GameSceneManager Instance { get; private set; }
+    [SerializeField] UITransitionManager transition;
 
     public static event Action OnSceneFullyLoaded;
 
@@ -28,7 +29,7 @@ public class GameSceneManager : MonoBehaviour
     {
         if (isChanging) return;
 
-        UITransitionManager transition = GameObject.FindGameObjectWithTag("UITransitionManager")?.GetComponent<UITransitionManager>();
+        transition = GameObject.FindGameObjectWithTag("UITransitionManager")?.GetComponent<UITransitionManager>();
 
         if (transition != null)
         {
@@ -48,7 +49,7 @@ public class GameSceneManager : MonoBehaviour
     {
         if (isChanging) yield break;
 
-        UITransitionManager transition = GameObject.FindGameObjectWithTag("UITransitionManager")?.GetComponent<UITransitionManager>();
+        transition = GameObject.FindGameObjectWithTag("UITransitionManager")?.GetComponent<UITransitionManager>();
 
         if (transition != null)
         {
