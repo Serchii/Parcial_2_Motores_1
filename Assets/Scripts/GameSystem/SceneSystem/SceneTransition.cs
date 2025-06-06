@@ -6,7 +6,6 @@ public class SceneTransition : MonoBehaviour
     [SerializeField] Vector2 spawnPositionInNextScene;
     [SerializeField] bool isDoor;
     [SerializeField] GameObject interactionPromptPrefab;
-    [SerializeField] GameObject puzzlePrefab;
 
     private GameObject promptInstance;
     private bool canEnter = false;
@@ -14,7 +13,6 @@ public class SceneTransition : MonoBehaviour
 
     void Start()
     {
-        puzzlePrefab = GameObject.FindGameObjectWithTag("PuzzleLevel");
     }
 
     void Update()
