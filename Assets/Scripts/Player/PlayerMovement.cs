@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float moveInput;
     private bool isGrounded;
+    private bool isFacingRight = true; // <-- NUEVA variable para controlar la dirección
 
     [Header("Ground Check")]
     [SerializeField] Transform groundCheck;
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
+        // Bajar plataforma
         if (Input.GetButtonDown("Down") && isGrounded)
         {
             if (currentOneWayPlatform != null)
@@ -42,11 +44,25 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(DisableCollision());
             }
         }
+
+        Flip(); // <-- Llamar para girar el personaje
     }
 
     void FixedUpdate()
     {
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+    }
+
+    void Flip()
+    {
+        // Girar solo si el jugador cambia de dirección
+        if ((moveInput > 0 && !isFacingRight) || (moveInput < 0 && isFacingRight))
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1;
+            transform.localScale = localScale;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -68,7 +84,6 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator DisableCollision()
     {
         EdgeCollider2D currentCollider = currentOneWayPlatform.GetComponent<EdgeCollider2D>();
-
         Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), currentCollider);
         yield return new WaitForSeconds(disableCollisionTime);
         Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), currentCollider, false);

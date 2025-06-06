@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public abstract class BaseHealth : MonoBehaviour, IDamageable
+public class BaseHealth : MonoBehaviour, IDamageable
 {
+    [SerializeField] protected float health = 100f;
     [SerializeField] protected float maxHealth = 100f;
-    [SerializeField] protected float health;
 
-    public virtual float Health => health;
-    public virtual float MaxHealth => maxHealth;
-    
+    protected bool isDead = false;
+
+    // Método Start virtual para que PlayerHealth pueda sobreescribirlo
     protected virtual void Start()
     {
         SetMaxHealth();
@@ -15,20 +15,24 @@ public abstract class BaseHealth : MonoBehaviour, IDamageable
 
     public virtual void TakeDamage(float amount)
     {
-        health -= amount;
-        Debug.Log($"{gameObject.name}: Recibi {amount} de daño");
+        if (isDead) return;
 
-        if (health <= 0)
+        health -= amount;
+
+        if (health <= 0f)
         {
-            health = 0;
+            health = 0f;
             Die();
         }
     }
 
-    protected virtual void Die()
+    public virtual void Die()
     {
-        Debug.Log($"{gameObject.name}: Me mori.");
-        Destroy(gameObject);
+        if (isDead) return;
+
+        isDead = true;
+        Debug.Log($"{gameObject.name} murió.");
+        Destroy(gameObject, 1.5f);
     }
 
     protected virtual void SetMaxHealth()

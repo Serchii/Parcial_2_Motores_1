@@ -7,6 +7,7 @@ public class PlayerHealth : BaseHealth
     [SerializeField] int lives = 3;
     [SerializeField] Vector3 spawnPoint;
     [SerializeField] Animator animator;
+
     public bool IsAlive => isAlive;
     public int Lives => lives;
 
@@ -22,55 +23,45 @@ public class PlayerHealth : BaseHealth
     public override void TakeDamage(float amount)
     {
         if (!isAlive) return;
-        
-        if(health > 0 )
-        {
-            health -= amount;
-        }
 
-        if (health <= 0)
+        health -= amount;
+
+        if (health <= 0f)
         {
-            health = 0;
-            if(isAlive) Die();
+            health = 0f;
+            if (isAlive) Die();
         }
 
         OnHealthChanged?.Invoke(health, maxHealth);
-        Debug.Log($"{gameObject.name}: Recibi daño.");
+        Debug.Log($"{gameObject.name}: Recibí daño.");
     }
 
-    protected override void Die()
+    public override void Die()
     {
+        if (!isAlive) return;
+
         lives--;
         OnLivesChanged?.Invoke(lives);
-
         isAlive = false;
-        //animator.SetBool("IsDead",!isAlive);
-        Debug.Log($"{gameObject.name}: Me mori.");
+
+        Debug.Log($"{gameObject.name}: Me morí.");
 
         if (lives > 0)
         {
-            // Reaparece después de 3 segundos
             Invoke("Respawn", 3f);
         }
         else
         {
             GameManager.Instance.PlayerDied();
-            Debug.Log("Morimos");
         }
     }
 
     private void Respawn()
     {
-
         SetMaxHealth();
 
-        if (spawnPoint != null)
-        {
-            transform.position = spawnPoint;
-        }
-
+        transform.position = spawnPoint;
         isAlive = true;
-        //animator.SetBool("IsDead",!isAlive);
     }
 
     protected override void SetMaxHealth()
