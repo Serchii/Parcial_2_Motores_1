@@ -69,6 +69,7 @@ public class EnemyBehaviour : MonoBehaviour
             IDamageable damageable = _player.GetComponent<IDamageable>();
             if (damageable != null)
             {
+                Debug.Log($"{gameObject.name}: ataque a {_player.name}");
                 damageable.TakeDamage(_damage);
             }
         }
