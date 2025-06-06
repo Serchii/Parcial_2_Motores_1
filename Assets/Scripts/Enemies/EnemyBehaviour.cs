@@ -16,25 +16,20 @@ public class EnemyBehaviour : MonoBehaviour
 
     private Rigidbody2D _rb;
     private Animator _animator;
-    private EnemyHealth _health; // <-- nueva referencia
     private float _nextAttackTime = 0f;
-    private bool _isFacingRight = true;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        _health = GetComponent<EnemyHealth>(); // <-- inicializar
 
-        if (_player == null && GameObject.FindGameObjectWithTag("Player") != null)
-        {
-            _player = GameObject.FindGameObjectWithTag("Player").transform;
-        }
+        if (_player == null)
+            _player = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
 
     void Update()
     {
-        if (_player == null || (_health != null && _health.IsDead)) return; // <-- evitar actuar si está muerto
+        if (_player == null) return;
 
         float distanceToPlayer = Vector2.Distance(transform.position, _player.position);
 
@@ -83,13 +78,21 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (_player == null) return;
 
-        if ((_player.position.x < transform.position.x && _isFacingRight) ||
-            (_player.position.x > transform.position.x && !_isFacingRight))
+        Vector3 scale = transform.localScale;
+
+        if (_player.position.x < transform.position.x)
         {
-            _isFacingRight = !_isFacingRight;
-            Vector3 scale = transform.localScale;
-            scale.x *= -1;
-            transform.localScale = scale;
+            // Jugador a la izquierda, sprite mirando a la izquierda ? escala positiva
+            if (scale.x < 0)
+                scale.x *= -1;
         }
+        else
+        {
+            // Jugador a la derecha, sprite mirando a la derecha ? escala negativa
+            if (scale.x > 0)
+                scale.x *= -1;
+        }
+
+        transform.localScale = scale;
     }
 }

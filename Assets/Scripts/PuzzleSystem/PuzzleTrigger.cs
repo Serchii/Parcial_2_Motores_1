@@ -27,7 +27,6 @@ public class PuzzleTrigger : MonoBehaviour
             uiPuzzle.SetActive(false);
             SetPlayerActive(true);
 
-            // Si el jugador aún está dentro del trigger, volver a mostrar el prompt
             if (canActivate) ShowPrompt();
         }
     }

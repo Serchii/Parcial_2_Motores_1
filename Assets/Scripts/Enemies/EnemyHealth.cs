@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private Rigidbody2D _rb;
     private Collider2D _collider;
 
-    public bool IsDead => _isDead; // <-- propiedad pública para que otros scripts puedan leer si está muerto
+    public bool IsDead => _isDead;
 
     private void Start()
     {

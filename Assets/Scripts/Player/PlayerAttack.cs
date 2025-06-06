@@ -3,9 +3,9 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] GameObject hitPrefab;
-    [SerializeField] float attackDuration = 0.3f;      // Duración total del ataque
-    [SerializeField] float hitboxDuration = 0.1f;      // Cuánto dura el hitbox activo
-    [SerializeField] Animator animator; // Referencia al Animator
+    [SerializeField] float attackDuration = 0.3f;    
+    [SerializeField] float hitboxDuration = 0.1f;     
+    [SerializeField] Animator animator;
     [SerializeField] AudioClip[] attackSounds;
     [SerializeField] AudioSource audioSource;
     [SerializeField] PlayerHealth playerHealth;

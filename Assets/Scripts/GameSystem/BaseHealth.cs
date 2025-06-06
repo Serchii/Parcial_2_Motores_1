@@ -7,7 +7,6 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
     protected bool isDead = false;
 
-    // Método Start virtual para que PlayerHealth pueda sobreescribirlo
     protected virtual void Start()
     {
         SetMaxHealth();

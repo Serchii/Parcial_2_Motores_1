@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
 
     private float moveInput;
     private bool isGrounded;
-    private bool isFacingRight = true; // <-- NUEVA variable para controlar la dirección
 
     [Header("Ground Check")]
     [SerializeField] Transform groundCheck;
@@ -30,13 +29,11 @@ public class PlayerMovement : MonoBehaviour
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        // Salto
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
-        // Bajar plataforma
         if (Input.GetButtonDown("Down") && isGrounded)
         {
             if (currentOneWayPlatform != null)
@@ -45,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        Flip(); // <-- Llamar para girar el personaje
+        FlipSprite();
     }
 
     void FixedUpdate()
@@ -53,15 +50,13 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
     }
 
-    void Flip()
+    private void FlipSprite()
     {
-        // Girar solo si el jugador cambia de dirección
-        if ((moveInput > 0 && !isFacingRight) || (moveInput < 0 && isFacingRight))
+        if (moveInput != 0)
         {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1;
-            transform.localScale = localScale;
+            Vector3 scale = transform.localScale;
+            scale.x = Mathf.Abs(scale.x) * Mathf.Sign(moveInput);
+            transform.localScale = scale;
         }
     }
 
