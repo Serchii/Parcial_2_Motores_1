@@ -6,24 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Classroom.unity
+    guid: 490fc523b9703ea43956510e3382fb0a
+  - enabled: 1
+    path: Assets/Scenes/Street_1.unity
+    guid: 2f14e120d8c3a2b4ebaacbca14319ce0
+  - enabled: 1
+    path: Assets/Scenes/Street_2.unity
+    guid: 3c133ce7169346947b56b70cab50ee09
+  - enabled: 1
+    path: Assets/Scenes/House_1.unity
+    guid: ec6387be9d215174a851c844785d422a
+  - enabled: 1
     path: Assets/Scenes/SplashScreen.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: f3b4fa3fa7d6ec74b86fb1c8527c7d94
-  - enabled: 1
-    path: Assets/Scenes/IntroText.unity
-    guid: e3fccf65dda2ee24f9cf99de67cd27b4
-  - enabled: 1
-    path: Assets/Scenes/TutorialScreen.unity
-    guid: af5b3d53d5b1ce647adac9e85e8e3e3d
-  - enabled: 1
-    path: Assets/Scenes/Level_1.unity
-    guid: a577c74898c0114498b640743a3772ce
-  - enabled: 1
-    path: Assets/Scenes/Level_2.unity
-    guid: 9d34fa454a2976844958a9558bdc8ca4
-  - enabled: 1
-    path: Assets/Scenes/Level_3.unity
-    guid: ba3f758e033329a45b48467f7642603b
   m_configObjects: {}
