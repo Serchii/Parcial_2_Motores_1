@@ -5,27 +5,35 @@ public class PuzzleTrigger : MonoBehaviour
 {
     [SerializeField] GameObject uiPuzzle;
     [SerializeField] GameObject interactionPromptPrefab;
-    [SerializeField] string textPrompt = "[E] to Interact";
+    [SerializeField] string textPrompt = "[W] to Interact";
+    [SerializeField] bool isInteractuable = true;
 
     private GameObject promptInstance;
     private bool canActivate = false;
     private Transform player;
-    private PlayerMovement playerMovement;
-    private PlayerAttack playerAttack;
+    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private PlayerAttack playerAttack;
 
     void Update()
     {
         if (canActivate && Input.GetButtonDown("Up") && !uiPuzzle.activeSelf)
         {
-            HidePrompt();
-            uiPuzzle.SetActive(true);
-            SetPlayerActive(false);
+            if(isInteractuable)
+            {
+                HidePrompt();
+                uiPuzzle.SetActive(true);
+                SetPlayerActive(false);
+            }
+            
         }
 
         if (uiPuzzle.activeSelf && Input.GetButtonDown("Cancel"))
         {
-            uiPuzzle.SetActive(false);
-            SetPlayerActive(true);
+            if(isInteractuable)
+            {
+                uiPuzzle.SetActive(false);
+                SetPlayerActive(true);
+            }
 
             if (canActivate) ShowPrompt();
         }
@@ -59,10 +67,18 @@ public class PuzzleTrigger : MonoBehaviour
     private void SetPlayerActive(bool isActive)
     {
         if (playerMovement != null)
+        {
             playerMovement.enabled = isActive;
+            Debug.Log($"Movimiento: {isActive}");
+        }
 
         if (playerAttack != null)
+        {
             playerAttack.enabled = isActive;
+            Debug.Log($"Ataque: {isActive}");
+        }
+
+
     }
 
     private void ShowPrompt()

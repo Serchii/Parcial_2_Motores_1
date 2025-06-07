@@ -40,6 +40,6 @@ public class UIMainMenu : MonoBehaviour
     
     public void StartGame()
     {
-        GameSceneManager.Instance.LoadSceneWithTransition("Level_1");
+        GameSceneManager.Instance.LoadSceneWithTransition("Classroom");
     }
 }

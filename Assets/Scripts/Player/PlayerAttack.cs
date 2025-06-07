@@ -56,6 +56,8 @@ public class PlayerAttack : MonoBehaviour
         isHitting = true;
         attackTimer = 0f;
         hitPrefab.SetActive(true);
+        
+        Debug.Log("Atacando");
 
         if (animator != null)
         {
