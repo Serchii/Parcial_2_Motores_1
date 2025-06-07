@@ -13,11 +13,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        if (_animator == null)
-            _animator = GetComponent<Animator>();
-
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
+        if (_animator == null)
+            _animator = GetComponent<Animator>();
     }
 
     public void TakeDamage(float amount)
@@ -25,7 +24,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         if (_isDead) return;
 
         _health -= amount;
-        Debug.Log($"{gameObject.name} recibió {amount} de daño. Vida restante: {_health}");
+        Debug.Log($"{gameObject.name} recibiï¿½ {amount} de daï¿½o. Vida restante: {_health}");
 
         if (_health <= 0f)
         {
