@@ -2,21 +2,21 @@ using UnityEngine;
 
 public class UIMainMenu : MonoBehaviour
 {
-    [SerializeField] GameObject [] panels;
+    [SerializeField] GameObject[] panels;
 
     public void Credits()
-    {
-        SetPanel(3);
-    }
-
-    public void Options()
     {
         SetPanel(2);
     }
 
-    public void HowToPlay()
+    public void Options()
     {
         SetPanel(1);
+    }
+
+    public void Story()
+    {
+        GameSceneManager.Instance.LoadSceneWithTransition("IntroText");
     }
 
     public void BackToMenu()
@@ -26,9 +26,9 @@ public class UIMainMenu : MonoBehaviour
 
     void SetPanel(int indexPanel)
     {
-        for(int i = 0; i < panels.Length; i++)
+        for (int i = 0; i < panels.Length; i++)
         {
-            if(i == indexPanel)
+            if (i == indexPanel)
             {
                 panels[i].SetActive(true);
                 continue;
@@ -37,7 +37,7 @@ public class UIMainMenu : MonoBehaviour
             panels[i].SetActive(false);
         }
     }
-    
+
     public void StartGame()
     {
         GameSceneManager.Instance.LoadSceneWithTransition("Classroom");
