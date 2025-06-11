@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5446697655898015725}
   m_Layer: 3
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: OneWayPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 5409838797488536222}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6a4af8417f951404b820d04f0d90a04e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
