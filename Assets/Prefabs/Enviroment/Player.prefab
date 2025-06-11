@@ -108,7 +108,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_Material: {fileID: 6200000, guid: 968853f32c9146949966f4ccd2a4f21b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpForce: 7
+  jumpForce: 15
   rb: {fileID: 2401344832455833467}
   groundCheck: {fileID: 855401319772495932}
   groundCheckRadius: 0.2
@@ -160,6 +160,8 @@ MonoBehaviour:
   lives: 1
   spawnPoint: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  invincible: 0
 --- !u!114 &1161058466877321414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +180,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   attackDamage: 20
+  attackCooldown: 1
+  attackTimer: 0
+  knockbackForce: 0
   animator: {fileID: 0}
   attackSounds: []
   audioSource: {fileID: 0}
