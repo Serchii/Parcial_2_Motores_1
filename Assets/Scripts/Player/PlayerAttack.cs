@@ -1,23 +1,29 @@
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
-{
-    [SerializeField] GameObject hitPrefab;
-    [SerializeField] float attackDuration = 0.3f;    
-    [SerializeField] float hitboxDuration = 0.1f;     
+{   
+    //nuevo hit con LayerMask
+    [SerializeField] Transform attackPoint;
+    [SerializeField] float attackRange = 0.5f;
+    [SerializeField] LayerMask enemyLayers;
+    [SerializeField] float attackDamage = 20f;
+    [SerializeField] float attackCooldown = 1f;
+    [SerializeField] float attackTimer;
+    [SerializeField] float knockbackForce;
+
     [SerializeField] Animator animator;
     [SerializeField] AudioClip[] attackSounds;
     [SerializeField] AudioSource audioSource;
     [SerializeField] PlayerHealth playerHealth;
 
     private bool isHitting = false;
-    private float attackTimer = 0f;
 
     public bool IsHitting => isHitting;
 
     void Start()
     {
         playerHealth = GetComponent<PlayerHealth>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -28,7 +34,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void HandleAttack()
     {
-        if (!isHitting)
+        if(!isHitting)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -38,30 +44,37 @@ public class PlayerAttack : MonoBehaviour
         else
         {
             attackTimer += Time.deltaTime;
-
-            if (attackTimer >= hitboxDuration && hitPrefab.activeSelf)
+            if(attackTimer >= attackCooldown)
             {
-                hitPrefab.SetActive(false);
-            }
-
-            if (attackTimer >= attackDuration)
-            {
-                EndAttack();
+                isHitting = false;
+                attackTimer = 0;
             }
         }
+        
     }
 
     private void StartAttack()
     {
         isHitting = true;
-        attackTimer = 0f;
-        hitPrefab.SetActive(true);
         
         Debug.Log("Atacando");
 
         if (animator != null)
         {
             animator.SetTrigger("Attack");
+        }
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        foreach(Collider2D enemy in hitEnemies)
+        {
+            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+            
+            if (enemyHealth != null)
+            {
+                Vector2 knockbackDir = enemy.transform.position - transform.position;
+                enemyHealth.TakeDamage(attackDamage, knockbackDir, knockbackForce);
+            }
         }
 
         if (attackSounds.Length > 0 && audioSource != null)
@@ -71,10 +84,11 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private void EndAttack()
+    void OnDrawGizmosSelected()
     {
-        isHitting = false;
-        attackTimer = 0f;
-        hitPrefab.SetActive(false);
+        if(attackPoint == null) return;
+
+        Gizmos.DrawWireSphere(attackPoint.position,attackRange);
     }
+
 }

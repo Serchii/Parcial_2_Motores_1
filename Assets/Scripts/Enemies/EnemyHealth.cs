@@ -1,55 +1,69 @@
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour, IDamageable
+public class EnemyHealth : BaseHealth
 {
-    [SerializeField] private float _health = 50f;
+    
     [SerializeField] private Animator _animator;
+    [SerializeField] private Rigidbody2D _rb;
+    [SerializeField] private float stunDuration = 0.2f;
 
-    private bool _isDead = false;
-    private Rigidbody2D _rb;
-    private Collider2D _collider;
+    public bool IsDead => isDead;
 
-    public bool IsDead => _isDead;
-
-    private void Start()
+    protected override void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        _collider = GetComponent<Collider2D>();
+        base.Start();
+
         if (_animator == null)
             _animator = GetComponent<Animator>();
+        
+        if (_rb == null)
+            _rb = GetComponent<Rigidbody2D>();
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float amount, Vector2 knockbackDirection, float knockbackForce)
     {
-        if (_isDead) return;
+        if (isDead) return;
 
-        _health -= amount;
-        Debug.Log($"{gameObject.name} recibi� {amount} de da�o. Vida restante: {_health}");
+        health -= amount;
 
-        if (_health <= 0f)
+        GetComponent<EnemyBehaviour>()?.Stun(stunDuration);
+        ApplyKnockback(knockbackDirection, knockbackForce);
+
+        if (_animator != null)
         {
+            _animator.SetTrigger("Hurt");
+        }
+
+        if (health <= 0f)
+        {
+            health = 0f;
             Die();
         }
     }
 
-    public void Die()
+    public override void Die()
     {
-        if (_isDead) return;
+        if (isDead) return;
 
-        _isDead = true;
+        isDead = true;
 
+        _rb.bodyType = RigidbodyType2D.Static;
+        GetComponent<BoxCollider2D>().enabled = false;
         if (_animator != null)
-            _animator.SetTrigger("IsDead");
-
-        if (_rb != null)
         {
-            _rb.velocity = Vector2.zero;
-            _rb.bodyType = RigidbodyType2D.Static;
+            _animator.SetBool("IsDead",isDead);
         }
 
-        if (_collider != null)
-            _collider.enabled = false;
-
+        Debug.Log($"{gameObject.name} murió.");
         Destroy(gameObject, 1.5f);
+    }
+
+    private void ApplyKnockback(Vector2 direction, float force)
+    {
+        if (isDead || _rb == null) return;
+
+        _rb.velocity = Vector2.zero;
+        Debug.Log($"Direccion: {direction}. Fuerza: {force}");
+        _rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
     }
 }

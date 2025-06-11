@@ -4,12 +4,15 @@ using UnityEngine;
 public class PlayerHealth : BaseHealth
 {
     [SerializeField] bool isAlive = true;
-    [SerializeField] int lives = 3;
+    [SerializeField] int lives = 1;
     [SerializeField] Vector3 spawnPoint;
     [SerializeField] Animator animator;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] bool invincible = false;
 
     public bool IsAlive => isAlive;
     public int Lives => lives;
+    public bool Invincible => invincible;
 
     public event Action<float, float> OnHealthChanged;
     public event Action<int> OnLivesChanged;
@@ -18,18 +21,34 @@ public class PlayerHealth : BaseHealth
     {
         base.Start();
         spawnPoint = transform.position;
+
+        if (animator == null)
+            animator = GetComponent<Animator>();
+
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public override void TakeDamage(float amount)
     {
-        if (!isAlive) return;
+        if (!isAlive || invincible) return;
 
         health -= amount;
+
+        if (animator != null)
+        {
+            animator.SetTrigger("Hurt");
+        }
 
         if (health <= 0f)
         {
             health = 0f;
             if (isAlive) Die();
+        }
+        else
+        {
+            EnableInvincible();
+            Invoke("DisableInvincible",1.5f);
         }
 
         OnHealthChanged?.Invoke(health, maxHealth);
@@ -68,5 +87,21 @@ public class PlayerHealth : BaseHealth
     {
         base.SetMaxHealth();
         OnHealthChanged?.Invoke(health, maxHealth);
+    }
+
+    void DisableInvincible()
+    {
+        invincible = false;
+        Color color = spriteRenderer.color;
+        color.a = 1f;
+        spriteRenderer.color = color;
+    }
+
+    void EnableInvincible()
+    {
+        invincible = true;
+        Color color = spriteRenderer.color;
+        color.a = 0.5f;
+        spriteRenderer.color = color;
     }
 }

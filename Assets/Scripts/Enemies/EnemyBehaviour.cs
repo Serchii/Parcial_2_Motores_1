@@ -6,13 +6,18 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private float _moveSpeed = 2f;
     [SerializeField] private float _chaseRange = 5f;
     [SerializeField] private float _attackRange = 1.2f;
+    [SerializeField] private float _stunTime = 0f;
 
     [Header("Ataque")]
     [SerializeField] private float _attackCooldown = 1f;
     [SerializeField] private float _damage = 10f;
+    [SerializeField] Transform attackPoint;
+    [SerializeField] float attackRange = 0.5f;
+    [SerializeField] LayerMask playerLayers;
 
-    [Header("Detección")]
+    [Header("Detecciï¿½n")]
     [SerializeField] private Transform _player;
+    [SerializeField] private EnemyHealth _health;
 
     private Rigidbody2D _rb;
     private Animator _animator;
@@ -22,6 +27,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _health = GetComponent<EnemyHealth>();
 
         if (_player == null)
             _player = GameObject.FindGameObjectWithTag("Player")?.transform;
@@ -30,6 +36,14 @@ public class EnemyBehaviour : MonoBehaviour
     void Update()
     {
         if (_player == null) return;
+        if(_health.IsDead) return;
+
+        if (_stunTime > 0f)
+        {
+            _stunTime -= Time.deltaTime;
+            _animator.SetBool("IsRunning", false);
+            return;
+        }
 
         float distanceToPlayer = Vector2.Distance(transform.position, _player.position);
 
@@ -64,13 +78,16 @@ public class EnemyBehaviour : MonoBehaviour
         if (Time.time >= _nextAttackTime)
         {
             _nextAttackTime = Time.time + _attackCooldown;
-            _animator.SetTrigger("IsAttack");
-
-            IDamageable damageable = _player.GetComponent<IDamageable>();
-            if (damageable != null)
+            if (_animator != null)
             {
-                Debug.Log($"{gameObject.name}: ataque a {_player.name}");
-                damageable.TakeDamage(_damage);
+                _animator.SetTrigger("Attack");
+            }
+
+            Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayers);
+
+            foreach(Collider2D player in hitPlayers)
+            {
+                player.GetComponent<IDamageable>().TakeDamage(_damage);
             }
         }
     }
@@ -95,5 +112,17 @@ public class EnemyBehaviour : MonoBehaviour
         }
 
         transform.localScale = scale;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if(attackPoint == null) return;
+
+        Gizmos.DrawWireSphere(attackPoint.position,attackRange);
+    }
+
+    public void Stun(float duration)
+    {
+        _stunTime = duration;
     }
 }
