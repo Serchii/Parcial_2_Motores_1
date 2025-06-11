@@ -160,6 +160,8 @@ MonoBehaviour:
   lives: 1
   spawnPoint: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  invincible: 0
 --- !u!114 &1161058466877321414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +180,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   attackDamage: 20
+  attackCooldown: 0.5
+  attackTimer: 0
+  knockbackForce: 2
   animator: {fileID: 0}
   attackSounds: []
   audioSource: {fileID: 0}
