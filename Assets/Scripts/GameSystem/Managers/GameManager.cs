@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     private bool gameOver = false;
     private bool youWon = false;
 
+    public PlayerData playerData = new PlayerData();
+
     public bool IsGameOver() => gameOver || youWon;
 
     public static event Action<bool, string> OnGameEnded;
@@ -18,13 +20,18 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Lo hace persistente entre escenas
+            DontDestroyOnLoad(gameObject);
             GameSceneManager.OnSceneFullyLoaded += ResetGameState;
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    void Start()
+    {
+        AddMoney(1000);
     }
 
     private void OnDestroy()
@@ -56,5 +63,27 @@ public class GameManager : MonoBehaviour
         // Se llama cuando se carga una nueva escena
         gameOver = false;
         youWon = false;
+    }
+
+    public void AddMoney(int amount)
+    {
+        playerData.Money += amount;
+        // Acá podrías disparar un evento para actualizar la UI
+    }
+
+    public bool SpendMoney(int amount)
+    {
+        if (playerData.Money >= amount)
+        {
+            playerData.Money -= amount;
+            // También podrías disparar un evento acá
+            return true;
+        }
+        return false;
+    }
+
+    public int GetMoney()
+    {
+        return playerData.Money;
     }
 }

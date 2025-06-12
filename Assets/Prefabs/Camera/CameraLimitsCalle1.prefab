@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &204439082528795566
+--- !u!1 &3084923442464063207
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3023813499745757518}
-  - component: {fileID: 6846730004455219324}
+  - component: {fileID: 2563105441437704514}
+  - component: {fileID: 8796690009823639574}
   m_Layer: 0
-  m_Name: CameraLimitsAula
+  m_Name: CameraLimitsCalle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3023813499745757518
+--- !u!4 &2563105441437704514
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 204439082528795566}
+  m_GameObject: {fileID: 3084923442464063207}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.44612, z: -0.049766295}
-  m_LocalScale: {x: 9.103534, y: 8.991144, z: 8.991144}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &6846730004455219324
+--- !u!60 &8796690009823639574
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 204439082528795566}
+  m_GameObject: {fileID: 3084923442464063207}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
