@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float jumpForce = 10f;
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] Animator animator;
 
     private float moveInput;
     private bool isGrounded;
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -28,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        SetAnimator(moveInput,!isGrounded);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -43,6 +47,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         FlipSprite();
+    }
+
+    void SetAnimator(float run, bool jump)
+    {
+        animator.SetFloat("Run", Mathf.Abs(run));
+        animator.SetBool("Jump", jump);
     }
 
     void FixedUpdate()

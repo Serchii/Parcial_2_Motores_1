@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
-{   
+{
     //nuevo hit con LayerMask
     [SerializeField] Transform attackPoint;
     [SerializeField] float attackRange = 0.5f;
@@ -9,7 +9,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] float attackDamage = 20f;
     [SerializeField] float attackCooldown = 1f;
     [SerializeField] float attackTimer;
-    [SerializeField] float knockbackForce;
+    [SerializeField] float knockbackForce = 2;
+    [SerializeField] GameObject hit;
 
     [SerializeField] Animator animator;
     [SerializeField] AudioClip[] attackSounds;
@@ -28,13 +29,13 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if(playerHealth.IsAlive)
-        HandleAttack();
+        if (playerHealth.IsAlive)
+            HandleAttack();
     }
 
     private void HandleAttack()
     {
-        if(!isHitting)
+        if (!isHitting)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -44,20 +45,20 @@ public class PlayerAttack : MonoBehaviour
         else
         {
             attackTimer += Time.deltaTime;
-            if(attackTimer >= attackCooldown)
+            if (attackTimer >= attackCooldown)
             {
                 isHitting = false;
                 attackTimer = 0;
             }
         }
-        
+
     }
 
     private void StartAttack()
     {
         isHitting = true;
-        
-        Debug.Log("Atacando");
+
+        hit.SetActive(true);
 
         if (animator != null)
         {
@@ -66,10 +67,10 @@ public class PlayerAttack : MonoBehaviour
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        foreach(Collider2D enemy in hitEnemies)
+        foreach (Collider2D enemy in hitEnemies)
         {
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-            
+
             if (enemyHealth != null)
             {
                 Vector2 knockbackDir = enemy.transform.position - transform.position;
@@ -86,9 +87,14 @@ public class PlayerAttack : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        if(attackPoint == null) return;
+        if (attackPoint == null) return;
 
-        Gizmos.DrawWireSphere(attackPoint.position,attackRange);
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    public void DisableHit()
+    {
+        hit.SetActive(false);
     }
 
 }
