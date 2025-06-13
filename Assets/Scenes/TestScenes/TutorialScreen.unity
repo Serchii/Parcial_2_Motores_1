@@ -551,6 +551,10 @@ PrefabInstance:
       propertyPath: hit
       value: 
       objectReference: {fileID: 2114992883}
+    - target: {fileID: 1161058466877321414, guid: 3de22e42e175e0940837ad8931df5bb4, type: 3}
+      propertyPath: disableTime
+      value: 0.333
+      objectReference: {fileID: 0}
     - target: {fileID: 5253080753820993385, guid: 3de22e42e175e0940837ad8931df5bb4, type: 3}
       propertyPath: m_Name
       value: Player
@@ -631,6 +635,7 @@ GameObject:
   - component: {fileID: 1738505351}
   - component: {fileID: 1738505350}
   - component: {fileID: 1738505349}
+  - component: {fileID: 1738505353}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -720,6 +725,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &1738505353
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738505348}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1840305528
 PrefabInstance:
   m_ObjectHideFlags: 0

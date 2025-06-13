@@ -11,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] float attackTimer;
     [SerializeField] float knockbackForce = 2;
     [SerializeField] GameObject hit;
+    [SerializeField] float disableTime;
 
     [SerializeField] Animator animator;
     [SerializeField] AudioClip[] attackSounds;
@@ -59,6 +60,7 @@ public class PlayerAttack : MonoBehaviour
         isHitting = true;
 
         hit.SetActive(true);
+        Invoke("DisableHit", disableTime);
 
         if (animator != null)
         {

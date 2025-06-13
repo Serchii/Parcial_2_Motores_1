@@ -7,6 +7,9 @@ public class EnemyHealth : BaseHealth
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float stunDuration = 0.2f;
 
+    [SerializeField] EnemyHealthBarUI healthBarPrefab;
+    [SerializeField] private EnemyHealthBarUI healthBarInstance;
+
     public bool IsDead => isDead;
 
     protected override void Start()
@@ -15,9 +18,13 @@ public class EnemyHealth : BaseHealth
 
         if (_animator == null)
             _animator = GetComponent<Animator>();
-        
+
         if (_rb == null)
             _rb = GetComponent<Rigidbody2D>();
+            
+        Canvas canvas = FindObjectOfType<Canvas>();
+        healthBarInstance = Instantiate(healthBarPrefab, canvas.transform);
+        healthBarInstance.SetTarget(transform);
     }
 
     public void TakeDamage(float amount, Vector2 knockbackDirection, float knockbackForce)
@@ -25,6 +32,8 @@ public class EnemyHealth : BaseHealth
         if (isDead) return;
 
         health -= amount;
+
+        healthBarInstance.SetHealth(health, maxHealth);
 
         GetComponent<EnemyBehaviour>()?.Stun(stunDuration);
         ApplyKnockback(knockbackDirection, knockbackForce);
