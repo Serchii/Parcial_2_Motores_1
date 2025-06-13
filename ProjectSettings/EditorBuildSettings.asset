@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Street_2.unity
     guid: 3c133ce7169346947b56b70cab50ee09
   - enabled: 1
-    path: Assets/Scenes/Levels/House_1.unity
+    path: Assets/Scenes/Levels/House_2.unity
     guid: ec6387be9d215174a851c844785d422a
   - enabled: 1
     path: Assets/Scenes/Levels/GameInDevelopment.unity
