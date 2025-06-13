@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Animator animator;
 
     private float moveInput;
-    private bool isGrounded;
+    [SerializeField] private bool isGrounded;
 
     [Header("Ground Check")]
     [SerializeField] Transform groundCheck;
