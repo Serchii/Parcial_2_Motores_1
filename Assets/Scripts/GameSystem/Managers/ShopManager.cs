@@ -7,9 +7,10 @@ public class ShopManager : MonoBehaviour
 
     public void BuyWatch()
     {
-        if (PlayerMoney.Instance.SpendMoney(watchPrice))
+        if (GameManager.Instance.SpendMoney(watchPrice))
         {
-            PlayerInventory.Instance.BuyWatch();
+            GameManager.Instance.AddItem("Watch");
+            UIManager.Instance.ShowClockUI(true); // opcional
         }
         else
         {
@@ -19,9 +20,9 @@ public class ShopManager : MonoBehaviour
 
     public void BuyExpertCertificate()
     {
-        if (PlayerMoney.Instance.SpendMoney(expertCertificatePrice))
+        if (GameManager.Instance.SpendMoney(expertCertificatePrice))
         {
-            PlayerInventory.Instance.BuyExpertCertificate();
+            GameManager.Instance.AddItem("ExpertCertificate");
         }
         else
         {

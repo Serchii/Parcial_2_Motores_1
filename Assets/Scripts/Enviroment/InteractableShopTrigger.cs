@@ -6,7 +6,7 @@ public class InteractableShopTrigger : MonoBehaviour
 
     void Update()
     {
-        if (_playerInRange && Input.GetKeyDown(KeyCode.F))
+        if (_playerInRange && Input.GetButtonDown("Interact"))
         {
             ShopUI.Instance.OpenShop();
         }

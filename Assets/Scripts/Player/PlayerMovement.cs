@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        SetAnimator(moveInput,!isGrounded);
+        SetAnimator(moveInput, !isGrounded);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -88,9 +88,17 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator DisableCollision()
     {
-        EdgeCollider2D currentCollider = currentOneWayPlatform.GetComponent<EdgeCollider2D>();
-        Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), currentCollider);
+        Collider2D platformCollider = currentOneWayPlatform.GetComponent<Collider2D>();
+        Collider2D playerCollider = GetComponent<Collider2D>();
+
+        if (platformCollider == null)
+        {
+            Debug.LogWarning("La plataforma no tiene ningún Collider2D.");
+            yield break;
+        }
+
+        Physics2D.IgnoreCollision(playerCollider, platformCollider);
         yield return new WaitForSeconds(disableCollisionTime);
-        Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), currentCollider, false);
+        Physics2D.IgnoreCollision(playerCollider, platformCollider, false);
     }
 }

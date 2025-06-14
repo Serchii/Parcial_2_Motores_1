@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 
+[System.Serializable]
 public class PlayerData
 {
     public int Money = 1000;
-    public List<string> Inventory = new List<string>();
+    public HashSet<string> Inventory = new HashSet<string>();
 }

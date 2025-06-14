@@ -1,17 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    private bool gameOver = false;
-    private bool youWon = false;
-
     public PlayerData playerData = new PlayerData();
 
-    public bool IsGameOver() => gameOver || youWon;
+    private bool gameOver = false;
+    private bool youWon = false;
 
     public static event Action<bool, string> OnGameEnded;
 
@@ -21,17 +20,13 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            LoadData();
             GameSceneManager.OnSceneFullyLoaded += ResetGameState;
         }
         else
         {
             Destroy(gameObject);
         }
-    }
-
-    void Start()
-    {
-        AddMoney(1000);
     }
 
     private void OnDestroy()
@@ -41,12 +36,15 @@ public class GameManager : MonoBehaviour
             GameSceneManager.OnSceneFullyLoaded -= ResetGameState;
         }
     }
+    public bool IsGameOver()
+    {
+        return gameOver || youWon;
+    }
 
     public void PlayerDied()
     {
         if (gameOver) return;
         gameOver = true;
-
         OnGameEnded?.Invoke(false, "YOU ARE DEAD");
     }
 
@@ -54,21 +52,20 @@ public class GameManager : MonoBehaviour
     {
         if (youWon) return;
         youWon = true;
-
         OnGameEnded?.Invoke(true, "YOU SURVIVED, FOR NOW...");
     }
 
     private void ResetGameState()
     {
-        // Se llama cuando se carga una nueva escena
         gameOver = false;
         youWon = false;
     }
 
+    // 🪙 Dinero
     public void AddMoney(int amount)
     {
         playerData.Money += amount;
-        // Acá podrías disparar un evento para actualizar la UI
+        SaveData();
     }
 
     public bool SpendMoney(int amount)
@@ -76,14 +73,35 @@ public class GameManager : MonoBehaviour
         if (playerData.Money >= amount)
         {
             playerData.Money -= amount;
-            // También podrías disparar un evento acá
+            SaveData();
             return true;
         }
         return false;
     }
 
-    public int GetMoney()
+    public int GetMoney() => playerData.Money;
+
+    // 🎒 Inventario
+    public bool HasItem(string itemId) => playerData.Inventory.Contains(itemId);
+
+    public void AddItem(string itemId)
     {
-        return playerData.Money;
+        playerData.Inventory.Add(itemId);
+        SaveData();
+    }
+
+    // 💾 Persistencia
+    private void SaveData()
+    {
+        PlayerPrefs.SetInt("Money", playerData.Money);
+        PlayerPrefs.SetString("Inventory", string.Join(",", playerData.Inventory));
+    }
+
+    private void LoadData()
+    {
+        playerData.Money = PlayerPrefs.GetInt("Money", 1000);
+
+        string savedInventory = PlayerPrefs.GetString("Inventory", "");
+        playerData.Inventory = new HashSet<string>(savedInventory.Split(',', StringSplitOptions.RemoveEmptyEntries));
     }
 }
