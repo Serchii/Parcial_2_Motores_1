@@ -4,11 +4,17 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    public ClockUI clockUI;
+    [SerializeField] private ClockUI clockUI;
 
     void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
     public void ShowClockUI(bool show)

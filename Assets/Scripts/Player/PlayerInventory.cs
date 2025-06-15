@@ -1,50 +1,86 @@
+using System.Collections.Generic;
 using UnityEngine;
+
+public enum ItemID
+{
+    Watch,
+    ExpertCertificate
+}
 
 public class PlayerInventory : MonoBehaviour
 {
     public static PlayerInventory Instance;
 
-    public bool hasWatch;
-    public bool hasExpertCertificate;
+    private Dictionary<ItemID, bool> items = new Dictionary<ItemID, bool>();
 
     void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
+            InitializeInventory();
+            LoadData();
+        }
         else
         {
             Destroy(gameObject);
-            return;
         }
-
-        LoadData();
     }
 
-    public void BuyWatch()
+    void OnApplicationQuit()
     {
-        hasWatch = true;
-        UIManager.Instance.ShowClockUI(true);
         SaveData();
     }
 
-    public void BuyExpertCertificate()
+    void OnApplicationPause(bool pause)
     {
-        hasExpertCertificate = true;
+        if (pause)
+            SaveData();
+    }
+
+    private void InitializeInventory()
+    {
+        foreach (ItemID item in System.Enum.GetValues(typeof(ItemID)))
+        {
+            items[item] = false;
+        }
+    }
+
+    public void BuyItem(ItemID item)
+    {
+        items[item] = true;
+
+        if (item == ItemID.Watch && UIManager.Instance != null)
+            UIManager.Instance.ShowClockUI(true);
+
         SaveData();
+    }
+
+    public bool HasItem(ItemID item)
+    {
+        return items.ContainsKey(item) && items[item];
     }
 
     private void SaveData()
     {
-        PlayerPrefs.SetInt("HasWatch", hasWatch ? 1 : 0);
-        PlayerPrefs.SetInt("HasExpertCertificate", hasExpertCertificate ? 1 : 0);
+        foreach (var kvp in items)
+        {
+            PlayerPrefs.SetInt($"Item_{kvp.Key}", kvp.Value ? 1 : 0);
+        }
+
+        PlayerPrefs.Save();
     }
 
     private void LoadData()
     {
-        hasWatch = PlayerPrefs.GetInt("HasWatch", 0) == 1;
-        hasExpertCertificate = PlayerPrefs.GetInt("HasExpertCertificate", 0) == 1;
+        foreach (ItemID item in System.Enum.GetValues(typeof(ItemID)))
+        {
+            bool owned = PlayerPrefs.GetInt($"Item_{item}", 0) == 1;
+            items[item] = owned;
 
-        if (hasWatch)
-            UIManager.Instance.ShowClockUI(true);
+            if (item == ItemID.Watch && owned && UIManager.Instance != null)
+                UIManager.Instance.ShowClockUI(true);
+        }
     }
 }

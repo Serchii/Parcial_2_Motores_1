@@ -2,31 +2,46 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    public int watchPrice = 100;
-    public int expertCertificatePrice = 200;
+    [SerializeField] private Transform _itemsParent;
+    [SerializeField] private GameObject _shopItemButtonPrefab;
+    [SerializeField] private ShopItem[] _itemsForSale;
 
-    public void BuyWatch()
+    private void Start()
     {
-        if (GameManager.Instance.SpendMoney(watchPrice))
+        PopulateShop();
+    }
+
+    private void PopulateShop()
+    {
+        foreach (ShopItem item in _itemsForSale)
         {
-            GameManager.Instance.AddItem("Watch");
-            UIManager.Instance.ShowClockUI(true); // opcional
-        }
-        else
-        {
-            Debug.Log("Dinero insuficiente para el reloj.");
+            if (!PlayerInventory.Instance.HasItem(item.itemId))
+            {
+                SpawnNewItem(item);
+            }
         }
     }
 
-    public void BuyExpertCertificate()
+    public void SpawnNewItem(ShopItem item)
     {
-        if (GameManager.Instance.SpendMoney(expertCertificatePrice))
+        GameObject buttonObj = Instantiate(_shopItemButtonPrefab, _itemsParent);
+        ShopItemButton button = buttonObj.GetComponent<ShopItemButton>();
+        button.Setup(item, this);
+    }
+
+    public void TryBuyItem(ShopItem item, ShopItemButton button)
+    {
+        if (GameManager.Instance.SpendMoney(item.price))
         {
-            GameManager.Instance.AddItem("ExpertCertificate");
+            PlayerInventory.Instance.BuyItem(item.itemId);
+            button.DisableButton();
+
+            if (item.nextUpgrade != null)
+                SpawnNewItem(item.nextUpgrade);
         }
         else
         {
-            Debug.Log("Dinero insuficiente para el certificado.");
+            Debug.Log("Dinero insuficiente.");
         }
     }
 }
