@@ -1,13 +1,12 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using System;
-using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public PlayerData playerData = new PlayerData();
+    public int StartingMoney = 1000;
+    private int money;
 
     private bool gameOver = false;
     private bool youWon = false;
@@ -32,14 +31,10 @@ public class GameManager : MonoBehaviour
     private void OnDestroy()
     {
         if (Instance == this)
-        {
             GameSceneManager.OnSceneFullyLoaded -= ResetGameState;
-        }
     }
-    public bool IsGameOver()
-    {
-        return gameOver || youWon;
-    }
+
+    public bool IsGameOver() => gameOver || youWon;
 
     public void PlayerDied()
     {
@@ -61,47 +56,34 @@ public class GameManager : MonoBehaviour
         youWon = false;
     }
 
-    // 🪙 Dinero
     public void AddMoney(int amount)
     {
-        playerData.Money += amount;
+        money += amount;
         SaveData();
     }
 
     public bool SpendMoney(int amount)
     {
-        if (playerData.Money >= amount)
+        if (money >= amount)
         {
-            playerData.Money -= amount;
+            money -= amount;
             SaveData();
             return true;
         }
         return false;
     }
 
-    public int GetMoney() => playerData.Money;
+    public int GetMoney() => money;
 
-    // 🎒 Inventario
-    public bool HasItem(string itemId) => playerData.Inventory.Contains(itemId);
-
-    public void AddItem(string itemId)
-    {
-        playerData.Inventory.Add(itemId);
-        SaveData();
-    }
-
-    // 💾 Persistencia
     private void SaveData()
     {
-        PlayerPrefs.SetInt("Money", playerData.Money);
-        PlayerPrefs.SetString("Inventory", string.Join(",", playerData.Inventory));
+        PlayerPrefs.SetInt("Money", money);
+        PlayerInventory.Instance.SaveData();
     }
 
     private void LoadData()
     {
-        playerData.Money = PlayerPrefs.GetInt("Money", 1000);
-
-        string savedInventory = PlayerPrefs.GetString("Inventory", "");
-        playerData.Inventory = new HashSet<string>(savedInventory.Split(',', StringSplitOptions.RemoveEmptyEntries));
+        money = PlayerPrefs.GetInt("Money", StartingMoney);
+        PlayerInventory.Instance.LoadData();
     }
 }

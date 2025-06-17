@@ -1,17 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-
-public enum ItemID
-{
-    Watch,
-    ExpertCertificate
-}
+using static UnityEditor.Progress;
 
 public class PlayerInventory : MonoBehaviour
 {
     public static PlayerInventory Instance;
-
-    private Dictionary<ItemID, bool> items = new Dictionary<ItemID, bool>();
+    private Dictionary<ItemID, bool> items = new();
 
     void Awake()
     {
@@ -20,7 +15,6 @@ public class PlayerInventory : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             InitializeInventory();
-            LoadData();
         }
         else
         {
@@ -28,23 +22,10 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    void OnApplicationQuit()
-    {
-        SaveData();
-    }
-
-    void OnApplicationPause(bool pause)
-    {
-        if (pause)
-            SaveData();
-    }
-
     private void InitializeInventory()
     {
-        foreach (ItemID item in System.Enum.GetValues(typeof(ItemID)))
-        {
+        foreach (ItemID item in Enum.GetValues(typeof(ItemID)))
             items[item] = false;
-        }
     }
 
     public void BuyItem(ItemID item)
@@ -55,26 +36,21 @@ public class PlayerInventory : MonoBehaviour
             UIManager.Instance.ShowClockUI(true);
 
         SaveData();
+        OnItemPurchased?.Invoke(item);
     }
 
-    public bool HasItem(ItemID item)
-    {
-        return items.ContainsKey(item) && items[item];
-    }
+    public bool HasItem(ItemID item) => items.TryGetValue(item, out bool owned) && owned;
 
-    private void SaveData()
+    public void SaveData()
     {
         foreach (var kvp in items)
-        {
             PlayerPrefs.SetInt($"Item_{kvp.Key}", kvp.Value ? 1 : 0);
-        }
-
         PlayerPrefs.Save();
     }
 
-    private void LoadData()
+    public void LoadData()
     {
-        foreach (ItemID item in System.Enum.GetValues(typeof(ItemID)))
+        foreach (ItemID item in Enum.GetValues(typeof(ItemID)))
         {
             bool owned = PlayerPrefs.GetInt($"Item_{item}", 0) == 1;
             items[item] = owned;
@@ -83,4 +59,6 @@ public class PlayerInventory : MonoBehaviour
                 UIManager.Instance.ShowClockUI(true);
         }
     }
+
+    public static event Action<ItemID> OnItemPurchased;
 }
