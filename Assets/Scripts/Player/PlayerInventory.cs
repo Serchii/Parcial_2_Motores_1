@@ -1,20 +1,20 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public static PlayerInventory Instance;
-    private Dictionary<ItemID, bool> items = new();
+    public static PlayerInventory Instance { get; private set; }
 
-    void Awake()
+    private HashSet<ItemID> _ownedItems = new HashSet<ItemID>();
+
+    private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            InitializeInventory();
+            LoadInventory();
         }
         else
         {
@@ -22,43 +22,37 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    private void InitializeInventory()
+    public bool HasItem(ItemID id) => _ownedItems.Contains(id);
+
+    public void BuyItem(ItemID id)
     {
-        foreach (ItemID item in Enum.GetValues(typeof(ItemID)))
-            items[item] = false;
+        _ownedItems.Add(id);
+        SaveInventory();
     }
 
-    public void BuyItem(ItemID item)
+    public void ResetInventory()
     {
-        items[item] = true;
-
-        if (item == ItemID.Watch && UIManager.Instance != null)
-            UIManager.Instance.ShowClockUI(true);
-
-        SaveData();
-        OnItemPurchased?.Invoke(item);
+        _ownedItems.Clear();
+        SaveInventory();
     }
 
-    public bool HasItem(ItemID item) => items.TryGetValue(item, out bool owned) && owned;
-
-    public void SaveData()
+    private void SaveInventory()
     {
-        foreach (var kvp in items)
-            PlayerPrefs.SetInt($"Item_{kvp.Key}", kvp.Value ? 1 : 0);
-        PlayerPrefs.Save();
+        string saved = string.Join(",", _ownedItems);
+        PlayerPrefs.SetString("Inventory_ItemIDs", saved);
     }
 
-    public void LoadData()
+    private void LoadInventory()
     {
-        foreach (ItemID item in Enum.GetValues(typeof(ItemID)))
+        string saved = PlayerPrefs.GetString("Inventory_ItemIDs", "");
+        _ownedItems = new HashSet<ItemID>();
+
+        foreach (string s in saved.Split(',', StringSplitOptions.RemoveEmptyEntries))
         {
-            bool owned = PlayerPrefs.GetInt($"Item_{item}", 0) == 1;
-            items[item] = owned;
-
-            if (item == ItemID.Watch && owned && UIManager.Instance != null)
-                UIManager.Instance.ShowClockUI(true);
+            if (Enum.TryParse(s, out ItemID id))
+            {
+                _ownedItems.Add(id);
+            }
         }
     }
-
-    public static event Action<ItemID> OnItemPurchased;
 }

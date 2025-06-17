@@ -1,12 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public int StartingMoney = 1000;
-    private int money;
+    public int Money { get; private set; } = 1000;
 
     private bool gameOver = false;
     private bool youWon = false;
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            LoadData();
+            LoadMoney();
             GameSceneManager.OnSceneFullyLoaded += ResetGameState;
         }
         else
@@ -31,10 +31,16 @@ public class GameManager : MonoBehaviour
     private void OnDestroy()
     {
         if (Instance == this)
+        {
             GameSceneManager.OnSceneFullyLoaded -= ResetGameState;
+        }
     }
 
-    public bool IsGameOver() => gameOver || youWon;
+    private void ResetGameState()
+    {
+        gameOver = false;
+        youWon = false;
+    }
 
     public void PlayerDied()
     {
@@ -50,40 +56,45 @@ public class GameManager : MonoBehaviour
         OnGameEnded?.Invoke(true, "YOU SURVIVED, FOR NOW...");
     }
 
-    private void ResetGameState()
-    {
-        gameOver = false;
-        youWon = false;
-    }
-
     public void AddMoney(int amount)
     {
-        money += amount;
-        SaveData();
+        Money += amount;
+        PlayerPrefs.SetInt("Money", Money);
     }
 
     public bool SpendMoney(int amount)
     {
-        if (money >= amount)
+        if (Money >= amount)
         {
-            money -= amount;
-            SaveData();
+            Money -= amount;
+            PlayerPrefs.SetInt("Money", Money);
             return true;
         }
         return false;
     }
 
-    public int GetMoney() => money;
-
-    private void SaveData()
+    public void LoadMoney()
     {
-        PlayerPrefs.SetInt("Money", money);
-        PlayerInventory.Instance.SaveData();
+        Money = PlayerPrefs.GetInt("Money", 1000);
     }
 
-    private void LoadData()
+    public bool IsGameOver()
     {
-        money = PlayerPrefs.GetInt("Money", StartingMoney);
-        PlayerInventory.Instance.LoadData();
+        return gameOver || youWon;
+    }
+
+    public void ResetGameData()
+    {
+        Money = 1000;
+        PlayerPrefs.SetInt("Money", Money);
+
+        if (PlayerInventory.Instance != null)
+            PlayerInventory.Instance.ResetInventory();
+
+        PlayerPrefs.Save();
+    }
+    public int GetMoney()
+    {
+        return Money;
     }
 }

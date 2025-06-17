@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec88603ffcb31b5459c37bda8e0885e6, type: 3}
-  m_Name: BasicWatch
+  m_Name: Certificate
   m_EditorClassIdentifier: 
-  itemId: 0
-  itemName: Clock
-  description: An analog clock to see the time
-  price: 100
-  icon: {fileID: 21300000, guid: ab7d10ed86db8db478b71a8b98120082, type: 3}
+  itemId: 1
+  itemName: Expert Certificate
+  description: ' Certify that you are an expert plumber and earn 30% more money...don''t
+    ask where we get it from'
+  price: 200
+  icon: {fileID: 21300000, guid: 6b5c841e85ab42c4c8a76cafc49afb9b, type: 3}
   nextUpgrade: {fileID: 0}
