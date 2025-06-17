@@ -37,7 +37,9 @@ public class ShopManager : MonoBehaviour
             button.DisableButton();
 
             if (item.nextUpgrade != null)
+            {
                 SpawnNewItem(item.nextUpgrade);
+            }
         }
         else
         {

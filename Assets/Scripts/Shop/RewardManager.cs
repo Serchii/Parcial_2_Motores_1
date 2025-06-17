@@ -8,12 +8,10 @@ public class RewardManager : MonoBehaviour
     {
         int finalReward = baseReward;
 
-        if (PlayerInventory.Instance != null && PlayerInventory.Instance.HasItem(ItemID.ExpertCertificate))
-        {
+        if (PlayerInventory.Instance.HasItem(ItemID.ExpertCertificate))
             finalReward = Mathf.RoundToInt(baseReward * 1.3f);
-        }
 
-        Debug.Log("Ganaste: $" + finalReward);
-        PlayerMoney.Instance.AddMoney(finalReward);
+        Debug.Log($"Ganaste: ${finalReward}");
+        GameManager.Instance.AddMoney(finalReward);
     }
 }

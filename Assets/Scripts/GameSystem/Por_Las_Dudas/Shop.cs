@@ -10,16 +10,29 @@ public class Shop : MonoBehaviour
         moneyText.text = "MONEY: " + GameManager.Instance.GetMoney();
     }
 
-    public void BuyItem(int price, string itemName)
+    public void BuyItem(int price, string itemId)
     {
         if (GameManager.Instance.SpendMoney(price))
         {
-            GameManager.Instance.playerData.Inventory.Add(itemName);
-            Debug.Log("Compraste: " + itemName);
+            PlayerInventory.Instance.BuyItem(ParseItemId(itemId));
+            Debug.Log("Compraste: " + itemId);
         }
         else
         {
             Debug.Log("Dinero insuficiente");
+        }
+    }
+
+    private ItemID ParseItemId(string id)
+    {
+        if (System.Enum.TryParse(id, out ItemID result))
+        {
+            return result;
+        }
+        else
+        {
+            Debug.LogError($"ItemID inválido: {id}");
+            return default;
         }
     }
 }

@@ -23,7 +23,7 @@ public class ShopItemButton : MonoBehaviour
         _priceText.text = $"${item.price}";
         _icon.sprite = item.icon;
 
-        _buyButton.onClick.RemoveAllListeners();  // Limpia listeners anteriores
+        _buyButton.onClick.RemoveAllListeners();
         _buyButton.onClick.AddListener(() => _shopManager.TryBuyItem(_item, this));
     }
 
