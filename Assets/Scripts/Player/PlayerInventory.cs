@@ -28,12 +28,14 @@ public class PlayerInventory : MonoBehaviour
     {
         _ownedItems.Add(id);
         SaveInventory();
+        FindObjectOfType<PlayerUpgrades>()?.ApplyUpgrades();
     }
 
     public void ResetInventory()
     {
         _ownedItems.Clear();
         SaveInventory();
+        FindObjectOfType<PlayerUpgrades>()?.ApplyUpgrades();
     }
 
     private void SaveInventory()

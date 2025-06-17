@@ -12,4 +12,9 @@ public class PlayerHit : MonoBehaviour
             target.TakeDamage(_damage);
         }
     }
+
+    public void SetDamage(float value)
+    {
+        _damage = value;
+    }
 }

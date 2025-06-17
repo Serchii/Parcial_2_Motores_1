@@ -41,20 +41,40 @@ public class ShopManager : MonoBehaviour
 
         button.Setup(item, this);
     }
+    private void ReplaceItemButton(ShopItem nextItem, ShopItemButton oldButton)
+    {
+        GameObject newButtonObj = Instantiate(_shopItemButtonPrefab, _itemsParent);
+
+        int index = oldButton.transform.GetSiblingIndex();
+        newButtonObj.transform.SetSiblingIndex(index);
+
+        Destroy(oldButton.gameObject);
+
+        ShopItemButton newButton = newButtonObj.GetComponent<ShopItemButton>();
+        newButton.Setup(nextItem, this);
+    }
 
     public void TryBuyItem(ShopItem item, ShopItemButton button)
     {
         if (GameManager.Instance.SpendMoney(item.price))
         {
             PlayerInventory.Instance.BuyItem(item.itemId);
-            button.DisableButton();
+
+            PlayerUpgrades.Instance.ApplyUpgrades();
 
             if (item.nextUpgrade != null)
-                SpawnNewItem(item.nextUpgrade);
+            {
+                ReplaceItemButton(item.nextUpgrade, button);
+            }
+            else
+            {
+                button.DisableButton();
+            }
         }
         else
         {
             Debug.Log("Dinero insuficiente.");
         }
     }
+
 }

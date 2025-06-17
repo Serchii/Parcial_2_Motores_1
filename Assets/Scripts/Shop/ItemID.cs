@@ -1,5 +1,9 @@
 public enum ItemID
 {
     Watch,
-    ExpertCertificate
+    ExpertCertificate,
+    HammerImproved,
+    HammerUltimate,
+    HelmetImproved,
+    HelmetUltimate
 }

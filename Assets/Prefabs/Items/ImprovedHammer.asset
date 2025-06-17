@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec88603ffcb31b5459c37bda8e0885e6, type: 3}
+  m_Name: ImprovedHammer
+  m_EditorClassIdentifier: 
+  itemId: 2
+  itemName: Improved Hammer
+  description: Nobody knows what a plumber does with a hammer, but nobody questions
+    it either.
+  price: 75
+  icon: {fileID: 21300000, guid: 7a4274f1585330642a8b0251c565760c, type: 3}
+  nextUpgrade: {fileID: 11400000, guid: 954e1336eb46bf3408b73d15df513d26, type: 2}

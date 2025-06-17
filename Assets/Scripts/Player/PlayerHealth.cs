@@ -36,9 +36,7 @@ public class PlayerHealth : BaseHealth
         health -= amount;
 
         if (animator != null)
-        {
             animator.SetTrigger("Hurt");
-        }
 
         if (health <= 0f)
         {
@@ -48,11 +46,11 @@ public class PlayerHealth : BaseHealth
         else
         {
             EnableInvincible();
-            Invoke("DisableInvincible",1.5f);
+            Invoke("DisableInvincible", 1.5f);
         }
 
         OnHealthChanged?.Invoke(health, maxHealth);
-        Debug.Log($"{gameObject.name}: RecibÃ­ daÃ±o.");
+        Debug.Log($"{gameObject.name}: Recibí daño.");
     }
 
     public override void Die()
@@ -63,7 +61,7 @@ public class PlayerHealth : BaseHealth
         OnLivesChanged?.Invoke(lives);
         isAlive = false;
 
-        Debug.Log($"{gameObject.name}: Me morÃ­.");
+        Debug.Log($"{gameObject.name}: Me morí.");
 
         if (lives > 0)
         {
@@ -78,7 +76,6 @@ public class PlayerHealth : BaseHealth
     private void Respawn()
     {
         SetMaxHealth();
-
         transform.position = spawnPoint;
         isAlive = true;
     }
@@ -89,7 +86,13 @@ public class PlayerHealth : BaseHealth
         OnHealthChanged?.Invoke(health, maxHealth);
     }
 
-    void DisableInvincible()
+    public void SetMaxHealthValue(float value)
+    {
+        maxHealth = value;
+        SetMaxHealth();
+    }
+
+    private void DisableInvincible()
     {
         invincible = false;
         Color color = spriteRenderer.color;
@@ -97,7 +100,7 @@ public class PlayerHealth : BaseHealth
         spriteRenderer.color = color;
     }
 
-    void EnableInvincible()
+    private void EnableInvincible()
     {
         invincible = true;
         Color color = spriteRenderer.color;
