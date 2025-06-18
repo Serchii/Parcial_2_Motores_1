@@ -15,16 +15,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/IntroText.unity
     guid: e3fccf65dda2ee24f9cf99de67cd27b4
   - enabled: 1
-    path: Assets/Scenes/Levels/Classroom.unity
+    path: Assets/Scenes/Levels/1Classroom.unity
     guid: 490fc523b9703ea43956510e3382fb0a
   - enabled: 1
-    path: Assets/Scenes/Levels/Street_1.unity
+    path: Assets/Scenes/Levels/2Street_1.unity
     guid: 2f14e120d8c3a2b4ebaacbca14319ce0
   - enabled: 1
-    path: Assets/Scenes/Levels/Street_2.unity
+    path: Assets/Scenes/Levels/3Street_2.unity
     guid: 3c133ce7169346947b56b70cab50ee09
   - enabled: 1
-    path: Assets/Scenes/Levels/House_2.unity
+    path: Assets/Scenes/Levels/4House_2.unity
     guid: ec6387be9d215174a851c844785d422a
   - enabled: 1
     path: Assets/Scenes/Levels/GameInDevelopment.unity
