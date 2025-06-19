@@ -3,6 +3,7 @@ using UnityEngine;
 public class UIMainMenu : MonoBehaviour
 {
     [SerializeField] GameObject[] panels;
+    [SerializeField] string nextLevel;
 
     public void Credits()
     {
@@ -18,6 +19,12 @@ public class UIMainMenu : MonoBehaviour
     {
         GameSceneManager.Instance.LoadSceneWithTransition("IntroText");
     }
+
+    public void NextLevel()
+    {
+        GameSceneManager.Instance.LoadSceneWithTransition(nextLevel);
+    }
+
 
     public void BackToMenu()
     {
