@@ -2,21 +2,35 @@ using UnityEngine;
 
 public class GameClock : MonoBehaviour
 {
+    public static GameClock Instance;
+
     public int hour;
     public int minute;
 
-    public float timeSpeed = 60f;
+    [SerializeField] private float _timeSpeed = 60f;
+    private float _timer;
 
-    private float timer;
-
-    void Update()
+    private void Awake()
     {
-        timer += Time.deltaTime * timeSpeed;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
-        if (timer >= 60f)
+    private void Update()
+    {
+        _timer += Time.deltaTime * _timeSpeed;
+
+        if (_timer >= 60f)
         {
             minute++;
-            timer = 0f;
+            _timer = 0f;
 
             if (minute >= 60)
             {
@@ -26,5 +40,12 @@ public class GameClock : MonoBehaviour
                     hour = 0;
             }
         }
+    }
+
+    public void ResetClock()
+    {
+        hour = 0;
+        minute = 0;
+        _timer = 0f;
     }
 }

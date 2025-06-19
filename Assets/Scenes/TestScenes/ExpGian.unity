@@ -294,17 +294,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &213664693 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2008213854099299692, guid: d5a95bec148da7e489335384632bc577, type: 3}
-  m_PrefabInstance: {fileID: 8917830073092106477}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93d98f60fee019e4ab98642c95b8608a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &388007817 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2713931296700330820, guid: 000284013216cd94e8ccc3fc97bbc076, type: 3}
@@ -1196,7 +1185,7 @@ PrefabInstance:
     - target: {fileID: 3306002152100138105, guid: 74b7dcacb00410a4eba0d0b044e78b05, type: 3}
       propertyPath: clock
       value: 
-      objectReference: {fileID: 213664693}
+      objectReference: {fileID: 0}
     - target: {fileID: 3306002152100138105, guid: 74b7dcacb00410a4eba0d0b044e78b05, type: 3}
       propertyPath: clockText
       value: 
@@ -1366,7 +1355,7 @@ PrefabInstance:
     - target: {fileID: 8713249511820687191, guid: 92cdecbe3a2bd254b90f390d8c5a5abc, type: 3}
       propertyPath: clock
       value: 
-      objectReference: {fileID: 213664693}
+      objectReference: {fileID: 0}
     - target: {fileID: 8713249511820687191, guid: 92cdecbe3a2bd254b90f390d8c5a5abc, type: 3}
       propertyPath: dayObjects.Array.data[0]
       value: 
@@ -1578,7 +1567,8 @@ PrefabInstance:
       value: Canvas_2.0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3100793134556103138, guid: d5a95bec148da7e489335384632bc577, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5a95bec148da7e489335384632bc577, type: 3}

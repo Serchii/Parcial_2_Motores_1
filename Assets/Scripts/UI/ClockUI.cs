@@ -1,23 +1,21 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ClockUI : MonoBehaviour
 {
-    public GameClock clock;
-    public GameObject clockPanel;
-    public TMP_Text clockText;
+    [SerializeField] private GameObject _clockPanel;
+    [SerializeField] private TMP_Text _clockText;
 
-    void Update()
+    private void Update()
     {
-        if (clockPanel.activeSelf)
+        if (_clockPanel.activeSelf && GameClock.Instance != null)
         {
-            clockText.text = $"{clock.hour:00}:{clock.minute:00}";
+            _clockText.text = $"{GameClock.Instance.hour:00}:{GameClock.Instance.minute:00}";
         }
     }
 
     public void ShowClock(bool show)
     {
-        clockPanel.SetActive(show);
+        _clockPanel.SetActive(show);
     }
 }
