@@ -5,8 +5,9 @@ public class PuzzleTrigger : MonoBehaviour
 {
     [SerializeField] GameObject uiPuzzle;
     [SerializeField] GameObject interactionPromptPrefab;
-    [SerializeField] string textPrompt = "[W] to Interact";
+    [SerializeField] string textPrompt = "[E] to Interact";
     [SerializeField] bool isInteractuable = true;
+    [SerializeField] private PuzzleGridManager puzzleManager;
 
     private GameObject promptInstance;
     private bool canActivate = false;
@@ -14,22 +15,29 @@ public class PuzzleTrigger : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerAttack playerAttack;
 
+    void Start()
+    {
+        if (puzzleManager != null)
+        {
+            puzzleManager.OnCompleted += PuzzleCompleted;
+        }
+    }
     void Update()
     {
-        if (canActivate && Input.GetButtonDown("Up") && !uiPuzzle.activeSelf)
+        if (canActivate && Input.GetButtonDown("Interact") && !uiPuzzle.activeSelf)
         {
-            if(isInteractuable)
+            if (isInteractuable)
             {
                 HidePrompt();
                 uiPuzzle.SetActive(true);
                 SetPlayerActive(false);
             }
-            
+
         }
 
         if (uiPuzzle.activeSelf && Input.GetButtonDown("Cancel"))
         {
-            if(isInteractuable)
+            if (isInteractuable)
             {
                 uiPuzzle.SetActive(false);
                 SetPlayerActive(true);
@@ -108,5 +116,26 @@ public class PuzzleTrigger : MonoBehaviour
             Destroy(promptInstance);
             promptInstance = null;
         }
+    }
+
+    void OnDestroy()
+    {
+        if (puzzleManager != null)
+        {
+            puzzleManager.OnCompleted -= EndPuzzle;
+        }
+    }
+
+    void PuzzleCompleted()
+    {
+        Invoke("EndPuzzle", 1f);
+    }
+
+    void EndPuzzle()
+    {
+        uiPuzzle.SetActive(false);
+        SetPlayerActive(true);
+        HidePrompt();
+        Destroy(gameObject);
     }
 }
