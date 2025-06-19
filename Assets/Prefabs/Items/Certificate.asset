@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 1
   itemName: Expert Certificate
-  description: ' Certify that you are an expert plumber and earn 30% more money...don''t
-    ask where we get it from'
+  description: Certify that you are an expert plumber and earn 30% more money...Don't
+    ask where we get it from
   price: 200
   icon: {fileID: 21300000, guid: 6b5c841e85ab42c4c8a76cafc49afb9b, type: 3}
   nextUpgrade: {fileID: 0}
