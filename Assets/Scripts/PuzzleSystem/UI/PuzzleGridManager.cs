@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class PuzzleGridManager : MonoBehaviour
 {
@@ -20,10 +21,13 @@ public class PuzzleGridManager : MonoBehaviour
     [SerializeField] private Vector2Int entryPoint = new Vector2Int(0, 0);
     [SerializeField] private Vector2Int exitPoint = new Vector2Int(3, 3);
     [SerializeField] private bool isCompleted = false;
-    
+    [SerializeField] private int money = 0;
+
     public bool IsCompleted => isCompleted;
 
     private ItemSlot[,] gridSlots;
+
+    public event Action OnCompleted;
 
     private void Start()
     {
@@ -75,7 +79,7 @@ public class PuzzleGridManager : MonoBehaviour
                         DragDropInstance drag = piece.GetComponent<DragDropInstance>();
                         if (drag != null) drag.SetDraggable(false);
 
-                        
+
                     }
                 }
             }
@@ -179,12 +183,14 @@ public class PuzzleGridManager : MonoBehaviour
 
         if (success && visited[exitPoint.y, exitPoint.x])
         {
-            Debug.Log("✅ ¡El flujo llega desde el inicio hasta el final!");
+            Debug.Log("El flujo llega desde el inicio hasta el final!");
             isCompleted = true;
+            OnCompleted?.Invoke();
+            PuzzleCompleted();
         }
         else
         {
-            Debug.Log("❌ El flujo no llega correctamente.");
+            Debug.Log("El flujo no llega correctamente");
             isCompleted = false;
         }
 
@@ -279,5 +285,10 @@ public class PuzzleGridManager : MonoBehaviour
             Direction.Left => Direction.Right,
             _ => dir
         };
+    }
+
+    void PuzzleCompleted()
+    {
+        GameManager.Instance.AddMoney(money);
     }
 }

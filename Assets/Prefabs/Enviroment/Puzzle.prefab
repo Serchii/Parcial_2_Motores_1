@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.9433962, g: 0.87690634, b: 0.20914915, a: 1}
   m_FlipX: 0
@@ -143,6 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d81f8cdbcdac5d43a7bd8ed9467818b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiPuzzle: {fileID: 1154392637771214620, guid: 3f3192247968e1f479468fe20ce94159, type: 3}
+  uiPuzzle: {fileID: 0}
   interactionPromptPrefab: {fileID: 7674734917584274975, guid: 8bea40c51fbba2c41bca6dc66b439ee7, type: 3}
-  textPrompt: '[W] to Interact'
+  textPrompt: '[E] to Interact'
+  isInteractuable: 1
+  playerMovement: {fileID: 0}
+  playerAttack: {fileID: 0}

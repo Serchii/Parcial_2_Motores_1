@@ -989,7 +989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panels: []
-  nextLevel: Lv1_Classroom
+  nextLevel: Lv3_Street_2
 --- !u!1 &1336337705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,14 +1259,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 804796819}
-  fullText: "Henry is a young man who works as a handyman in a city flooded by crime.
-    Every day he attends one of his clients\u2019 houses to fix something. His life
-    is a constant routine: he goes to work, gets paid, buys something to improve
-    his craft, and returns home. But Henry has a gentle heart and a wild and clever
-    mind, and he\u2019d love to see his city thrive.  \n\nToday he\u2019s attending
-    an annual mandatory plumbing workshop at the National University of Repairmanshift
-    that he needs to fulfill in order to keep his license. Everything seems to be
-    quite boring, as usual\u2026 "
+  fullText: "Henry went to bed with his heart pounding the previous night. He had
+    just killed a man and he was navigating a rollercoaster of emotions. The room
+    spun around him. He did not feel guilty nor shamed. He felt empowered, enraged.
+    He felt he was doing the right thing, but his body was shivering.\r\n\r\nThat
+    note he found on the guy\u2019s body, that guy who was related to one of his
+    clients. Something inside of him ignited, he needed to find out more about this
+    and try to stop that crime.\r\n\r\nToday was going to be a long day\u2026\r"
   typingSpeed: 0.04
 --- !u!114 &1567845410
 MonoBehaviour:
