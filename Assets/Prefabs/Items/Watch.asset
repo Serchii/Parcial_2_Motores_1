@@ -16,5 +16,5 @@ MonoBehaviour:
   itemName: Clock
   description: Latest generation watch to see the time
   price: 100
-  icon: {fileID: 21300000, guid: 71bc0e010e3a2d24e903a1a311f09af4, type: 3}
+  icon: {fileID: 21300000, guid: ecece116dd78a524fbef65ba2ac20f5e, type: 3}
   nextUpgrade: {fileID: 0}

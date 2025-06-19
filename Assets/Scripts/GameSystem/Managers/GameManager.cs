@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public int Money { get; private set; } = 1000;
+    public int Money { get; private set; } = 0;
 
     private bool gameOver = false;
     private bool youWon = false;
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadMoney()
     {
-        Money = PlayerPrefs.GetInt("Money", 1000);
+        Money = PlayerPrefs.GetInt("Money", 0);
     }
 
     public bool IsGameOver()
@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetGameData()
     {
-        Money = 1000;
+        Money = 0;
         PlayerPrefs.SetInt("Money", Money);
 
         if (PlayerInventory.Instance != null)

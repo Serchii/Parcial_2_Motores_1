@@ -17,5 +17,5 @@ MonoBehaviour:
   description: Certify that you are an expert plumber and earn 30% more money...Don't
     ask where we get it from
   price: 200
-  icon: {fileID: 21300000, guid: 6b5c841e85ab42c4c8a76cafc49afb9b, type: 3}
+  icon: {fileID: 21300000, guid: af681e6ad814d64408f77c8572b1c1c0, type: 3}
   nextUpgrade: {fileID: 0}

@@ -17,5 +17,5 @@ MonoBehaviour:
   description: Did you know there are helmets shaped like caps? Perfect for plumbing
     flow.
   price: 75
-  icon: {fileID: 21300000, guid: 11937594cbc1604499294937ad96e4ec, type: 3}
+  icon: {fileID: 21300000, guid: d7dbd463a33d910419b17dec4f02bd05, type: 3}
   nextUpgrade: {fileID: 11400000, guid: a64b90c42cc052e41b56ac395bdebf2e, type: 2}

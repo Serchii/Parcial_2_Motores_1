@@ -642,7 +642,7 @@ Transform:
   m_GameObject: {fileID: 268839743}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4061885, y: 0.35801005, z: -10.073344}
+  m_LocalPosition: {x: 0.39839792, y: 0.35802007, z: -10.073344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1203,6 +1203,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5409838797488536222, guid: 3987bfffe83c28746a28e18584b27c0e, type: 3}
       propertyPath: m_Name
+      value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409838797488536222, guid: 3987bfffe83c28746a28e18584b27c0e, type: 3}
+      propertyPath: m_TagString
       value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 6330008492823268920, guid: 3987bfffe83c28746a28e18584b27c0e, type: 3}

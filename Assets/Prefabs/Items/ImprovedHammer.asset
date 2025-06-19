@@ -17,5 +17,5 @@ MonoBehaviour:
   description: Nobody knows what a plumber does with a hammer, but nobody questions
     it either.
   price: 75
-  icon: {fileID: 21300000, guid: 7a4274f1585330642a8b0251c565760c, type: 3}
+  icon: {fileID: 21300000, guid: 4b7eec6725ee6f74c8aeef0a80c58a58, type: 3}
   nextUpgrade: {fileID: 11400000, guid: 954e1336eb46bf3408b73d15df513d26, type: 2}

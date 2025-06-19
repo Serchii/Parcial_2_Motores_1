@@ -1355,7 +1355,7 @@ PrefabInstance:
     - target: {fileID: 8713249511820687191, guid: 92cdecbe3a2bd254b90f390d8c5a5abc, type: 3}
       propertyPath: clock
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3176397427848362271, guid: 182d6db4d74dacd458e5c35b6b2d505d, type: 3}
     - target: {fileID: 8713249511820687191, guid: 92cdecbe3a2bd254b90f390d8c5a5abc, type: 3}
       propertyPath: dayObjects.Array.data[0]
       value: 
