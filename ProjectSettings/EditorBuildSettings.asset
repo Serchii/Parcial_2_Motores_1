@@ -15,17 +15,26 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/IntroText.unity
     guid: e3fccf65dda2ee24f9cf99de67cd27b4
   - enabled: 1
-    path: Assets/Scenes/Levels/1Classroom.unity
+    path: Assets/Scenes/Levels/Lv1_Classroom.unity
     guid: 490fc523b9703ea43956510e3382fb0a
   - enabled: 1
-    path: Assets/Scenes/Levels/2Street_1.unity
+    path: Assets/Scenes/Levels/Lv2_Street_1.unity
     guid: 2f14e120d8c3a2b4ebaacbca14319ce0
   - enabled: 1
-    path: Assets/Scenes/Levels/3Street_2.unity
+    path: Assets/Scenes/Levels/Lv3_Street_2.unity
     guid: 3c133ce7169346947b56b70cab50ee09
   - enabled: 1
-    path: Assets/Scenes/Levels/4House_2.unity
+    path: Assets/Scenes/Levels/Lv4_House_2.unity
     guid: ec6387be9d215174a851c844785d422a
+  - enabled: 1
+    path: "Assets/Scenes/Levels/Lv5_EnemigosSue\xF1os.unity"
+    guid: 8c700bd4ded93524897501334f131d41
+  - enabled: 1
+    path: Assets/Scenes/Levels/Lv6_Construccion.unity
+    guid: 7d29c13c6a083bc42a720d16e96568a1
+  - enabled: 1
+    path: Assets/Scenes/Levels/Lv7_EnemigosConstruccion.unity
+    guid: 80fece5b14f36d942976a03ceebef35a
   - enabled: 1
     path: Assets/Scenes/Levels/GameInDevelopment.unity
     guid: f2b561a2b525b7943a31ee03c4f66c3c

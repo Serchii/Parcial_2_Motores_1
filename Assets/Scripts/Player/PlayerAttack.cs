@@ -99,4 +99,9 @@ public class PlayerAttack : MonoBehaviour
         hit.SetActive(false);
     }
 
+    public void SetAttackDamage(float amount)
+    {
+        attackDamage = amount;
+    }
+
 }

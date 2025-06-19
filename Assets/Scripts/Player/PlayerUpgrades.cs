@@ -4,7 +4,7 @@ public class PlayerUpgrades : MonoBehaviour
 {
     public static PlayerUpgrades Instance { get; private set; }
 
-    [SerializeField] private PlayerHit playerHit;
+    [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private PlayerHealth playerHealth;
 
     private void Awake()
@@ -23,17 +23,23 @@ public class PlayerUpgrades : MonoBehaviour
 
     private void Start()
     {
+        if (playerAttack == null)
+            playerAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>();
+
+        if (playerHealth == null)
+            playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+
         ApplyUpgrades();
     }
 
     public void ApplyUpgrades()
     {
         if (PlayerInventory.Instance.HasItem(ItemID.HammerUltimate))
-            playerHit.SetDamage(30f);
+            playerAttack.SetAttackDamage(30f);
         else if (PlayerInventory.Instance.HasItem(ItemID.HammerImproved))
-            playerHit.SetDamage(20f);
+            playerAttack.SetAttackDamage(20f);
         else
-            playerHit.SetDamage(10f);
+            playerAttack.SetAttackDamage(10f);
 
         if (PlayerInventory.Instance.HasItem(ItemID.HelmetUltimate))
             playerHealth.SetMaxHealthValue(200f);
