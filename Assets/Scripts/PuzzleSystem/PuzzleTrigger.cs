@@ -8,6 +8,7 @@ public class PuzzleTrigger : MonoBehaviour
     [SerializeField] string textPrompt = "[E] to Interact";
     [SerializeField] bool isInteractuable = true;
     [SerializeField] private PuzzleGridManager puzzleManager;
+    [SerializeField] bool followPlayer = true; 
 
     private GameObject promptInstance;
     private bool canActivate = false;
@@ -96,16 +97,22 @@ public class PuzzleTrigger : MonoBehaviour
             Canvas canvas = FindObjectOfType<Canvas>();
             promptInstance = Instantiate(interactionPromptPrefab, canvas.transform);
 
-            // Cambiar el texto
             var textComponent = promptInstance.GetComponentInChildren<TextMeshProUGUI>();
             if (textComponent != null)
             {
                 textComponent.text = textPrompt;
             }
 
-            // Seguir al jugador
-            UIFollowPlayer followScript = promptInstance.GetComponent<UIFollowPlayer>();
-            followScript?.SetTarget(player);
+            if (followPlayer)
+            {
+                UIFollowPlayer followScript = promptInstance.GetComponent<UIFollowPlayer>();
+                followScript?.SetTarget(player);
+            }
+            else
+            {
+                UIFollowPlayer followScript = promptInstance.GetComponent<UIFollowPlayer>();
+                followScript?.SetTarget(this.transform);
+            }
         }
     }
 
