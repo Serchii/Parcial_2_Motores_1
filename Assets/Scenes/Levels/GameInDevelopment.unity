@@ -312,11 +312,12 @@ MonoBehaviour:
   m_text: 'That''s all for now.
 
 
-    The game is still in development.
+    The game is still in development. If you want
+    to find out more about Henry''s story, follow our itch.io page where we''ll post
+    all the future implementations.
 
 
-    Thanks
-    for playing!'
+    Thanks a lot for playing!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 13c70b55d23ae9b42b20dcbd583ac2c4, type: 2}
   m_sharedMaterial: {fileID: 450928417448180378, guid: 13c70b55d23ae9b42b20dcbd583ac2c4, type: 2}
@@ -450,7 +451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YOU WON!
+  m_text: YOU FINISHED THE GAME!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 13c70b55d23ae9b42b20dcbd583ac2c4, type: 2}
   m_sharedMaterial: {fileID: 450928417448180378, guid: 13c70b55d23ae9b42b20dcbd583ac2c4, type: 2}
