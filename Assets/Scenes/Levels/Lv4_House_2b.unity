@@ -2985,7 +2985,7 @@ PrefabInstance:
     - target: {fileID: 8495600989126559770, guid: c967bc6a1c3f7ec42b148daa07ac5eaa, type: 3}
       propertyPath: textPrompt
       value: "Unknown voice: Did that boy leave already? I don\u2019t want anyone
-        overhearing us.                                                             
+        overhearing us.                                                                      
         House owner: Yeah! He must\u2019ve left hours ago! Just shoot it! What are
         we doing tonight?                                                                                                 
         Unknown voice: Well, the boss planned this kidnapping, the daughter of that
