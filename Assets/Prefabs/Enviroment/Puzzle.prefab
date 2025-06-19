@@ -147,5 +147,6 @@ MonoBehaviour:
   interactionPromptPrefab: {fileID: 7674734917584274975, guid: 8bea40c51fbba2c41bca6dc66b439ee7, type: 3}
   textPrompt: '[E] to Interact'
   isInteractuable: 1
+  puzzleManager: {fileID: 0}
   playerMovement: {fileID: 0}
   playerAttack: {fileID: 0}
