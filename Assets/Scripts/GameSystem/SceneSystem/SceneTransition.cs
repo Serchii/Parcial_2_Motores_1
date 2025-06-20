@@ -20,6 +20,11 @@ public class SceneTransition : MonoBehaviour
         if (isDoor && canEnter && Input.GetButtonDown("Up"))
         {
             HidePrompt();
+            PlayerHealth player = FindObjectOfType<PlayerHealth>();
+            if (player != null)
+            {
+                GameManager.Instance.SavePlayerHealth(player.Health, player.MaxHealth);
+            }
             SceneLoader.Instance.LoadScene(sceneToLoad, spawnPositionInNextScene);
         }
     }
@@ -30,6 +35,11 @@ public class SceneTransition : MonoBehaviour
 
         if (!isDoor)
         {
+            PlayerHealth player = FindObjectOfType<PlayerHealth>();
+            if (player != null)
+            {
+                GameManager.Instance.SavePlayerHealth(player.Health, player.MaxHealth);
+            }
             SceneLoader.Instance.LoadScene(sceneToLoad, spawnPositionInNextScene);
         }
         else

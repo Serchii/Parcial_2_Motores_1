@@ -18,6 +18,7 @@ public class UIMainMenu : MonoBehaviour
     public void Story()
     {
         GameSceneManager.Instance.LoadSceneWithTransition("IntroText");
+        GameManager.Instance.SetMaxHealth();
     }
 
     public void NextLevel()

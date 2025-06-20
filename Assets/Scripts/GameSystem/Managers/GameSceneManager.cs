@@ -80,6 +80,12 @@ public class GameSceneManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f); // opcional: pequeño delay para estabilidad
 
+        PlayerHealth player = FindObjectOfType<PlayerHealth>();
+        if (player != null)
+        {
+            GameManager.Instance.SavePlayerHealth(player.Health, player.MaxHealth);
+        }
+        
         isChanging = false;
         Time.timeScale = 1f;
         OnSceneFullyLoaded?.Invoke();

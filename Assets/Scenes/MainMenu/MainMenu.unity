@@ -894,6 +894,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2039756411}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ResetSavedHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &229185003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4602,6 +4614,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06a9742ef2c1fea40b2edb9bc2e63080, type: 3}
+--- !u!114 &2039756411 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2961028076169866139, guid: 06a9742ef2c1fea40b2edb9bc2e63080, type: 3}
+  m_PrefabInstance: {fileID: 2039756410}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b5adada3ae7be4cb95ec55ad1da6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2061359029
 GameObject:
   m_ObjectHideFlags: 0

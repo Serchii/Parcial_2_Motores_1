@@ -29,6 +29,12 @@ public class PlayerHealth : BaseHealth
 
         if (spriteRenderer == null)
             spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (GameManager.Instance != null)
+        {
+            health = GameManager.Instance.SavedHealth;
+            maxHealth = GameManager.Instance.SavedMaxHealth;
+        }
     }
 
     public override void TakeDamage(float amount)

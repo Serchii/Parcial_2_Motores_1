@@ -5,6 +5,8 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    public float SavedHealth { get; private set; } = 100f;
+    public float SavedMaxHealth { get; private set; } = 100f;
 
     public int Money { get; private set; } = 0;
 
@@ -96,5 +98,22 @@ public class GameManager : MonoBehaviour
     public int GetMoney()
     {
         return Money;
+    }
+
+    public void SavePlayerHealth(float health, float maxHealth)
+    {
+        SavedHealth = health;
+        SavedMaxHealth = maxHealth;
+    }
+
+    public void ResetSavedHealth()
+    {
+        SavedHealth = 100f;
+        SavedMaxHealth = 100f;
+    }
+
+    public void SetMaxHealth()
+    {
+        SavedHealth = SavedMaxHealth;
     }
 }
