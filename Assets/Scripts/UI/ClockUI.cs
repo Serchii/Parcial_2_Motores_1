@@ -16,6 +16,7 @@ public class ClockUI : MonoBehaviour
 
     public void ShowClock(bool show)
     {
-        _clockPanel.SetActive(show);
+        if (_clockPanel != null)
+            _clockPanel.SetActive(show);
     }
 }

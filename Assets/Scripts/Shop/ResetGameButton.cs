@@ -14,6 +14,5 @@ public class ResetGameButton : MonoBehaviour
     private void ResetGame()
     {
         GameManager.Instance.ResetGameData();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

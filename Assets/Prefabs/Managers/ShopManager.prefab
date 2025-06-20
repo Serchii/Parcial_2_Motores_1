@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a470ea5eabdbfca42b32afc3d5174188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  watchPrice: 100
-  expertCertificatePrice: 200
+  _itemsParent: {fileID: 0}
+  _shopItemButtonPrefab: {fileID: 7301806779996348124, guid: 6e676e22b7f1d1848adf1edc89f4ec3d, type: 3}
+  _itemsForSale: []

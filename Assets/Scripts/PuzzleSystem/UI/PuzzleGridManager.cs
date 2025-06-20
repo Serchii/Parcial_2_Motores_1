@@ -28,6 +28,7 @@ public class PuzzleGridManager : MonoBehaviour
     private ItemSlot[,] gridSlots;
 
     public event Action OnCompleted;
+    public event Action<int> OnGiveReward;
 
     private void Start()
     {
@@ -289,6 +290,6 @@ public class PuzzleGridManager : MonoBehaviour
 
     void PuzzleCompleted()
     {
-        GameManager.Instance.AddMoney(money);
+        OnGiveReward?.Invoke(money);
     }
 }

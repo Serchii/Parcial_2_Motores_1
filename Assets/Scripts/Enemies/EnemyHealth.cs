@@ -6,6 +6,7 @@ public class EnemyHealth : BaseHealth
     [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float stunDuration = 0.2f;
+    [SerializeField] int maxMoney = 15;
 
     [SerializeField] EnemyHealthBarUI healthBarPrefab;
     [SerializeField] private EnemyHealthBarUI healthBarInstance;
@@ -63,7 +64,7 @@ public class EnemyHealth : BaseHealth
             _animator.SetBool("IsDead",isDead);
         }
 
-        Debug.Log($"{gameObject.name} murió.");
+        GameManager.Instance.AddMoney(Random.Range(0, maxMoney + 1));
         Destroy(gameObject, 1.5f);
     }
 

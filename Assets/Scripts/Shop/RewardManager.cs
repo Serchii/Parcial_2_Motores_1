@@ -2,9 +2,26 @@ using UnityEngine;
 
 public class RewardManager : MonoBehaviour
 {
-    public int baseReward = 100;
+    [SerializeField] private PuzzleGridManager puzzleManager;
 
-    public void GiveReward()
+    void Start()
+    {
+        if (puzzleManager != null)
+        {
+            puzzleManager.OnGiveReward += GiveReward;
+        }
+    } 
+
+    void OnDestroy()
+    {
+        if (puzzleManager != null)
+        {
+            puzzleManager.OnGiveReward -= GiveReward;
+        }
+    }
+
+
+    public void GiveReward(int baseReward)
     {
         int finalReward = baseReward;
 

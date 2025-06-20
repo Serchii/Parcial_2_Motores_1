@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class MusicManager : MonoBehaviour
 {
@@ -9,6 +10,14 @@ public class MusicManager : MonoBehaviour
     public AudioClip JazzMusic;
     public AudioClip gameMusic;
     public AudioClip CombatMusic;
+    public AudioClip transitionMusic;
+    public AudioClip startMusic;
+
+    [SerializeField] string[] jazzScenes;
+    [SerializeField] string[] gameScenes;
+    [SerializeField] string[] combatScenes;
+    [SerializeField] string[] transitionScenes;
+    [SerializeField] string[] startScenes;
 
     private string currentScene;
     private static MusicManager instance;
@@ -28,6 +37,10 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+
+        float savedVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        audioSource.volume = savedVolume;
+
         currentScene = SceneManager.GetActiveScene().name;
         PlayMusicForScene(currentScene);
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -46,17 +59,28 @@ public class MusicManager : MonoBehaviour
     {
         AudioClip newClip = null;
 
-        if (sceneName == "Lv1_Classroom" || sceneName == "Lv2_Street_1" || sceneName == "Lv3_Street_2" || sceneName =="Lv6_Construccion")
+        if (jazzScenes.Contains(sceneName))
             newClip = JazzMusic;
-        else if (sceneName == "Lv4_House_2")
+        else if (gameScenes.Contains(sceneName))
             newClip = gameMusic;
-        else if (sceneName == "Lv5_EnemigosSueños" || sceneName == "Lv7_EnemigosConstruccion")
+        else if (combatScenes.Contains(sceneName))
             newClip = CombatMusic;
+        else if (transitionScenes.Contains(sceneName))
+            newClip = transitionMusic;
+        else if (startScenes.Contains(sceneName))
+            newClip = startMusic;
+
 
         if (newClip != null && audioSource.clip != newClip)
         {
             audioSource.clip = newClip;
             audioSource.Play();
         }
+    }
+    
+    public void SetVolume(float volume)
+    {
+        audioSource.volume = volume;
+        PlayerPrefs.SetFloat("MusicVolume", volume);
     }
 }

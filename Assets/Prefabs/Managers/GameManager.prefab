@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9208638394416306482}
   - component: {fileID: 2961028076169866139}
   - component: {fileID: 7751203031328553825}
+  - component: {fileID: 4776892647320065310}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,8 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b5adada3ae7be4cb95ec55ad1da6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOver: 0
-  youWon: 0
 --- !u!114 &7751203031328553825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,5 +56,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a17a6eedf3ae1c943a0a99262cb72ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4776892647320065310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3423088437590807956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23121321fd94ca241946128d2fb0a55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
