@@ -627,7 +627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panels: []
-  nextLevel: IntroText 2
+  nextLevel: IntroText 3
 --- !u!1 &750945350
 GameObject:
   m_ObjectHideFlags: 0

@@ -1794,11 +1794,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2717086440908122302, guid: 1d95bb88a2c03324b9efeac9827d27a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -58.43
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 2717086440908122302, guid: 1d95bb88a2c03324b9efeac9827d27a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.19
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2717086440908122302, guid: 1d95bb88a2c03324b9efeac9827d27a5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5573,11 +5573,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6188016875035418746, guid: 3de22e42e175e0940837ad8931df5bb4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -58.43
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 6188016875035418746, guid: 3de22e42e175e0940837ad8931df5bb4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.19
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 6188016875035418746, guid: 3de22e42e175e0940837ad8931df5bb4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6446,11 +6446,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7502924255400113472, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
       propertyPath: spawnPositionInNextScene.x
-      value: 0
+      value: -5.5
       objectReference: {fileID: 0}
     - target: {fileID: 7502924255400113472, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
       propertyPath: spawnPositionInNextScene.y
-      value: 400
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6572,7 +6572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7502924255400113472, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
       propertyPath: sceneToLoad
-      value: Lv3_Street_2
+      value: Lv3_Street_2b
       objectReference: {fileID: 0}
     - target: {fileID: 7502924255400113472, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
       propertyPath: spawnPositionInNextScene.x

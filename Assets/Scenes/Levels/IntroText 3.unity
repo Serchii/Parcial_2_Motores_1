@@ -989,7 +989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panels: []
-  nextLevel: Lv3_Street_2
+  nextLevel: House_1
 --- !u!1 &1336337705
 GameObject:
   m_ObjectHideFlags: 0

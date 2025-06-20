@@ -129,7 +129,7 @@ public class PuzzleTrigger : MonoBehaviour
     {
         if (puzzleManager != null)
         {
-            puzzleManager.OnCompleted -= EndPuzzle;
+            puzzleManager.OnCompleted -= PuzzleCompleted;
         }
     }
 

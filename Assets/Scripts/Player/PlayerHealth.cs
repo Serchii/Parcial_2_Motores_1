@@ -10,6 +10,8 @@ public class PlayerHealth : BaseHealth
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] bool invincible = false;
 
+    public float Health => health;
+    public float MaxHealth => maxHealth;
     public bool IsAlive => isAlive;
     public int Lives => lives;
     public bool Invincible => invincible;
@@ -50,7 +52,7 @@ public class PlayerHealth : BaseHealth
         }
 
         OnHealthChanged?.Invoke(health, maxHealth);
-        Debug.Log($"{gameObject.name}: Recibí daño.");
+        Debug.Log($"{gameObject.name}: Recibï¿½ daï¿½o.");
     }
 
     public override void Die()
@@ -61,7 +63,7 @@ public class PlayerHealth : BaseHealth
         OnLivesChanged?.Invoke(lives);
         isAlive = false;
 
-        Debug.Log($"{gameObject.name}: Me morí.");
+        Debug.Log($"{gameObject.name}: Me morï¿½.");
 
         if (lives > 0)
         {
