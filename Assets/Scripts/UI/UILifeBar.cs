@@ -10,12 +10,14 @@ public class UILifeBar : MonoBehaviour
     void Start()
     {
         playerHealth = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerHealth>();
+        float health = GameManager.Instance.SavedHealth;
+        float maxHealth = GameManager.Instance.SavedMaxHealth;
 
-        if (playerHealth != null) 
+        if (playerHealth != null)
         {
             playerHealth.OnHealthChanged += UpdateLifeBar;
 
-            UpdateLifeBar(playerHealth.Health,playerHealth.MaxHealth);
+            UpdateLifeBar(health, maxHealth);
         }
     }
 

@@ -52,6 +52,7 @@ public class UIPauseManager : MonoBehaviour
     public void RestartGame()
     {
         ResumeGame();
+        GameManager.Instance.SetMaxHealth();
         StartCoroutine(GameSceneManager.Instance.LoadSceneWithTransitionRoutine(SceneManager.GetActiveScene().name));
     }
 

@@ -3128,7 +3128,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 227484023940620656, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 320233307195646266, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
       propertyPath: m_IsActive
@@ -3232,6 +3232,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7286733261846582368, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
       propertyPath: initialLayout.Array.data[8].type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286733261846582368, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
+      propertyPath: initialLayout.Array.data[9].type
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7286733261846582368, guid: f4372529af55a4b49be459fe15d5688d, type: 3}

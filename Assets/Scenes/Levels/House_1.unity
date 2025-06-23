@@ -3280,7 +3280,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 227484023940620656, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 320233307195646266, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
       propertyPath: m_IsActive
@@ -3373,6 +3373,10 @@ PrefabInstance:
     - target: {fileID: 3625691230071881066, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904272543873695867, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7286733261846582368, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
       propertyPath: money

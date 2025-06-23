@@ -19,6 +19,7 @@ public class UIMainMenu : MonoBehaviour
     {
         GameSceneManager.Instance.LoadSceneWithTransition("IntroText");
         GameManager.Instance.SetMaxHealth();
+        PlayerInventory.Instance.ResetInventory(); //Aca estaba el problema
     }
 
     public void NextLevel()
