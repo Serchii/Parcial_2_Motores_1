@@ -217,7 +217,7 @@ PrefabInstance:
     - target: {fileID: 373741533242146261, guid: ff4ddcfbcbce48f4b984bb6ffd8817eb, type: 3}
       propertyPath: nextLevel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1715848696}
     - target: {fileID: 373741533242146261, guid: ff4ddcfbcbce48f4b984bb6ffd8817eb, type: 3}
       propertyPath: killEnemies
       value: 1
@@ -3379,7 +3379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7502924255400113472, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
       propertyPath: sceneToLoad
-      value: Lv2_Street_1a
+      value: Newspaper1
       objectReference: {fileID: 0}
     - target: {fileID: 7502924255400113472, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
       propertyPath: spawnPositionInNextScene.x
@@ -5467,6 +5467,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1715848696 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 863777843720876380, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
+  m_PrefabInstance: {fileID: 1113822746}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1721055340 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4656388873051375856, guid: 123578480ed074a43b47a1c43cdeb0b9, type: 3}
