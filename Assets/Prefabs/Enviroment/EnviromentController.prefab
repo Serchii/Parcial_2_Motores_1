@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa0e873eb8929d148ace2d784b8d0020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clock: {fileID: 0}
+  clock: {fileID: 3176397427848362271, guid: 182d6db4d74dacd458e5c35b6b2d505d, type: 3}
   dayObjects:
   - {fileID: 0}
   nightObjects:

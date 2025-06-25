@@ -2,33 +2,29 @@ using UnityEngine;
 
 public class EnvironmentController : MonoBehaviour
 {
-    public GameClock clock;
+    [Header("Objetos de ambiente")]
+    [SerializeField] private GameObject[] dayObjects;
+    [SerializeField] private GameObject[] nightObjects;
 
-    public GameObject[] dayObjects;
-    public GameObject[] nightObjects;
+    [Header("Horario")]
+    [SerializeField] private int dayStartHour = 6;
+    [SerializeField] private int nightStartHour = 18;
 
-    public int dayStartHour = 6;
-    public int nightStartHour = 18;
-
-    private bool isDay;
+    private bool isDay = true;
 
     void Start()
     {
-        if (clock.hour >= dayStartHour && clock.hour < nightStartHour)
-        {
-            SetDay(true);
-            isDay = true;
-        }
-        else
-        {
-            SetDay(false);
-            isDay = false;
-        }
+        UpdateEnvironment();
     }
 
     void Update()
     {
-        if (clock.hour >= dayStartHour && clock.hour < nightStartHour)
+        if (GameClock.Instance == null)
+            return;
+
+        int hour = GameClock.Instance.hour;
+
+        if (hour >= dayStartHour && hour < nightStartHour)
         {
             if (!isDay)
             {
@@ -50,7 +46,20 @@ public class EnvironmentController : MonoBehaviour
     {
         foreach (GameObject obj in dayObjects)
             obj.SetActive(active);
+
         foreach (GameObject obj in nightObjects)
             obj.SetActive(!active);
+    }
+
+    void UpdateEnvironment()
+    {
+        if (GameClock.Instance == null)
+            return;
+
+        int hour = GameClock.Instance.hour;
+        bool shouldBeDay = hour >= dayStartHour && hour < nightStartHour;
+
+        SetDay(shouldBeDay);
+        isDay = shouldBeDay;
     }
 }
