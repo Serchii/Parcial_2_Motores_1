@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject currentOneWayPlatform;
     [SerializeField] float disableCollisionTime = 0.25f;
 
+    private bool isKnockedBack = false;
+    [SerializeField] public float knockbackDuration = 0.2f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
-
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
         SetAnimator(moveInput, !isGrounded);
@@ -57,7 +59,10 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        if (!isKnockedBack)
+        {
+            rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        }
     }
 
     private void FlipSprite()
@@ -100,5 +105,16 @@ public class PlayerMovement : MonoBehaviour
         Physics2D.IgnoreCollision(playerCollider, platformCollider);
         yield return new WaitForSeconds(disableCollisionTime);
         Physics2D.IgnoreCollision(playerCollider, platformCollider, false);
+    }
+
+    public void TriggerKnockback(float duration)
+    {
+        isKnockedBack = true;
+        Invoke(nameof(EndKnockback), duration);
+    }
+
+    private void EndKnockback()
+    {
+        isKnockedBack = false;
     }
 }

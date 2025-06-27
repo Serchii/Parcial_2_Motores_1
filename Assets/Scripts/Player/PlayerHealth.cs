@@ -54,11 +54,11 @@ public class PlayerHealth : BaseHealth
         else
         {
             EnableInvincible();
-            Invoke("DisableInvincible", 1.5f);
+            Invoke(nameof(DisableInvincible), 1.5f);
         }
 
         OnHealthChanged?.Invoke(health, maxHealth);
-        Debug.Log($"{gameObject.name}: Recib� da�o.");
+        Debug.Log($"{gameObject.name}: Recibió daño.");
     }
 
     public override void Die()
@@ -69,11 +69,11 @@ public class PlayerHealth : BaseHealth
         OnLivesChanged?.Invoke(lives);
         isAlive = false;
 
-        Debug.Log($"{gameObject.name}: Me mor�.");
+        Debug.Log($"{gameObject.name}: Me morí.");
 
         if (lives > 0)
         {
-            Invoke("Respawn", 3f);
+            Invoke(nameof(Respawn), 3f);
         }
         else
         {
@@ -115,4 +115,22 @@ public class PlayerHealth : BaseHealth
         color.a = 0.5f;
         spriteRenderer.color = color;
     }
+
+    public void ApplyKnockback(Vector2 direction, float force)
+    {
+        if (!isAlive || invincible) return;
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = direction.normalized * force;
+
+            PlayerMovement pm = GetComponent<PlayerMovement>();
+            if (pm != null)
+            {
+                pm.TriggerKnockback(pm.knockbackDuration);
+            }
+        }
+    }
+
 }
