@@ -35,6 +35,8 @@ public class PlayerHealth : BaseHealth
             health = GameManager.Instance.SavedHealth;
             maxHealth = GameManager.Instance.SavedMaxHealth;
         }
+
+        ApplyUpgrades();
     }
 
     public override void TakeDamage(float amount)
@@ -133,4 +135,13 @@ public class PlayerHealth : BaseHealth
         }
     }
 
+    void ApplyUpgrades()
+    {
+        if (PlayerInventory.Instance.HasItem(ItemID.HelmetUltimate))
+            SetMaxHealthValue(200f);
+        else if (PlayerInventory.Instance.HasItem(ItemID.HelmetImproved))
+            SetMaxHealthValue(150f);
+        else
+            SetMaxHealthValue(100f);
+    }
 }

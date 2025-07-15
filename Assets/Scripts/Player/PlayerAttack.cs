@@ -26,6 +26,7 @@ public class PlayerAttack : MonoBehaviour
     {
         playerHealth = GetComponent<PlayerHealth>();
         animator = GetComponent<Animator>();
+        ApplyUpgrades();
     }
 
     void Update()
@@ -104,4 +105,13 @@ public class PlayerAttack : MonoBehaviour
         attackDamage = amount;
     }
 
+    void ApplyUpgrades()
+    {
+        if (PlayerInventory.Instance.HasItem(ItemID.HammerUltimate))
+            SetAttackDamage(30f);
+        else if (PlayerInventory.Instance.HasItem(ItemID.HammerImproved))
+            SetAttackDamage(20f);
+        else
+            SetAttackDamage(10f);
+    }
 }
