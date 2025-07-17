@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Dialogues_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 796f93bda3901054ba604642844f6db3, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 47378403328
+    m_Localized: "Henry: What the hell!? I must\u2019ve passed out from exhaustion.
+      I better leave here immediately!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 535989653504
+    m_Localized: "Henry: Hmm, that does sound promising! I better leave right away
+      before they notice I\u2019m still here. I must find the house of that woman\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 419283144704
+    m_Localized: "Unknown voice: Did that boy leave already? I don\u2019t want anyone
+      overhearing us."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 523977166848
+    m_Localized: "House owner: Yeah! He must\u2019ve left hours ago! Just shoot it!
+      What are we doing tonight?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 531073929216
+    m_Localized: "Unknown voice: Well, the boss planned this kidnapping, the daughter
+      of that wealthy lady at the end of the street\u2026"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
