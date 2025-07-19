@@ -12,6 +12,9 @@ public class Dialogue : MonoBehaviour
     [SerializeField] string tableName = "Dialogues"; // Nombre de la String Table
     [SerializeField] string currentDialog;
 
+    [SerializeField] bool isTrigger = false;
+    [SerializeField] bool dialogueTriggered = false;
+
     [SerializeField] bool isPlayerInRange;
     [SerializeField] bool didDialogueStart;
     [SerializeField] int lineIndex;
@@ -19,21 +22,26 @@ public class Dialogue : MonoBehaviour
 
     void Update()
     {
-        if (isPlayerInRange && Input.GetButtonDown("Interact"))
+        if (Input.GetButtonDown("Interact") && isPlayerInRange && !dialogueTriggered)
         {
-            if (!didDialogueStart)
-            {
-                StartDialogue();
-            }
-            else if (dialogueText.text == currentDialog)
-            {
-                NextDialogueLine();
-            }
-            else
-            {
-                StopAllCoroutines();
-                dialogueText.text = currentDialog;
-            }
+            HandleInputOrSkip();
+        }
+    }
+
+    void HandleInputOrSkip()
+    {
+        if (!didDialogueStart)
+        {
+            StartDialogue();
+        }
+        else if (dialogueText.text == currentDialog)
+        {
+            NextDialogueLine();
+        }
+        else
+        {
+            StopAllCoroutines();
+            dialogueText.text = currentDialog;
         }
     }
 
@@ -45,6 +53,7 @@ public class Dialogue : MonoBehaviour
         lineIndex = 0;
         Time.timeScale = 0;
         StartCoroutine(ShowLine());
+        
     }
 
     void NextDialogueLine()
@@ -57,11 +66,18 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            didDialogueStart = false;
-            dialoguePanel.SetActive(false);
-            //dialogueMark.SetActive(true);
-            Time.timeScale = 1;
+            EndDialogue();
         }
+    }
+
+    void EndDialogue()
+    {
+        didDialogueStart = false;
+        dialoguePanel.SetActive(false);
+        //dialogueMark.SetActive(true);
+        Time.timeScale = 1;
+        if(isTrigger)
+            dialogueTriggered = true; 
     }
 
     IEnumerator ShowLine()
@@ -84,11 +100,13 @@ public class Dialogue : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (!collision.CompareTag("Player")) return;
+        
+        isPlayerInRange = true;
+
+        if (isTrigger && !dialogueTriggered)
         {
-            isPlayerInRange = true;
-            //dialogueMark.SetActive(true);
-            Debug.Log("Se puede dialogar");
+            StartDialogue();
         }
     }
 
