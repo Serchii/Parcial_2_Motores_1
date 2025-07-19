@@ -36,10 +36,24 @@ public class GameClock : MonoBehaviour
             {
                 hour++;
                 minute = 0;
+
                 if (hour >= 24)
                     hour = 0;
             }
         }
+    }
+
+    public void SetTime(int h, int m)
+    {
+        hour = Mathf.Clamp(h, 0, 23);
+        minute = Mathf.Clamp(m, 0, 59);
+        _timer = 0f;
+    }
+
+    public void GetTime(out int h, out int m)
+    {
+        h = hour;
+        m = minute;
     }
 
     public void ResetClock()
