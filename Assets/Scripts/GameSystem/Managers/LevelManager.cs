@@ -1,24 +1,21 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class LevelManager : MonoBehaviour
 {
-    public enum LevelType { Day, Night }
+    public static LevelManager Instance;
 
     [Header("Configuración del nivel")]
-    [SerializeField] private LevelType levelType = LevelType.Day;
-    [Tooltip("Lista de escenas que componen este nivel, en orden")]
-    [SerializeField] private string[] levelScenes;
-    [Tooltip("Cantidad de pistas/clues necesarias para avanzar de escena")]
-    [SerializeField] private int requiredClues = 3;
+    public LevelData currentLevelData;
 
     [Header("Horario diurno")]
-    [SerializeField] private int dayStartHour = 6;
-    [SerializeField] private int dayEndHour = 12;
+    public int dayStartHour = 6;
+    public int dayEndHour = 12;
 
     [Header("Horario nocturno")]
-    [SerializeField] private int nightStartHour = 20;
-    [SerializeField] private int nightEndHour = 4;
+    public int nightStartHour = 20;
+    public int nightEndHour = 4;
 
     private int currentSceneIndex = 0;
     private int cluesCollected = 0;
@@ -26,27 +23,34 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton simple para no duplicar el LevelManager
-        if (FindObjectsOfType<LevelManager>().Length > 1)
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+        else
         {
             Destroy(gameObject);
-            return;
         }
-        DontDestroyOnLoad(this);
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
     {
-        // Inicia el nivel en la primera escena
-        LoadSceneAtIndex(0, saveTime: true);
+        if (currentLevelData == null)
+        {
+            Debug.LogError("No hay LevelData asignado en LevelManager.");
+            return;
+        }
+
+        // No iniciamos el nivel automáticamente.
+        // Se debe llamar a StartLevelManualmente() para arrancar.
     }
 
     private void Update()
     {
         if (!levelRunning || GameClock.Instance == null) return;
 
-        // Verifica cada frame si te pasaste del rango horario
         int h = GameClock.Instance.hour;
         if (!IsWithinAllowedTime(h))
         {
@@ -57,67 +61,83 @@ public class LevelManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Cuando cargamos la escena correcta, activamos el nivel
-        if (currentSceneIndex < levelScenes.Length &&
-            scene.name == levelScenes[currentSceneIndex])
+        StartCoroutine(WaitForGameClockThenInit(scene));
+    }
+
+    private IEnumerator WaitForGameClockThenInit(Scene scene)
+    {
+        while (GameClock.Instance == null)
+            yield return null;
+
+        yield return new WaitForSeconds(0.5f);
+
+        if (currentSceneIndex < currentLevelData.levelScenes.Length &&
+            scene.name == currentLevelData.levelScenes[currentSceneIndex])
         {
-            levelRunning = true;
+            int h = GameClock.Instance.hour;
+            if (!IsWithinAllowedTime(h))
+            {
+                Debug.LogWarning("Hora inválida al cargar escena. Forzando reinicio.");
+                OnPlayerLose();
+                yield break;
+            }
+
             cluesCollected = 0;
-            Debug.Log($"Nivel: escena '{scene.name}' iniciada. Hora: {GameClock.Instance.hour:00}:{GameClock.Instance.minute:00}");
+
+            Debug.Log($"Escena '{scene.name}' iniciada correctamente a las {h:00}:{GameClock.Instance.minute:00}.");
+
+            ClueUIManager.Instance?.SetClueGoal(currentLevelData.requiredClues);
         }
     }
 
     private bool IsWithinAllowedTime(int hour)
     {
-        if (levelType == LevelType.Day)
+        if (currentLevelData.levelType == LevelType.Day)
             return hour >= dayStartHour && hour < dayEndHour;
-        else // Night
-            // Puede abarcar trasnoche
+        else
             return hour >= nightStartHour || hour < nightEndHour;
     }
 
-    /// <summary>
-    /// Llamar desde tu lógica de pistas cada vez que recojas una.
-    /// </summary>
+    public void StartLevelManualmente()
+    {
+        if (!levelRunning)
+        {
+            levelRunning = true;
+            Debug.Log("Nivel iniciado manualmente.");
+        }
+    }
+
     public void CollectClue()
     {
         if (!levelRunning) return;
-        cluesCollected++;
-        Debug.Log($"Pistas recogidas: {cluesCollected}/{requiredClues}");
 
-        if (cluesCollected >= requiredClues)
+        cluesCollected++;
+        Debug.Log($"Pistas recogidas: {cluesCollected}/{currentLevelData.requiredClues}");
+
+        ClueUIManager.Instance?.AddClue();
+
+        if (cluesCollected >= currentLevelData.requiredClues)
         {
             Debug.Log("Objetivo de pistas completado. Avanzando a la siguiente escena...");
             NextScene();
         }
     }
 
-    /// <summary>
-    /// Llamar cuando el jugador muere o falla.
-    /// </summary>
     public void OnPlayerLose()
     {
         levelRunning = false;
-
-        // Pedimos restaurar la hora guardada
-        ClockStateManager.Instance.RequestRestore();
-
-        // Recargamos la misma escena
-        LoadSceneAtIndex(currentSceneIndex, saveTime: false);
+        ClockStateManager.Instance?.RequestRestore();
+        LoadSceneAtIndex(currentSceneIndex, false);
     }
 
-    /// <summary>
-    /// Avanza a la siguiente escena; si no hay más, gana el nivel.
-    /// </summary>
     private void NextScene()
     {
         levelRunning = false;
 
-        if (currentSceneIndex + 1 < levelScenes.Length)
+        if (currentSceneIndex + 1 < currentLevelData.levelScenes.Length)
         {
-            // Guardamos el tiempo actual para la próxima escena
-            ClockStateManager.Instance.SaveClockTime();
-            LoadSceneAtIndex(currentSceneIndex + 1, saveTime: false);
+            ClockStateManager.Instance?.SaveClockTime();
+            LoadSceneAtIndex(currentSceneIndex + 1, false);
         }
         else
         {
@@ -129,23 +149,32 @@ public class LevelManager : MonoBehaviour
     {
         levelRunning = false;
         Debug.Log("¡Nivel completado con éxito!");
-        // Aquí podrías cargar un menú de victoria, avanzar al siguiente nivel, etc.
     }
 
-    /// <summary>
-    /// Carga la escena indicada y opcionalmente guarda el tiempo inicial de esa escena.
-    /// </summary>
     private void LoadSceneAtIndex(int index, bool saveTime)
     {
         currentSceneIndex = index;
         if (saveTime)
-            ClockStateManager.Instance.SaveClockTime();
+            ClockStateManager.Instance?.SaveClockTime();
 
-        SceneManager.LoadScene(levelScenes[index]);
+        SceneManager.LoadScene(currentLevelData.levelScenes[index]);
     }
 
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void SetLevelTime(int h, int m)
+    {
+        if (GameClock.Instance != null)
+        {
+            GameClock.Instance.SetTime(h, m);
+            Debug.Log($"Hora del nivel modificada a {h:00}:{m:00}");
+        }
+        else
+        {
+            Debug.LogWarning("GameClock no está activo, no se puede cambiar la hora.");
+        }
     }
 }
