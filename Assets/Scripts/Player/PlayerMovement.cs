@@ -19,6 +19,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject currentOneWayPlatform;
     [SerializeField] float disableCollisionTime = 0.25f;
 
+    [Header("Coyote Time")]
+    [SerializeField] float coyoteTime = 0.2f;
+    [SerializeField] float coyoteTimer;
+
     private bool isKnockedBack = false;
     [SerializeField] public float knockbackDuration = 0.2f;
 
@@ -35,9 +39,19 @@ public class PlayerMovement : MonoBehaviour
 
         SetAnimator(moveInput, !isGrounded);
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (isGrounded)
+        {
+            coyoteTimer = coyoteTime;
+        }
+        else
+        {
+            coyoteTimer -= Time.deltaTime;
+        }
+
+        if (Input.GetButtonDown("Jump") && (isGrounded || coyoteTimer > 0))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            coyoteTimer = 0;
         }
 
         if (Input.GetButtonDown("Down") && isGrounded)
@@ -98,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (platformCollider == null)
         {
-            Debug.LogWarning("La plataforma no tiene ningún Collider2D.");
+            Debug.LogWarning("La plataforma no tiene ningï¿½n Collider2D.");
             yield break;
         }
 
