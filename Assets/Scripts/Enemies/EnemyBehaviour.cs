@@ -21,10 +21,11 @@ public class EnemyBehaviour : MonoBehaviour
 
     [Header("Ataque")]
     [SerializeField] private float _attackCooldown = 1f;
-    [SerializeField] private float _damage = 10f;
+    [SerializeField] private float attackPushForce = 3f;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRange = 0.5f;
     [SerializeField] private LayerMask playerLayers;
+    private bool isAttacking = false;
 
     [Header("Detección")]
     [SerializeField] private Transform _player;
@@ -78,8 +79,8 @@ public class EnemyBehaviour : MonoBehaviour
                 HandleAttack();
                 break;
         }
-
-        FlipSprite();
+        if (currentState != State.Attack)
+            FlipSprite();
     }
 
     void HandleIdle()
@@ -111,7 +112,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     void HandleAttack()
     {
-        _rb.velocity = new Vector2(0f, _rb.velocity.y);
+        if (!isAttacking)
+            _rb.velocity = new Vector2(0f, _rb.velocity.y);
         _animator.SetBool("IsRunning", false);
         TryAttack();
     }
@@ -168,21 +170,31 @@ public class EnemyBehaviour : MonoBehaviour
         if (Time.time >= _nextAttackTime)
         {
             _nextAttackTime = Time.time + _attackCooldown;
+            
+            isAttacking = true;
 
             if (_animator != null)
                 _animator.SetTrigger("Attack");
-
-            Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayers);
-
-            foreach (Collider2D player in hitPlayers)
-            {
-                player.GetComponent<IDamageable>()?.TakeDamage(_damage);
-            }
         }
+    }
+
+    public void ActivateHit()
+    {
+        attackPoint.gameObject.SetActive(true);
+
+        float direction = transform.localScale.x > 0 ? -1f : 1f;
+
+        _rb.velocity = new Vector2(direction * attackPushForce, _rb.velocity.y);
+    }
+
+    public void DeactivateHit()
+    {
+        attackPoint.gameObject.SetActive(false);
     }
 
     public void EndAttack()
     {
+        isAttacking = false;
         currentState = State.Idle;
     }
 
@@ -204,15 +216,6 @@ public class EnemyBehaviour : MonoBehaviour
         }
 
         transform.localScale = scale;
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        if (attackPoint != null)
-            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-
-        if (groundCheck != null)
-            Gizmos.DrawWireSphere(groundCheck.position, 0.2f);
     }
 
     public void Stun(float duration)
