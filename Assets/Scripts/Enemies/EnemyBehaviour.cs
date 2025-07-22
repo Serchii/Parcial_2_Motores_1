@@ -29,10 +29,19 @@ public class EnemyBehaviour : MonoBehaviour
     [Header("Detección")]
     [SerializeField] private Transform _player;
     [SerializeField] private EnemyHealth _health;
+    float distanceToPlayer;
 
     private Rigidbody2D _rb;
     private Animator _animator;
     private float _nextAttackTime = 0f;
+
+    [SerializeField] State currentState;
+    private enum State
+    {
+        Idle,
+        Move,
+        Attack
+    }
 
     void Start()
     {
@@ -55,34 +64,66 @@ public class EnemyBehaviour : MonoBehaviour
             return;
         }
 
-        float distanceToPlayer = Vector2.Distance(transform.position, _player.position);
+        distanceToPlayer = Vector2.Distance(transform.position, _player.position);
 
-        if (distanceToPlayer <= _attackRange)
+        switch (currentState)
         {
-            _rb.velocity = new Vector2(0f, _rb.velocity.y);
-            _animator.SetBool("IsRunning", false);
-            TryAttack();
-        }
-        else if (distanceToPlayer <= _chaseRange)
-        {
-            MoveTowardsPlayer();
-        }
-        else
-        {
-            if (IsGrounded())
-                _rb.velocity = new Vector2(0f, 0f);
-            else
-                _rb.velocity = new Vector2(0f, _rb.velocity.y);
-
-            _animator.SetBool("IsRunning", false);
+            case State.Idle:
+                HandleIdle();
+                break;
+            case State.Move:
+                HandleMove();
+                break;
+            case State.Attack:
+                HandleAttack();
+                break;
         }
 
         FlipSprite();
     }
 
+    void HandleIdle()
+    {
+        if (distanceToPlayer <= _chaseRange)
+        {
+            currentState = State.Move;
+        }
+        else
+        {
+            SetIdle();
+        }
+    }
+
+    void SetIdle()
+    {
+        if (IsGrounded())
+            _rb.velocity = new Vector2(0f, 0f);
+        else
+            _rb.velocity = new Vector2(0f, _rb.velocity.y);
+
+        _animator.SetBool("IsRunning", false);
+    }
+
+    void HandleMove()
+    {
+        MoveTowardsPlayer();
+    }
+
+    void HandleAttack()
+    {
+        _rb.velocity = new Vector2(0f, _rb.velocity.y);
+        _animator.SetBool("IsRunning", false);
+        TryAttack();
+    }
+
     private void MoveTowardsPlayer()
     {
         if (_player == null) return;
+
+        if (distanceToPlayer <= _attackRange)
+        {
+            currentState = State.Attack;
+        }
 
         Vector2 direction = (_player.position - transform.position).normalized;
 
@@ -94,6 +135,11 @@ public class EnemyBehaviour : MonoBehaviour
         if (verticalDifference > jumpCheckDistance && IsGrounded() && !isPreparingToJump)
         {
             StartCoroutine(DelayedJump());
+        }
+
+        if (distanceToPlayer > _chaseRange)
+        {
+            currentState = State.Idle;
         }
     }
 
@@ -133,6 +179,11 @@ public class EnemyBehaviour : MonoBehaviour
                 player.GetComponent<IDamageable>()?.TakeDamage(_damage);
             }
         }
+    }
+
+    public void EndAttack()
+    {
+        currentState = State.Idle;
     }
 
     private void FlipSprite()
