@@ -23,7 +23,6 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private float _attackCooldown = 1f;
     [SerializeField] private float attackPushForce = 3f;
     [SerializeField] private Transform attackPoint;
-    [SerializeField] private float attackRange = 0.5f;
     [SerializeField] private LayerMask playerLayers;
     private bool isAttacking = false;
 
