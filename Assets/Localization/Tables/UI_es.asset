@@ -42,6 +42,10 @@ MonoBehaviour:
     m_Localized: VOLVER AL MENU
     m_Metadata:
       m_Items: []
+  - m_Id: 1385470152921088
+    m_Localized: 'PISTAS: 0'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

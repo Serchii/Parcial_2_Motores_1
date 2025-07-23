@@ -39,6 +39,10 @@ MonoBehaviour:
     m_Key: "BackToMenuBtn\t"
     m_Metadata:
       m_Items: []
+  - m_Id: 1385470152921088
+    m_Key: Clues
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
