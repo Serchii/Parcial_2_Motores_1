@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce = 10f;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator animator;
+    private bool canMove = true;
 
     private float moveInput;
     [SerializeField] private bool isGrounded;
@@ -73,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isKnockedBack)
+        if (!isKnockedBack && canMove)
         {
             rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
         }
@@ -81,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FlipSprite()
     {
-        if (moveInput != 0)
+        if (moveInput != 0 && canMove)
         {
             Vector3 scale = transform.localScale;
             scale.x = Mathf.Abs(scale.x) * Mathf.Sign(moveInput);
@@ -130,5 +131,16 @@ public class PlayerMovement : MonoBehaviour
     private void EndKnockback()
     {
         isKnockedBack = false;
+    }
+
+    public void SetCanMove(bool value)
+    {
+        canMove = value;
+
+        if (!value)
+            moveInput = 0;
+
+        rb.velocity = new Vector2(moveInput, rb.velocity.y);
+        FlipSprite();
     }
 }

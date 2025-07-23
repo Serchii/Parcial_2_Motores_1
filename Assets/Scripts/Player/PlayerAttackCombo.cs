@@ -1,13 +1,11 @@
-using System.ComponentModel;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttackCombo : MonoBehaviour
 {
     //nuevo hit con LayerMask
     [SerializeField] Transform attackPoint;
     [SerializeField] float attackRange = 0.5f;
     [SerializeField] LayerMask enemyLayers;
-    [SerializeField] int combo;
     [SerializeField] float attackDamage = 20f;
     [SerializeField] float attackCooldown = 1f;
     [SerializeField] float attackTimer;
@@ -20,103 +18,23 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] PlayerHealth playerHealth;
 
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] float attackPushForce = 6f;
-    [SerializeField] private float attackFrictionFactor = 0.8f;
+    private bool isHitting = false;
 
-    [SerializeField] bool isHitting = false;
-    [SerializeField] PlayerMovement playerMovement;
     public bool IsHitting => isHitting;
 
     void Start()
     {
         playerHealth = GetComponent<PlayerHealth>();
-        playerMovement = GetComponent<PlayerMovement>();
         animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
         ApplyUpgrades();
     }
 
     void Update()
     {
         if (playerHealth.IsAlive)
-            Combo();
-            //HandleAttack();
+            HandleAttack();
     }
 
-    void FixedUpdate()
-    {
-        if (isHitting)
-        {
-            ApplyAttackFriction();
-        }
-    }
-
-    void ApplyAttackFriction()
-    {
-        rb.velocity = new Vector2(rb.velocity.x * attackFrictionFactor, rb.velocity.y);
-    }
-    void Combo()
-    {
-        if (!isHitting)
-        {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                isHitting = true;
-
-                PlayerCanMove(true); //Esto lo hago para que en caso de que en medio del combo quiera cambiar de direccion pueda hacerlo solo al seguir con el siguiente golpe
-                PlayerCanMove(false);
-
-                hit.SetActive(true);
-                Invoke("DisableHit", disableTime);
-
-                animator.SetTrigger("Attack" + (combo + 1));
-                //audioSource.clip = attackSounds[combo];
-                //audioSource.Play();
-
-                float direction = transform.localScale.x > 0 ? 1f : -1f;
-
-                rb.AddForce(new Vector2(direction * attackPushForce, 0f), ForceMode2D.Impulse);
-                
-                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
-                foreach (Collider2D enemy in hitEnemies)
-                {
-                    EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-
-                    if (enemyHealth != null)
-                    {
-                        Vector2 knockbackDir = enemy.transform.position - transform.position;
-                        enemyHealth.TakeDamage(attackDamage, knockbackDir, knockbackForce);
-                    }
-                }
-            }
-        }
-    }
-
-
-    void PlayerCanMove(bool value)
-    {
-        playerMovement.SetCanMove(value);
-    }
-
-    void StartCombo()
-    {
-        isHitting = false;
-        if (combo < 3)
-        {
-            combo++;
-        }
-    }
-
-    void FinishAttack()
-    {
-        isHitting = false;
-        combo = 0;
-        PlayerCanMove(true);
-    }
-
-/*
     private void HandleAttack()
     {
         if (!isHitting)
@@ -168,7 +86,7 @@ public class PlayerAttack : MonoBehaviour
             int index = Random.Range(0, attackSounds.Length);
             audioSource.PlayOneShot(attackSounds[index]);
         }
-    }*/
+    }
 
     void OnDrawGizmosSelected()
     {

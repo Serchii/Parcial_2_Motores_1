@@ -144,6 +144,9 @@ MonoBehaviour:
     m_Bits: 72
   currentOneWayPlatform: {fileID: 0}
   disableCollisionTime: 1
+  coyoteTime: 0.2
+  coyoteTimer: 0
+  knockbackDuration: 0.2
 --- !u!114 &8396585832806653847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,16 +184,22 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
+  combo: 0
   attackDamage: 20
   attackCooldown: 0.5
   attackTimer: 0
   knockbackForce: 2
   hit: {fileID: 6025902476113732215}
-  disableTime: 0.333
+  disableTime: 0.25
   animator: {fileID: 0}
   attackSounds: []
   audioSource: {fileID: 0}
   playerHealth: {fileID: 0}
+  rb: {fileID: 0}
+  attackPushForce: 7
+  attackFrictionFactor: 0.8
+  isHitting: 0
+  playerMovement: {fileID: 0}
 --- !u!61 &8779264362405234484
 BoxCollider2D:
   m_ObjectHideFlags: 0
