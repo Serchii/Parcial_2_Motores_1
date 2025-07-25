@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce = 10f;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator animator;
-    private bool canMove = true;
+    [SerializeField] bool canMove = true;
 
     private float moveInput;
     [SerializeField] private bool isGrounded;
@@ -24,13 +24,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float coyoteTime = 0.2f;
     [SerializeField] float coyoteTimer;
 
-    private bool isKnockedBack = false;
+    [Header("Knockback")]
+    [SerializeField] bool isKnockedBack = false;
     [SerializeField] public float knockbackDuration = 0.2f;
+    [SerializeField] private float attackFrictionFactor = 0.8f;
+    [SerializeField] PlayerAttack playerAttack;
+
+    public bool  IsKnockedBack=> isKnockedBack;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        playerAttack = GetComponent<PlayerAttack>();
     }
 
     void Update()
@@ -38,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
+        if(!isKnockedBack)
         SetAnimator(moveInput, !isGrounded);
 
         if (isGrounded)
@@ -78,11 +85,20 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
         }
+        else if (isKnockedBack)
+        {
+            ApplyAttackFriction();
+        }
+    }
+
+    void ApplyAttackFriction()
+    {
+        rb.velocity = new Vector2(rb.velocity.x * attackFrictionFactor, rb.velocity.y);
     }
 
     private void FlipSprite()
     {
-        if (moveInput != 0 && canMove)
+        if (moveInput != 0 && !isKnockedBack && canMove)
         {
             Vector3 scale = transform.localScale;
             scale.x = Mathf.Abs(scale.x) * Mathf.Sign(moveInput);
@@ -131,6 +147,8 @@ public class PlayerMovement : MonoBehaviour
     private void EndKnockback()
     {
         isKnockedBack = false;
+        playerAttack.FinishAttack();
+        Debug.Log("EndKnockbackACAAAAAA");
     }
 
     public void SetCanMove(bool value)

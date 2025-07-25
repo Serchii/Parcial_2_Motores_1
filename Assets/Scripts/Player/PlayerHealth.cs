@@ -120,12 +120,13 @@ public class PlayerHealth : BaseHealth
 
     public void ApplyKnockback(Vector2 direction, float force)
     {
-        if (!isAlive || invincible) return;
+        if (!isAlive) return;
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.velocity = direction.normalized * force;
+            //rb.velocity = direction.normalized * force;
+            rb.AddForce(new Vector2(direction.x * force, 0f), ForceMode2D.Impulse);
 
             PlayerMovement pm = GetComponent<PlayerMovement>();
             if (pm != null)
@@ -137,11 +138,14 @@ public class PlayerHealth : BaseHealth
 
     void ApplyUpgrades()
     {
-        if (PlayerInventory.Instance.HasItem(ItemID.HelmetUltimate))
-            SetMaxHealthValue(200f);
-        else if (PlayerInventory.Instance.HasItem(ItemID.HelmetImproved))
-            SetMaxHealthValue(150f);
-        else
-            SetMaxHealthValue(100f);
+        if (PlayerInventory.Instance != null)
+        {
+            if (PlayerInventory.Instance.HasItem(ItemID.HelmetUltimate))
+                SetMaxHealthValue(200f);
+            else if (PlayerInventory.Instance.HasItem(ItemID.HelmetImproved))
+                SetMaxHealthValue(150f);
+            else
+                SetMaxHealthValue(100f);
+        }
     }
 }

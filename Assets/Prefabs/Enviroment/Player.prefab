@@ -136,6 +136,7 @@ MonoBehaviour:
   jumpForce: 15
   rb: {fileID: 2401344832455833467}
   animator: {fileID: 0}
+  canMove: 1
   isGrounded: 0
   groundCheck: {fileID: 855401319772495932}
   groundCheckRadius: 0.3
@@ -146,7 +147,9 @@ MonoBehaviour:
   disableCollisionTime: 1
   coyoteTime: 0.2
   coyoteTimer: 0
+  isKnockedBack: 0
   knockbackDuration: 0.2
+  playerAttack: {fileID: 0}
 --- !u!114 &8396585832806653847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,7 +191,7 @@ MonoBehaviour:
   attackDamage: 20
   attackCooldown: 0.5
   attackTimer: 0
-  knockbackForce: 2
+  knockbackForce: 7
   hit: {fileID: 6025902476113732215}
   disableTime: 0.25
   animator: {fileID: 0}

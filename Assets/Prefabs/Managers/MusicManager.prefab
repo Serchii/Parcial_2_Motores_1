@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 6820803219538425184}
-  JazzMusic: {fileID: 8300000, guid: 727be9b3b58075441a7da14898ce2a93, type: 3}
+  JazzMusic: {fileID: 8300000, guid: 36559e54eabca0e4c917dc240348e9ea, type: 3}
   gameMusic: {fileID: 8300000, guid: ef0e5c78cb77d5144ac74bc567a7ff65, type: 3}
   CombatMusic: {fileID: 8300000, guid: 4bcf909ae96b25a4d962fe8d6ef71e71, type: 3}
   transitionMusic: {fileID: 8300000, guid: decaa0b2da554664a8690a635301e269, type: 3}

@@ -39,7 +39,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if (playerHealth.IsAlive)
+        if (playerHealth.IsAlive && !playerMovement.IsKnockedBack)
             Combo();
             //HandleAttack();
     }
@@ -109,66 +109,14 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    void FinishAttack()
+    public void FinishAttack()
     {
         isHitting = false;
         combo = 0;
         PlayerCanMove(true);
+        
+        Debug.Log("FinishAttackACAAAAAA");
     }
-
-/*
-    private void HandleAttack()
-    {
-        if (!isHitting)
-        {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                StartAttack();
-            }
-        }
-        else
-        {
-            attackTimer += Time.deltaTime;
-            if (attackTimer >= attackCooldown)
-            {
-                isHitting = false;
-                attackTimer = 0;
-            }
-        }
-
-    }
-
-    private void StartAttack()
-    {
-        isHitting = true;
-
-        hit.SetActive(true);
-        Invoke("DisableHit", disableTime);
-
-        if (animator != null)
-        {
-            animator.SetTrigger("Attack");
-        }
-
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
-        foreach (Collider2D enemy in hitEnemies)
-        {
-            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-
-            if (enemyHealth != null)
-            {
-                Vector2 knockbackDir = enemy.transform.position - transform.position;
-                enemyHealth.TakeDamage(attackDamage, knockbackDir, knockbackForce);
-            }
-        }
-
-        if (attackSounds.Length > 0 && audioSource != null)
-        {
-            int index = Random.Range(0, attackSounds.Length);
-            audioSource.PlayOneShot(attackSounds[index]);
-        }
-    }*/
 
     void OnDrawGizmosSelected()
     {
@@ -189,11 +137,14 @@ public class PlayerAttack : MonoBehaviour
 
     void ApplyUpgrades()
     {
-        if (PlayerInventory.Instance.HasItem(ItemID.HammerUltimate))
-            SetAttackDamage(30f);
-        else if (PlayerInventory.Instance.HasItem(ItemID.HammerImproved))
-            SetAttackDamage(20f);
-        else
-            SetAttackDamage(10f);
+        if (PlayerInventory.Instance != null)
+        {
+            if (PlayerInventory.Instance.HasItem(ItemID.HammerUltimate))
+                SetAttackDamage(30f);
+            else if (PlayerInventory.Instance.HasItem(ItemID.HammerImproved))
+                SetAttackDamage(20f);
+            else
+                SetAttackDamage(10f);
+        }
     }
 }
