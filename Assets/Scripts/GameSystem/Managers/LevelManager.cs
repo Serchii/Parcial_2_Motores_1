@@ -43,8 +43,6 @@ public class LevelManager : MonoBehaviour
             return;
         }
 
-        // No iniciamos el nivel automáticamente.
-        // Se debe llamar a StartLevelManualmente() para arrancar.
     }
 
     private void Update()
@@ -84,11 +82,14 @@ public class LevelManager : MonoBehaviour
 
             cluesCollected = 0;
 
-            Debug.Log($"Escena '{scene.name}' iniciada correctamente a las {h:00}:{GameClock.Instance.minute:00}.");
+            while (ClueUIManager.Instance == null)
+                yield return null;
 
-            ClueUIManager.Instance?.SetClueGoal(currentLevelData.requiredClues);
+            Debug.Log("SetClueGoal desde LevelManager...");
+            ClueUIManager.Instance.SetClueGoal(currentLevelData.requiredClues);
         }
     }
+
 
     private bool IsWithinAllowedTime(int hour)
     {
