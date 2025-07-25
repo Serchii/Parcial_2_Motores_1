@@ -1,50 +1,19 @@
-using TMPro;
 using UnityEngine;
+using TMPro;
 
 public class ClueUIManager : MonoBehaviour
 {
-    public static ClueUIManager Instance { get; private set; }
-
     [SerializeField] private TextMeshProUGUI clueText;
 
-    private int max = 0;
-    private int current = 0;
-
-    private void Awake()
+    public void UpdateClueUI(int current, int required)
     {
-        if (Instance != null && Instance != this)
+        if (clueText != null)
         {
-            Destroy(gameObject);
-            return;
+            clueText.text = $"{current}/{required}";
         }
-        Instance = this;
-    }
-
-    private void Start()
-    {
-        if (LevelManager.Instance != null && LevelManager.Instance.currentLevelData != null)
+        else
         {
-            SetClueGoal(LevelManager.Instance.currentLevelData.requiredClues);
+            Debug.LogWarning("No hay TextMeshProUGUI asignado a ClueUIManager.");
         }
-    }
-
-    public void SetClueGoal(int maxClues)
-    {
-        max = maxClues;
-        current = 0;
-        Debug.Log($"[ClueUIManager] SetClueGoal llamado: {current}/{max}");
-        UpdateUI();
-    }
-
-    public void AddClue()
-    {
-        current++;
-        Debug.Log($"[ClueUIManager] AddClue: {current}/{max}");
-        UpdateUI();
-    }
-
-    private void UpdateUI()
-    {
-        clueText.text = $"{current} / {max}";
     }
 }

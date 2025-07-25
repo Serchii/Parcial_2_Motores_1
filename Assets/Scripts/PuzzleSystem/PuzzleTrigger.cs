@@ -6,9 +6,9 @@ public class PuzzleTrigger : MonoBehaviour
     [SerializeField] GameObject uiPuzzle;
     [SerializeField] GameObject interactionPromptPrefab;
     [SerializeField] string textPrompt = "[E] to Interact";
-    [SerializeField] bool isInteractuable = true;
+    [SerializeField] bool isInteractuable = false; 
     [SerializeField] private PuzzleGridManager puzzleManager;
-    [SerializeField] bool followPlayer = true; 
+    [SerializeField] bool followPlayer = true;
 
     private GameObject promptInstance;
     private bool canActivate = false;
@@ -23,6 +23,7 @@ public class PuzzleTrigger : MonoBehaviour
             puzzleManager.OnCompleted += PuzzleCompleted;
         }
     }
+
     void Update()
     {
         if (canActivate && Input.GetButtonDown("Interact") && !uiPuzzle.activeSelf)
@@ -33,7 +34,6 @@ public class PuzzleTrigger : MonoBehaviour
                 uiPuzzle.SetActive(true);
                 SetPlayerActive(false);
             }
-
         }
 
         if (uiPuzzle.activeSelf && Input.GetButtonDown("Cancel"))
@@ -76,18 +76,10 @@ public class PuzzleTrigger : MonoBehaviour
     private void SetPlayerActive(bool isActive)
     {
         if (playerMovement != null)
-        {
             playerMovement.enabled = isActive;
-            Debug.Log($"Movimiento: {isActive}");
-        }
 
         if (playerAttack != null)
-        {
             playerAttack.enabled = isActive;
-            Debug.Log($"Ataque: {isActive}");
-        }
-
-
     }
 
     private void ShowPrompt()
@@ -128,9 +120,7 @@ public class PuzzleTrigger : MonoBehaviour
     void OnDestroy()
     {
         if (puzzleManager != null)
-        {
             puzzleManager.OnCompleted -= PuzzleCompleted;
-        }
     }
 
     void PuzzleCompleted()
@@ -144,5 +134,12 @@ public class PuzzleTrigger : MonoBehaviour
         SetPlayerActive(true);
         HidePrompt();
         Destroy(gameObject);
+    }
+
+    public void SetInteractuable(bool value)
+    {
+        isInteractuable = value;
+        if (!value)
+            HidePrompt();
     }
 }

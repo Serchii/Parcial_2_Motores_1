@@ -2,43 +2,31 @@ using UnityEngine;
 
 public class ClueInteract : MonoBehaviour
 {
-    public AudioClip interactSound;
-    public Animator clueAnimator;
+    [SerializeField] private KeyCode interactKey = KeyCode.E;
+    private bool isPlayerNearby = false;
 
-    private bool playerInRange = false;
-    private bool collected = false;
-
-    void Update()
+    private void Update()
     {
-        if (playerInRange && !collected && Input.GetKeyDown(KeyCode.E))
+        if (isPlayerNearby && Input.GetKeyDown(interactKey))
         {
-            collected = true;
-            FindObjectOfType<LevelManager>().CollectClue();
-
-            if (interactSound != null)
-                AudioSource.PlayClipAtPoint(interactSound, transform.position);
-
-            if (clueAnimator != null)
-            {
-                clueAnimator.SetTrigger("Collect");
-                Destroy(gameObject, 0.5f);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            LevelManager.Instance.CollectClue();
+            Destroy(gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-            playerInRange = true;
+        {
+            isPlayerNearby = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-            playerInRange = false;
+        {
+            isPlayerNearby = false;
+        }
     }
 }

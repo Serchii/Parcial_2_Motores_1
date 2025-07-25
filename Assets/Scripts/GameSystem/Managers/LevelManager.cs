@@ -1,181 +1,70 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager Instance;
+    public static LevelManager Instance { get; private set; }
 
-    [Header("Configuración del nivel")]
-    public LevelData currentLevelData;
+    [SerializeField] private ClueUIManager clueUIManager;
+    [SerializeField] private int requiredClues = 2;
+    private int currentClues = 0;
 
-    [Header("Horario diurno")]
-    public int dayStartHour = 6;
-    public int dayEndHour = 12;
-
-    [Header("Horario nocturno")]
-    public int nightStartHour = 20;
-    public int nightEndHour = 4;
-
-    private int currentSceneIndex = 0;
-    private int cluesCollected = 0;
-    private bool levelRunning = false;
+    [SerializeField] private PuzzleTrigger puzzleTrigger;
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
-        else
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
+        Instance = this;
     }
 
     private void Start()
     {
-        if (currentLevelData == null)
+        currentClues = 0;
+        clueUIManager?.UpdateClueUI(currentClues, requiredClues);
+
+        if (puzzleTrigger != null)
         {
-            Debug.LogError("No hay LevelData asignado en LevelManager.");
-            return;
-        }
-
-    }
-
-    private void Update()
-    {
-        if (!levelRunning || GameClock.Instance == null) return;
-
-        int h = GameClock.Instance.hour;
-        if (!IsWithinAllowedTime(h))
-        {
-            Debug.LogWarning("¡Fuera de horario! Nivel REINICIADO.");
-            OnPlayerLose();
-        }
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        StartCoroutine(WaitForGameClockThenInit(scene));
-    }
-
-    private IEnumerator WaitForGameClockThenInit(Scene scene)
-    {
-        while (GameClock.Instance == null)
-            yield return null;
-
-        yield return new WaitForSeconds(0.5f);
-
-        if (currentSceneIndex < currentLevelData.levelScenes.Length &&
-            scene.name == currentLevelData.levelScenes[currentSceneIndex])
-        {
-            int h = GameClock.Instance.hour;
-            if (!IsWithinAllowedTime(h))
-            {
-                Debug.LogWarning("Hora inválida al cargar escena. Forzando reinicio.");
-                OnPlayerLose();
-                yield break;
-            }
-
-            cluesCollected = 0;
-
-            while (ClueUIManager.Instance == null)
-                yield return null;
-
-            Debug.Log("SetClueGoal desde LevelManager...");
-            ClueUIManager.Instance.SetClueGoal(currentLevelData.requiredClues);
-        }
-    }
-
-
-    private bool IsWithinAllowedTime(int hour)
-    {
-        if (currentLevelData.levelType == LevelType.Day)
-            return hour >= dayStartHour && hour < dayEndHour;
-        else
-            return hour >= nightStartHour || hour < nightEndHour;
-    }
-
-    public void StartLevelManualmente()
-    {
-        if (!levelRunning)
-        {
-            levelRunning = true;
-            Debug.Log("Nivel iniciado manualmente.");
+            puzzleTrigger.SetInteractuable(false);
         }
     }
 
     public void CollectClue()
     {
-        if (!levelRunning) return;
+        currentClues++;
+        clueUIManager?.UpdateClueUI(currentClues, requiredClues);
+        Debug.Log($"Pistas recogidas: {currentClues}/{requiredClues}");
 
-        cluesCollected++;
-        Debug.Log($"Pistas recogidas: {cluesCollected}/{currentLevelData.requiredClues}");
-
-        ClueUIManager.Instance?.AddClue();
-
-        if (cluesCollected >= currentLevelData.requiredClues)
+        if (currentClues >= requiredClues)
         {
-            Debug.Log("Objetivo de pistas completado. Avanzando a la siguiente escena...");
-            NextScene();
+            ActivatePuzzleIfExists();
         }
     }
 
-    public void OnPlayerLose()
+    private void ActivatePuzzleIfExists()
     {
-        levelRunning = false;
-        ClockStateManager.Instance?.RequestRestore();
-        LoadSceneAtIndex(currentSceneIndex, false);
-    }
-
-    private void NextScene()
-    {
-        levelRunning = false;
-
-        if (currentSceneIndex + 1 < currentLevelData.levelScenes.Length)
+        if (puzzleTrigger != null)
         {
-            ClockStateManager.Instance?.SaveClockTime();
-            LoadSceneAtIndex(currentSceneIndex + 1, false);
+            puzzleTrigger.SetInteractuable(true);
+            Debug.Log("Puzzle activado desde LevelManager.");
         }
         else
         {
-            OnLevelWin();
+            Debug.LogWarning("No hay PuzzleTrigger asignado al LevelManager.");
         }
     }
 
-    private void OnLevelWin()
+    public void SetRequiredClues(int value)
     {
-        levelRunning = false;
-        Debug.Log("¡Nivel completado con éxito!");
+        requiredClues = value;
     }
 
-    private void LoadSceneAtIndex(int index, bool saveTime)
+    public void StartLevelManualmente()
     {
-        currentSceneIndex = index;
-        if (saveTime)
-            ClockStateManager.Instance?.SaveClockTime();
-
-        SceneManager.LoadScene(currentLevelData.levelScenes[index]);
-    }
-
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    public void SetLevelTime(int h, int m)
-    {
-        if (GameClock.Instance != null)
-        {
-            GameClock.Instance.SetTime(h, m);
-            Debug.Log($"Hora del nivel modificada a {h:00}:{m:00}");
-        }
-        else
-        {
-            Debug.LogWarning("GameClock no está activo, no se puede cambiar la hora.");
-        }
+        currentClues = 0;
+        clueUIManager?.UpdateClueUI(currentClues, requiredClues);
+        Debug.Log("Nivel iniciado manualmente.");
     }
 }
