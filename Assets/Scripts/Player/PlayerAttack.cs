@@ -9,6 +9,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] LayerMask enemyLayers;
     [SerializeField] int combo;
     [SerializeField] float attackDamage = 20f;
+    [SerializeField] float attackCooldown = 1f;
+    [SerializeField] float attackTimer;
     [SerializeField] float knockbackForce = 2;
     [SerializeField] GameObject hit;
     [SerializeField] float disableTime;

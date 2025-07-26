@@ -26,7 +26,5 @@ public class UILifeBar : MonoBehaviour
         if(playerHealth == null) return;
 
         fillLifeBar.fillAmount = current / max;
-
-        Debug.Log($"Vida actual: {current}, Vida Maxima: {max}");
     }
 }

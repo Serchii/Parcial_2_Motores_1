@@ -15,9 +15,6 @@ public class GameManager : MonoBehaviour
 
     public static event Action<bool, string> OnGameEnded;
 
-    [SerializeField] private string playerLayerName = "Player";
-    [SerializeField] private string enemyLayerName = "Enemy";
-
     private void Awake()
     {
         if (Instance == null)
@@ -31,8 +28,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        ConfigureCollisions();
     }
 
     private void OnDestroy()
@@ -120,14 +115,5 @@ public class GameManager : MonoBehaviour
     public void SetMaxHealth()
     {
         SavedHealth = SavedMaxHealth;
-    }
-
-    void ConfigureCollisions()
-    {
-        int playerLayer = LayerMask.NameToLayer(playerLayerName);
-        int enemyLayer = LayerMask.NameToLayer(enemyLayerName);
-
-        Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer);
-        Physics2D.IgnoreLayerCollision(enemyLayer, enemyLayer);
     }
 }
