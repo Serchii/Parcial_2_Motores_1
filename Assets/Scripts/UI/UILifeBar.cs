@@ -23,8 +23,10 @@ public class UILifeBar : MonoBehaviour
 
     void UpdateLifeBar(float current, float max)
     {
-        if(playerHealth == null) return;
+        if (playerHealth == null) return;
 
         fillLifeBar.fillAmount = current / max;
+        
+        Debug.Log($"Vida actual: {current}, Vida Maxima: {max}");
     }
 }
