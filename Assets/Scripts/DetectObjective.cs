@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class DetectObjective : MonoBehaviour
 {
-    [SerializeField] GameObject nextLevel;
+    [SerializeField] GameObject[] objetsToActivate;
     [SerializeField] PuzzleGridManager puzzle;
     [SerializeField] bool killEnemies;
 
     void Start()
     {
         if (puzzle != null)
-            puzzle.OnCompleted += ActivateDoor;
+            puzzle.OnCompleted += PuzzleCompleted;
     }
 
     void Update()
@@ -30,12 +30,18 @@ public class DetectObjective : MonoBehaviour
     void OnDestroy()
     {
         if (puzzle != null)
-            puzzle.OnCompleted -= ActivateDoor;
+            puzzle.OnCompleted -= PuzzleCompleted;
+    }
+
+    void PuzzleCompleted()
+    {
+        Invoke("ActivateDoor", 1f);
     }
 
     void ActivateDoor()
     {
-        nextLevel.SetActive(true);
+        foreach(GameObject obj in objetsToActivate)
+            obj.SetActive(true);
     }
 
     void EnemiesEliminated()

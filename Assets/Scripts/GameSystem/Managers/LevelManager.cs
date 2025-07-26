@@ -6,6 +6,8 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private ClueUIManager clueUIManager;
     [SerializeField] private int requiredClues = 2;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip clueFound;
     private int currentClues = 0;
 
     [SerializeField] private PuzzleTrigger puzzleTrigger;
@@ -24,6 +26,7 @@ public class LevelManager : MonoBehaviour
     {
         currentClues = 0;
         clueUIManager?.UpdateClueUI(currentClues, requiredClues);
+        audioSource = GetComponent<AudioSource>();
 
         if (puzzleTrigger != null)
         {
@@ -37,10 +40,21 @@ public class LevelManager : MonoBehaviour
         clueUIManager?.UpdateClueUI(currentClues, requiredClues);
         Debug.Log($"Pistas recogidas: {currentClues}/{requiredClues}");
 
-        if (currentClues >= requiredClues)
+        if (audioSource != null && clueFound != null)
         {
-            ActivatePuzzleIfExists();
+            audioSource.clip = clueFound;
+            audioSource.Play();
+
+            if (MusicManager.Instance != null)
+            {
+                MusicManager.Instance.FadeOutAndIn();
+            }
         }
+
+        if (currentClues >= requiredClues)
+            {
+                ActivatePuzzleIfExists();
+            }
     }
 
     private void ActivatePuzzleIfExists()

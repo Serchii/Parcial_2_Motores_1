@@ -20,30 +20,33 @@ public class MusicManager : MonoBehaviour
     [SerializeField] string[] startScenes;
 
     private string currentScene;
-    private static MusicManager instance;
+    public static MusicManager instance;
+    public static MusicManager Instance => instance;
 
     void Awake()
     {
-        if (instance != null && instance != this)
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded; // <- mover acá
+        }
+        else
         {
             Destroy(gameObject);
-            return;
         }
-
-        instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
 
         float savedVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
         audioSource.volume = savedVolume;
 
         currentScene = SceneManager.GetActiveScene().name;
         PlayMusicForScene(currentScene);
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -57,6 +60,12 @@ public class MusicManager : MonoBehaviour
 
     void PlayMusicForScene(string sceneName)
     {
+        if (audioSource == null)
+        {
+            Debug.LogWarning("AudioSource is missing. Skipping music playback.");
+            return;
+        }
+
         AudioClip newClip = null;
 
         if (jazzScenes.Contains(sceneName))
@@ -70,17 +79,54 @@ public class MusicManager : MonoBehaviour
         else if (startScenes.Contains(sceneName))
             newClip = startMusic;
 
-
         if (newClip != null && audioSource.clip != newClip)
         {
             audioSource.clip = newClip;
             audioSource.Play();
         }
     }
-    
+
     public void SetVolume(float volume)
     {
         audioSource.volume = volume;
         PlayerPrefs.SetFloat("MusicVolume", volume);
+    }
+
+    public void FadeOutAndIn(float fadeDuration = 1f, float targetVolume = 1f, float lowerVolume = 0.2f)
+    {
+        StartCoroutine(FadeMusicRoutine(fadeDuration, targetVolume, lowerVolume));
+    }
+
+    private IEnumerator FadeMusicRoutine(float duration, float targetVolume, float loweredVolume)
+    {
+        float originalVolume = audioSource.volume;
+
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            audioSource.volume = loweredVolume / originalVolume;
+            yield return null;
+        }
+
+        yield return new WaitForSecondsRealtime(1f);
+
+        t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(loweredVolume, targetVolume, t / duration);
+            yield return null;
+        }
+
+        audioSource.volume = targetVolume;
+    }
+    
+    private void OnDestroy()
+    {
+        if (instance == this)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
     }
 }

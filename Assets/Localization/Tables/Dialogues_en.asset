@@ -43,6 +43,16 @@ MonoBehaviour:
       of that wealthy lady at the end of the street\u2026"
     m_Metadata:
       m_Items: []
+  - m_Id: 3359803132416000
+    m_Localized: "House Owner: Hey, boy! Go upstairs and fix the bathroom. Please
+      do not mess with other rooms, the woman of the house does not like that. You\u2019ll
+      get the money when you\u2019re done!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3378980756983808
+    m_Localized: 'Henry: Well, i finally finished. All that work left me exhausted.'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

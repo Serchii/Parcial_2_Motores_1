@@ -20,6 +20,16 @@ public class Dialogue : MonoBehaviour
     [SerializeField] int lineIndex;
     [SerializeField] float typingTime = 0.05f;
 
+    [Header("Sonido")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip dialogVoice;
+    [SerializeField] float pitchVoice = 1f;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         if (Input.GetButtonDown("Interact") && isPlayerInRange && !dialogueTriggered)
@@ -82,6 +92,7 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator ShowLine()
     {
+        int index = 0;
         dialogueText.text = string.Empty;
 
         // Obtener texto traducido desde Localization
@@ -95,6 +106,15 @@ public class Dialogue : MonoBehaviour
         {
             dialogueText.text += ch;
             yield return new WaitForSecondsRealtime(typingTime);
+
+            if (audioSource != null && dialogVoice != null && index % 2 == 0)
+            {
+                audioSource.clip = dialogVoice;
+                audioSource.pitch = Random.Range(pitchVoice - 0.1f, pitchVoice + 0.1f);
+                audioSource.Play();
+            }
+
+            index++;
         }
     }
 

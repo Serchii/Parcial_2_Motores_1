@@ -35,6 +35,14 @@ MonoBehaviour:
     m_Key: House2b_Door4
     m_Metadata:
       m_Items: []
+  - m_Id: 3359803132416000
+    m_Key: House2_Door1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3378980756983808
+    m_Key: House2_PuzzleCompleted
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

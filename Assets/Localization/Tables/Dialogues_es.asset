@@ -44,6 +44,16 @@ MonoBehaviour:
       de esa se\xF1ora rica al final de la calle..."
     m_Metadata:
       m_Items: []
+  - m_Id: 3359803132416000
+    m_Localized: "Propietario de la casa: \xA1Oye, chico! Sube y arregla el ba\xF1o.
+      Por favor, no toques las otras habitaciones, a la due\xF1a de la casa no le
+      gusta eso. \xA1Te pagar\xE9 cuando termines!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3378980756983808
+    m_Localized: "Henry: Bueno, por fin termin\xE9. Todo ese trabajo me dej\xF3 exhausto."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
