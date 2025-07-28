@@ -48,4 +48,9 @@ public class DetectObjective : MonoBehaviour
     {
         Invoke("ActivateDoor", 2f);
     }
+    public void ActivateDoorDirectly()
+    {
+        ActivateDoor();
+    }
+
 }

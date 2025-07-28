@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8306057968bd1c646839a56fb4bba36b, type: 3}
-  m_Name: Level_1
+  m_Script: {fileID: 11500000, guid: 662b005cd165e08458d5df0aba287978, type: 3}
+  m_Name: LevelCollection
   m_EditorClassIdentifier: 
-  levelType: 0
-  levelScenes:
-  - Lv4_House_2
-  - Lv4_House_2b
-  requiredClues: 2
+  levels:
+  - {fileID: 11400000, guid: a99681750caa30843ba478668f8c5687, type: 2}
+  - {fileID: 0}

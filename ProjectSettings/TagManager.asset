@@ -10,6 +10,7 @@ TagManager:
   - Floor
   - Enemy
   - DialoguePanel
+  - SceneDoor
   layers:
   - Default
   - TransparentFX
