@@ -8,9 +8,10 @@ public class EnemyHealth : BaseHealth
     [SerializeField] private float stunDuration = 0.2f;
     [SerializeField] int maxMoney = 15;
 
+    [Header("Health Bar")]
     [SerializeField] EnemyHealthBarUI healthBarPrefab;
     [SerializeField] private EnemyHealthBarUI healthBarInstance;
-
+    [SerializeField] EnemyBehaviour enemyBehaviour;
     public bool IsDead => isDead;
 
     protected override void Start()
@@ -22,13 +23,16 @@ public class EnemyHealth : BaseHealth
 
         if (_rb == null)
             _rb = GetComponent<Rigidbody2D>();
+
+        if (enemyBehaviour == null)
+            enemyBehaviour = GetComponent<EnemyBehaviour>();
             
         Canvas canvas = FindObjectOfType<Canvas>();
         healthBarInstance = Instantiate(healthBarPrefab, canvas.transform);
         healthBarInstance.SetTarget(transform);
     }
 
-    public void TakeDamage(float amount, Vector2 knockbackDirection, float knockbackForce)
+    public void TakeDamage(float amount, Vector2 knockbackDirection, float knockbackForce, bool getStunned)
     {
         if (isDead) return;
 
@@ -36,12 +40,17 @@ public class EnemyHealth : BaseHealth
 
         healthBarInstance.SetHealth(health, maxHealth);
 
-        GetComponent<EnemyBehaviour>()?.Stun(stunDuration);
+        if (getStunned)
+        {
+            enemyBehaviour?.Stun(stunDuration);
+        }
+
         ApplyKnockback(knockbackDirection, knockbackForce);
 
-        if (_animator != null)
+        if (_animator != null && (!enemyBehaviour.IsAttacking || health <= 0))
         {
             _animator.SetTrigger("Hurt");
+            enemyBehaviour.EndAttack();
         }
 
         if (health <= 0f)
@@ -61,7 +70,7 @@ public class EnemyHealth : BaseHealth
         GetComponent<BoxCollider2D>().enabled = false;
         if (_animator != null)
         {
-            _animator.SetBool("IsDead",isDead);
+            _animator.SetBool("IsDead", isDead);
         }
 
         GameManager.Instance.AddMoney(Random.Range(0, maxMoney + 1));

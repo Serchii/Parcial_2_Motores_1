@@ -618,8 +618,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d27dc74ad2bb4614cb28f0e43c0917c4, type: 2}
-  m_sharedMaterial: {fileID: 3004146876241997000, guid: d27dc74ad2bb4614cb28f0e43c0917c4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0be475a7f880cba40844a80deff2b37f, type: 2}
+  m_sharedMaterial: {fileID: -4426288966130096699, guid: 0be475a7f880cba40844a80deff2b37f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1260,14 +1260,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 804796819}
   fullText: "Henry is a young man who works as a handyman in a city flooded by crime.
-    Every day he attends one of his clients\u2019 houses to fix something. His life
-    is a constant routine: he goes to work, gets paid, buys something to improve
-    his craft, and returns home. But Henry has a gentle heart and a wild and clever
+    \nEvery day he attends one of his clients\u2019 houses to fix something. His
+    life is a constant routine: he goes to work, gets paid, buys something to improve
+    his craft, and returns home. \nBut Henry has a gentle heart and a wild and clever
     mind, and he\u2019d love to see his city thrive.  \n\nToday he\u2019s attending
     an annual mandatory plumbing workshop at the National University of Repairmanshift
     that he needs to fulfill in order to keep his license. Everything seems to be
     quite boring, as usual\u2026 "
-  typingSpeed: 0.04
+  typingSpeed: 0.03
 --- !u!114 &1567845410
 MonoBehaviour:
   m_ObjectHideFlags: 0

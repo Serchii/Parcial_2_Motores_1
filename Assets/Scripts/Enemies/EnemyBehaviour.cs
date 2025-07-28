@@ -8,6 +8,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private float _chaseRange = 5f;
     [SerializeField] private float _attackRange = 1.2f;
     [SerializeField] private float _stunTime = 0f;
+    [SerializeField] bool setIdle = false;
 
     [Header("Salto")]
     [SerializeField] private float _jumpForce = 7f;
@@ -25,6 +26,8 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask playerLayers;
     private bool isAttacking = false;
+
+    public bool IsAttacking => isAttacking;
 
     [Header("Detección")]
     [SerializeField] private Transform _player;
@@ -78,7 +81,8 @@ public class EnemyBehaviour : MonoBehaviour
                 HandleAttack();
                 break;
         }
-        if (currentState != State.Attack)
+
+        if (!isAttacking)
             FlipSprite();
     }
 
@@ -87,6 +91,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (distanceToPlayer <= _chaseRange)
         {
             currentState = State.Move;
+            setIdle = false;
         }
         else
         {
@@ -97,9 +102,13 @@ public class EnemyBehaviour : MonoBehaviour
     void SetIdle()
     {
         if (IsGrounded())
-            _rb.velocity = new Vector2(0f, 0f);
-        else
-            _rb.velocity = new Vector2(0f, _rb.velocity.y);
+            if (!setIdle)
+            {
+                _rb.velocity = new Vector2(0f, 0f);
+                setIdle = true;
+            }
+            else
+                _rb.velocity = new Vector2(0f, _rb.velocity.y);
 
         _animator.SetBool("IsRunning", false);
     }
@@ -112,7 +121,11 @@ public class EnemyBehaviour : MonoBehaviour
     void HandleAttack()
     {
         if (!isAttacking)
-            _rb.velocity = new Vector2(0f, _rb.velocity.y);
+            if (!setIdle)
+            {
+                _rb.velocity = new Vector2(0f, _rb.velocity.y);
+                setIdle = true;
+            }
         _animator.SetBool("IsRunning", false);
         TryAttack();
     }
@@ -169,11 +182,12 @@ public class EnemyBehaviour : MonoBehaviour
         if (Time.time >= _nextAttackTime)
         {
             _nextAttackTime = Time.time + _attackCooldown;
-            
+
             isAttacking = true;
 
             if (_animator != null)
                 _animator.SetTrigger("Attack");
+                setIdle = false;
         }
     }
 

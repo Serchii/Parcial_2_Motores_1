@@ -21,6 +21,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float attackPushForce = 6f;
     [SerializeField] private float attackFrictionFactor = 0.8f;
+    [SerializeField] bool attackWithKnockback = false;
 
     [SerializeField] bool isHitting = false;
     [SerializeField] PlayerMovement playerMovement;
@@ -39,7 +40,6 @@ public class PlayerAttack : MonoBehaviour
     {
         if (playerHealth.IsAlive && !playerMovement.IsKnockedBack)
             Combo();
-            //HandleAttack();
     }
 
     void FixedUpdate()
@@ -72,6 +72,9 @@ public class PlayerAttack : MonoBehaviour
                 //audioSource.clip = attackSounds[combo];
                 //audioSource.Play();
 
+                //Genero el knockback solo en el ultimo golpe
+                attackWithKnockback = combo >= 2;
+
                 float direction = transform.localScale.x > 0 ? 1f : -1f;
 
                 rb.AddForce(new Vector2(direction * attackPushForce, 0f), ForceMode2D.Impulse);
@@ -85,7 +88,7 @@ public class PlayerAttack : MonoBehaviour
                     if (enemyHealth != null)
                     {
                         Vector2 knockbackDir = enemy.transform.position - transform.position;
-                        enemyHealth.TakeDamage(attackDamage, knockbackDir, knockbackForce);
+                        enemyHealth.TakeDamage(attackDamage, knockbackDir, knockbackForce, attackWithKnockback);
                     }
                 }
             }

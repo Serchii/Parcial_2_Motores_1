@@ -2895,6 +2895,14 @@ PrefabInstance:
       propertyPath: killEnemies
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 373741533242146261, guid: ff4ddcfbcbce48f4b984bb6ffd8817eb, type: 3}
+      propertyPath: objetsToActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 373741533242146261, guid: ff4ddcfbcbce48f4b984bb6ffd8817eb, type: 3}
+      propertyPath: objetsToActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 2047745293}
     - target: {fileID: 5738039544148354902, guid: ff4ddcfbcbce48f4b984bb6ffd8817eb, type: 3}
       propertyPath: m_Name
       value: Objective
@@ -4945,7 +4953,7 @@ Transform:
   m_GameObject: {fileID: 1595848298}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -58.087975, y: -7.44, z: -10.073344}
+  m_LocalPosition: {x: -58.08584, y: -7.44, z: -10.073344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

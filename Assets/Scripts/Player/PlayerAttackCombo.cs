@@ -77,7 +77,7 @@ public class PlayerAttackCombo : MonoBehaviour
             if (enemyHealth != null)
             {
                 Vector2 knockbackDir = enemy.transform.position - transform.position;
-                enemyHealth.TakeDamage(attackDamage, knockbackDir, knockbackForce);
+                //enemyHealth.TakeDamage(attackDamage, knockbackDir, knockbackForce);
             }
         }
 
