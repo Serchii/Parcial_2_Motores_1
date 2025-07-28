@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class LevelManager : MonoBehaviour
 {
@@ -6,11 +7,11 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private ClueUIManager clueUIManager;
     [SerializeField] private int requiredClues = 2;
-    [SerializeField] AudioSource audioSource;
-    [SerializeField] AudioClip clueFound;
-    private int currentClues = 0;
-
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip clueFound;
     [SerializeField] private PuzzleTrigger puzzleTrigger;
+
+    private List<string> collectedClues = new List<string>();
 
     private void Awake()
     {
@@ -24,8 +25,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        currentClues = 0;
-        clueUIManager?.UpdateClueUI(currentClues, requiredClues);
+        collectedClues.Clear();
+        clueUIManager?.SetupNotebook(requiredClues);
         audioSource = GetComponent<AudioSource>();
 
         if (puzzleTrigger != null)
@@ -34,27 +35,31 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void CollectClue()
+    public void CollectClue(string clueName)
     {
-        currentClues++;
-        clueUIManager?.UpdateClueUI(currentClues, requiredClues);
-        Debug.Log($"Pistas recogidas: {currentClues}/{requiredClues}");
-
-        if (audioSource != null && clueFound != null)
+        if (collectedClues.Count < requiredClues)
         {
-            audioSource.clip = clueFound;
-            audioSource.Play();
+            collectedClues.Add(clueName);
+            clueUIManager?.RevealClue(collectedClues.Count - 1, clueName);
 
-            if (MusicManager.Instance != null)
+            Debug.Log($"Pistas recogidas: {collectedClues.Count}/{requiredClues}");
+
+            if (audioSource != null && clueFound != null)
             {
-                MusicManager.Instance.FadeOutAndIn();
-            }
-        }
+                audioSource.clip = clueFound;
+                audioSource.Play();
 
-        if (currentClues >= requiredClues)
+                if (MusicManager.Instance != null)
+                {
+                    MusicManager.Instance.FadeOutAndIn();
+                }
+            }
+
+            if (collectedClues.Count >= requiredClues)
             {
                 ActivatePuzzleIfExists();
             }
+        }
     }
 
     private void ActivatePuzzleIfExists()
@@ -77,8 +82,8 @@ public class LevelManager : MonoBehaviour
 
     public void StartLevelManualmente()
     {
-        currentClues = 0;
-        clueUIManager?.UpdateClueUI(currentClues, requiredClues);
+        collectedClues.Clear();
+        clueUIManager?.SetupNotebook(requiredClues);
         Debug.Log("Nivel iniciado manualmente.");
     }
 }

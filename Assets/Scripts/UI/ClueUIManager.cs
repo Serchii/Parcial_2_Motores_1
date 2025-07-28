@@ -1,19 +1,67 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 public class ClueUIManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI clueText;
+    [Header("Notebook UI")]
+    [SerializeField] private GameObject notebookUI; // Panel de la libreta
+    [SerializeField] private RectTransform clueListParent; // Donde instanciamos los slots
+    [SerializeField] private GameObject clueSlotPrefab; // Prefab del slot de pista
 
-    public void UpdateClueUI(int current, int required)
+    private List<TextMeshProUGUI> clueTexts = new List<TextMeshProUGUI>();
+
+    private void Start()
     {
-        if (clueText != null)
+        CloseNotebook();
+    }
+
+    public void SetupNotebook(int requiredClues)
+    {
+        foreach (Transform child in clueListParent)
         {
-            clueText.text = $"{current}/{required}";
+            Destroy(child.gameObject);
         }
-        else
+
+        clueTexts.Clear();
+
+        for (int i = 0; i < requiredClues; i++)
         {
-            Debug.LogWarning("No hay TextMeshProUGUI asignado a ClueUIManager.");
+            GameObject slot = Instantiate(clueSlotPrefab, clueListParent);
+            var text = slot.GetComponentInChildren<TextMeshProUGUI>();
+            if (text != null)
+            {
+                text.text = "?";
+                clueTexts.Add(text);
+            }
+        }
+    }
+
+    public void RevealClue(int index, string clueName)
+    {
+        if (index >= 0 && index < clueTexts.Count)
+        {
+            clueTexts[index].text = clueName;
+        }
+    }
+
+    public void ToggleNotebook()
+    {
+        if (notebookUI != null)
+            notebookUI.SetActive(!notebookUI.activeSelf);
+    }
+
+    public void CloseNotebook()
+    {
+        if (notebookUI != null)
+            notebookUI.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            ToggleNotebook();
         }
     }
 }

@@ -563,7 +563,7 @@ Transform:
   m_GameObject: {fileID: 268839743}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.81286836, y: 0.064310074, z: -10.073344}
+  m_LocalPosition: {x: -0.81900644, y: 0.06427002, z: -10.073344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1633,6 +1633,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afcdc7050614aa74a837a4d9952c827b, type: 3}
+--- !u!1 &939162559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8643782027210685612, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
+  m_PrefabInstance: {fileID: 5705592974203679381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &973499575 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7628699736423289373, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
+  m_PrefabInstance: {fileID: 5705592974203679381}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1080645454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2299,6 +2309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactKey: 101
+  clueName: Pista misteriosa
 --- !u!61 &1258115919
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2618,6 +2629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactKey: 101
+  clueName: Pista misteriosa
 --- !u!61 &1364842578
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4319,6 +4331,18 @@ PrefabInstance:
       propertyPath: initialLayout.Array.data[8].rotation
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7836081489112132340, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
+      propertyPath: notebookUI
+      value: 
+      objectReference: {fileID: 939162559}
+    - target: {fileID: 7836081489112132340, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
+      propertyPath: clueListParent
+      value: 
+      objectReference: {fileID: 973499575}
+    - target: {fileID: 7836081489112132340, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
+      propertyPath: clueSlotPrefab
+      value: 
+      objectReference: {fileID: 8998740088412855487, guid: 38f8fb07b4d615c41bb1bda2ca2a6d1f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
