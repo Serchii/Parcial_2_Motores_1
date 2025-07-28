@@ -27,7 +27,11 @@ public class LevelManager : MonoBehaviour
     {
         collectedClues.Clear();
         clueUIManager?.SetupNotebook(requiredClues);
-        audioSource = GetComponent<AudioSource>();
+
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
 
         if (puzzleTrigger != null)
         {

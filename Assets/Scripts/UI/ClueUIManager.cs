@@ -5,9 +5,9 @@ using System.Collections.Generic;
 public class ClueUIManager : MonoBehaviour
 {
     [Header("Notebook UI")]
-    [SerializeField] private GameObject notebookUI; // Panel de la libreta
-    [SerializeField] private RectTransform clueListParent; // Donde instanciamos los slots
-    [SerializeField] private GameObject clueSlotPrefab; // Prefab del slot de pista
+    [SerializeField] private GameObject notebookUI;           
+    [SerializeField] private RectTransform clueListParent;     
+    [SerializeField] private GameObject clueSlotPrefab;       
 
     private List<TextMeshProUGUI> clueTexts = new List<TextMeshProUGUI>();
 
@@ -31,8 +31,12 @@ public class ClueUIManager : MonoBehaviour
             var text = slot.GetComponentInChildren<TextMeshProUGUI>();
             if (text != null)
             {
-                text.text = "?";
+                text.text = "?"; 
                 clueTexts.Add(text);
+            }
+            else
+            {
+                Debug.LogWarning("No se encontró TextMeshProUGUI en el slot de pista.");
             }
         }
     }
@@ -48,13 +52,19 @@ public class ClueUIManager : MonoBehaviour
     public void ToggleNotebook()
     {
         if (notebookUI != null)
-            notebookUI.SetActive(!notebookUI.activeSelf);
+        {
+            bool isActive = !notebookUI.activeSelf;
+            notebookUI.SetActive(isActive);
+            Debug.Log("Notebook " + (isActive ? "abierto" : "cerrado"));
+        }
     }
 
     public void CloseNotebook()
     {
         if (notebookUI != null)
+        {
             notebookUI.SetActive(false);
+        }
     }
 
     private void Update()
