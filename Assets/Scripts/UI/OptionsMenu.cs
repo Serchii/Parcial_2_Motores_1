@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
+using System.Collections;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -11,9 +13,14 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] Slider musicSlider;
     [SerializeField] Slider sfxSlider;
 
+    private bool active = false;
+
     void Start()
     {
         float value;
+        int ID = PlayerPrefs.GetInt("LocaleKey", 0);
+
+        ChangeLocale(ID);
 
         if (PlayerPrefs.HasKey("MusicVolume"))
         {
@@ -36,6 +43,23 @@ public class OptionsMenu : MonoBehaviour
         {
             sfxSlider.value = DbToSlider(value);
         }
+    }
+
+    public void ChangeLocale(int localeID)
+    {
+        if (active)
+            return;
+
+        StartCoroutine(SetLocale(localeID));
+    }
+
+    private IEnumerator SetLocale(int localeID)
+    {
+        active = true;
+        yield return LocalizationSettings.InitializationOperation;
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[localeID];
+        PlayerPrefs.SetInt("LocaleKey", localeID);
+        active = false;
     }
 
     public void SetMusicVolume(float value)

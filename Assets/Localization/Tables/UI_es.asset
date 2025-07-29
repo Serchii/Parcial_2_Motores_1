@@ -46,6 +46,10 @@ MonoBehaviour:
     m_Localized: 'PISTAS: 0'
     m_Metadata:
       m_Items: []
+  - m_Id: 3604522450096128
+    m_Localized: IDIOMA
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
