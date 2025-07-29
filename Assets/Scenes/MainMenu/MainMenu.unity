@@ -1185,7 +1185,7 @@ GameObject:
   - component: {fileID: 264602696}
   - component: {fileID: 264602697}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: SFXVol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1263,7 +1263,19 @@ MonoBehaviour:
   m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 510079745}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: SetSFXVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &270279701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,7 +1700,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ca4703f40680b4a80b36a3ef508133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeSlider: {fileID: 913892791}
+  audioMixer: {fileID: 24100000, guid: 5b7fa9739cd703141ad1967a3d3337a9, type: 2}
+  musicSlider: {fileID: 913892791}
+  sfxSlider: {fileID: 264602697}
 --- !u!114 &510079746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2091,17 +2105,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &775842257 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3708194927638302730, guid: 3b635c228cd32ec42859a20657829db7, type: 3}
-  m_PrefabInstance: {fileID: 1868888994}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d46e52bd1c5815148b2f2fb2a8dd0390, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &913892789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,7 +2116,7 @@ GameObject:
   - component: {fileID: 913892790}
   - component: {fileID: 913892791}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: MusicVol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2192,9 +2195,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 775842257}
-        m_TargetAssemblyTypeName: MusicManager, Assembly-CSharp
-        m_MethodName: SetVolume
+      - m_Target: {fileID: 510079745}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: SetMusicVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
