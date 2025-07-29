@@ -13,12 +13,17 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] Slider musicSlider;
     [SerializeField] Slider sfxSlider;
 
+    [Header("Audio Source")]
+    [SerializeField] AudioSource sfxExample;
+
     private bool active = false;
 
     void Start()
     {
         float value;
         int ID = PlayerPrefs.GetInt("LocaleKey", 0);
+
+        sfxExample = GetComponent<AudioSource>();
 
         ChangeLocale(ID);
 
@@ -74,6 +79,7 @@ public class OptionsMenu : MonoBehaviour
         audioMixer.SetFloat("SFXVolume", SliderToDb(value));
         PlayerPrefs.SetFloat("SFXVolume", value);
         PlayerPrefs.Save();
+        sfxExample.Play();
     }
 
     float SliderToDb(float sliderValue)
