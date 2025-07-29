@@ -19,38 +19,39 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 47378403328
-    m_Localized: "Henry: What the hell!? I must\u2019ve passed out from exhaustion.
+    m_Localized: "Henry:<br>What the hell!? I must\u2019ve passed out from exhaustion.
       I better leave here immediately!"
     m_Metadata:
       m_Items: []
   - m_Id: 535989653504
-    m_Localized: "Henry: Hmm, that does sound promising! I better leave right away
-      before they notice I\u2019m still here. I must find the house of that woman\u2026"
+    m_Localized: "Henry:<br>Hmm, that does sound promising! I better leave right
+      away before they notice I\u2019m still here. I must find the house of that
+      woman\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 419283144704
-    m_Localized: "Unknown voice: Did that boy leave already? I don\u2019t want anyone
-      overhearing us."
+    m_Localized: "Unknown voice:<br>Did that boy leave already? I don\u2019t want
+      anyone overhearing us."
     m_Metadata:
       m_Items: []
   - m_Id: 523977166848
-    m_Localized: "House owner: Yeah! He must\u2019ve left hours ago! Just shoot it!
-      What are we doing tonight?"
+    m_Localized: "House owner:<br>Yeah! He must\u2019ve left hours ago! Just shoot
+      it! What are we doing tonight?"
     m_Metadata:
       m_Items: []
   - m_Id: 531073929216
-    m_Localized: "Unknown voice: Well, the boss planned this kidnapping, the daughter
+    m_Localized: "Unknown voice:<br>Well, the boss planned this kidnapping, the daughter
       of that wealthy lady at the end of the street\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 3359803132416000
-    m_Localized: "House Owner: Hey, boy! Go upstairs and fix the bathroom. Please
+    m_Localized: "House Owner:<br>Hey, boy! Go upstairs and fix the bathroom. Please
       do not mess with other rooms, the woman of the house does not like that. You\u2019ll
       get the money when you\u2019re done!"
     m_Metadata:
       m_Items: []
   - m_Id: 3378980756983808
-    m_Localized: 'Henry: Well, i finally finished. All that work left me exhausted.'
+    m_Localized: Henry:<br>Well, i finally finished. All that work left me exhausted.
     m_Metadata:
       m_Items: []
   references:

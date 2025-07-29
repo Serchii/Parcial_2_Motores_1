@@ -1729,7 +1729,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8882893659418366694, guid: 5b7fa9739cd703141ad1967a3d3337a9, type: 2}
   m_audioClip: {fileID: 8300000, guid: a87c93547dd214f479605a37e1f23a5f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3798,7 +3798,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4833198690570546691, guid: f211b454660443d47960c6861f777262, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1724672080}
   m_SourcePrefab: {fileID: 100100000, guid: f211b454660443d47960c6861f777262, type: 3}
 --- !u!224 &1331755650 stripped
 RectTransform:
@@ -5073,6 +5076,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700698996}
   m_CullTransparentMesh: 1
+--- !u!1 &1724672076 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4833198690570546691, guid: f211b454660443d47960c6861f777262, type: 3}
+  m_PrefabInstance: {fileID: 1331755649}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1724672078 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5159817035521305976, guid: f211b454660443d47960c6861f777262, type: 3}
+  m_PrefabInstance: {fileID: 1331755649}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724672076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1724672080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724672076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:9c241a204be37874cbbd442e34a2ea7c
+    m_TableEntryReference:
+      m_KeyId: 3747158930558976
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1724672078}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1767573380
 GameObject:
   m_ObjectHideFlags: 0
@@ -5434,6 +5493,10 @@ PrefabInstance:
     - target: {fileID: 5994950071697059425, guid: 3b635c228cd32ec42859a20657829db7, type: 3}
       propertyPath: m_Name
       value: MusicManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820803219538425184, guid: 3b635c228cd32ec42859a20657829db7, type: 3}
+      propertyPath: m_Volume
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

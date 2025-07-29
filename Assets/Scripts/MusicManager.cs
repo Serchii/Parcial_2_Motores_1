@@ -42,9 +42,6 @@ public class MusicManager : MonoBehaviour
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
 
-        float savedVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
-        audioSource.volume = savedVolume;
-
         currentScene = SceneManager.GetActiveScene().name;
         PlayMusicForScene(currentScene);
     }
@@ -84,12 +81,6 @@ public class MusicManager : MonoBehaviour
             audioSource.clip = newClip;
             audioSource.Play();
         }
-    }
-
-    public void SetVolume(float volume)
-    {
-        audioSource.volume = volume;
-        PlayerPrefs.SetFloat("MusicVolume", volume);
     }
 
     public void FadeOutAndIn(float fadeDuration = 1f, float targetVolume = 1f, float lowerVolume = 0.2f)

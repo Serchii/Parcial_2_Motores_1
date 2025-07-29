@@ -184,3 +184,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 3868006190936995691}
+  moneyTranslated: 
+  moneyTextKey: MoneyText
+  tableName: UI

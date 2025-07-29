@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 197046860}
   - component: {fileID: 197046862}
   - component: {fileID: 197046861}
+  - component: {fileID: 197046863}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -248,10 +249,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Continue
+  m_text: CONTINUAR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 13c70b55d23ae9b42b20dcbd583ac2c4, type: 2}
-  m_sharedMaterial: {fileID: 450928417448180378, guid: 13c70b55d23ae9b42b20dcbd583ac2c4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0be475a7f880cba40844a80deff2b37f, type: 2}
+  m_sharedMaterial: {fileID: -4426288966130096699, guid: 0be475a7f880cba40844a80deff2b37f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -275,13 +276,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -325,6 +326,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197046859}
   m_CullTransparentMesh: 1
+--- !u!114 &197046863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197046859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:9c241a204be37874cbbd442e34a2ea7c
+    m_TableEntryReference:
+      m_KeyId: 3758079698604032
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 197046861}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &322819598
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,8 +659,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d27dc74ad2bb4614cb28f0e43c0917c4, type: 2}
-  m_sharedMaterial: {fileID: 3004146876241997000, guid: d27dc74ad2bb4614cb28f0e43c0917c4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 554f928eb03402a47824f6e6550e79a9, type: 2}
+  m_sharedMaterial: {fileID: 6709416636864451006, guid: 554f928eb03402a47824f6e6550e79a9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1264,7 +1305,7 @@ MonoBehaviour:
     to try and get rid of all the criminal networks in town.\r\n\r\nHe was exhausted
     again, fighting criminals was a heavy exercise, but he was starting his new day
     with a lot of prospects in mind\u2026\r\n"
-  typingSpeed: 0.04
+  typingSpeed: 0.03
 --- !u!114 &1567845410
 MonoBehaviour:
   m_ObjectHideFlags: 0

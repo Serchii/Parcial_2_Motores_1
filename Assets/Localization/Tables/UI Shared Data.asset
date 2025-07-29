@@ -47,6 +47,30 @@ MonoBehaviour:
     m_Key: LanguageOptions
     m_Metadata:
       m_Items: []
+  - m_Id: 3747158930558976
+    m_Key: LoadingBar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3756371761238016
+    m_Key: PauseText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3756492024516608
+    m_Key: ResumeBtn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3756545233457152
+    m_Key: RestartBtn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3756712540049408
+    m_Key: MoneyText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3758079698604032
+    m_Key: ContinueBtn
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -19,39 +19,40 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 47378403328
-    m_Localized: "Henry: \xBF\xA1Qu\xE9 demonios!? Debo haberme desmayado de cansancio.
+    m_Localized: "Henry:<br>\xBF\xA1Qu\xE9 demonios!? Debo haberme desmayado de cansancio.
       \xA1Mejor me voy de aqu\xED inmediatamente!"
     m_Metadata:
       m_Items: []
   - m_Id: 535989653504
-    m_Localized: "Henry: Hmm, \xA1eso suena prometedor! Ser\xE1 mejor que me vaya
+    m_Localized: "Henry:<br>Hmm, \xA1eso suena prometedor! Ser\xE1 mejor que me vaya
       enseguida antes de que se den cuenta de que sigo aqu\xED. Debo encontrar la
       casa de esa mujer..."
     m_Metadata:
       m_Items: []
   - m_Id: 419283144704
-    m_Localized: "Voz desconocida: \xBFYa se fue ese chico? No quiero que nadie nos
-      oiga."
+    m_Localized: "Voz desconocida:<br>\xBFYa se fue ese chico? No quiero que nadie
+      nos oiga."
     m_Metadata:
       m_Items: []
   - m_Id: 523977166848
-    m_Localized: "Propietario de la casa: \xA1S\xED! \xA1Debe haberse ido hace horas!
-      \xA1Solo dilo! \xBFQu\xE9 vamos a hacer esta noche?"
+    m_Localized: "Propietario de la casa:<br>\xA1S\xED! \xA1Debe haberse ido hace
+      horas! \xA1Solo dilo! \xBFQu\xE9 vamos a hacer esta noche?"
     m_Metadata:
       m_Items: []
   - m_Id: 531073929216
-    m_Localized: "Voz desconocida: Bueno, el jefe plane\xF3 este secuestro, la hija
-      de esa se\xF1ora rica al final de la calle..."
+    m_Localized: "Voz desconocida:<br>Bueno, el jefe plane\xF3 este secuestro, la
+      hija de esa se\xF1ora rica al final de la calle..."
     m_Metadata:
       m_Items: []
   - m_Id: 3359803132416000
-    m_Localized: "Propietario de la casa: \xA1Oye, chico! Sube y arregla el ba\xF1o.
+    m_Localized: "Propietario de la casa:<br>\xA1Oye, chico! Sube y arregla el ba\xF1o.
       Por favor, no toques las otras habitaciones, a la due\xF1a de la casa no le
       gusta eso. \xA1Te pagar\xE9 cuando termines!"
     m_Metadata:
       m_Items: []
   - m_Id: 3378980756983808
-    m_Localized: "Henry: Bueno, por fin termin\xE9. Todo ese trabajo me dej\xF3 exhausto."
+    m_Localized: "Henry:<br>Bueno, por fin termin\xE9. Todo ese trabajo me dej\xF3
+      exhausto."
     m_Metadata:
       m_Items: []
   references:

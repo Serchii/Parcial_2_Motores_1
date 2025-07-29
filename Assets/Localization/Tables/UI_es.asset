@@ -50,6 +50,30 @@ MonoBehaviour:
     m_Localized: IDIOMA
     m_Metadata:
       m_Items: []
+  - m_Id: 3747158930558976
+    m_Localized: CARGANDO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3756371761238016
+    m_Localized: PAUSA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3756712540049408
+    m_Localized: 'Dinero: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3756545233457152
+    m_Localized: REANUDAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3756492024516608
+    m_Localized: RESUMIR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3758079698604032
+    m_Localized: CONTINUAR
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

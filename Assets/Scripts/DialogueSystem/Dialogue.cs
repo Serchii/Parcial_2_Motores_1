@@ -95,22 +95,45 @@ public class Dialogue : MonoBehaviour
         int index = 0;
         dialogueText.text = string.Empty;
 
-        // Obtener texto traducido desde Localization
         var localizedLine = new LocalizedString(tableName, dialogueKeys[lineIndex]);
         var handle = localizedLine.GetLocalizedStringAsync();
         yield return handle;
 
         currentDialog = handle.Result;
 
+        bool insideTag = false;
+        string tagBuffer = "";
+
         foreach (char ch in currentDialog)
         {
+            if (ch == '<')
+            {
+                insideTag = true;
+                tagBuffer += ch;
+                continue;
+            }
+            else if (ch == '>' && insideTag)
+            {
+                tagBuffer += ch;
+                dialogueText.text += tagBuffer; // Agregamos etiqueta completa de una
+                tagBuffer = "";
+                insideTag = false;
+                continue;
+            }
+
+            if (insideTag)
+            {
+                tagBuffer += ch;
+                continue;
+            }
+
             dialogueText.text += ch;
             yield return new WaitForSecondsRealtime(typingTime);
 
             if (audioSource != null && dialogVoice != null && index % 2 == 0)
             {
                 audioSource.clip = dialogVoice;
-                audioSource.pitch = Random.Range(pitchVoice - 0.1f, pitchVoice + 0.1f);
+                audioSource.pitch = Random.Range(pitchVoice - 0.05f, pitchVoice + 0.05f);
                 audioSource.Play();
             }
 
