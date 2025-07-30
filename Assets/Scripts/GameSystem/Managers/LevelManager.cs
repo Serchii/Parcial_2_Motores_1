@@ -26,8 +26,6 @@ public class LevelManager : MonoBehaviour
 
     private List<GameObject> registeredDoors = new List<GameObject>();
 
-    private bool levelStarted = false;
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -35,7 +33,6 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
@@ -52,10 +49,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        if (!levelStarted)
-        {
-            StartLevel(currentLevelIndex);
-        }
+        StartLevel(0);
     }
 
     public void StartLevel(int levelIndex)
@@ -70,42 +64,44 @@ public class LevelManager : MonoBehaviour
         currentLevel = levelCollection.levels[levelIndex];
         collectedClues.Clear();
         registeredDoors.Clear();
-        levelStarted = true;
 
         clueUIManager?.SetupNotebook(currentLevel.requiredClues);
-        StartCoroutine(LoadLevelScenes(currentLevel.levelScenes));
+        LoadLevelScenes(currentLevel.levelScenes);
+
         Debug.Log($"Iniciando nivel {levelIndex}: {currentLevel.name}");
     }
 
-    private IEnumerator<AsyncOperation> LoadLevelScenes(string[] scenes)
+    public void StartLevelManualmente()
     {
-        if (scenes.Length == 0) yield break;
+        StartLevel(currentLevelIndex);
+    }
 
-        List<string> currentLoadedScenes = new List<string>();
+    private void LoadLevelScenes(string[] scenes)
+    {
+        if (scenes.Length == 0) return;
+
+        HashSet<string> loadedScenes = new HashSet<string>();
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
-            currentLoadedScenes.Add(SceneManager.GetSceneAt(i).name);
+            loadedScenes.Add(SceneManager.GetSceneAt(i).name);
         }
 
-        foreach (string sceneName in currentLoadedScenes)
+        for (int i = 0; i < scenes.Length; i++)
         {
-            if (!System.Array.Exists(scenes, s => s == sceneName))
+            string sceneName = scenes[i];
+            if (!IsSceneInBuild(sceneName))
             {
-                yield return SceneManager.UnloadSceneAsync(sceneName);
+                Debug.LogError($"La escena '{sceneName}' no está en Build Settings.");
+                continue;
             }
-        }
 
-        if (IsSceneInBuild(scenes[0]))
-        {
-            yield return SceneManager.LoadSceneAsync(scenes[0], LoadSceneMode.Single);
-        }
-
-        for (int i = 1; i < scenes.Length; i++)
-        {
-            if (IsSceneInBuild(scenes[i]))
+            if (loadedScenes.Contains(sceneName))
             {
-                yield return SceneManager.LoadSceneAsync(scenes[i], LoadSceneMode.Additive);
+                Debug.Log($"La escena '{sceneName}' ya está cargada. Se salta.");
+                continue;
             }
+
+            SceneManager.LoadScene(sceneName, i == 0 ? LoadSceneMode.Single : LoadSceneMode.Additive);
         }
     }
 
