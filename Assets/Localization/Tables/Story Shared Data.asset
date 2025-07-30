@@ -19,6 +19,14 @@ MonoBehaviour:
     m_Key: IntroText1
     m_Metadata:
       m_Items: []
+  - m_Id: 18096689057792
+    m_Key: IntroText2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18134462959616
+    m_Key: IntroText3
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -2,11 +2,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
+using System.Linq;
 
 public class GameSceneManager : MonoBehaviour
 {
     public static GameSceneManager Instance { get; private set; }
     [SerializeField] UITransitionManager transition;
+    [SerializeField] string[] startDay;
 
     public static event Action OnSceneFullyLoaded;
 
@@ -85,9 +87,24 @@ public class GameSceneManager : MonoBehaviour
         {
             GameManager.Instance.SavePlayerHealth(player.Health, player.MaxHealth);
         }
-        
+
+        if (startDay.Contains(sceneName))
+        {
+            SetDayClock();
+        }
+
         isChanging = false;
         Time.timeScale = 1f;
         OnSceneFullyLoaded?.Invoke();
+    }
+
+    void SetDayClock()
+    {
+        //Logica de seteo de horario Dia
+    }
+
+    void SetNightClock()
+    {
+        //Logica de seteo de horario Noche
     }
 }
