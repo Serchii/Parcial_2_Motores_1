@@ -5,9 +5,9 @@ using System.Collections.Generic;
 public class ClueUIManager : MonoBehaviour
 {
     [Header("Notebook UI")]
-    [SerializeField] private GameObject notebookUI;           
-    [SerializeField] private RectTransform clueListParent;     
-    [SerializeField] private GameObject clueSlotPrefab;       
+    [SerializeField] private GameObject notebookUI;
+    [SerializeField] private RectTransform clueListParent;
+    [SerializeField] private GameObject clueSlotPrefab;
 
     private List<TextMeshProUGUI> clueTexts = new List<TextMeshProUGUI>();
 
@@ -18,9 +18,15 @@ public class ClueUIManager : MonoBehaviour
 
     public void SetupNotebook(int requiredClues)
     {
-        foreach (Transform child in clueListParent)
+        if (clueListParent == null)
         {
-            Destroy(child.gameObject);
+            Debug.LogWarning("clueListParent es null o destruido en SetupNotebook.");
+            return;
+        }
+
+        for (int i = clueListParent.childCount - 1; i >= 0; i--)
+        {
+            Destroy(clueListParent.GetChild(i).gameObject);
         }
 
         clueTexts.Clear();
@@ -31,7 +37,7 @@ public class ClueUIManager : MonoBehaviour
             var text = slot.GetComponentInChildren<TextMeshProUGUI>();
             if (text != null)
             {
-                text.text = "?"; 
+                text.text = "?";
                 clueTexts.Add(text);
             }
             else

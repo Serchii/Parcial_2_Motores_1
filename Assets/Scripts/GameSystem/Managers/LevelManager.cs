@@ -47,10 +47,6 @@ public class LevelManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    private void Start()
-    {
-        StartLevel(0);
-    }
 
     public void StartLevel(int levelIndex)
     {
@@ -73,35 +69,32 @@ public class LevelManager : MonoBehaviour
 
     public void StartLevelManualmente()
     {
-        StartLevel(currentLevelIndex);
+        if (currentLevel == null)
+        {
+            Debug.LogWarning("No hay nivel activo para iniciar manualmente.");
+            return;
+        }
+        clueUIManager?.SetupNotebook(currentLevel.requiredClues);
+        collectedClues.Clear();
+        registeredDoors.Clear();
+        Debug.Log($"Nivel manual iniciado: {currentLevel.name}");
     }
 
     private void LoadLevelScenes(string[] scenes)
     {
         if (scenes.Length == 0) return;
 
-        HashSet<string> loadedScenes = new HashSet<string>();
-        for (int i = 0; i < SceneManager.sceneCount; i++)
-        {
-            loadedScenes.Add(SceneManager.GetSceneAt(i).name);
-        }
-
         for (int i = 0; i < scenes.Length; i++)
         {
             string sceneName = scenes[i];
-            if (!IsSceneInBuild(sceneName))
+            if (IsSceneInBuild(sceneName))
             {
-                Debug.LogError($"La escena '{sceneName}' no está en Build Settings.");
-                continue;
+                SceneManager.LoadScene(sceneName, i == 0 ? LoadSceneMode.Single : LoadSceneMode.Additive);
             }
-
-            if (loadedScenes.Contains(sceneName))
+            else
             {
-                Debug.Log($"La escena '{sceneName}' ya está cargada. Se salta.");
-                continue;
+                Debug.LogError($"La escena '{sceneName}' no está en Build Settings y no se puede cargar.");
             }
-
-            SceneManager.LoadScene(sceneName, i == 0 ? LoadSceneMode.Single : LoadSceneMode.Additive);
         }
     }
 
@@ -180,6 +173,43 @@ public class LevelManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (currentLevel == null)
+        {
+            Debug.LogWarning("No hay nivel activo en LevelManager.");
+            gameObject.SetActive(false);
+            return;
+        }
+
+        bool escenaPerteneceAlNivel = false;
+        int indexEnNivel = -1;
+
+        for (int i = 0; i < currentLevel.levelScenes.Length; i++)
+        {
+            if (currentLevel.levelScenes[i] == scene.name)
+            {
+                escenaPerteneceAlNivel = true;
+                indexEnNivel = i;
+                break;
+            }
+        }
+
+        if (escenaPerteneceAlNivel)
+        {
+            if (!gameObject.activeSelf) gameObject.SetActive(true);
+
+            if (indexEnNivel == 0)
+            {
+                Debug.Log($"Escena inicial del nivel {currentLevel.name} cargada. Iniciando nivel.");
+                StartLevelManualmente();
+            }
+        }
+        else
+        {
+            Debug.Log($"Escena {scene.name} NO pertenece al nivel {currentLevel.name}. Desactivando LevelManager.");
+            gameObject.SetActive(false);
+            return;
+        }
+
         if (sceneTransitionDoor == null)
         {
             GameObject foundDoor = GameObject.FindWithTag("SceneDoor");
