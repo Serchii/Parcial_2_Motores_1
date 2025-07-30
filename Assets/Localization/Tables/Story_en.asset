@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Story_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: a62bb9a7cc3667f4f9bf562f73fa4966, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 14436339712
+    m_Localized: "Henry is a young man who works as a handyman in a city flooded
+      by crime. \nEvery day he attends one of his clients\u2019 houses to fix something.
+      His life is a constant routine: he goes to work, gets paid, buys something
+      to improve his craft, and returns home. \nBut Henry has a gentle heart and
+      a wild and clever mind, and he\u2019d love to see his city thrive.  \n\nToday
+      he\u2019s attending an annual mandatory plumbing workshop at the National University
+      of Repairmanshift that he needs to fulfill in order to keep his license. Everything
+      seems to be quite boring, as usual\u2026 "
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

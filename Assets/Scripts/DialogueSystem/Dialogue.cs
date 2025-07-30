@@ -20,6 +20,10 @@ public class Dialogue : MonoBehaviour
     [SerializeField] int lineIndex;
     [SerializeField] float typingTime = 0.05f;
 
+    [Header("Objetos a Activar")]
+    [SerializeField] GameObject[] objectsToActivate;
+    [SerializeField] bool activateObjects = false;
+
     [Header("Sonido")]
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip dialogVoice;
@@ -63,7 +67,7 @@ public class Dialogue : MonoBehaviour
         lineIndex = 0;
         Time.timeScale = 0;
         StartCoroutine(ShowLine());
-        
+
     }
 
     void NextDialogueLine()
@@ -86,8 +90,13 @@ public class Dialogue : MonoBehaviour
         dialoguePanel.SetActive(false);
         //dialogueMark.SetActive(true);
         Time.timeScale = 1;
-        if(isTrigger)
-            dialogueTriggered = true; 
+        if (isTrigger)
+            dialogueTriggered = true;
+
+        if (activateObjects)
+        {
+            ActivateObjects();
+        }
     }
 
     IEnumerator ShowLine()
@@ -144,7 +153,7 @@ public class Dialogue : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player")) return;
-        
+
         isPlayerInRange = true;
 
         if (isTrigger && !dialogueTriggered)
@@ -160,6 +169,14 @@ public class Dialogue : MonoBehaviour
             isPlayerInRange = false;
             //dialogueMark.SetActive(false);
             Debug.Log("No mas dialogo");
+        }
+    }
+
+    void ActivateObjects()
+    {
+        foreach (GameObject obj in objectsToActivate)
+        {
+            obj.SetActive(true);
         }
     }
 }

@@ -457,6 +457,34 @@ PrefabInstance:
       propertyPath: money
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 7286733261846582368, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
+      propertyPath: initialLayout.Array.data[4].type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286733261846582368, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
+      propertyPath: initialLayout.Array.data[9].type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286733261846582368, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
+      propertyPath: initialLayout.Array.data[10].type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286733261846582368, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
+      propertyPath: initialLayout.Array.data[12].type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286733261846582368, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
+      propertyPath: initialLayout.Array.data[14].type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286733261846582368, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
+      propertyPath: initialLayout.Array.data[10].rotation
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286733261846582368, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
+      propertyPath: initialLayout.Array.data[12].rotation
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

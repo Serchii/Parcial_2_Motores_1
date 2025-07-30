@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 8e2bc4f8883a9ee41b7e4339f721251c
   m_SerializeEntries:
+  - m_GUID: 9c97250d8351c7e438179f30314f5f72
+    m_Address: Story_es
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: befeb94c26add434d96c5302b92dcec0
     m_Address: UI_es
     m_ReadOnly: 1

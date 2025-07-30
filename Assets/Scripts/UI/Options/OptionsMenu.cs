@@ -17,6 +17,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] AudioSource sfxExample;
 
     private bool active = false;
+    private bool sfxActive = false;
 
     void Start()
     {
@@ -79,7 +80,9 @@ public class OptionsMenu : MonoBehaviour
         audioMixer.SetFloat("SFXVolume", SliderToDb(value));
         PlayerPrefs.SetFloat("SFXVolume", value);
         PlayerPrefs.Save();
-        sfxExample.Play();
+        if(sfxActive)
+            sfxExample.Play();
+        sfxActive = true;
     }
 
     float SliderToDb(float sliderValue)
