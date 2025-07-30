@@ -44,3 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75dafec329543941a7848b15c6ea78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transition: {fileID: 0}
+  startDay:
+  - Lv1_Classroom
+  - Lv4_House_2
+  - House_1
