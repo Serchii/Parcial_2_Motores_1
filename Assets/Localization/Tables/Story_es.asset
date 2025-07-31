@@ -19,7 +19,104 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 14436339712
-    m_Localized: "hehe\n\ntexto espa\xF1ol prueba jajas"
+    m_Localized: "Henry es un joven que trabaja como manitas en un distrito urbano
+      plagado por el crimen. Todos los d\uFFFDas visita la casa de alguno de sus
+      clientes para arreglar algo. Su vida es una rutina constante: va a trabajar,
+      le pagan, compra algo para mejorar sus habilidades y regresa a casa. Pero Henry
+      es un alma gentil y muy inteligente y le encantar\uFFFDa que su ciudad prospere.\n\nHoy
+      asiste a un taller anual obligatorio de plomer\uFFFDa que debe completar para
+      poder mantener su licencia. Parece que el d\uFFFDa va a ser bastante aburrido,
+      como siempre\uFFFD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18096689057792
+    m_Localized: "Al acostarse la noche anterior, el coraz\uFFFDn de Henry lat\uFFFDa
+      al m\uFFFDximo. Acababa de matar a un hombre y experimentaba una monta\uFFFDa
+      rusa de emociones. La habitaci\uFFFDn giraba a su alrededor. No se sent\uFFFDa
+      culpable ni avergonzado. Se sent\uFFFDa fortalecido, rabioso. Sent\uFFFDa que
+      hac\uFFFDa lo correcto, pero le temblaba el cuerpo.\n\nEsa nota que encontr\uFFFD
+      en el cuerpo del tipo, ese tipo que ten\uFFFDa relaci\uFFFDn con uno de sus
+      clientes. Algo se encendi\uFFFD dentro de \uFFFDl; deb\uFFFDa descubrir m\uFFFDs
+      al respecto y detener el crimen.\n\nHoy ser\uFFFDa un d\uFFFDa muy largo\uFFFD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18134462959616
+    m_Localized: "Ahora ya era obvio. A Henry le gustaba pelear contra el crimen
+      y librar a la ciudad de estas plagas. Pero deb\uFFFDa seguir adelante y derrotar
+      a cuanto criminal pudiera para intentar deshacerse de todas las redes criminales
+      de la ciudad.\n\nDe nuevo estaba agotado, luchar contra el crimen era un ejercicio
+      pesado, pero comenzaba un nuevo d\uFFFDa con mucha expectativa\uFFFD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 233293047468032
+    m_Localized: Fixer Herald
+    m_Metadata:
+      m_Items: []
+  - m_Id: 233521918054400
+    m_Localized: "\uFFFDAcaso los justicieros son la \uFFFDnica esperanza?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 233584966832128
+    m_Localized: "Un joven evit\uFFFD que se llevara a cabo un robo ayer por la noche,
+      cuando decidi\uFFFD luchar contra un ladr\uFFFDn y termin\uFFFD mat\uFFFDndolo.
+      Seg\uFFFDn los testigos, el joven huy\uFFFD del lugar con una expresi\uFFFDn
+      perturbada.\n\nM\uFFFDs tarde se identific\uFFFD al ladr\uFFFDn como Ricky
+      Mandino, un pariente lejano de una de las familias m\uFFFDs adineradas de la
+      ciudad. La familia se neg\uFFFD a hablar, pero las fuentes m\uFFFDs allegadas
+      nos dicen que negaron siquiera saber que dicha persona estaba en la ciudad.\n\nSeg\uFFFDn
+      algunos testigos, el joven que evit\uFFFD el crimen estaba vestido con ropa
+      de trabajo y golpe\uFFFD al criminal con un martillo de madera. Esa informaci\uFFFDn
+      hace creer a la polic\uFFFDa que este aspirante a justiciero sal\uFFFDa de
+      la Universidad Nacional de Reparaciones. Sin embargo, cientos de personas de
+      todo el pa\uFFFDs realizan all\uFFFD sus ex\uFFFDmenes, as\uFFFD que sin m\uFFFDs
+      pistas ser\uFFFD casi imposible saber qui\uFFFDn era.\n\nLa universidad rechaz\uFFFD
+      el pedido de la polic\uFFFDa de otorgar una lista de estudiantes, as\uFFFD
+      que a menos que la polic\uFFFDa consiga una orden de allanamiento, el proceso
+      de entrevistas ser\uFFFD a\uFFFDn m\uFFFDs dif\uFFFDcil.\n\nPor el momento,
+      nosotros agradecemos a este hombre por librarnos de al menos un ser humano
+      criminal y despreciable."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 233672007028736
+    m_Localized: "Alguien se dedica a evitar cr\uFFFDmenes"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 233674859155456
+    m_Localized: "Parece que el asesinato del ladr\uFFFDn que vivimos hace unas noches
+      no fue un hecho aislado ni un accidente. Tenemos a un justiciero entre nosotros.\n\nAnoche,
+      un grupo de matones planeaban alguna actividad criminal que a\uFFFDn se est\uFFFD
+      investigando. Deambulaban los alrededores de la casa de la Sra. Scarlett vistiendo
+      ropa sospechosa y movi\uFFFDndose de forma misteriosa.\n\nLa Sra. Scarlett
+      no estaba en casa, pero su mucama se asust\uFFFD y llam\uFFFD a la polic\uFFFDa.
+      Resulta que cuando la polic\uFFFDa lleg\uFFFD, los matones hab\uFFFDan recibido
+      una paliza y estaban tirados en la calle.\n\nSeg\uFFFDn la mucama, no pudo
+      ver nada. Tras llamar a la polic\uFFFDa, se encerr\uFFFD en el ba\uFFFDo y
+      rez\uFFFD.\n\nLa polic\uFFFDa investiga la escena del crimen e intenta encontrar
+      pistas que apunten al sospechoso, aunque a la comunidad no le molesta mucho
+      que no se identifique al justiciero.\n\nLa polic\uFFFDa solicita que cualquiera
+      que tenga informaci\uFFFDn sobre lo sucedido llame al 555-8375-9821."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 233676738203648
+    m_Localized: "\xBFEl justiciero se est\uFFFD descuidando?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 233678415925248
+    m_Localized: "Tras un llamado a la polic\uFFFDa de un vecino al escuchar gritos,
+      anoche la polic\uFFFDa encontr\uFFFD varios trabajadores/criminales golpeados
+      brutalmente en la obra en construcci\uFFFDn.\n\nLa polic\uFFFDa no dio un n\uFFFDmero
+      exacto de v\uFFFDctimas, pero nosotros contamos al menos 5. Estos tipos estaban
+      disfrazados como trabajadores de la construcci\uFFFDn, o quiz\uFFFDs realmente
+      trabajaban all\uFFFD, pero ten\uFFFDan una doble vida o un motivo oculto para
+      estar all\uFFFD.\n\nEl sitio tiene una conexi\uFFFDn subterr\uFFFDnea directa
+      con el banco de la ciudad. La polic\uFFFDa cree que los hombres estaban cavando
+      un t\uFFFDnel para realizar un gran atraco, pero los interrumpi\uFFFD un hombre
+      misterioso en mitad de la noche.\n\nSeg\uFFFDn los informes preliminares, los
+      ladrones fueron golpeados con un martillo de madera y se encontraron algunas
+      huellas parciales de grasa en la escena. \uFFFDEst\uFFFDn por atrapar al justiciero?
+      \uFFFDEsperamos que no!\n\nPero como funcionarios, debemos seguir las leyes
+      y las normas policiales y comunicarles que si tienen alguna informaci\uFFFDn
+      que pueda ser importante, llamen al 555-8375-9821."
     m_Metadata:
       m_Items: []
   references:
