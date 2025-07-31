@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a570e42f27203a646aef438f1170dbd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelType: 0
-  levelScenes: []
-  requiredClues: 3
-  dayStartHour: 6
-  dayEndHour: 12
-  nightStartHour: 20
-  nightEndHour: 4
+  levelCollection: {fileID: 11400000, guid: 3c846e21f4690e3469bac05ee7a19e6d, type: 2}
+  clueUIManager: {fileID: 8866630559696846229, guid: bcab26d4938eda44a9fb24f353ce1082, type: 3}
+  puzzleTrigger: {fileID: 0}
+  detectObjective: {fileID: 0}
+  sceneTransitionDoor: {fileID: 0}
+  audioSource: {fileID: 0}
+  clueFound: {fileID: 0}

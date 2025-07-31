@@ -6,24 +6,15 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
 
-    [Header("Configuración de niveles")]
-    [SerializeField] private LevelCollection levelCollection;
-    private int currentLevelIndex = 0;
-    private LevelData currentLevel;
-
-    [Header("UI y pistas")]
     [SerializeField] private ClueUIManager clueUIManager;
-    private List<string> collectedClues = new List<string>();
-
-    [Header("Objetivo")]
     [SerializeField] private PuzzleTrigger puzzleTrigger;
     [SerializeField] private DetectObjective detectObjective;
     [SerializeField] private GameObject sceneTransitionDoor;
-
-    [Header("Sonido")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip clueFound;
 
+    private LevelData currentLevel;
+    private List<string> collectedClues = new List<string>();
     private List<GameObject> registeredDoors = new List<GameObject>();
 
     private void Awake()
@@ -35,6 +26,7 @@ public class LevelManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        enabled = false;  // Desactivado por defecto hasta cargar escena válida
     }
 
     private void OnEnable()
@@ -47,80 +39,89 @@ public class LevelManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-
-    public void StartLevel(int levelIndex)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (levelIndex < 0 || levelIndex >= levelCollection.levels.Length)
+        if (GameSession.Instance == null || GameSession.Instance.currentLevelData == null)
         {
-            Debug.LogError("Índice de nivel fuera de rango");
+            Debug.LogWarning("No hay nivel activo en GameSession. LevelManager desactivado.");
+            enabled = false;
             return;
         }
 
-        currentLevelIndex = levelIndex;
-        currentLevel = levelCollection.levels[levelIndex];
-        collectedClues.Clear();
-        registeredDoors.Clear();
+        currentLevel = GameSession.Instance.currentLevelData;
 
-        clueUIManager?.SetupNotebook(currentLevel.requiredClues);
-        LoadLevelScenes(currentLevel.levelScenes);
+        bool perteneceAlNivel = false;
+        int indexEscena = -1;
 
-        Debug.Log($"Iniciando nivel {levelIndex}: {currentLevel.name}");
+        for (int i = 0; i < currentLevel.levelScenes.Length; i++)
+        {
+            if (currentLevel.levelScenes[i] == scene.name)
+            {
+                perteneceAlNivel = true;
+                indexEscena = i;
+                break;
+            }
+        }
+
+        if (!perteneceAlNivel)
+        {
+            Debug.Log($"Escena '{scene.name}' no pertenece al nivel '{currentLevel.name}'. LevelManager desactivado.");
+            enabled = false;
+            return;
+        }
+
+        enabled = true;
+        Debug.Log($"LevelManager activado para escena '{scene.name}' del nivel '{currentLevel.name}'.");
+
+        if (indexEscena == 0)
+        {
+            StartLevelFromSession();
+        }
+
+        if (sceneTransitionDoor == null)
+        {
+            var puerta = GameObject.FindWithTag("SceneDoor");
+            if (puerta != null)
+            {
+                sceneTransitionDoor = puerta;
+                sceneTransitionDoor.SetActive(false);
+            }
+        }
+
+        if (puzzleTrigger == null)
+        {
+            puzzleTrigger = FindObjectOfType<PuzzleTrigger>();
+            if (puzzleTrigger != null)
+                puzzleTrigger.SetInteractuable(false);
+        }
     }
 
-    public void StartLevelManualmente()
+    public void StartLevelFromSession()
     {
+        currentLevel = GameSession.Instance.currentLevelData;
         if (currentLevel == null)
         {
-            Debug.LogWarning("No hay nivel activo para iniciar manualmente.");
+            Debug.LogWarning("GameSession no tiene nivel activo. LevelManager desactivado.");
+            enabled = false;
             return;
         }
-        clueUIManager?.SetupNotebook(currentLevel.requiredClues);
+
         collectedClues.Clear();
         registeredDoors.Clear();
-        Debug.Log($"Nivel manual iniciado: {currentLevel.name}");
-    }
 
-    private void LoadLevelScenes(string[] scenes)
-    {
-        if (scenes.Length == 0) return;
+        clueUIManager?.SetupNotebook(currentLevel.requiredClues);
 
-        for (int i = 0; i < scenes.Length; i++)
-        {
-            string sceneName = scenes[i];
-            if (IsSceneInBuild(sceneName))
-            {
-                SceneManager.LoadScene(sceneName, i == 0 ? LoadSceneMode.Single : LoadSceneMode.Additive);
-            }
-            else
-            {
-                Debug.LogError($"La escena '{sceneName}' no está en Build Settings y no se puede cargar.");
-            }
-        }
-    }
-
-    private bool IsSceneInBuild(string sceneName)
-    {
-        int count = SceneManager.sceneCountInBuildSettings;
-        for (int i = 0; i < count; i++)
-        {
-            string path = SceneUtility.GetScenePathByBuildIndex(i);
-            string name = System.IO.Path.GetFileNameWithoutExtension(path);
-            if (name == sceneName) return true;
-        }
-        return false;
-    }
-
-    public void RegisterSceneDoor(GameObject door)
-    {
-        if (!registeredDoors.Contains(door))
-        {
-            registeredDoors.Add(door);
-            door.SetActive(false);
-        }
+        Debug.Log($"Nivel '{currentLevel.name}' iniciado en LevelManager.");
     }
 
     public void CollectClue(string clueName)
     {
+        if (currentLevel == null)
+        {
+            Debug.LogWarning("No hay nivel activo. No se puede recolectar la pista.");
+            return;
+        }
+        if (string.IsNullOrEmpty(clueName)) return;
         if (collectedClues.Contains(clueName)) return;
 
         collectedClues.Add(clueName);
@@ -140,21 +141,14 @@ public class LevelManager : MonoBehaviour
 
     private void ActivateObjective()
     {
-        if (currentLevel == null)
-        {
-            Debug.LogWarning("No hay nivel activo.");
-            return;
-        }
+        if (currentLevel == null) return;
 
         if (currentLevel.objectiveType == ObjectiveType.Puzzle)
         {
             if (puzzleTrigger != null)
-            {
                 puzzleTrigger.SetInteractuable(true);
-                Debug.Log("Puzzle activado.");
-            }
         }
-        else if (currentLevel.objectiveType == ObjectiveType.Door)
+        else
         {
             foreach (var door in registeredDoors)
             {
@@ -166,81 +160,15 @@ public class LevelManager : MonoBehaviour
                 sceneTransitionDoor.SetActive(true);
             else if (detectObjective != null)
                 detectObjective.ActivateDoorDirectly();
-            else
-                Debug.LogWarning("No se encontró puerta para activar.");
         }
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void RegisterSceneDoor(GameObject door)
     {
-        if (currentLevel == null)
+        if (!registeredDoors.Contains(door))
         {
-            Debug.LogWarning("No hay nivel activo en LevelManager.");
-            gameObject.SetActive(false);
-            return;
-        }
-
-        bool escenaPerteneceAlNivel = false;
-        int indexEnNivel = -1;
-
-        for (int i = 0; i < currentLevel.levelScenes.Length; i++)
-        {
-            if (currentLevel.levelScenes[i] == scene.name)
-            {
-                escenaPerteneceAlNivel = true;
-                indexEnNivel = i;
-                break;
-            }
-        }
-
-        if (escenaPerteneceAlNivel)
-        {
-            if (!gameObject.activeSelf) gameObject.SetActive(true);
-
-            if (indexEnNivel == 0)
-            {
-                Debug.Log($"Escena inicial del nivel {currentLevel.name} cargada. Iniciando nivel.");
-                StartLevelManualmente();
-            }
-        }
-        else
-        {
-            Debug.Log($"Escena {scene.name} NO pertenece al nivel {currentLevel.name}. Desactivando LevelManager.");
-            gameObject.SetActive(false);
-            return;
-        }
-
-        if (sceneTransitionDoor == null)
-        {
-            GameObject foundDoor = GameObject.FindWithTag("SceneDoor");
-            if (foundDoor != null)
-            {
-                sceneTransitionDoor = foundDoor;
-                sceneTransitionDoor.SetActive(false);
-                Debug.Log("Puerta con tag asignada automáticamente.");
-            }
-        }
-
-        if (puzzleTrigger == null)
-        {
-            puzzleTrigger = FindObjectOfType<PuzzleTrigger>();
-            if (puzzleTrigger != null)
-                puzzleTrigger.SetInteractuable(false);
+            registeredDoors.Add(door);
+            door.SetActive(false);
         }
     }
-
-    public void LoadNextLevel()
-    {
-        int nextIndex = currentLevelIndex + 1;
-        if (nextIndex < levelCollection.levels.Length)
-        {
-            StartLevel(nextIndex);
-        }
-        else
-        {
-            Debug.Log("No hay más niveles.");
-        }
-    }
-
-    public int GetRequiredClues() => currentLevel != null ? currentLevel.requiredClues : 0;
 }

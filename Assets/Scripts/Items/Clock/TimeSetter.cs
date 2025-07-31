@@ -15,13 +15,13 @@ public class TimeSetter : MonoBehaviour
         }
 
         LevelManager levelManager = FindObjectOfType<LevelManager>();
-        if (levelManager != null)
+        if (levelManager != null && levelManager.enabled)
         {
-            levelManager.StartLevelManualmente();
+            levelManager.StartLevelFromSession();
         }
         else
         {
-            Debug.LogWarning("No se encontró el LevelManager.");
+            Debug.LogWarning("No se encontró el LevelManager o está deshabilitado.");
         }
     }
 }

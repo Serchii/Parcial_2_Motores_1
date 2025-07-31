@@ -9,10 +9,19 @@ public class ClueInteract : MonoBehaviour
 
     private void Update()
     {
-        if (isPlayerNearby && Input.GetKeyDown(interactKey))
+        if (!isPlayerNearby) return;
+
+        if (Input.GetKeyDown(interactKey))
         {
-            LevelManager.Instance.CollectClue(clueName);
-            Destroy(gameObject);
+            if (LevelManager.Instance != null)
+            {
+                LevelManager.Instance.CollectClue(clueName);
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.LogError("LevelManager.Instance es null. Verifica que esté correctamente inicializado en la escena inicial.");
+            }
         }
     }
 
