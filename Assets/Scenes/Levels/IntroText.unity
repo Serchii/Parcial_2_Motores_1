@@ -1308,6 +1308,8 @@ MonoBehaviour:
     an annual mandatory plumbing workshop at the National University of Repairmanshift
     that he needs to fulfill in order to keep his license. Everything seems to be
     quite boring, as usual\u2026 "
+  dialogueKey: IntroText1
+  tableName: Story
   typingSpeed: 0.03
 --- !u!114 &1567845410
 MonoBehaviour:

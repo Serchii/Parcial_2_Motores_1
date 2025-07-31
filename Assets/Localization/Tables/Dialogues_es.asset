@@ -19,40 +19,282 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 47378403328
-    m_Localized: "Henry:<br>\xBF\xA1Qu\xE9 demonios!? Debo haberme desmayado de cansancio.
+    m_Localized: "Henry:\n\xBF\xA1Qu\xE9 demonios!? Debo haberme desmayado de cansancio.
       \xA1Mejor me voy de aqu\xED inmediatamente!"
     m_Metadata:
       m_Items: []
   - m_Id: 535989653504
-    m_Localized: "Henry:<br>Hmm, \xA1eso suena prometedor! Ser\xE1 mejor que me vaya
+    m_Localized: "Henry:\nHmm, \xA1eso suena prometedor! Ser\xE1 mejor que me vaya
       enseguida antes de que se den cuenta de que sigo aqu\xED. Debo encontrar la
       casa de esa mujer..."
     m_Metadata:
       m_Items: []
   - m_Id: 419283144704
-    m_Localized: "Voz desconocida:<br>\xBFYa se fue ese chico? No quiero que nadie
+    m_Localized: "Voz desconocida:\n\xBFYa se fue ese chico? No quiero que nadie
       nos oiga."
     m_Metadata:
       m_Items: []
   - m_Id: 523977166848
-    m_Localized: "Propietario de la casa:<br>\xA1S\xED! \xA1Debe haberse ido hace
-      horas! \xA1Solo dilo! \xBFQu\xE9 vamos a hacer esta noche?"
+    m_Localized: "Propietario de la casa:\n\xA1S\xED! \xA1Debe haberse ido hace horas!
+      \xA1Solo dilo! \xBFQu\xE9 vamos a hacer esta noche?"
     m_Metadata:
       m_Items: []
   - m_Id: 531073929216
-    m_Localized: "Voz desconocida:<br>Bueno, el jefe plane\xF3 este secuestro, la
-      hija de esa se\xF1ora rica al final de la calle..."
+    m_Localized: "Voz desconocida:\nBueno, el jefe plane\xF3 este secuestro, la hija
+      de esa se\xF1ora rica al final de la calle..."
     m_Metadata:
       m_Items: []
   - m_Id: 3359803132416000
-    m_Localized: "Propietario de la casa:<br>\xA1Oye, chico! Sube y arregla el ba\xF1o.
+    m_Localized: "Propietario de la casa:\n\xA1Oye, chico! Sube y arregla el ba\xF1o.
       Por favor, no toques las otras habitaciones, a la due\xF1a de la casa no le
       gusta eso. \xA1Te pagar\xE9 cuando termines!"
     m_Metadata:
       m_Items: []
   - m_Id: 3378980756983808
-    m_Localized: "Henry:<br>Bueno, por fin termin\xE9. Todo ese trabajo me dej\xF3
+    m_Localized: "Henry:\nBueno, por fin termin\xE9. Todo ese trabajo me dej\xF3
       exhausto."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4813628221493248
+    m_Localized: 'Henry:
+
+      Uff, eso estuvo cerca. Por poco no la cuento
+
+      Sera
+      mejor que me vaya antes de verme involucrado cuando la policia llegue'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4814995682037760
+    m_Localized: 'Secuestrador:
+
+      Vamos, fuercen esa puerta. Debemos cumplir
+      el trabajo antes de que alguien nos vea'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4815051789242368
+    m_Localized: "Secuestrador:\n\xBFY t\xFA quien eres? No debes meterte donde no
+      te llaman.\n\xA1Muchachos, a \xE9l!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4815036924628992
+    m_Localized: "Henry:\n\xA1Alto ahi! Detenganse si no quieren salir heridos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4819106947207168
+    m_Localized: 'Henry:
+
+      Por fin. Estoy solo a un paso de obtener mi matricula.
+
+      Solo
+      un examen practico mas...'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4819661035737088
+    m_Localized: "Henry:\n\xA1He aprobado! No veo la hora de volver a casa y comer
+      pizza con un buen refresco\n\xA1Hoy se festeja a lo grande!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4820711591448576
+    m_Localized: AHHHHHH! AYUDA! QUE ALGUIEN DETENGA A ESE LADRON!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4821001459798016
+    m_Localized: 'Henry:
+
+      Oh no, otro robo
+
+      Se que es algo de todos los
+      dias, pero no deberia meterme.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4821572887580672
+    m_Localized: 'Henry:
+
+      Mejor ya me voy...'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4821667880177664
+    m_Localized: "Ladron:\nJA JA JA\nEsos idiotas siguen buscandome y la policia
+      tardar\xE1 en llegar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4822112983912448
+    m_Localized: 'Ladron:
+
+      Nada como entrar en calor antes de un gran golpe'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4822278373707776
+    m_Localized: 'Henry:
+
+      Es el ladron de antes... No deberia meterme. Se que
+      no es mi problema.
+
+
+      Pero...'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4822514596909056
+    m_Localized: "Henry:\nE-     \nEy, t\xFA...\nDev-...    \xA1DEVUELVE LO QUE ROBASTE
+      SI NO QUIERES SALIR HERIDO!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4822907716440064
+    m_Localized: "Ladron:\n\xBF\xA1AH!?   JA JA JA JA\nNo me hagas reir ni\xF1o.
+      \xBFAcaso quieres morir?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4823150222708736
+    m_Localized: 'Ladron:
+
+      Ven, acercate. Voy a cumplir tu deseo...'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4824515917451264
+    m_Localized: 'Henry:
+
+      Oh por dios! No respira... Que hice?
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4825052150829056
+    m_Localized: "Henry:\nSe le cayo una nota. Estar\xE1 relacionada con el \"Gran
+      Golpe\" que menciono?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4825284913729536
+    m_Localized: 'Henry:
+
+      Tomare esto por ahora. Tengo que irme antes que alguien
+      mas me vea!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4874086471241728
+    m_Localized: "Propietario:\n\xBFQue quieres? Ah, eres el plomero\nLa averia esta
+      en el ba\xF1o del piso de abajo\nAhora no me molestes que debo atender un llamado"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4874525191245824
+    m_Localized: 'Henry:
+
+      Bien! Otro trabajo bien hecho!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4874897846767616
+    m_Localized: 'Henry:
+
+      Hmm? Puedo escuchar desde esta ventila hacia la habitacion
+      de arriba'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4875093607518208
+    m_Localized: 'Propietario:
+
+      ... luego del intento de secuestro fallido
+      del otro dia muchos empiezan a preocuparse
+
+      Incluso los bancos, no podemos
+      demorarnos mas'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4875608764518400
+    m_Localized: "Propietario:\nPara ma\xF1ana aumentaran la seguridad\nDebemos terminar
+      el boquete hacia la boveda esta noche"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4877109146750976
+    m_Localized: "Propietario:\n...                                               
+      \nNO ME IMPORTA SI PARTE DEL GRUPO SE FUE A LA COSTA, VE POR TU AUTO Y TRAELOS
+      COMO SEA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4877423086211072
+    m_Localized: 'Propietario:
+
+      El Jefe nos eliminara si fallamos este trabajo
+
+      Nuestras
+      cabezas estan en juego'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4877656016883712
+    m_Localized: 'Propietario:
+
+      Si. Esta noche en la obra de construccion al
+      lado del banco.
+
+      No lo olvides'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4877808052015104
+    m_Localized: 'Henry:
+
+      Obra de construccion... Esta noche...'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4878111925145600
+    m_Localized: 'Henry:
+
+      Tal vez deba hacerles una visita'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4878424581148672
+    m_Localized: "Henry:\n\xA1Detenganse si no quieren salir heridos!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4878876462878720
+    m_Localized: 'Ladron:
+
+      Y este quien es?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4879005479669760
+    m_Localized: 'Ladron:
+
+      Sera el justiciero del que tanto hablan en las noticias?
+      El que detuvo el secuestro?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4879341191761920
+    m_Localized: 'Ladron:
+
+      Este inutil? Que bajo hemos caido
+
+      Como sea,
+      no podemos permitir que arruine todo nuestro esfuerzo. Acabemoslo'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4879585530941440
+    m_Localized: 'Henry:
+
+      Auch. Eso si me dolio'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4879927987474432
+    m_Localized: 'Henry:
+
+      Pero no puedo evitarlo, esta adrenalina que siento
+      por hacer lo correcto se apodera de mi'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4880427713630208
+    m_Localized: "Henry:\nAlguien debe mantener las calles limpias de tantos malhechores.\n\xA1Y
+      ese sere yo!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4880638435463168
+    m_Localized: "Henry:\n\xA1Oh-oh!\nSe oyen las sirenas de la policia. Hora de
+      irse"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4881033643757568
+    m_Localized: 'Henry:
+
+      Asi que son parte de un grupo criminal organizado
+      mas grande.
+
+      Creo que esto se torna cada vez mas peligroso'
     m_Metadata:
       m_Items: []
   references:

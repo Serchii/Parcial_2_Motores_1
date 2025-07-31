@@ -25,7 +25,9 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] bool isHitting = false;
     [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] bool canAttack = true;
     public bool IsHitting => isHitting;
+    public bool CanAttack => canAttack;
 
     void Start()
     {
@@ -38,7 +40,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if (playerHealth.IsAlive && !playerMovement.IsKnockedBack)
+        if (playerHealth.IsAlive && !playerMovement.IsKnockedBack && canAttack)
             Combo();
     }
 
@@ -134,6 +136,11 @@ public class PlayerAttack : MonoBehaviour
     public void SetAttackDamage(float amount)
     {
         attackDamage = amount;
+    }
+
+    public void SetCanAttack(bool value)
+    {
+        canAttack = value;
     }
 
     void ApplyUpgrades()

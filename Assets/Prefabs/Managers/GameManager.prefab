@@ -46,6 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b5adada3ae7be4cb95ec55ad1da6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLayerName: Player
+  enemyLayerName: Enemy
+  winKey: YouWinText
+  loseKey: YouLoseText
+  tableName: UI
+  currentTitle: 
 --- !u!114 &7751203031328553825
 MonoBehaviour:
   m_ObjectHideFlags: 0

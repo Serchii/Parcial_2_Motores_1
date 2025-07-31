@@ -27,6 +27,34 @@ MonoBehaviour:
     m_Key: IntroText3
     m_Metadata:
       m_Items: []
+  - m_Id: 233293047468032
+    m_Key: NPName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 233521918054400
+    m_Key: NPHeadLine1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 233584966832128
+    m_Key: NPBody1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 233672007028736
+    m_Key: NPHeadLine2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 233674859155456
+    m_Key: NPBody2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 233676738203648
+    m_Key: NPHeadLine3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 233678415925248
+    m_Key: NPBody3
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

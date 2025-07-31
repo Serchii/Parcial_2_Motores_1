@@ -659,8 +659,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 554f928eb03402a47824f6e6550e79a9, type: 2}
-  m_sharedMaterial: {fileID: 6709416636864451006, guid: 554f928eb03402a47824f6e6550e79a9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0be475a7f880cba40844a80deff2b37f, type: 2}
+  m_sharedMaterial: {fileID: -4426288966130096699, guid: 0be475a7f880cba40844a80deff2b37f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1307,6 +1307,8 @@ MonoBehaviour:
     note he found on the guy\u2019s body, that guy who was related to one of his
     clients. Something inside of him ignited, he needed to find out more about this
     and try to stop that crime.\r\n\r\nToday was going to be a long day\u2026\r"
+  dialogueKey: IntroText2
+  tableName: Story
   typingSpeed: 0.03
 --- !u!114 &1567845410
 MonoBehaviour:

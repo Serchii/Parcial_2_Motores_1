@@ -1,15 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.Localization;
 using UnityEngine;
 using TMPro;
 
 public class TypeWritterEffect : MonoBehaviour
 {
-    public TextMeshProUGUI textComponent;
-
-    [TextArea]
-    public string fullText;
-    public float typingSpeed = 0.05f;
+    [SerializeField] TextMeshProUGUI textComponent;
+    [SerializeField,TextArea] string fullText;
+    [SerializeField] string dialogueKey; // Claves de localización
+    [SerializeField] string tableName = "Story"; // Nombre de la String Table
+    [SerializeField] float typingSpeed = 0.03f;
 
     void Start()
     {
@@ -18,6 +18,13 @@ public class TypeWritterEffect : MonoBehaviour
 
     IEnumerator TypeText()
     {
+        fullText = string.Empty;
+        var localizedLine = new LocalizedString(tableName, dialogueKey);
+        var handle = localizedLine.GetLocalizedStringAsync();
+        yield return handle;
+
+        fullText = handle.Result;
+
         textComponent.text = "";
         foreach (char c in fullText)
         {

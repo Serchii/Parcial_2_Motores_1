@@ -71,6 +71,38 @@ MonoBehaviour:
     m_Key: ContinueBtn
     m_Metadata:
       m_Items: []
+  - m_Id: 4143153363357696
+    m_Key: NextDayBtn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154700315824128
+    m_Key: FinishDemoTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154824240730112
+    m_Key: FinishDemoBody
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296497188900864
+    m_Key: HowToMoveText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296530974019584
+    m_Key: HowToAttackText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296567279915008
+    m_Key: YouLoseText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4299683312242688
+    m_Key: YouWinText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4301375063789568
+    m_Key: InteractText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

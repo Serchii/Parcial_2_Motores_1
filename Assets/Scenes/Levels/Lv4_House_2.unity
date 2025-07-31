@@ -412,6 +412,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3de22e42e175e0940837ad8931df5bb4, type: 3}
+--- !u!1 &200579378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5794380842774596309, guid: a43217c6726a0354a9b568d3807d2602, type: 3}
+  m_PrefabInstance: {fileID: 799724285}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &225550257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -563,7 +568,7 @@ Transform:
   m_GameObject: {fileID: 268839743}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8105097, y: 0.0643301, z: -10.073344}
+  m_LocalPosition: {x: -0.81286836, y: 0.064310074, z: -10.073344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -790,7 +795,7 @@ PrefabInstance:
     - target: {fileID: 373741533242146261, guid: ff4ddcfbcbce48f4b984bb6ffd8817eb, type: 3}
       propertyPath: objetsToActivate.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 200579378}
     - target: {fileID: 5738039544148354902, guid: ff4ddcfbcbce48f4b984bb6ffd8817eb, type: 3}
       propertyPath: m_Name
       value: Objective
@@ -3010,6 +3015,10 @@ PrefabInstance:
       propertyPath: puzzleManager
       value: 
       objectReference: {fileID: 1744094185}
+    - target: {fileID: 8495600989126559770, guid: c967bc6a1c3f7ec42b148daa07ac5eaa, type: 3}
+      propertyPath: textToShowKey
+      value: InteractText
+      objectReference: {fileID: 0}
     - target: {fileID: 8766220687083959195, guid: c967bc6a1c3f7ec42b148daa07ac5eaa, type: 3}
       propertyPath: m_SortingOrder
       value: 0

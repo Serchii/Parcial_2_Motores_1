@@ -1,11 +1,16 @@
 using UnityEngine;
+using System.Collections;
+using UnityEngine.Localization;
 using TMPro;
+using Unity.VisualScripting;
 
 public class PuzzleTrigger : MonoBehaviour
 {
     [SerializeField] GameObject uiPuzzle;
     [SerializeField] GameObject interactionPromptPrefab;
-    [SerializeField] string textPrompt = "[E] to Interact";
+    [SerializeField] string textToShowKey;
+    [SerializeField] string tableName = "UI";
+    [SerializeField] string textPrompt;
     [SerializeField] bool isInteractuable = false; 
     [SerializeField] private PuzzleGridManager puzzleManager;
     [SerializeField] bool followPlayer = true;
@@ -36,7 +41,7 @@ public class PuzzleTrigger : MonoBehaviour
             }
         }
 
-        if (uiPuzzle.activeSelf && Input.GetButtonDown("Cancel"))
+        if (uiPuzzle != null && uiPuzzle.activeSelf && Input.GetButtonDown("Cancel"))
         {
             if (isInteractuable)
             {
@@ -45,6 +50,33 @@ public class PuzzleTrigger : MonoBehaviour
             }
 
             if (canActivate) ShowPrompt();
+        }
+    }
+
+    IEnumerator GetTranslateText(string dialogueKey)
+    {
+        textPrompt = string.Empty;
+        var localizedLine = new LocalizedString(tableName, dialogueKey);
+        var handle = localizedLine.GetLocalizedStringAsync();
+        yield return handle;
+
+        textPrompt = handle.Result;
+
+        var textComponent = promptInstance.GetComponentInChildren<TextMeshProUGUI>();
+        if (textComponent != null)
+        {
+            textComponent.text = textPrompt;
+        }
+
+        if (followPlayer)
+        {
+            UIFollowPlayer followScript = promptInstance.GetComponent<UIFollowPlayer>();
+            followScript?.SetTarget(player);
+        }
+        else
+        {
+            UIFollowPlayer followScript = promptInstance.GetComponent<UIFollowPlayer>();
+            followScript?.SetTarget(this.transform);
         }
     }
 
@@ -89,22 +121,7 @@ public class PuzzleTrigger : MonoBehaviour
             Canvas canvas = FindObjectOfType<Canvas>();
             promptInstance = Instantiate(interactionPromptPrefab, canvas.transform);
 
-            var textComponent = promptInstance.GetComponentInChildren<TextMeshProUGUI>();
-            if (textComponent != null)
-            {
-                textComponent.text = textPrompt;
-            }
-
-            if (followPlayer)
-            {
-                UIFollowPlayer followScript = promptInstance.GetComponent<UIFollowPlayer>();
-                followScript?.SetTarget(player);
-            }
-            else
-            {
-                UIFollowPlayer followScript = promptInstance.GetComponent<UIFollowPlayer>();
-                followScript?.SetTarget(this.transform);
-            }
+            StartCoroutine(GetTranslateText(textToShowKey));
         }
     }
 

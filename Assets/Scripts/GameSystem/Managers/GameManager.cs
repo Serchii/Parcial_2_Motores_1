@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Localization;
+using System.Collections;
 using System;
 
 public class GameManager : MonoBehaviour
@@ -17,6 +19,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private string playerLayerName = "Player";
     [SerializeField] private string enemyLayerName = "Enemy";
+    [SerializeField] string winKey;
+    [SerializeField] string loseKey;
+    [SerializeField] string tableName = "UI";
+    [SerializeField] string currentTitle;
 
     private void Awake()
     {
@@ -52,15 +58,27 @@ public class GameManager : MonoBehaviour
     public void PlayerDied()
     {
         if (gameOver) return;
+        StartCoroutine(GetTranslateText(loseKey));
         gameOver = true;
-        OnGameEnded?.Invoke(false, "YOU ARE DEAD");
+        OnGameEnded?.Invoke(false, currentTitle);
     }
 
     public void YouWon()
     {
         if (youWon) return;
+        StartCoroutine(GetTranslateText(winKey));
         youWon = true;
-        OnGameEnded?.Invoke(true, "YOU SURVIVED, FOR NOW...");
+        OnGameEnded?.Invoke(true, currentTitle);
+    }
+
+    IEnumerator GetTranslateText(string dialogueKey)
+    {
+        currentTitle = string.Empty;
+        var localizedLine = new LocalizedString(tableName, dialogueKey);
+        var handle = localizedLine.GetLocalizedStringAsync();
+        yield return handle;
+
+        currentTitle = handle.Result;
     }
 
     public void AddMoney(int amount)

@@ -5,6 +5,7 @@ using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
+    [Header("Textos de dialogo")]
     [SerializeField] GameObject dialogueMark;
     [SerializeField] GameObject dialoguePanel;
     [SerializeField] TMP_Text dialogueText;
@@ -12,9 +13,14 @@ public class Dialogue : MonoBehaviour
     [SerializeField] string tableName = "Dialogues"; // Nombre de la String Table
     [SerializeField] string currentDialog;
 
+    [Header("Configuracion Trigger")]
     [SerializeField] bool isTrigger = false;
     [SerializeField] bool dialogueTriggered = false;
 
+    [Header("Referencia Player")]
+    [SerializeField] PlayerMovement playerMovement;
+
+    [Header("Sistema Dialogo")]
     [SerializeField] bool isPlayerInRange;
     [SerializeField] bool didDialogueStart;
     [SerializeField] int lineIndex;
@@ -32,6 +38,9 @@ public class Dialogue : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+
+        if (playerMovement == null)
+            playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     void Update()
@@ -64,6 +73,7 @@ public class Dialogue : MonoBehaviour
         didDialogueStart = true;
         dialoguePanel.SetActive(true);
         //dialogueMark.SetActive(false);
+        SetMovePlayer(false);
         lineIndex = 0;
         Time.timeScale = 0;
         StartCoroutine(ShowLine());
@@ -89,14 +99,21 @@ public class Dialogue : MonoBehaviour
         didDialogueStart = false;
         dialoguePanel.SetActive(false);
         //dialogueMark.SetActive(true);
+        SetMovePlayer(true);
         Time.timeScale = 1;
         if (isTrigger)
             dialogueTriggered = true;
 
-        if (activateObjects)
+        if (activateObjects && objectsToActivate.Length > 0)
         {
             ActivateObjects();
         }
+    }
+
+    void SetMovePlayer(bool value)
+    {
+        playerMovement.SetCanMove(value);
+        playerMovement.GetComponent<PlayerAttack>().SetCanAttack(value);
     }
 
     IEnumerator ShowLine()

@@ -74,6 +74,47 @@ MonoBehaviour:
     m_Localized: CONTINUE
     m_Metadata:
       m_Items: []
+  - m_Id: 4143153363357696
+    m_Localized: GO TO NEXT DAY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154700315824128
+    m_Localized: YOU FINISHED THE DEMO!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154824240730112
+    m_Localized: 'That''s all for now.
+
+
+      The game is still in development.
+      If you want to find out more about Henry''s story, follow our itch.io page
+      where we''ll post all the future implementations.
+
+
+      Thanks a lot for
+      playing!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296497188900864
+    m_Localized: Press A and D to move
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296530974019584
+    m_Localized: Press Left Click to ATTACK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296567279915008
+    m_Localized: YOU ARE DEAD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4299683312242688
+    m_Localized: YOU WON!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4301375063789568
+    m_Localized: '[E] to Interact'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

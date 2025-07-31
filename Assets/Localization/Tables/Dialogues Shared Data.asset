@@ -43,6 +43,154 @@ MonoBehaviour:
     m_Key: House2_PuzzleCompleted
     m_Metadata:
       m_Items: []
+  - m_Id: 4813628221493248
+    m_Key: Street2_AfterFight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4814995682037760
+    m_Key: Street2_BeforeFight1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4815036924628992
+    m_Key: Street2_BeforeFight2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4815051789242368
+    m_Key: Street2_BeforeFight3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4819106947207168
+    m_Key: Classroom_BeforeExam
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4819661035737088
+    m_Key: Classroom_AfterExam
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4820711591448576
+    m_Key: Street1_FirstScene1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4821001459798016
+    m_Key: Street1_FirstScene2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4821572887580672
+    m_Key: Street1_FirstScene3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4821667880177664
+    m_Key: Street1_BeforeFight1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4822112983912448
+    m_Key: Street1_BeforeFight2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4822278373707776
+    m_Key: Street1_BeforeFight3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4822514596909056
+    m_Key: Street1_BeforeFight4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4822907716440064
+    m_Key: Street1_BeforeFight5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4823150222708736
+    m_Key: Street1_BeforeFight6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4824515917451264
+    m_Key: Street1_AfterFight1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4825052150829056
+    m_Key: Street1_AfterFight2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4825284913729536
+    m_Key: Street1_AfterFight3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4874086471241728
+    m_Key: House1_Stairs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4874525191245824
+    m_Key: House1_AfterPuzzle1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4874897846767616
+    m_Key: House1_AfterPuzzle2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4875093607518208
+    m_Key: House1_AfterPuzzle3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4875608764518400
+    m_Key: House1_AfterPuzzle4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4877109146750976
+    m_Key: House1_AfterPuzzle5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4877423086211072
+    m_Key: House1_AfterPuzzle6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4877656016883712
+    m_Key: House1_AfterPuzzle7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4877808052015104
+    m_Key: House1_AfterPuzzle8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4878111925145600
+    m_Key: House1_AfterPuzzle9
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4878424581148672
+    m_Key: ConstructionZone_BeforeFight1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4878876462878720
+    m_Key: ConstructionZone_BeforeFight2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4879005479669760
+    m_Key: ConstructionZone_BeforeFight3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4879341191761920
+    m_Key: ConstructionZone_BeforeFight4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4879585530941440
+    m_Key: ConstructionZone_AfterFight1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4881033643757568
+    m_Key: ConstructionZone_AfterFight2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4879927987474432
+    m_Key: ConstructionZone_AfterFight3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4880427713630208
+    m_Key: ConstructionZone_AfterFight4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4880638435463168
+    m_Key: ConstructionZone_AfterFight5
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

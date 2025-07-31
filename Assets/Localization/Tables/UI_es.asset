@@ -74,6 +74,41 @@ MonoBehaviour:
     m_Localized: CONTINUAR
     m_Metadata:
       m_Items: []
+  - m_Id: 4143153363357696
+    m_Localized: IR A SIGUIENTE DIA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154824240730112
+    m_Localized: "Eso es todo por ahora.\n\nEl juego sigue en desarrollo. Si quieres
+      saber m\xE1s sobre la historia de Henry, sigue nuestra p\xE1gina de itch.io
+      donde publicaremos todas las futuras implementaciones.\n\n\xA1Muchas gracias
+      por jugar!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154700315824128
+    m_Localized: "\xA1\xA1HAS TERMINADO LA DEMO!!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296497188900864
+    m_Localized: Presiona A y D para moverte
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296530974019584
+    m_Localized: Presiona Clic Izq para ATACAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296567279915008
+    m_Localized: HAS MUERTO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4299683312242688
+    m_Localized: HAS GANADO!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4301375063789568
+    m_Localized: '[E] para Interactuar'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

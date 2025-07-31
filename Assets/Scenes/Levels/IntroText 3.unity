@@ -659,8 +659,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 554f928eb03402a47824f6e6550e79a9, type: 2}
-  m_sharedMaterial: {fileID: 6709416636864451006, guid: 554f928eb03402a47824f6e6550e79a9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0be475a7f880cba40844a80deff2b37f, type: 2}
+  m_sharedMaterial: {fileID: -4426288966130096699, guid: 0be475a7f880cba40844a80deff2b37f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1304,7 +1304,9 @@ MonoBehaviour:
     of these pests. But he needed to keep going and defeat as many criminals as possible
     to try and get rid of all the criminal networks in town.\r\n\r\nHe was exhausted
     again, fighting criminals was a heavy exercise, but he was starting his new day
-    with a lot of prospects in mind\u2026\r\n"
+    with a lot of prospects in mind\u2026\r"
+  dialogueKey: IntroText3
+  tableName: Story
   typingSpeed: 0.03
 --- !u!114 &1567845410
 MonoBehaviour:

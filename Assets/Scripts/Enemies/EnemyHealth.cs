@@ -74,7 +74,13 @@ public class EnemyHealth : BaseHealth
         }
 
         GameManager.Instance.AddMoney(Random.Range(0, maxMoney + 1));
-        Destroy(gameObject, 1.5f);
+        Invoke("DeactivateEnemy", 1.5f);
+    }
+
+    void DeactivateEnemy()
+    {
+        gameObject.tag = "Untagged";
+        Destroy(this);
     }
 
     private void ApplyKnockback(Vector2 direction, float force)

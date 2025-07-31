@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] PlayerAttack playerAttack;
 
     public bool  IsKnockedBack=> isKnockedBack;
+    public bool CanMove => canMove;
 
     void Start()
     {
@@ -44,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        if(!isKnockedBack)
+        if(!isKnockedBack && canMove)
         SetAnimator(moveInput, !isGrounded);
 
         if (isGrounded)
