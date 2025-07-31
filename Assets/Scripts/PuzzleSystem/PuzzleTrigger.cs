@@ -27,6 +27,11 @@ public class PuzzleTrigger : MonoBehaviour
         {
             puzzleManager.OnCompleted += PuzzleCompleted;
         }
+
+        if (textToShowKey.Length == 0)
+        {
+            textToShowKey = "InteractText";
+        }
     }
 
     void Update()
