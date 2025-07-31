@@ -13,6 +13,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] GameObject hit;
     [SerializeField] float disableTime;
 
+    [Header("Hitstop Variables")]
+    [SerializeField] float duration = 0.1f;
+
     [SerializeField] Animator animator;
     [SerializeField] AudioClip[] attackSounds;
     [SerializeField] AudioSource audioSource;
@@ -86,10 +89,17 @@ public class PlayerAttack : MonoBehaviour
                 foreach (Collider2D enemy in hitEnemies)
                 {
                     EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+                    ShakeEffect shake = enemy.GetComponent<ShakeEffect>();
 
                     if (enemyHealth != null)
                     {
                         Vector2 knockbackDir = enemy.transform.position - transform.position;
+                        if (HitstopManager.Instance != null)
+                            HitstopManager.Instance.DoHitstop(duration);
+
+                        if (shake != null)
+                            shake.Shake();
+
                         enemyHealth.TakeDamage(attackDamage, knockbackDir, knockbackForce, attackWithKnockback);
                     }
                 }
@@ -117,8 +127,6 @@ public class PlayerAttack : MonoBehaviour
         isHitting = false;
         combo = 0;
         PlayerCanMove(true);
-        
-        Debug.Log("FinishAttackACAAAAAA");
     }
 
     void OnDrawGizmosSelected()
