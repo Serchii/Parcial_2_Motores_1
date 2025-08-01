@@ -17,14 +17,10 @@ public class EnemyHit : BaseHit
             {
                 float directionX = Mathf.Sign(collision.transform.position.x - enemy.position.x);
                 Vector2 knockbackDirection = new Vector2(directionX, 0f);
-                Debug.Log("Intento hacer daño");
-                Debug.Log(playerHealth.Invincible);
-
                 if (!playerHealth.Invincible)
                 {
                     playerHealth.ApplyKnockback(knockbackDirection, knockbackForce);
                     playerHealth.TakeDamage(damageAmount);
-                    Debug.Log("Hago daño al henry este");
                 }
             }
         }

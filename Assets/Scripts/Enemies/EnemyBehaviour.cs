@@ -35,7 +35,7 @@ public class EnemyBehaviour : MonoBehaviour
     float distanceToPlayer;
 
     private Rigidbody2D _rb;
-    private Animator _animator;
+    [SerializeField] Animator _animator;
     private float _nextAttackTime = 0f;
 
     [SerializeField] State currentState;
@@ -49,7 +49,6 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
         _health = GetComponent<EnemyHealth>();
 
         if (_player == null)

@@ -89,7 +89,9 @@ public class PlayerAttack : MonoBehaviour
                 foreach (Collider2D enemy in hitEnemies)
                 {
                     EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-                    ShakeEffect shake = enemy.GetComponent<ShakeEffect>();
+                    ShakeEffect shake = enemy.GetComponentInChildren<ShakeEffect>();
+
+                    Debug.Log("Shake: " + shake);
 
                     if (enemyHealth != null)
                     {

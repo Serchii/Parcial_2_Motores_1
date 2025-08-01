@@ -4,6 +4,7 @@ public class EnemyHealth : BaseHealth
 {
     
     [SerializeField] private Animator _animator;
+    [SerializeField] private DamageFlash damageFlash;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float stunDuration = 0.2f;
     [SerializeField] int maxMoney = 15;
@@ -19,7 +20,10 @@ public class EnemyHealth : BaseHealth
         base.Start();
 
         if (_animator == null)
-            _animator = GetComponent<Animator>();
+            _animator = GetComponentInChildren<Animator>();
+
+        if (damageFlash == null)
+            damageFlash = GetComponentInChildren<DamageFlash>();
 
         if (_rb == null)
             _rb = GetComponent<Rigidbody2D>();
@@ -46,6 +50,9 @@ public class EnemyHealth : BaseHealth
         }
 
         ApplyKnockback(knockbackDirection, knockbackForce);
+        
+        if (damageFlash != null)
+            damageFlash.Flash();
 
         if (_animator != null && (!enemyBehaviour.IsAttacking || health <= 0))
         {
