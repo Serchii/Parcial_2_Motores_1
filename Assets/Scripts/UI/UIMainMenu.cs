@@ -4,6 +4,14 @@ public class UIMainMenu : MonoBehaviour
 {
     [SerializeField] GameObject[] panels;
     [SerializeField] string nextLevel;
+    [SerializeField] Animator animator;
+    [SerializeField] bool SetMaxHealth = false;
+
+    void Start()
+    {
+        if (animator == null)
+            animator = GetComponent<Animator>();
+    }
 
     public void Credits()
     {
@@ -15,6 +23,33 @@ public class UIMainMenu : MonoBehaviour
         SetPanel(1);
     }
 
+    public void BackToMenu()
+    {
+        SetPanel(0);
+    }
+
+    public void TransitionOptionsToMenu()
+    {
+        animator.SetTrigger("OptionsToMenu");
+    }
+
+    public void TransitionCreditsToMenu()
+    {
+        animator.SetTrigger("CreditsToMenu");
+    }
+
+    public void TransitionOptions()
+    {
+        animator.SetTrigger("MenuToOptions");
+    }
+
+    public void TransitionCredits()
+    {
+        animator.SetTrigger("MenuToCredits");
+    }
+
+
+
     public void Story()
     {
         GameSceneManager.Instance.LoadSceneWithTransition("IntroText");
@@ -25,14 +60,12 @@ public class UIMainMenu : MonoBehaviour
     public void NextLevel()
     {
         GameSceneManager.Instance.LoadSceneWithTransition(nextLevel);
+        if (SetMaxHealth)
+            GameManager.Instance.SetMaxHealth();
     }
 
 
-    public void BackToMenu()
-    {
-        SetPanel(0);
-    }
-
+    
     void SetPanel(int indexPanel)
     {
         for (int i = 0; i < panels.Length; i++)

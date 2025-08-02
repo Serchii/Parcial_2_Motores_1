@@ -21,7 +21,6 @@ public class PlayerHealth : BaseHealth
 
     protected override void Start()
     {
-        base.Start();
         spawnPoint = transform.position;
 
         if (animator == null)
@@ -36,7 +35,9 @@ public class PlayerHealth : BaseHealth
             maxHealth = GameManager.Instance.SavedMaxHealth;
         }
 
-        ApplyUpgrades();
+        OnHealthChanged?.Invoke(health, maxHealth);
+
+        //ApplyUpgrades();
     }
 
     public override void TakeDamage(float amount)
@@ -93,11 +94,13 @@ public class PlayerHealth : BaseHealth
     protected override void SetMaxHealth()
     {
         base.SetMaxHealth();
+        Debug.Log("SetMaxHealthPlayer");
         OnHealthChanged?.Invoke(health, maxHealth);
     }
 
     public void SetMaxHealthValue(float value)
     {
+        Debug.Log("SetMaxHealthValue");
         maxHealth = value;
         SetMaxHealth();
     }

@@ -16,7 +16,11 @@ public class SceneLoader : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             GameSceneManager.OnSceneFullyLoaded += OnSceneFullyLoaded;
         }
-        else Destroy(gameObject);
+        else
+        {
+            Debug.Log(gameObject.name);
+            Destroy(gameObject);
+        }
     }
 
     private void OnDestroy()

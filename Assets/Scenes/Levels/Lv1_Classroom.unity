@@ -458,8 +458,12 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 5396976841533530128, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: bd2ed603d26c8804ea38655453814fad, type: 2}
+    - target: {fileID: 5396976841533530128, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5457550696499394580, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
       propertyPath: m_IsActive

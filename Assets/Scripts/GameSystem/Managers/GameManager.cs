@@ -58,20 +58,16 @@ public class GameManager : MonoBehaviour
     public void PlayerDied()
     {
         if (gameOver) return;
-        StartCoroutine(GetTranslateText(loseKey));
-        gameOver = true;
-        OnGameEnded?.Invoke(false, currentTitle);
+        StartCoroutine(GetTranslateText(loseKey,false));
     }
 
     public void YouWon()
     {
         if (youWon) return;
-        StartCoroutine(GetTranslateText(winKey));
-        youWon = true;
-        OnGameEnded?.Invoke(true, currentTitle);
+        StartCoroutine(GetTranslateText(winKey,true));
     }
 
-    IEnumerator GetTranslateText(string dialogueKey)
+    IEnumerator GetTranslateText(string dialogueKey, bool won)
     {
         currentTitle = string.Empty;
         var localizedLine = new LocalizedString(tableName, dialogueKey);
@@ -79,6 +75,14 @@ public class GameManager : MonoBehaviour
         yield return handle;
 
         currentTitle = handle.Result;
+        if (won)
+        {
+            youWon = true;
+        }
+        else
+            gameOver = true;
+
+        OnGameEnded?.Invoke(won, currentTitle);
     }
 
     public void AddMoney(int amount)

@@ -910,7 +910,7 @@ GameObject:
   - component: {fileID: 2915154171851256467}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: UITransitionManager
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1109,6 +1109,7 @@ MonoBehaviour:
   exitPoint: {x: 3, y: 3}
   isCompleted: 0
   money: 300
+  initialPieceColor: {r: 0.647, g: 0.165, b: 0.165, a: 1}
 --- !u!114 &1587326662741863611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2725,7 +2726,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Loading
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0be475a7f880cba40844a80deff2b37f, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2789,7 +2790,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &3182393037865510746

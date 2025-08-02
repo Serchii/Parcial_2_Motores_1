@@ -9,6 +9,7 @@ public class GameSceneManager : MonoBehaviour
     public static GameSceneManager Instance { get; private set; }
     [SerializeField] UITransitionManager transition;
     [SerializeField] string[] startDay;
+    [SerializeField] string[] startNight;
 
     public static event Action OnSceneFullyLoaded;
 
@@ -44,6 +45,7 @@ public class GameSceneManager : MonoBehaviour
             SceneManager.LoadScene(sceneName);
             Time.timeScale = 1f;
             OnSceneFullyLoaded?.Invoke();
+            FindUITransitionManager();
         }
     }
 
@@ -64,6 +66,7 @@ public class GameSceneManager : MonoBehaviour
             SceneManager.LoadScene(sceneName);
             Time.timeScale = 1f;
             OnSceneFullyLoaded?.Invoke();
+            FindUITransitionManager();
         }
     }
 
@@ -93,9 +96,21 @@ public class GameSceneManager : MonoBehaviour
             SetDayClock();
         }
 
+        if (startNight.Contains(SceneManager.GetActiveScene().name))
+        {
+            SetNightClock();
+        }
+
         isChanging = false;
         Time.timeScale = 1f;
         OnSceneFullyLoaded?.Invoke();
+        FindUITransitionManager();
+    }
+
+    void FindUITransitionManager()
+    {
+        transition = GameObject.FindGameObjectWithTag("UITransitionManager")?.GetComponent<UITransitionManager>();
+        Debug.Log("UITransition : " + transition);
     }
 
     void SetDayClock()
