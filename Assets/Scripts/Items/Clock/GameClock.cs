@@ -1,9 +1,11 @@
 using UnityEngine;
+using System;
 
 public class GameClock : MonoBehaviour
 {
     public static GameClock Instance;
 
+    [Header("Tiempo actual")]
     public int hour;
     public int minute;
 
@@ -54,6 +56,16 @@ public class GameClock : MonoBehaviour
     {
         h = hour;
         m = minute;
+    }
+
+    public int GetHour()
+    {
+        return hour;
+    }
+
+    public int GetMinute()
+    {
+        return minute;
     }
 
     public void ResetClock()

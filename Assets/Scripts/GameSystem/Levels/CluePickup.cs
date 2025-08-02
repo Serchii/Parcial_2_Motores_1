@@ -2,20 +2,22 @@ using UnityEngine;
 
 public class CluePickup : MonoBehaviour
 {
-    [SerializeField] private string clueName = "Pista misteriosa";
+    [SerializeField] private string clueName;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
-
-        if (LevelManager.Instance != null)
+        if (other.CompareTag("Player"))
         {
-            LevelManager.Instance.CollectClue(clueName);
-            Destroy(gameObject);
-        }
-        else
-        {
-            Debug.LogError("LevelManager.Instance es null. Verifica que se haya inicializado correctamente.");
+            LevelManagerTemp manager = FindObjectOfType<LevelManagerTemp>();
+            if (manager != null)
+            {
+                manager.CollectClue(clueName);
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.LogWarning("CluePickup: No se encontró LevelManagerTemp en la escena.");
+            }
         }
     }
 }

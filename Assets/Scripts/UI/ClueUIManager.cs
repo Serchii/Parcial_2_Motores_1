@@ -18,15 +18,15 @@ public class ClueUIManager : MonoBehaviour
 
     public void SetupNotebook(int requiredClues)
     {
-        if (clueListParent == null)
+        if (clueListParent == null || clueSlotPrefab == null)
         {
-            Debug.LogWarning("clueListParent es null o destruido en SetupNotebook.");
+            Debug.LogWarning("ClueUIManager: clueListParent o clueSlotPrefab no están asignados.");
             return;
         }
 
-        for (int i = clueListParent.childCount - 1; i >= 0; i--)
+        foreach (Transform child in clueListParent)
         {
-            Destroy(clueListParent.GetChild(i).gameObject);
+            Destroy(child.gameObject);
         }
 
         clueTexts.Clear();
@@ -42,7 +42,7 @@ public class ClueUIManager : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("No se encontró TextMeshProUGUI en el slot de pista.");
+                Debug.LogWarning("ClueUIManager: No se encontró TextMeshProUGUI en el slot.");
             }
         }
     }

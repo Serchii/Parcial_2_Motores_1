@@ -2,25 +2,25 @@ using UnityEngine;
 
 public class ClueInteract : MonoBehaviour
 {
+    [SerializeField] private string clueId = "clue_default";
     [SerializeField] private KeyCode interactKey = KeyCode.E;
-    [SerializeField] private string clueName = "Pista misteriosa";
 
-    private bool isPlayerNearby = false;
+    private bool isPlayerInRange = false;
 
     private void Update()
     {
-        if (!isPlayerNearby) return;
-
-        if (Input.GetKeyDown(interactKey))
+        if (isPlayerInRange && Input.GetKeyDown(interactKey))
         {
-            if (LevelManager.Instance != null)
+            Debug.Log($"Presionaste {interactKey} para recoger pista: {clueId}");
+
+            if (LevelManagerTemp.Instance != null)
             {
-                LevelManager.Instance.CollectClue(clueName);
+                LevelManagerTemp.Instance.CollectClue(clueId);
                 Destroy(gameObject);
             }
             else
             {
-                Debug.LogError("LevelManager.Instance es null. Verifica que esté correctamente inicializado en la escena inicial.");
+                Debug.LogWarning("LevelManagerTemp.Instance es null");
             }
         }
     }
@@ -29,7 +29,8 @@ public class ClueInteract : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isPlayerNearby = true;
+            isPlayerInRange = true;
+            Debug.Log("Jugador entró al trigger 2D de la pista: " + clueId);
         }
     }
 
@@ -37,7 +38,8 @@ public class ClueInteract : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isPlayerNearby = false;
+            isPlayerInRange = false;
+            Debug.Log("Jugador salió del trigger 2D de la pista: " + clueId);
         }
     }
 }

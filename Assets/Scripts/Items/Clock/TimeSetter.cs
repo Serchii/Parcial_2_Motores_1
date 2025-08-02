@@ -14,14 +14,13 @@ public class TimeSetter : MonoBehaviour
             Debug.Log($"Hora seteada a: {hour:00}:{minute:00}");
         }
 
-        LevelManager levelManager = FindObjectOfType<LevelManager>();
-        if (levelManager != null && levelManager.enabled)
+        if (LevelManagerTemp.Instance != null && LevelManagerTemp.Instance.enabled)
         {
-            levelManager.StartLevelFromSession();
+            Debug.Log("LevelManagerTemp está activo.");
         }
         else
         {
-            Debug.LogWarning("No se encontró el LevelManager o está deshabilitado.");
+            Debug.LogWarning("No se encontró LevelManagerTemp en la escena o no está activo.");
         }
     }
 }
