@@ -5702,7 +5702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Dante '
+  m_text: "Dante Galv\xE1n Ramos"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0be475a7f880cba40844a80deff2b37f, type: 2}
   m_sharedMaterial: {fileID: -4426288966130096699, guid: 0be475a7f880cba40844a80deff2b37f, type: 2}
