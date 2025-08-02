@@ -32,7 +32,6 @@ public class DamageFlash : MonoBehaviour
         spriteRenderer.material = flashMaterial;
 
         yield return new WaitForSeconds(flashDuration);
-        Debug.Log("Flash");
 
         spriteRenderer.material = originalMaterial;
     }

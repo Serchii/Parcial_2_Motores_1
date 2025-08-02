@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5262226734938389147}
   - component: {fileID: 5356095846739234594}
   - component: {fileID: 2342452362022786276}
+  - component: {fileID: 6740217938593475103}
   m_Layer: 5
   m_Name: CurvePipe
   m_TagString: Untagged
@@ -105,6 +106,7 @@ MonoBehaviour:
   rectTransform: {fileID: 0}
   canvas: {fileID: 0}
   canvasGroup: {fileID: 0}
+  isDraggable: 1
   pieceType: 2
 --- !u!114 &2342452362022786276
 MonoBehaviour:
@@ -118,3 +120,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3ed96662747a943a8179bd8d6e55c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRotatable: 1
+--- !u!114 &6740217938593475103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6439715541599899129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 899b68d9843c7d64dafb28f20dd61885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pieceImage: {fileID: 0}

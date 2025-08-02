@@ -112,11 +112,8 @@ public class PuzzleTrigger : MonoBehaviour
 
     private void SetPlayerActive(bool isActive)
     {
-        if (playerMovement != null)
-            playerMovement.enabled = isActive;
-
-        if (playerAttack != null)
-            playerAttack.enabled = isActive;
+        playerMovement.SetCanMove(isActive);
+        playerMovement.GetComponent<PlayerAttack>().SetCanAttack(isActive);
     }
 
     private void ShowPrompt()

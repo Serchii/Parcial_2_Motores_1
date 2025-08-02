@@ -23,6 +23,9 @@ public class PuzzleGridManager : MonoBehaviour
     [SerializeField] private bool isCompleted = false;
     [SerializeField] private int money = 0;
 
+    [Header("Piezas Instanciadas")]
+    [SerializeField] private Color initialPieceColor = new Color(0.647f, 0.165f, 0.165f, 1.0f);
+
     public bool IsCompleted => isCompleted;
 
     private ItemSlot[,] gridSlots;
@@ -80,122 +83,57 @@ public class PuzzleGridManager : MonoBehaviour
                         DragDropInstance drag = piece.GetComponent<DragDropInstance>();
                         if (drag != null) drag.SetDraggable(false);
 
-
+                        // Pintar pieza instanciada
+                        PuzzlePieceVisual visual = piece.GetComponent<PuzzlePieceVisual>();
+                        if (visual != null) visual.SetColor(initialPieceColor);
                     }
                 }
             }
         }
-    }
-
-    public void ValidatePuzzle()
-    {
-        bool allConnectionsValid = true;
-
-        // Primero, resetear colores
-        foreach (ItemSlot slot in gridSlots)
-        {
-            if (slot.transform.childCount == 0) continue;
-
-            GameObject piece = slot.transform.GetChild(0).gameObject;
-            piece.GetComponent<Image>().color = Color.white;
-        }
-
-        // Validar conexiones
-        for (int y = 0; y < rows; y++)
-        {
-            for (int x = 0; x < columns; x++)
-            {
-                ItemSlot slot = gridSlots[y, x];
-                if (slot.transform.childCount == 0) continue;
-
-                GameObject pieceObj = slot.transform.GetChild(0).gameObject;
-                DragDropInstance drag = pieceObj.GetComponent<DragDropInstance>();
-                PuzzlePieceRotatable rot = pieceObj.GetComponent<PuzzlePieceRotatable>();
-
-                if (drag == null || rot == null) continue;
-
-                var connections = PipeConnectionData.GetConnections(drag.pieceType, rot.GetRotation());
-
-                bool thisPieceValid = true;
-
-                foreach (Direction dir in connections)
-                {
-                    int nx = x, ny = y;
-
-                    switch (dir)
-                    {
-                        case Direction.Up: ny--; break;
-                        case Direction.Right: nx++; break;
-                        case Direction.Down: ny++; break;
-                        case Direction.Left: nx--; break;
-                    }
-
-                    if (nx < 0 || nx >= columns || ny < 0 || ny >= rows)
-                    {
-                        thisPieceValid = false;
-                        allConnectionsValid = false;
-                        continue;
-                    }
-
-                    ItemSlot neighborSlot = gridSlots[ny, nx];
-                    if (neighborSlot.transform.childCount == 0)
-                    {
-                        thisPieceValid = false;
-                        allConnectionsValid = false;
-                        continue;
-                    }
-
-                    GameObject neighborObj = neighborSlot.transform.GetChild(0).gameObject;
-                    DragDropInstance neighborDrag = neighborObj.GetComponent<DragDropInstance>();
-                    PuzzlePieceRotatable neighborRot = neighborObj.GetComponent<PuzzlePieceRotatable>();
-
-                    if (neighborDrag == null || neighborRot == null)
-                    {
-                        thisPieceValid = false;
-                        allConnectionsValid = false;
-                        continue;
-                    }
-
-                    var neighborConnections = PipeConnectionData.GetConnections(neighborDrag.pieceType, neighborRot.GetRotation());
-                    Direction opposite = GetOppositeDirection(dir);
-
-                    if (!System.Array.Exists(neighborConnections, d => d == opposite))
-                    {
-                        thisPieceValid = false;
-                        allConnectionsValid = false;
-                    }
-                }
-
-                // Pintar según resultado
-                Image img = pieceObj.GetComponent<Image>();
-                img.color = thisPieceValid ? Color.green : Color.red;
-            }
-        }
-
-        Debug.Log(allConnectionsValid ? "✅ Puzzle válido" : "❌ Puzzle inválido");
     }
 
     public void ValidateFlow()
     {
+        //Reiniciamos los colores
         ResetColors();
 
+        //Verificamos si las piezas van del principio a fin
         bool[,] visited = new bool[rows, columns];
         bool success = Traverse(entryPoint.x, entryPoint.y, visited);
 
-        if (success && visited[exitPoint.y, exitPoint.x])
+        //Verificamos si todas las piezas estan conectadas correctamente
+        bool allPiecesConnected = true;
+
+        for (int y = 0; y < rows; y++)
         {
-            Debug.Log("El flujo llega desde el inicio hasta el final!");
+            for (int x = 0; x < columns; x++)
+            {
+                if (gridSlots[y, x].transform.childCount == 0) continue;
+
+                if (!visited[y, x])
+                {
+                    allPiecesConnected = false;
+                    break;
+                }
+            }
+        }
+
+        //Damos por completado el puzzle si las validaciones fueron correctas
+        if (success && visited[exitPoint.y, exitPoint.x] && allPiecesConnected)
+        {
+            Debug.Log("✅ El flujo es correcto y todas las piezas están conectadas!");
             isCompleted = true;
             OnCompleted?.Invoke();
             PuzzleCompleted();
         }
         else
         {
-            Debug.Log("El flujo no llega correctamente");
+            Debug.Log("❌ El flujo es incorrecto o hay piezas desconectadas");
             isCompleted = false;
         }
 
         // Pintar visitados
+        
         for (int y = 0; y < rows; y++)
         {
             for (int x = 0; x < columns; x++)
@@ -203,8 +141,11 @@ public class PuzzleGridManager : MonoBehaviour
                 if (gridSlots[y, x].transform.childCount == 0) continue;
 
                 GameObject piece = gridSlots[y, x].transform.GetChild(0).gameObject;
-                Image img = piece.GetComponent<Image>();
-                img.color = visited[y, x] ? Color.green : Color.red;
+                Color color = visited[y, x] ? Color.green : Color.red;
+
+                PuzzlePieceVisual visual = piece.GetComponent<PuzzlePieceVisual>();
+                if (visual != null)
+                    visual.FlashInvalid(color,1f);
             }
         }
     }
@@ -271,7 +212,9 @@ public class PuzzleGridManager : MonoBehaviour
             if (slot.transform.childCount == 0) continue;
 
             GameObject piece = slot.transform.GetChild(0).gameObject;
-            piece.GetComponent<Image>().color = Color.white;
+            PuzzlePieceVisual visual = piece.GetComponent<PuzzlePieceVisual>();
+            if (visual != null)
+                visual.ResetColor();
         }
     }
 

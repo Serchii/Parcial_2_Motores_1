@@ -10,6 +10,9 @@ public class DragDropInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     [SerializeField] bool isDraggable = true;
 
+    [SerializeField] bool placedByPlayer = false;
+
+    public bool PlacedByPlayer => placedByPlayer;
     public bool IsDraggable => isDraggable;
 
     public PuzzlePieceType pieceType;
@@ -23,7 +26,7 @@ public class DragDropInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if(!isDraggable) return;
+        if (!isDraggable) return;
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
 
@@ -32,14 +35,14 @@ public class DragDropInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     public void OnDrag(PointerEventData eventData)
     {
-        if(!isDraggable) return;
+        if (!isDraggable) return;
         rectTransform.position = eventData.position;
         Debug.Log(gameObject.name);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if(!isDraggable) return;
+        if (!isDraggable) return;
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
 
@@ -58,5 +61,10 @@ public class DragDropInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     public void SetDraggable(bool value)
     {
         isDraggable = value;
+    }
+    
+    public void SetPlaceable(bool value)
+    {
+        placedByPlayer = value;
     }
 }

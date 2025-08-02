@@ -17,6 +17,11 @@ public class DraggableFromPanel : MonoBehaviour, IBeginDragHandler, IDragHandler
     public void OnBeginDrag(PointerEventData eventData)
     {
         instance = Instantiate(dragPrefab, canvas.transform);
+        var dragDrop = instance.GetComponent<DragDropInstance>();
+        if (dragDrop != null)
+        {
+            dragDrop.SetPlaceable(true);
+        }
         instanceRect = instance.GetComponent<RectTransform>();
         instanceRect.position = eventData.position;
 

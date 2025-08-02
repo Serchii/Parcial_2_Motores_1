@@ -103,6 +103,10 @@ MonoBehaviour:
     m_Key: InteractText
     m_Metadata:
       m_Items: []
+  - m_Id: 5044954543493120
+    m_Key: OutOfTimeText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -148,7 +148,8 @@ MonoBehaviour:
   coyoteTime: 0.2
   coyoteTimer: 0
   isKnockedBack: 0
-  knockbackDuration: 0.2
+  knockbackDuration: 0.5
+  attackFrictionFactor: 0.9
   playerAttack: {fileID: 0}
 --- !u!114 &8396585832806653847
 MonoBehaviour:
@@ -189,11 +190,10 @@ MonoBehaviour:
     m_Bits: 256
   combo: 0
   attackDamage: 20
-  attackCooldown: 0.5
-  attackTimer: 0
-  knockbackForce: 7
+  knockbackForce: 5
   hit: {fileID: 6025902476113732215}
   disableTime: 0.25
+  duration: 0.1
   animator: {fileID: 0}
   attackSounds: []
   audioSource: {fileID: 0}
@@ -201,8 +201,10 @@ MonoBehaviour:
   rb: {fileID: 0}
   attackPushForce: 7
   attackFrictionFactor: 0.8
+  attackWithKnockback: 0
   isHitting: 0
   playerMovement: {fileID: 0}
+  canAttack: 1
 --- !u!61 &8779264362405234484
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -279,7 +281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6220690113140693535}
   - component: {fileID: 2963022741283014365}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

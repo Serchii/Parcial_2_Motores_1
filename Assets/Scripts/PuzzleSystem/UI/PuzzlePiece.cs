@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PuzzlePiece : MonoBehaviour
-{
+{/*
     public PuzzlePieceType pipeType;
 
     private int rotationStep = 0; // 0 = 0°, 1 = 90°, 2 = 180°, 3 = 270°
@@ -39,5 +39,5 @@ public class PuzzlePiece : MonoBehaviour
         Image image = GetComponent<Image>();
         image.sprite = newSprite;
         image.enabled = newType != PuzzlePieceType.None;
-    }
+    }*/
 }
