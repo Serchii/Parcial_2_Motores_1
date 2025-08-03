@@ -16,8 +16,8 @@ public class LevelManagerTemp : MonoBehaviour
     [SerializeField] private ObjectiveType objectiveType = ObjectiveType.Door;
 
     [Header("Referencias")]
-    [SerializeField] private GameObject doorPrefab;
-    [SerializeField] private GameObject puzzlePrefab;
+    [SerializeField] private GameObject doorPrefab;    
+    [SerializeField] private GameObject puzzlePrefab; 
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private ClueUIManager clueUIManager;
     [SerializeField] private AudioSource audioSource;
@@ -61,7 +61,6 @@ public class LevelManagerTemp : MonoBehaviour
         defeatPanelDay?.SetActive(false);
         defeatPanelNight?.SetActive(false);
 
-        InvokeRepeating(nameof(CheckTimeLimit), 5f, 5f);
     }
 
     public void CollectClue(string clueName)
@@ -84,16 +83,24 @@ public class LevelManagerTemp : MonoBehaviour
 
         if (objectiveType == ObjectiveType.Puzzle)
         {
-            if (puzzlePrefab != null && spawnPoint != null)
-                Instantiate(puzzlePrefab, spawnPoint.position, spawnPoint.rotation);
+            if (puzzlePrefab != null)
+            {
+                if (!puzzlePrefab.activeInHierarchy)
+                    puzzlePrefab.SetActive(true);
+            }
         }
         else
         {
-            if (doorPrefab != null && spawnPoint != null)
-                Instantiate(doorPrefab, spawnPoint.position, spawnPoint.rotation);
+            if (doorPrefab != null)
+            {
+                if (!doorPrefab.activeInHierarchy)
+                    doorPrefab.SetActive(true);
+            }
         }
     }
 
+    // Límite de tiempo - Comprobación desactivada temporalmente
+    /*
     private void CheckTimeLimit()
     {
         if (defeatTriggered) return;
@@ -104,11 +111,13 @@ public class LevelManagerTemp : MonoBehaviour
         int hour = clock.GetHour();
         int minute = clock.GetMinute();
 
+        // Condiciones para perder según el tipo de nivel y la hora actual
         if (levelType == LevelType.Day && (hour >= 12 || hour < 6))
             TriggerDefeat("El tiempo se terminó. Debes salir de la casa.");
         else if (levelType == LevelType.Night && (hour >= 4 && hour < 20))
             TriggerDefeat("Te desmayaste del cansancio.");
     }
+    */
 
     private void TriggerDefeat(string message)
     {

@@ -325,6 +325,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7542173497876479005, guid: 7f6234eed6bd3ee4d88c74b4f932b445, type: 3}
+      propertyPath: doorPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542173497876479005, guid: 7f6234eed6bd3ee4d88c74b4f932b445, type: 3}
+      propertyPath: puzzlePrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542173497876479005, guid: 7f6234eed6bd3ee4d88c74b4f932b445, type: 3}
       propertyPath: clueUIManager
       value: 
       objectReference: {fileID: 450429129}
@@ -3410,6 +3418,10 @@ PrefabInstance:
     - target: {fileID: 7397538139900909611, guid: c967bc6a1c3f7ec42b148daa07ac5eaa, type: 3}
       propertyPath: m_Name
       value: Puzzle (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7397538139900909611, guid: c967bc6a1c3f7ec42b148daa07ac5eaa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7397538139900909611, guid: c967bc6a1c3f7ec42b148daa07ac5eaa, type: 3}
       propertyPath: m_TagString
