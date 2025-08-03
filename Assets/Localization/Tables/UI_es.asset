@@ -27,11 +27,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 745008599040
-    m_Localized: CREDITOS
+    m_Localized: "CR\xC9DITOS"
     m_Metadata:
       m_Items: []
   - m_Id: 1803323772928
-    m_Localized: VOLUMEN MUSICA
+    m_Localized: "VOLUMEN M\xDASICA"
     m_Metadata:
       m_Items: []
   - m_Id: 1852069974016
@@ -59,7 +59,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3756712540049408
-    m_Localized: 'Dinero: '
+    m_Localized: 'Dinero:'
     m_Metadata:
       m_Items: []
   - m_Id: 3756545233457152
@@ -75,18 +75,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4143153363357696
-    m_Localized: IR A SIGUIENTE DIA
+    m_Localized: "IR AL SIGUIENTE D\xCDA"
     m_Metadata:
       m_Items: []
   - m_Id: 4154824240730112
-    m_Localized: "Eso es todo por ahora.\n\nEl juego sigue en desarrollo. Si quieres
+    m_Localized: "Es todo por ahora.\n \n El juego sigue en desarrollo. Si quieres
       saber m\xE1s sobre la historia de Henry, sigue nuestra p\xE1gina de itch.io
-      donde publicaremos todas las futuras implementaciones.\n\n\xA1Muchas gracias
+      donde publicaremos todas las futuras implementaciones.\n \n \xA1Muchas gracias
       por jugar!"
     m_Metadata:
       m_Items: []
   - m_Id: 4154700315824128
-    m_Localized: "\xA1\xA1HAS TERMINADO LA DEMO!!"
+    m_Localized: "\xA1TERMINASTE LA DEMO!"
     m_Metadata:
       m_Items: []
   - m_Id: 4296497188900864
@@ -94,19 +94,23 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4296530974019584
-    m_Localized: Presiona Clic Izq para ATACAR
+    m_Localized: Presiona Clic para ATACAR
     m_Metadata:
       m_Items: []
   - m_Id: 4296567279915008
-    m_Localized: HAS MUERTO
+    m_Localized: MORISTE
     m_Metadata:
       m_Items: []
   - m_Id: 4299683312242688
-    m_Localized: HAS GANADO!
+    m_Localized: "\xA1GANASTE!"
     m_Metadata:
       m_Items: []
   - m_Id: 4301375063789568
-    m_Localized: '[E] para Interactuar'
+    m_Localized: '[E] para interactuar'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5369862876106752
+    m_Localized: "VOLVER AL MEN\xDA"
     m_Metadata:
       m_Items: []
   references:

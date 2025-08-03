@@ -67,7 +67,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3756712540049408
-    m_Localized: 'Money: '
+    m_Localized: 'Money:'
     m_Metadata:
       m_Items: []
   - m_Id: 3758079698604032
@@ -83,16 +83,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4154824240730112
-    m_Localized: 'That''s all for now.
-
-
-      The game is still in development.
-      If you want to find out more about Henry''s story, follow our itch.io page
-      where we''ll post all the future implementations.
-
-
-      Thanks a lot for
-      playing!'
+    m_Localized: "That's all for now.\n \n The game is still in development. If you
+      want to find out more about Henry's story, follow our itch.io page where we'll
+      post all the future implementations.\n \n Thanks a lot for playing!"
     m_Metadata:
       m_Items: []
   - m_Id: 4296497188900864
@@ -113,6 +106,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 4301375063789568
     m_Localized: '[E] to Interact'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5369862876106752
+    m_Localized: BACK TO MENU
     m_Metadata:
       m_Items: []
   references:

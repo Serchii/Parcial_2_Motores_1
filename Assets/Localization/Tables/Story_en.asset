@@ -19,32 +19,32 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 14436339712
-    m_Localized: "Henry is a young man who works as a handyman in a city flooded
-      by crime. Every day, he attends one of his clients\uFFFD houses to fix something.
+    m_Localized: " Henry is a young man who works as a handyman in a city flooded
+      by crime. Every day, he attends one of his clients\u2019 houses to fix something.
       His life is a constant routine: he goes to work, gets paid, buys something
       to improve his craft, and returns home. But Henry has a gentle heart and a
-      wild and clever mind, and he\uFFFDd love to see his city thrive.\n\nToday he\uFFFDs
-      attending an annual mandatory plumbing workshop at the National University
+      wild and clever mind, and he\u2019d love to see his city thrive.\n \n Today
+      he\u2019s attending an annual mandatory plumbing workshop at the National University
       of Repairmanshift that he needs to fulfill to keep his license. Everything
-      seems to be quite boring, as usual\uFFFD"
+      seems to be quite boring, as usual\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 18096689057792
-    m_Localized: "Henry went to bed with his heart pounding the previous night. He
-      had just killed a man, and he was navigating a rollercoaster of emotions. The
-      room spun around him. He did not feel guilty nor shamed. He felt empowered,
-      enraged. He felt he was doing the right thing, but his body was shivering.\n\nThat
-      note he found on the guy\uFFFDs body, that guy who was related to one of his
-      clients. Something inside of him ignited, he needed to find out more about
-      this and try to stop that crime.\n\nToday was going to be a long day\uFFFD"
+    m_Localized: " Henry went to bed with his heart pounding the previous night.
+      He had just killed a man, and he was navigating a rollercoaster of emotions.
+      The room spun around him. He did not feel guilty nor shamed. He felt empowered,
+      enraged. He felt he was doing the right thing, but his body was shivering.\n
+      \n That note he found on the guy\u2019s body, that guy who was related to one
+      of his clients. Something inside of him ignited, he needed to find out more
+      about this and try to stop that crime.\n \n Today was going to be a long day\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 18134462959616
-    m_Localized: "Now it was obvious. Henry enjoyed fighting crime and cleaning his
-      city of these pests. But he needed to keep going and defeat as many criminals
-      as possible to try to get rid of all the criminal networks in town.\n\nHe was
-      exhausted again, fighting criminals was a heavy exercise, but he was starting
-      his new day with a lot of prospects in mind\uFFFD"
+    m_Localized: " Now it was obvious. Henry enjoyed fighting crime and cleaning
+      his city of these pests. But he needed to keep going and defeat as many criminals
+      as possible to try to get rid of all the criminal networks in town.\n \n He
+      was exhausted again, fighting criminals was a heavy exercise, but he was starting
+      his new day with a lot of prospects in mind\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 233293047468032
@@ -58,34 +58,34 @@ MonoBehaviour:
   - m_Id: 233584966832128
     m_Localized: "A young man prevented a robbery from taking place last night, when
       he decided to fight against a robber and ended up killing him. The young man
-      ran away from the place looking disturbed according to witnesses. \n\nThe identity
-      of the robber was later identified as Ricky Mandino, a distant relative of
-      one of the wealthiest families in the city. The family denied commenting, but
-      sources closest to them tell us they denied even knowing that person was in
-      town.\n\nAccording to some witnesses, the young man who prevented the crime
-      was dressed in worker clothes and hit him with a wooden hammer. This makes
-      the police believe that this aspiring vigilante was coming from the National
+      ran away from the place looking disturbed according to witnesses. \n \n The
+      identity of the robber was later identified as Ricky Mandino, a distant relative
+      of one of the wealthiest families in the city. The family denied commenting,
+      but sources closest to them tell us they denied even knowing that person was
+      in town.\n \n According to some witnesses, the young man who prevented the
+      crime was dressed in worker clothes and hit him with a wooden hammer. This
+      makes the police believe that this aspiring vigilante was coming from the National
       University of Repairmanshift. However, hundreds of people from the whole country
       take their exams there, so without more clues it will be almost impossible
-      to know who it was.\n\nThe University has rejected providing a list of students,
+      to know who it was.\n \n The University has rejected providing a list of students,
       so unless the police can get a warrant, the interview process will be even
-      more difficult.\n\nFor the time being, we actually thank this man who freed
+      more difficult.\n \n For the time being, we actually thank this man who freed
       the city from at least one unlawful and despicable human being."
     m_Metadata:
       m_Items: []
   - m_Id: 233674859155456
     m_Localized: "Looks like the thief murder we had a few nights ago was not an
-      isolated case nor an accident. We have a vigilante among us. \n\nLast night,
+      isolated case nor an accident. We have a vigilante among us. \n \n Last night,
       a group of thugs were planning some criminal activity that is still to be determined.
       They were roaming the house of Mrs. Scarlett in suspicious clothing and moving
-      patterns.\n\nMrs. Scarlett wasn\uFFFDt home, but her maid got scared and called
-      the police. Turns out, when the police arrived, the thugs were beaten up and
-      left crying on the street.\n\nAccording to the maid, she didn\uFFFDt see anything,
-      after calling the police, she locked herself in the bathroom and prayed.\n\nPolice
-      are investigating the crime scene and trying to find any clues that can point
-      to the suspect, although the community is pretty pleased with the vigilante
-      not being even identified.\n\nThe police ask anyone who has any info on what
-      happened last night to call 555-8375-9821."
+      patterns.\n \n Mrs. Scarlett wasn\u2019t home, but her maid got scared and
+      called the police. Turns out, when the police arrived, the thugs were beaten
+      up and left crying on the street.\n \n According to the maid, she didn\u2019t
+      see anything, after calling the police, she locked herself in the bathroom
+      and prayed.\n \n Police are investigating the crime scene and trying to find
+      any clues that can point to the suspect, although the community is pretty pleased
+      with the vigilante not being even identified.\n \n The police ask anyone who
+      has any info on what happened last night to call 555-8375-9821."
     m_Metadata:
       m_Items: []
   - m_Id: 233672007028736
@@ -98,17 +98,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 233678415925248
     m_Localized: "Last night, at the construction site, many construction workers/criminals
-      were brutally beaten after a witness called the police upon hearing screams.\n\nThe
-      victim count was not precise by police yet, but we counted around 5. These
-      guys were disguised as construction workers, or even actually working, but
-      they had a double life or ulterior motive for being there.\n\nThat site has
-      a direct underground connection with the city\uFFFDs bank. Police think the
-      men were digging a tunnel to do a huge heist, but were interrupted by a mysterious
-      man in the middle of the night.\n\nAccording to the preliminary reports, the
-      thieves were beaten with a wooden hammer and some greased half-prints were
-      found in the scene. Is our vigilante about to be caught? We surely hope not!\n\nBut
-      as officials, we need to convey law and police regulations and let you know
-      that if you have any information that may be significant, please call 555-8375-9821."
+      were brutally beaten after a witness called the police upon hearing screams.\n
+      \n The victim count was not precise by police yet, but we counted around 5.
+      These guys were disguised as construction workers, or even actually working,
+      but they had a double life or ulterior motive for being there.\n \n That site
+      has a direct underground connection with the city\u2019s bank. Police think
+      the men were digging a tunnel to do a huge heist, but were interrupted by a
+      mysterious man in the middle of the night.\n \n According to the preliminary
+      reports, the thieves were beaten with a wooden hammer and some greased half-prints
+      were found in the scene. Is our vigilante about to be caught? We surely hope
+      not!\n \n But as officials, we need to convey law and police regulations and
+      let you know that if you have any information that may be significant, please
+      call 555-8375-9821."
     m_Metadata:
       m_Items: []
   references:

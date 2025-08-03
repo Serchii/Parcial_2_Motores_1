@@ -19,40 +19,212 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 47378403328
-    m_Localized: "Henry:\nWhat the hell!? I must\u2019ve passed out from exhaustion.
+    m_Localized: "Henry:\n What the hell!? I must\u2019ve passed out from exhaustion.
       I better leave here immediately!"
     m_Metadata:
       m_Items: []
   - m_Id: 535989653504
-    m_Localized: "Henry:\nHmm, that does sound promising! I better leave right away
+    m_Localized: "Henry:\n Hmm, that does sound promising! I better leave right away
       before they notice I\u2019m still here. I must find the house of that woman\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 419283144704
-    m_Localized: "Unknown voice:\nDid that boy leave already? I don\u2019t want anyone
-      overhearing us."
+    m_Localized: "Unknown voice:\n Did that boy leave already? I don\u2019t want
+      anyone overhearing us."
     m_Metadata:
       m_Items: []
   - m_Id: 523977166848
-    m_Localized: "House owner:\nYeah! He must\u2019ve left hours ago! Just shoot
+    m_Localized: "House Owner:\n Yeah! He must\u2019ve left hours ago! Just shoot
       it! What are we doing tonight?"
     m_Metadata:
       m_Items: []
   - m_Id: 531073929216
-    m_Localized: "Unknown voice:\nWell, the boss planned this kidnapping, the daughter
+    m_Localized: "Unknown voice:\n Well, the boss planned this kidnapping, the daughter
       of that wealthy lady at the end of the street\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 3359803132416000
-    m_Localized: "House Owner:\nHey, boy! Go upstairs and fix the bathroom. Please
+    m_Localized: "House Owner:\n Hey, boy! Go upstairs and fix the bathroom. Please
       do not mess with other rooms, the woman of the house does not like that. You\u2019ll
       get the money when you\u2019re done!"
     m_Metadata:
       m_Items: []
   - m_Id: 3378980756983808
+    m_Localized: "Henry:\n Well, I finally finished. All that work left me exhausted."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4813628221493248
+    m_Localized: "Henry:\n Agh, that was close. I almost didn't make it. I better
+      before the police arrives."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4814995682037760
+    m_Localized: "Kidnapper:\n Do it now! Blast that door! We have to finish before
+      anyone sees us."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4815036924628992
+    m_Localized: "Henry:\n Stop! Stop what you're doing unless you want to get beaten."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4815051789242368
+    m_Localized: "Kidnapper:\n Who the hell are you? Don't meddle in someone else's
+      business. Boy get him!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4819106947207168
+    m_Localized: "Henry:\n Finally. Only one more step to get my license. Only more
+      exam\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4819661035737088
+    m_Localized: "Henry:\n I passed! I can't wait to get home, order a pizza, and
+      drink a big beer. Big celebration tonight!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4820711591448576
+    m_Localized: AAAAHHHH! HELP! SOMEBODY STOP THAT THIEF!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4821001459798016
+    m_Localized: "Henry:\n Oh, no, another robbery.\n I'm sick of so many crimes,
+      but I shouldn't get involved\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4821572887580672
+    m_Localized: "Henry:\n I better leave\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4821667880177664
+    m_Localized: "Thief:\n HAHAHA! Those idiots keep looking for me and the police
+      will take ages to get here."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4822112983912448
+    m_Localized: "Thief:\n Nothing like warming up before a big heist."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4822278373707776
+    m_Localized: "Henry:\n It's the thief from earlier\u2026 I shouldn't meddle,
+      not my problem. But\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4822514596909056
+    m_Localized: "Henry:\n Hey, you\u2026 Give- GIVE BACK WHAT YOU STOLE IF YOU DON'T
+      WANT TO GET HURT!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4822907716440064
+    m_Localized: "Thief:\n Uh? HAHAHA! Don't make me laugh, kid. Do you wanna die?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4823150222708736
+    m_Localized: "Thief:\n Come, let's go. I'll grant you your wish\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4824515917451264
+    m_Localized: "Henry:\n Oh, God! He does not breathe\u2026 What did I do?!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4825052150829056
+    m_Localized: "Henry:\n He dropped a note. Could it be related to the \"big heist\"
+      he mentioned?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4825284913729536
+    m_Localized: "Henry:\n I'll take it. I must leave before somebody sees me!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4874086471241728
+    m_Localized: "House Owner:\n What do you want!? Oh, you're the plumber. \n The
+      problem is downstairs. \n Now stop bothering me, I have to take a call."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4874525191245824
     m_Localized: 'Henry:
 
-      Well, i finally finished. All that work left me exhausted.'
+      Yes! Another job well done!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4874897846767616
+    m_Localized: 'Henry:
+
+      Hmm? Through this vent I can hear the upstairs bedroom.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4875093607518208
+    m_Localized: "Homeowner:\n \u2026after the bogus kidnap attempt the other day,
+      the higher ups are getting impatient.\n Even the banks, we cannot keep delaying
+      this."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4875608764518400
+    m_Localized: "Homeowner:\nTomorrow they'll improve the security measures. \nWe
+      must finish that tunnel into the vault tonight."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4877109146750976
+    m_Localized: "Homeowner:\n \u2026                \n I DON'T GIVE A FUCK IF PART
+      OF THE GROUP IS ON THE BEACH, GET YOUR CAR AND BRING THEM THE FUCK BACK!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4877423086211072
+    m_Localized: "Homeowner:\n The boss will kill us if we fail this task. \n Our
+      heads are on the line."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4877656016883712
+    m_Localized: "Homeowner:\n Yeah. Tonight, at the construction site, next to the
+      bank. \n Do not forget!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4877808052015104
+    m_Localized: "Henry:\n Construction site\u2026 Tonight\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4878111925145600
+    m_Localized: "Henry:\n I should pay them a visit."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4878424581148672
+    m_Localized: "Henry:\n Stop what you're doing if you don't wanna get hurt!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4878876462878720
+    m_Localized: "Thief:\n Who's this scumbag?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4879005479669760
+    m_Localized: "Thief:\n Must be that vigilante the news is always blubbering about\u2026
+      The one that stopped the kidnapping\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4879341191761920
+    m_Localized: "Thief:\n This asshole? We've fallen into one low crater. \n Whatever,
+      we can't let him ruin everything we've fought for. Let's finish him!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4879585530941440
+    m_Localized: "Henry:\n Ouch. That hurt!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4881033643757568
+    m_Localized: "Henry:\n So they are part of a bigger, more organized criminal
+      ring. \n I think this is getting more dangerous."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4879927987474432
+    m_Localized: "Henry:\n But I can't help it, this rush I feel when doing the right
+      thing is overpowering\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4880427713630208
+    m_Localized: "Henry:\n Someone must keep the streets free of so many scumbags.
+      \n And I'll be the one!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4880638435463168
+    m_Localized: "Henry:\n Police sirens! Time to go!"
     m_Metadata:
       m_Items: []
   references:
