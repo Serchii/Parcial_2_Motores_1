@@ -337,6 +337,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 450429129}
     - target: {fileID: 7542173497876479005, guid: 7f6234eed6bd3ee4d88c74b4f932b445, type: 3}
+      propertyPath: requiredClues
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542173497876479005, guid: 7f6234eed6bd3ee4d88c74b4f932b445, type: 3}
       propertyPath: defeatPanelDay
       value: 
       objectReference: {fileID: 1774311194}
@@ -903,7 +907,7 @@ Transform:
   m_GameObject: {fileID: 268839743}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3984108, y: 0.35802007, z: -10.073344}
+  m_LocalPosition: {x: 0.40416098, y: 0.35802007, z: -10.073344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
