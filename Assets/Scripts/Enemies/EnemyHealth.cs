@@ -57,6 +57,7 @@ public class EnemyHealth : BaseHealth
         if (_animator != null && (!enemyBehaviour.IsAttacking || health <= 0))
         {
             _animator.SetTrigger("Hurt");
+            enemyBehaviour.DeactivateHit();
             enemyBehaviour.EndAttack();
         }
 
@@ -81,7 +82,7 @@ public class EnemyHealth : BaseHealth
         }
 
         GameManager.Instance.AddMoney(Random.Range(0, maxMoney + 1));
-        Invoke("DeactivateEnemy", 1.5f);
+        Invoke("DeactivateEnemy", 0.5f);
     }
 
     void DeactivateEnemy()

@@ -859,3 +859,4 @@ MonoBehaviour:
   exitPoint: {x: 3, y: 3}
   isCompleted: 0
   money: 0
+  initialPieceColor: {r: 0.647, g: 0.165, b: 0.165, a: 1}

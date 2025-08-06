@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,12 +13,14 @@ public class PlayerMovement : MonoBehaviour
 
     private float moveInput;
     [SerializeField] private bool isGrounded;
+    [SerializeField] private bool canJump = true;
 
     [Header("Ground Check")]
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundCheckRadius = 0.2f;
     [SerializeField] LayerMask groundLayer;
-    [SerializeField] GameObject currentOneWayPlatform;
+    [SerializeField] private List<GameObject> currentOneWayPlatforms = new List<GameObject>();
+    [SerializeField] private List<GameObject> temporarilyIgnoredPlatforms = new List<GameObject>();
     [SerializeField] float disableCollisionTime = 0.25f;
 
     [Header("Coyote Time")]
@@ -30,13 +33,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float attackFrictionFactor = 0.8f;
     [SerializeField] PlayerAttack playerAttack;
 
-    public bool  IsKnockedBack=> isKnockedBack;
+    public bool IsKnockedBack => isKnockedBack;
     public bool CanMove => canMove;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        
+        if (animator == null)
+            animator = GetComponentInChildren<Animator>();
+
         playerAttack = GetComponent<PlayerAttack>();
     }
 
@@ -45,8 +51,8 @@ public class PlayerMovement : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        if(!isKnockedBack && canMove)
-        SetAnimator(moveInput, !isGrounded);
+        if (!isKnockedBack && canMove)
+            SetAnimator(moveInput, !isGrounded);
 
         if (isGrounded)
         {
@@ -57,18 +63,17 @@ public class PlayerMovement : MonoBehaviour
             coyoteTimer -= Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Jump") && (isGrounded || coyoteTimer > 0))
+        if (Input.GetButtonDown("Jump") && (isGrounded || coyoteTimer > 0) && canJump)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            canJump = false;
+            Invoke("ActivateJump", 0.5f);
             coyoteTimer = 0;
         }
 
         if (Input.GetButtonDown("Down") && isGrounded)
         {
-            if (currentOneWayPlatform != null)
-            {
-                StartCoroutine(DisableCollision());
-            }
+            StartCoroutine(DisableCollision());
         }
 
         FlipSprite();
@@ -78,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetFloat("Run", Mathf.Abs(run));
         animator.SetBool("Jump", jump);
+        Debug.Log($"Run: {run}, Jump: {jump}");
     }
 
     void FixedUpdate()
@@ -109,9 +115,9 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("OneWayPlatform"))
+        if (col.gameObject.CompareTag("OneWayPlatform") && !currentOneWayPlatforms.Contains(col.gameObject))
         {
-            currentOneWayPlatform = col.gameObject;
+            currentOneWayPlatforms.Add(col.gameObject);
         }
     }
 
@@ -119,24 +125,41 @@ public class PlayerMovement : MonoBehaviour
     {
         if (col.gameObject.CompareTag("OneWayPlatform"))
         {
-            currentOneWayPlatform = null;
+            // Solo remové si NO está en la lista de plataformas ignoradas manualmente
+            if (!temporarilyIgnoredPlatforms.Contains(col.gameObject))
+            {
+                currentOneWayPlatforms.Remove(col.gameObject);
+            }
         }
     }
 
     IEnumerator DisableCollision()
     {
-        Collider2D platformCollider = currentOneWayPlatform.GetComponent<Collider2D>();
         Collider2D playerCollider = GetComponent<Collider2D>();
+        temporarilyIgnoredPlatforms.Clear();
 
-        if (platformCollider == null)
+        foreach (GameObject platform in currentOneWayPlatforms)
         {
-            Debug.LogWarning("La plataforma no tiene ning�n Collider2D.");
-            yield break;
+            Collider2D platformCollider = platform.GetComponent<Collider2D>();
+            if (platformCollider != null)
+            {
+                Physics2D.IgnoreCollision(playerCollider, platformCollider);
+                temporarilyIgnoredPlatforms.Add(platform); // Agregamos a la lista temporal
+            }
         }
 
-        Physics2D.IgnoreCollision(playerCollider, platformCollider);
         yield return new WaitForSeconds(disableCollisionTime);
-        Physics2D.IgnoreCollision(playerCollider, platformCollider, false);
+
+        foreach (GameObject platform in temporarilyIgnoredPlatforms)
+        {
+            Collider2D platformCollider = platform.GetComponent<Collider2D>();
+            if (platformCollider != null)
+            {
+                Physics2D.IgnoreCollision(playerCollider, platformCollider, false);
+            }
+        }
+
+        temporarilyIgnoredPlatforms.Clear(); // Limpiamos al final
     }
 
     public void TriggerKnockback(float duration)
@@ -152,6 +175,11 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("EndKnockbackACAAAAAA");
     }
 
+    private void ActivateJump()
+    {
+        canJump = true;
+    }
+
     public void SetCanMove(bool value)
     {
         canMove = value;
@@ -161,5 +189,13 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector2(moveInput, rb.velocity.y);
         FlipSprite();
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (groundCheck == null) return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 }

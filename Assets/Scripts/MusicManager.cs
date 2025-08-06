@@ -7,17 +7,18 @@ using System.Linq;
 public class MusicManager : MonoBehaviour
 {
     public AudioSource audioSource;
-    public AudioClip JazzMusic;
-    public AudioClip gameMusic;
+    public AudioClip streetMusic;
+    public AudioClip puzzleMusic;
     public AudioClip CombatMusic;
     public AudioClip transitionMusic;
     public AudioClip startMusic;
 
-    [SerializeField] string[] jazzScenes;
-    [SerializeField] string[] gameScenes;
+    [SerializeField] string[] streetScenes;
+    [SerializeField] string[] puzzleScenes;
     [SerializeField] string[] combatScenes;
     [SerializeField] string[] transitionScenes;
     [SerializeField] string[] startScenes;
+    [SerializeField] string[] stopMusic;
 
     private string currentScene;
     public static MusicManager instance;
@@ -65,16 +66,21 @@ public class MusicManager : MonoBehaviour
 
         AudioClip newClip = null;
 
-        if (jazzScenes.Contains(sceneName))
-            newClip = JazzMusic;
-        else if (gameScenes.Contains(sceneName))
-            newClip = gameMusic;
+        if (streetScenes.Contains(sceneName))
+            newClip = streetMusic;
+        else if (puzzleScenes.Contains(sceneName))
+            newClip = puzzleMusic;
         else if (combatScenes.Contains(sceneName))
             newClip = CombatMusic;
         else if (transitionScenes.Contains(sceneName))
             newClip = transitionMusic;
         else if (startScenes.Contains(sceneName))
             newClip = startMusic;
+        else if (stopMusic.Contains(sceneName))
+        {
+            audioSource.Stop();
+            return;
+        }
 
         if (newClip != null && audioSource.clip != newClip)
         {

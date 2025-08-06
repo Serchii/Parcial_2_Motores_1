@@ -113,6 +113,10 @@ MonoBehaviour:
     m_Localized: "VOLVER AL MEN\xDA"
     m_Metadata:
       m_Items: []
+  - m_Id: 6752742084775936
+    m_Localized: Presiona [W] para entrar
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

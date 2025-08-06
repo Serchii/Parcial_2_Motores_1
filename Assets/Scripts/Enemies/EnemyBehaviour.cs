@@ -186,7 +186,9 @@ public class EnemyBehaviour : MonoBehaviour
 
             if (_animator != null)
                 _animator.SetTrigger("Attack");
-                setIdle = false;
+
+            setIdle = false;
+            Debug.Log("Enemy: TryAttack");
         }
     }
 
@@ -194,7 +196,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         attackPoint.gameObject.SetActive(true);
 
-        float direction = transform.localScale.x > 0 ? -1f : 1f;
+        float direction = transform.localScale.x > 0 ? 1f : -1f;
 
         _rb.velocity = new Vector2(direction * attackPushForce, _rb.velocity.y);
     }
@@ -218,12 +220,12 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (_player.position.x < transform.position.x)
         {
-            if (scale.x < 0)
+            if (scale.x > 0)
                 scale.x *= -1;
         }
         else
         {
-            if (scale.x > 0)
+            if (scale.x < 0)
                 scale.x *= -1;
         }
 

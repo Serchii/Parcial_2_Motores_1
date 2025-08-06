@@ -111,6 +111,10 @@ MonoBehaviour:
     m_Key: OutOfTimeText
     m_Metadata:
       m_Items: []
+  - m_Id: 6752742084775936
+    m_Key: PressToEnterText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

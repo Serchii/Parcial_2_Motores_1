@@ -7,6 +7,7 @@ public class PlayerHealth : BaseHealth
     [SerializeField] int lives = 1;
     [SerializeField] Vector3 spawnPoint;
     [SerializeField] Animator animator;
+    [SerializeField] private DamageFlash damageFlash;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] bool invincible = false;
 
@@ -25,6 +26,9 @@ public class PlayerHealth : BaseHealth
 
         if (animator == null)
             animator = GetComponent<Animator>();
+
+        if (damageFlash == null)
+            damageFlash = GetComponentInChildren<DamageFlash>();
 
         if (spriteRenderer == null)
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -46,8 +50,8 @@ public class PlayerHealth : BaseHealth
 
         health -= amount;
 
-        if (animator != null)
-            animator.SetTrigger("Hurt");
+        if (damageFlash != null)
+            damageFlash.Flash();
 
         if (health <= 0f)
         {
@@ -111,6 +115,7 @@ public class PlayerHealth : BaseHealth
         Color color = spriteRenderer.color;
         color.a = 1f;
         spriteRenderer.color = color;
+        Debug.Log("DisableInvincible");
     }
 
     private void EnableInvincible()
@@ -119,6 +124,7 @@ public class PlayerHealth : BaseHealth
         Color color = spriteRenderer.color;
         color.a = 0.5f;
         spriteRenderer.color = color;
+        Debug.Log("EnableInvincible");
     }
 
     public void ApplyKnockback(Vector2 direction, float force)

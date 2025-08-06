@@ -14,7 +14,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] float disableTime;
 
     [Header("Hitstop Variables")]
-    [SerializeField] float duration = 0.1f;
+    [SerializeField] float hitstopDuration = 0.1f;
+    [SerializeField] float softHitstopDuration = 0.1f;
+    [SerializeField] float hardHitstopDuration = 0.2f;
 
     [SerializeField] Animator animator;
     [SerializeField] AudioClip[] attackSounds;
@@ -36,7 +38,10 @@ public class PlayerAttack : MonoBehaviour
     {
         playerHealth = GetComponent<PlayerHealth>();
         playerMovement = GetComponent<PlayerMovement>();
-        animator = GetComponent<Animator>();
+
+        if (animator == null)
+            animator = GetComponentInChildren<Animator>();
+
         rb = GetComponent<Rigidbody2D>();
         ApplyUpgrades();
     }
@@ -70,8 +75,8 @@ public class PlayerAttack : MonoBehaviour
                 PlayerCanMove(true); //Esto lo hago para que en caso de que en medio del combo quiera cambiar de direccion pueda hacerlo solo al seguir con el siguiente golpe
                 PlayerCanMove(false);
 
-                hit.SetActive(true);
-                Invoke("DisableHit", disableTime);
+                //hit.SetActive(true);
+                //Invoke("DisableHit", disableTime);
 
                 animator.SetTrigger("Attack" + (combo + 1));
                 //audioSource.clip = attackSounds[combo];
@@ -79,32 +84,41 @@ public class PlayerAttack : MonoBehaviour
 
                 //Genero el knockback solo en el ultimo golpe
                 attackWithKnockback = combo >= 2;
+                if (attackWithKnockback)
+                    hitstopDuration = hardHitstopDuration;
+                else
+                    hitstopDuration = softHitstopDuration;
 
                 float direction = transform.localScale.x > 0 ? 1f : -1f;
 
                 rb.AddForce(new Vector2(direction * attackPushForce, 0f), ForceMode2D.Impulse);
-                
-                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-                foreach (Collider2D enemy in hitEnemies)
-                {
-                    EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-                    ShakeEffect shake = enemy.GetComponentInChildren<ShakeEffect>();
+                //ExecuteAttack();
+            }
+        }
+    }
 
-                    Debug.Log("Shake: " + shake);
+    public void ExecuteAttack()
+    {
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-                    if (enemyHealth != null)
-                    {
-                        Vector2 knockbackDir = enemy.transform.position - transform.position;
-                        if (HitstopManager.Instance != null)
-                            HitstopManager.Instance.DoHitstop(duration);
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+            ShakeEffect shake = enemy.GetComponentInChildren<ShakeEffect>();
 
-                        if (shake != null)
-                            shake.Shake();
+            Debug.Log("Shake: " + shake);
 
-                        enemyHealth.TakeDamage(attackDamage, knockbackDir, knockbackForce, attackWithKnockback);
-                    }
-                }
+            if (enemyHealth != null)
+            {
+                Vector2 knockbackDir = enemy.transform.position - transform.position;
+                if (HitstopManager.Instance != null)
+                    HitstopManager.Instance.DoHitstop(hitstopDuration);
+
+                if (shake != null)
+                    shake.Shake();
+
+                enemyHealth.TakeDamage(attackDamage, knockbackDir, knockbackForce, attackWithKnockback);
             }
         }
     }
@@ -115,7 +129,7 @@ public class PlayerAttack : MonoBehaviour
         playerMovement.SetCanMove(value);
     }
 
-    void StartCombo()
+    public void StartCombo()
     {
         isHitting = false;
         if (combo < 3)
