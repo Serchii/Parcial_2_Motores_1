@@ -825,7 +825,7 @@ Transform:
   m_GameObject: {fileID: 268839743}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.60949993, y: -0.39198995, z: -10.073344}
+  m_LocalPosition: {x: 0.61351824, y: -0.39198995, z: -10.073344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3903,6 +3903,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 544434665}
     - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
       propertyPath: dialogueKeys.Array.data[0]
       value: ConstructionZone_BeforeFight1
       objectReference: {fileID: 0}
@@ -3916,6 +3920,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
       propertyPath: dialogueKeys.Array.data[3]
+      value: ConstructionZone_BeforeFight4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[0].pitchVoice
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[0].typingTime
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[1].pitchVoice
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[1].typingTime
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[2].pitchVoice
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[2].typingTime
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[3].pitchVoice
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[3].typingTime
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[0].dialogueKey
+      value: ConstructionZone_BeforeFight1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[1].dialogueKey
+      value: ConstructionZone_BeforeFight2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[2].dialogueKey
+      value: ConstructionZone_BeforeFight3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[3].dialogueKey
       value: ConstructionZone_BeforeFight4
       objectReference: {fileID: 0}
     - target: {fileID: 5058098054183496716, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
@@ -3984,6 +4036,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 544434665}
     - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
       propertyPath: dialogueKeys.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -4005,6 +4061,66 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
       propertyPath: dialogueKeys.Array.data[4]
+      value: ConstructionZone_AfterFight5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[0].pitchVoice
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[0].typingTime
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[1].pitchVoice
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[1].typingTime
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[2].pitchVoice
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[2].typingTime
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[3].pitchVoice
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[3].typingTime
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[4].pitchVoice
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[4].typingTime
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[0].dialogueKey
+      value: ConstructionZone_AfterFight1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[1].dialogueKey
+      value: ConstructionZone_AfterFight12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[2].dialogueKey
+      value: ConstructionZone_AfterFight3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[3].dialogueKey
+      value: ConstructionZone_AfterFight4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: dialogues.Array.data[4].dialogueKey
       value: ConstructionZone_AfterFight5
       objectReference: {fileID: 0}
     - target: {fileID: 5058098054183496716, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}

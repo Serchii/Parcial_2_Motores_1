@@ -10,6 +10,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] GameObject dialoguePanel;
     [SerializeField] TMP_Text dialogueText;
     [SerializeField] string[] dialogueKeys; // Claves de localización
+    [SerializeField] DialogueConfig[] dialogues;
     [SerializeField] string tableName = "Dialogues"; // Nombre de la String Table
     [SerializeField] string currentDialog;
 
@@ -84,7 +85,7 @@ public class Dialogue : MonoBehaviour
     {
         lineIndex++;
 
-        if (lineIndex < dialogueKeys.Length)
+        if (lineIndex < dialogues.Length)
         {
             StartCoroutine(ShowLine());
         }
@@ -121,7 +122,7 @@ public class Dialogue : MonoBehaviour
         int index = 0;
         dialogueText.text = string.Empty;
 
-        var localizedLine = new LocalizedString(tableName, dialogueKeys[lineIndex]);
+        var localizedLine = new LocalizedString(tableName, dialogues[lineIndex].dialogueKey);
         var handle = localizedLine.GetLocalizedStringAsync();
         yield return handle;
 
@@ -154,12 +155,12 @@ public class Dialogue : MonoBehaviour
             }
 
             dialogueText.text += ch;
-            yield return new WaitForSecondsRealtime(typingTime);
+            yield return new WaitForSecondsRealtime(dialogues[lineIndex].typingTime);
 
             if (audioSource != null && dialogVoice != null && index % 2 == 0)
             {
                 audioSource.clip = dialogVoice;
-                audioSource.pitch = Random.Range(pitchVoice - 0.05f, pitchVoice + 0.05f);
+                audioSource.pitch = Random.Range(pitchVoice - 0.05f, dialogues[lineIndex].pitchVoice + 0.05f);
                 audioSource.Play();
             }
 
