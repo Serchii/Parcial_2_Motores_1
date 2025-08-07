@@ -12,6 +12,7 @@ public class EnemyHit : BaseHit
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            ShakeEffect shake = playerHealth.GetComponentInChildren<ShakeEffect>();
 
             if (playerHealth != null)
             {
@@ -19,6 +20,11 @@ public class EnemyHit : BaseHit
                 Vector2 knockbackDirection = new Vector2(directionX, 0f);
                 if (!playerHealth.Invincible)
                 {
+                    enemy.GetComponent<EnemyBehaviour>().PlaySFXHit();
+
+                    if (shake != null)
+                        shake.Shake();
+                        
                     playerHealth.ApplyKnockback(knockbackDirection, knockbackForce);
                     playerHealth.TakeDamage(damageAmount);
                 }

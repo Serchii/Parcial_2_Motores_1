@@ -20,6 +20,10 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private float jumpDelay = 0.5f;
     private bool isPreparingToJump = false;
 
+    [Header("Sonidos")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip audioClip;
+
     [Header("Ataque")]
     [SerializeField] private float _attackCooldown = 1f;
     [SerializeField] private float attackPushForce = 3f;
@@ -235,5 +239,12 @@ public class EnemyBehaviour : MonoBehaviour
     public void Stun(float duration)
     {
         _stunTime = duration;
+    }
+
+    public void PlaySFXHit()
+    {
+        audioSource.clip = audioClip;
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.Play();
     }
 }

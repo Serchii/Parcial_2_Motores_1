@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] float hardHitstopDuration = 0.2f;
 
     [SerializeField] Animator animator;
-    [SerializeField] AudioClip[] attackSounds;
+    [SerializeField] AudioClip hitClip;
     [SerializeField] AudioSource audioSource;
     [SerializeField] PlayerHealth playerHealth;
 
@@ -79,8 +79,6 @@ public class PlayerAttack : MonoBehaviour
                 //Invoke("DisableHit", disableTime);
 
                 animator.SetTrigger("Attack" + (combo + 1));
-                //audioSource.clip = attackSounds[combo];
-                //audioSource.Play();
 
                 //Genero el knockback solo en el ultimo golpe
                 attackWithKnockback = combo >= 2;
@@ -106,6 +104,7 @@ public class PlayerAttack : MonoBehaviour
         {
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
             ShakeEffect shake = enemy.GetComponentInChildren<ShakeEffect>();
+            PlaySFXHit();
 
             Debug.Log("Shake: " + shake);
 
@@ -178,5 +177,12 @@ public class PlayerAttack : MonoBehaviour
             else
                 SetAttackDamage(10f);
         }
+    }
+
+    public void PlaySFXHit()
+    {
+        audioSource.clip = hitClip;
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.Play();
     }
 }

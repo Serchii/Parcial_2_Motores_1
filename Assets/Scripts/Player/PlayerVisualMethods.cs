@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerVisualMethods : MonoBehaviour
 {
     [SerializeField] PlayerAttack playerAttack;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip stepClip;
 
     public void StartCombo()
     {
@@ -22,5 +24,12 @@ public class PlayerVisualMethods : MonoBehaviour
     {
         playerAttack.ExecuteAttack();
         Debug.Log("Visual: ExecuteAttack");
+    }
+
+    public void PlaySFXSteps()
+    {
+        audioSource.clip = stepClip;
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.Play();
     }
 }
