@@ -8,6 +8,8 @@ public class TutorialUIManager : MonoBehaviour
     public GameObject tutorialInfoPanel;
     public string tutorialSceneName = "TutorialScene";
 
+    [SerializeField] 
+
     void Start()
     {
         if (SceneManager.GetActiveScene().name == tutorialSceneName)
@@ -39,5 +41,12 @@ public class TutorialUIManager : MonoBehaviour
     {
         tutorialInfoPanel.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Checkear que colisione con player
+        //Cargar el scriptable
+        //Desactivar el trigger
     }
 }
