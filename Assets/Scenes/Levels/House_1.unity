@@ -1489,6 +1489,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+--- !u!1 &866303002 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8641013272142191075, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+  m_PrefabInstance: {fileID: 866303001}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &898342175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1586,6 +1591,10 @@ PrefabInstance:
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 424932506}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: newMusicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 176ab9681445af741901e6901dc91eda, type: 3}
     - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
       propertyPath: dialoguePanel
       value: 
@@ -1979,6 +1988,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 373741533242146261, guid: ff4ddcfbcbce48f4b984bb6ffd8817eb, type: 3}
+      propertyPath: objetsToDeactivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 373741533242146261, guid: ff4ddcfbcbce48f4b984bb6ffd8817eb, type: 3}
       propertyPath: objetsToActivate.Array.data[0]
       value: 
       objectReference: {fileID: 899563097}
@@ -1986,6 +1999,10 @@ PrefabInstance:
       propertyPath: objetsToActivate.Array.data[1]
       value: 
       objectReference: {fileID: 229688245}
+    - target: {fileID: 373741533242146261, guid: ff4ddcfbcbce48f4b984bb6ffd8817eb, type: 3}
+      propertyPath: objetsToDeactivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 866303002}
     - target: {fileID: 5738039544148354902, guid: ff4ddcfbcbce48f4b984bb6ffd8817eb, type: 3}
       propertyPath: m_Name
       value: Objective

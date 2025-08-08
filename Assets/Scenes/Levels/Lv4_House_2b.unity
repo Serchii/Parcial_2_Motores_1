@@ -1210,7 +1210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8641013272142191075, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
       propertyPath: m_Name
-      value: DialogueTrigger (2)
+      value: WakeUpTrigger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3882,6 +3882,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5705592974203679382}
     - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: newMusicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 176ab9681445af741901e6901dc91eda, type: 3}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
       propertyPath: dialoguePanel
       value: 
       objectReference: {fileID: 5705592974203679383}
@@ -3983,7 +3987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8641013272142191075, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
       propertyPath: m_Name
-      value: DialogueTrigger
+      value: ExitTrigger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4230,8 +4234,8 @@ SceneRoots:
   - {fileID: 2039102759}
   - {fileID: 752795059}
   - {fileID: 36345757}
-  - {fileID: 4809748902954100652}
   - {fileID: 637122050}
+  - {fileID: 4809748902954100652}
   - {fileID: 679272242}
   - {fileID: 527184295}
   - {fileID: 385311035}

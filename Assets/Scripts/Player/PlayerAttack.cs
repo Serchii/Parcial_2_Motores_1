@@ -18,6 +18,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] float softHitstopDuration = 0.1f;
     [SerializeField] float hardHitstopDuration = 0.2f;
 
+    [Header("Attack Buffer")]
+    [SerializeField] float attackBufferTime = 0.1f;
+    [SerializeField] float attackBufferTimer;
+    
+
     [SerializeField] Animator animator;
     [SerializeField] AudioClip hitClip;
     [SerializeField] AudioSource audioSource;
@@ -48,6 +53,15 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            attackBufferTimer = attackBufferTime;
+        }
+        else
+        {
+            attackBufferTimer -= Time.deltaTime;
+        }
+
         if (playerHealth.IsAlive && !playerMovement.IsKnockedBack && canAttack)
             Combo();
     }
@@ -68,7 +82,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (!isHitting)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (attackBufferTimer > 0)
             {
                 isHitting = true;
 

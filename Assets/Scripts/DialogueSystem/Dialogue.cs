@@ -34,6 +34,8 @@ public class Dialogue : MonoBehaviour
     [Header("Sonido")]
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip dialogVoice;
+    [SerializeField] AudioClip newMusicClip;
+    [SerializeField] AudioClip musicEndDialog;
     [SerializeField] float pitchVoice = 1f;
 
     void Start()
@@ -77,6 +79,10 @@ public class Dialogue : MonoBehaviour
         SetMovePlayer(false);
         lineIndex = 0;
         Time.timeScale = 0;
+        if (newMusicClip != null)
+        {
+            MusicManager.Instance.ChangeMusicWithFade(newMusicClip);
+        }
         StartCoroutine(ShowLine());
 
     }
@@ -102,6 +108,12 @@ public class Dialogue : MonoBehaviour
         //dialogueMark.SetActive(true);
         SetMovePlayer(true);
         Time.timeScale = 1;
+        Debug.Log($"Music Clip: {musicEndDialog}");
+        if (musicEndDialog != null)
+        {
+            MusicManager.Instance.ChangeMusicWithFade(musicEndDialog);
+        }
+
         if (isTrigger)
             dialogueTriggered = true;
 

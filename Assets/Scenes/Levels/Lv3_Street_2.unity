@@ -135,9 +135,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2040101620}
     - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: newMusicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 176ab9681445af741901e6901dc91eda, type: 3}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
       propertyPath: dialoguePanel
       value: 
       objectReference: {fileID: 791387253}
+    - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: musicEndDialog
+      value: 
+      objectReference: {fileID: 8300000, guid: abade9e1b7159be42bc61799f036bb5d, type: 3}
     - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
       propertyPath: dialogues.Array.size
       value: 3

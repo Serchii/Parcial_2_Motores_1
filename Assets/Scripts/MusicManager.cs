@@ -82,6 +82,11 @@ public class MusicManager : MonoBehaviour
             return;
         }
 
+        ChangeAudioClip(newClip);
+    }
+
+    void ChangeAudioClip(AudioClip newClip)
+    {
         if (newClip != null && audioSource.clip != newClip)
         {
             audioSource.clip = newClip;
@@ -89,12 +94,17 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    public void FadeOutAndIn(float fadeDuration = 1f, float targetVolume = 1f, float lowerVolume = 0.2f)
+    public void ChangeMusicWithFade(AudioClip newClip, float fadeDuration = 1f, float targetVolume = 1f, float lowerVolume = 0.2f)
     {
-        StartCoroutine(FadeMusicRoutine(fadeDuration, targetVolume, lowerVolume));
+        if (newClip != null)
+        {
+            //StartCoroutine(FadeMusicRoutine(fadeDuration, targetVolume, lowerVolume, newClip));
+            ChangeAudioClip(newClip);
+        }
+            
     }
 
-    private IEnumerator FadeMusicRoutine(float duration, float targetVolume, float loweredVolume)
+    private IEnumerator FadeMusicRoutine(float duration, float targetVolume, float loweredVolume, AudioClip newClip)
     {
         float originalVolume = audioSource.volume;
 
@@ -107,6 +117,8 @@ public class MusicManager : MonoBehaviour
         }
 
         yield return new WaitForSecondsRealtime(1f);
+
+        ChangeAudioClip(newClip);
 
         t = 0f;
         while (t < duration)

@@ -4109,7 +4109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
       propertyPath: dialogues.Array.data[1].dialogueKey
-      value: ConstructionZone_AfterFight12
+      value: ConstructionZone_AfterFight2
       objectReference: {fileID: 0}
     - target: {fileID: 4420360209099455453, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
       propertyPath: dialogues.Array.data[2].dialogueKey
