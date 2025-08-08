@@ -48,11 +48,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        moveInput = Input.GetAxisRaw("Horizontal");
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-
         if (!isKnockedBack && canMove)
-            SetAnimator(moveInput, !isGrounded);
+        {
+            moveInput = Input.GetAxisRaw("Horizontal");
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        }
+
+        SetAnimator(moveInput, !isGrounded);
 
         if (isGrounded)
         {
@@ -165,6 +167,7 @@ public class PlayerMovement : MonoBehaviour
     public void TriggerKnockback(float duration)
     {
         isKnockedBack = true;
+        moveInput = 0;
         Invoke(nameof(EndKnockback), duration);
     }
 

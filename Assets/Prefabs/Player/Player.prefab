@@ -142,11 +142,14 @@ MonoBehaviour:
   combo: 0
   attackDamage: 20
   knockbackForce: 5
+  baseForce: 5
+  additionalForce: 3
   hit: {fileID: 6025902476113732215}
-  disableTime: 0.25
   hitstopDuration: 0.1
   softHitstopDuration: 0.1
   hardHitstopDuration: 0.25
+  attackBufferTime: 0.1
+  attackBufferTimer: 0
   animator: {fileID: 7608000870342297307}
   hitClip: {fileID: 8300000, guid: 3a925eae95b132742af9e25743d9a657, type: 3}
   audioSource: {fileID: -8411939350496869148}

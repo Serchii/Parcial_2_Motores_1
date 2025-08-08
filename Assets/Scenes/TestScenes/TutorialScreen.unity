@@ -281,7 +281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &447698599
 AudioSource:
   m_ObjectHideFlags: 0
@@ -294,7 +294,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4691799632357812524, guid: 5b7fa9739cd703141ad1967a3d3337a9, type: 2}
   m_audioClip: {fileID: 8300000, guid: abade9e1b7159be42bc61799f036bb5d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.75
+  m_Volume: 0.636
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1508,6 +1508,14 @@ PrefabInstance:
     - target: {fileID: 3898078253458379829, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6275704890229466203, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: health
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6275704890229466203, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: maxHealth
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 7902357923822169621, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
       propertyPath: m_LocalPosition.x

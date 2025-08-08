@@ -53,19 +53,21 @@ public class PlayerHealth : BaseHealth
         if (damageFlash != null)
             damageFlash.Flash();
 
+        if (animator != null)
+            animator.SetTrigger("Hurt");
+
         if (health <= 0f)
-        {
-            health = 0f;
-            if (isAlive) Die();
-        }
-        else
-        {
-            EnableInvincible();
-            Invoke(nameof(DisableInvincible), 1.5f);
-        }
+            {
+                health = 0f;
+                if (isAlive) Die();
+            }
+            else
+            {
+                EnableInvincible();
+                Invoke(nameof(DisableInvincible), 1.5f);
+            }
 
         OnHealthChanged?.Invoke(health, maxHealth);
-        Debug.Log($"{gameObject.name}: Recibió daño.");
     }
 
     public override void Die()
@@ -75,8 +77,6 @@ public class PlayerHealth : BaseHealth
         lives--;
         OnLivesChanged?.Invoke(lives);
         isAlive = false;
-
-        Debug.Log($"{gameObject.name}: Me morí.");
 
         if (lives > 0)
         {
@@ -134,7 +134,6 @@ public class PlayerHealth : BaseHealth
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            //rb.velocity = direction.normalized * force;
             rb.AddForce(new Vector2(direction.x * force, 0f), ForceMode2D.Impulse);
 
             PlayerMovement pm = GetComponent<PlayerMovement>();

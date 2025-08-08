@@ -9,9 +9,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] LayerMask enemyLayers;
     [SerializeField] int combo;
     [SerializeField] float attackDamage = 20f;
-    [SerializeField] float knockbackForce = 2;
+    [Header("Knockback Variables")]
+    [SerializeField] float knockbackForce;
+    [SerializeField] float baseForce = 5;    
+    [SerializeField] float additionalForce;
     [SerializeField] GameObject hit;
-    [SerializeField] float disableTime;
 
     [Header("Hitstop Variables")]
     [SerializeField] float hitstopDuration = 0.1f;
@@ -97,9 +99,15 @@ public class PlayerAttack : MonoBehaviour
                 //Genero el knockback solo en el ultimo golpe
                 attackWithKnockback = combo >= 2;
                 if (attackWithKnockback)
+                {
                     hitstopDuration = hardHitstopDuration;
+                    knockbackForce = baseForce + additionalForce;
+                }
                 else
+                {
                     hitstopDuration = softHitstopDuration;
+                    knockbackForce = baseForce;
+                }
 
                 float direction = transform.localScale.x > 0 ? 1f : -1f;
 

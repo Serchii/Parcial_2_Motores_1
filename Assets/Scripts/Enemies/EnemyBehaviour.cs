@@ -66,7 +66,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (_stunTime > 0f)
         {
             _stunTime -= Time.deltaTime;
-            _animator.SetBool("IsRunning", false);
+            _animator.SetBool("Hurt", false);
             return;
         }
 
