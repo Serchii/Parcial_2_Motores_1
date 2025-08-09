@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool isGrounded;
     [SerializeField] private bool canJump = true;
 
+    [Header("Particles System")]
+    [SerializeField] ParticleSystem dustPS;
+
     [Header("Ground Check")]
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundCheckRadius = 0.2f;
@@ -39,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+
         if (animator == null)
             animator = GetComponentInChildren<Animator>();
 
@@ -65,18 +68,9 @@ public class PlayerMovement : MonoBehaviour
             coyoteTimer -= Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Jump") && (isGrounded || coyoteTimer > 0) && canJump)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            canJump = false;
-            Invoke("ActivateJump", 0.5f);
-            coyoteTimer = 0;
-        }
+        Jump();
 
-        if (Input.GetButtonDown("Down") && isGrounded)
-        {
-            StartCoroutine(DisableCollision());
-        }
+        FallDownPlatforms();
 
         FlipSprite();
     }
@@ -86,6 +80,26 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Run", Mathf.Abs(run));
         animator.SetBool("Jump", jump);
         Debug.Log($"Run: {run}, Jump: {jump}");
+    }
+
+    void Jump()
+    {
+        if (Input.GetButtonDown("Jump") && (isGrounded || coyoteTimer > 0) && canJump)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            canJump = false;
+            Invoke("ActivateJump", 0.5f);
+            CreateDust();
+            coyoteTimer = 0;
+        }
+    }
+
+    void FallDownPlatforms()
+    {
+        if (Input.GetButtonDown("Down") && isGrounded)
+        {
+            StartCoroutine(DisableCollision());
+        }
     }
 
     void FixedUpdate()
@@ -200,5 +214,13 @@ public class PlayerMovement : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+    }
+
+    public void CreateDust()
+    {
+        if (dustPS != null)
+        {
+            dustPS.Play();
+        }
     }
 }

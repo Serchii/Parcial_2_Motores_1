@@ -11,9 +11,11 @@ public class PuzzleTrigger : MonoBehaviour
     [SerializeField] string textToShowKey;
     [SerializeField] string tableName = "UI";
     [SerializeField] string textPrompt;
-    [SerializeField] bool isInteractuable = false; 
+    [SerializeField] bool isInteractuable = false;
     [SerializeField] private PuzzleGridManager puzzleManager;
     [SerializeField] bool followPlayer = true;
+    
+    [SerializeField] GameObject[] objectsToActivate;
 
     private GameObject promptInstance;
     private bool canActivate = false;
@@ -41,6 +43,7 @@ public class PuzzleTrigger : MonoBehaviour
             if (isInteractuable)
             {
                 HidePrompt();
+                ActivateObjects();
                 uiPuzzle.SetActive(true);
                 SetPlayerActive(false);
             }
@@ -160,5 +163,16 @@ public class PuzzleTrigger : MonoBehaviour
         isInteractuable = value;
         if (!value)
             HidePrompt();
+    }
+
+    public void ActivateObjects()
+    {
+        if (objectsToActivate.Length > 0)
+        {
+            foreach (GameObject obj in objectsToActivate)
+            {
+                obj.SetActive(true);
+            }
+        }
     }
 }

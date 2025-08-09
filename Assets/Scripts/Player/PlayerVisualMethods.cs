@@ -32,4 +32,9 @@ public class PlayerVisualMethods : MonoBehaviour
         audioSource.pitch = Random.Range(0.9f, 1.1f);
         audioSource.Play();
     }
+
+    public void CreateDust()
+    {
+        playerAttack.GetComponent<PlayerMovement>().CreateDust();
+    }
 }

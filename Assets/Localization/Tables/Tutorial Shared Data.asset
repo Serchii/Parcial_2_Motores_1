@@ -14,7 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: Tutorial
   m_TableCollectionNameGuidString: d8470de539a92f94492dd51ea1d601d3
-  m_Entries: []
+  m_Entries:
+  - m_Id: 343124047630336
+    m_Key: AttackTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343155643322368
+    m_Key: AttackDescript
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343247586660352
+    m_Key: ComboTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343264561008640
+    m_Key: ComboDescript
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

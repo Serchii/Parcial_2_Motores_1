@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: TutorialControlls
   m_EditorClassIdentifier: Assembly-CSharp::TutorialData
   steps:
-  - tutorialTitle: Saltar
-    tutorialImage: {fileID: 21300000, guid: 81acec7d50e71b5418fc5d28c87b61b4, type: 3}
-    tutorialDescription: Para saltar presiona el ESPACIO.
-  - tutorialTitle: Bajar
-    tutorialImage: {fileID: 21300000, guid: a8e584281bedc3448af738f2dee86567, type: 3}
-    tutorialDescription: Para bajar de una plataforma presiona la S.
+  - tutorialTitle: AttackTitle
+    tutorialImage: {fileID: 21300000, guid: 78662f7990ce3ed4e94d49e86474b9c8, type: 3}
+    tutorialDescription: AttackDescript
+  - tutorialTitle: ComboTitle
+    tutorialImage: {fileID: 21300000, guid: bef1eaaf9de2d1b45b53613a1129a568, type: 3}
+    tutorialDescription: ComboDescript

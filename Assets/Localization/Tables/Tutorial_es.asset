@@ -17,7 +17,23 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: d8470de539a92f94492dd51ea1d601d3, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 343124047630336
+    m_Localized: 'Tutorial: Ataque'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343155643322368
+    m_Localized: Presiona CLIC IZQUIERDO para atacar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343247586660352
+    m_Localized: 'Tutorial: Combo'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343264561008640
+    m_Localized: Puedes pulsar hasta tres veces seguidas para realizar un combo
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
