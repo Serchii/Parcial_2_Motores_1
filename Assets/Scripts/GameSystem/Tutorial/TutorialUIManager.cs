@@ -56,7 +56,7 @@ public class TutorialUIManager : MonoBehaviour
             currentStep = 0;
             ShowStep();
             SetMovePlayer(false);
-            //Time.timeScale = 0f;
+            Time.timeScale = 0f;
         }
     }
 
