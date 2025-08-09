@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: TutorialControlls
+  m_Script: {fileID: 11500000, guid: 73ab365674e02ed4f82c35e060607045, type: 3}
+  m_Name: NewtutorialData_Level1
   m_EditorClassIdentifier: Assembly-CSharp::TutorialData
   steps:
   - tutorialTitle: AttackTitle

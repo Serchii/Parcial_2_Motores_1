@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.Localization;
@@ -7,7 +8,8 @@ using TMPro;
 public class TutorialUIManager : MonoBehaviour
 {
     [Header("Datos del Tutorial")]
-    public TutorialData tutorialData;
+    public TutorialData tutorialData; // Se carga automático
+    [SerializeField] private string resourcesFolder = "TutorialData";
 
     [Header("UI Panel")]
     public GameObject tutorialPanel;
@@ -19,7 +21,7 @@ public class TutorialUIManager : MonoBehaviour
     public Button prevButton;
     public Button nextButton;
 
-    [Header("Traduccion")]
+    [Header("Traducción")]
     [SerializeField] string titleTranslate;
     [SerializeField] string descriptionTranslate;
     [SerializeField] string tableName = "Tutorial";
@@ -37,20 +39,46 @@ public class TutorialUIManager : MonoBehaviour
 
     void Start()
     {
+        // Carga automática según el nombre de la escena
+        LoadTutorialDataByScene();
+
         if (tutorialPanel != null)
             tutorialPanel.SetActive(false);
 
-        if (playerAttack == null)
-            playerAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>();
+        EnsurePlayerReferences();
+    }
 
+    void LoadTutorialDataByScene()
+    {
+        if (tutorialData != null) return;
 
-        if (playerMovement == null)
-            playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        string sceneName = SceneManager.GetActiveScene().name;
+        string fileName = $"NewTutorialData_{sceneName}"; // Ej: NewTutorialData_Level1
+
+        tutorialData = Resources.Load<TutorialData>($"{resourcesFolder}/{fileName}");
+
+        if (tutorialData == null)
+            Debug.LogError($"No se encontró TutorialData en Resources/{resourcesFolder} con el nombre {fileName}");
+    }
+
+    void EnsurePlayerReferences()
+    {
+        if (playerAttack == null || playerMovement == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                if (playerAttack == null) playerAttack = player.GetComponent<PlayerAttack>();
+                if (playerMovement == null) playerMovement = player.GetComponent<PlayerMovement>();
+            }
+        }
     }
 
     public void OpenTutorial()
     {
-        if (tutorialPanel != null)
+        EnsurePlayerReferences();
+
+        if (tutorialPanel != null && tutorialData != null && tutorialData.steps.Length > 0)
         {
             tutorialPanel.SetActive(true);
             currentStep = 0;
@@ -58,18 +86,18 @@ public class TutorialUIManager : MonoBehaviour
             SetMovePlayer(false);
             Time.timeScale = 0f;
         }
+        else
+        {
+            Debug.LogError("No se puede abrir el tutorial: referencias faltantes o sin pasos.");
+        }
     }
 
-    public void OpenTutorialFromTrigger()
-    {
-        OpenTutorial();
-    }
+    public void OpenTutorialFromTrigger() => OpenTutorial();
 
     public void OnClickCloseTutorial()
     {
         if (tutorialPanel != null)
             tutorialPanel.SetActive(false);
-
 
         SetMovePlayer(true);
         Time.timeScale = 1f;
@@ -77,6 +105,8 @@ public class TutorialUIManager : MonoBehaviour
 
     public void OnClickNext()
     {
+        if (tutorialData == null || tutorialData.steps.Length == 0) return;
+
         if (currentStep < tutorialData.steps.Length - 1)
         {
             currentStep++;
@@ -84,7 +114,10 @@ public class TutorialUIManager : MonoBehaviour
         }
         else
         {
-            tutorialPanel.GetComponent<Animator>().SetTrigger("MoveOut");
+            if (tutorialPanel != null && tutorialPanel.GetComponent<Animator>() != null)
+                tutorialPanel.GetComponent<Animator>().SetTrigger("MoveOut");
+            else
+                OnClickCloseTutorial();
         }
     }
 
@@ -99,37 +132,31 @@ public class TutorialUIManager : MonoBehaviour
 
     private void ShowStep()
     {
-        bool isNotLastStep;
-        if (tutorialData != null && tutorialData.steps.Length > 0)
-        {
-            //titleText.text = tutorialData.steps[currentStep].tutorialTitle;
-            tutorialImageUI.sprite = tutorialData.steps[currentStep].tutorialImage;
-            //descriptionText.text = tutorialData.steps[currentStep].tutorialDescription;
-            StartCoroutine(GetTranslateText(tutorialData.steps[currentStep].tutorialTitle, tutorialData.steps[currentStep].tutorialDescription));
+        if (tutorialData == null || tutorialData.steps.Length == 0) return;
 
-            AdjustImageSize();
+        tutorialImageUI.sprite = tutorialData.steps[currentStep].tutorialImage;
+        StartCoroutine(GetTranslateText(tutorialData.steps[currentStep].tutorialTitle, tutorialData.steps[currentStep].tutorialDescription));
 
+        AdjustImageSize();
+
+        if (prevButton != null)
             prevButton.interactable = currentStep > 0;
-            isNotLastStep = currentStep < tutorialData.steps.Length - 1;
 
-            if (isNotLastStep)
-            {
-                nextButton.GetComponentInChildren<TMP_Text>().text = "Next";
-            }
-            else
-            {
-                nextButton.GetComponentInChildren<TMP_Text>().text = "Close";
-            }
+        if (nextButton != null)
+        {
+            bool isNotLastStep = currentStep < tutorialData.steps.Length - 1;
+            TMP_Text nextButtonText = nextButton.GetComponentInChildren<TMP_Text>();
+            if (nextButtonText != null)
+                nextButtonText.text = isNotLastStep ? "Next" : "Close";
         }
     }
 
     private void AdjustImageSize()
     {
-        if (tutorialImageUI.sprite == null || imageRect == null) return;
+        if (tutorialImageUI == null || tutorialImageUI.sprite == null || imageRect == null) return;
 
         float originalWidth = tutorialImageUI.sprite.texture.width;
         float originalHeight = tutorialImageUI.sprite.texture.height;
-
         float aspectRatio = originalWidth / originalHeight;
 
         float targetWidth = Screen.width * thumbnailScale;
@@ -140,38 +167,30 @@ public class TutorialUIManager : MonoBehaviour
 
     void SetMovePlayer(bool value)
     {
-        playerMovement.SetCanMove(value);
-        playerAttack.SetCanAttack(value);
+        if (playerMovement != null)
+            playerMovement.SetCanMove(value);
+
+        if (playerAttack != null)
+            playerAttack.SetCanAttack(value);
     }
-    
+
     IEnumerator GetTranslateText(string titleKey, string descriptionKey)
     {
-        //Traducimos titulo de tutorial
+        if (titleText == null || descriptionText == null) yield break;
+
         titleTranslate = string.Empty;
         var localizedLine = new LocalizedString(tableName, titleKey);
         var handle = localizedLine.GetLocalizedStringAsync();
         yield return handle;
-
         titleTranslate = handle.Result;
 
-        //traducimos descripcion del tutorial
         descriptionTranslate = string.Empty;
         localizedLine = new LocalizedString(tableName, descriptionKey);
         handle = localizedLine.GetLocalizedStringAsync();
         yield return handle;
-
         descriptionTranslate = handle.Result;
 
-        var textComponent = titleText;
-        if (textComponent != null)
-        {
-            textComponent.text = titleTranslate;
-        }
-
-        textComponent = descriptionText;
-        if (textComponent != null)
-        {
-            textComponent.text = descriptionTranslate;
-        }
+        titleText.text = titleTranslate;
+        descriptionText.text = descriptionTranslate;
     }
 }

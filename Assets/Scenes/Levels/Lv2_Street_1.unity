@@ -470,7 +470,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &62903591
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5301,14 +5301,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialData: {fileID: 11400000, guid: 8b05a7b6ab7087a4d9c96e03bfaa5324, type: 2}
+  tutorialDataResourceName: NewTutorialData
   tutorialPanel: {fileID: 62903590}
   titleText: {fileID: 1131704881}
   tutorialImageUI: {fileID: 868718110}
   descriptionText: {fileID: 901549597}
   prevButton: {fileID: 1025997653}
   nextButton: {fileID: 1692067503}
-  playerMovement: {fileID: 0}
-  playerAttack: {fileID: 0}
+  titleTranslate: 
+  descriptionTranslate: 
+  tableName: Tutorial
+  playerMovement: {fileID: 1587636609}
+  playerAttack: {fileID: 1105129824}
   thumbnailScale: 0.3
   imageRect: {fileID: 0}
 --- !u!1 &1300923539
@@ -6362,6 +6366,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6188016875035418746, guid: 3de22e42e175e0940837ad8931df5bb4, type: 3}
   m_PrefabInstance: {fileID: 757838218}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1587636609 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7556524681197377960, guid: 3de22e42e175e0940837ad8931df5bb4, type: 3}
+  m_PrefabInstance: {fileID: 757838218}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8d9ce493e0b4c4798be66badeb3829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1610586824 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8745536675279289371, guid: d5a95bec148da7e489335384632bc577, type: 3}
@@ -7847,7 +7862,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6034169278907937, guid: b732297acdd034340a12bd43ae1e37dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -60.135235
+      value: -60.141582
       objectReference: {fileID: 0}
     - target: {fileID: 3609875098697837749, guid: b732297acdd034340a12bd43ae1e37dc, type: 3}
       propertyPath: m_Name
