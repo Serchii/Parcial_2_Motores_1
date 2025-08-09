@@ -86,13 +86,11 @@ public class PlayerAttack : MonoBehaviour
         {
             if (attackBufferTimer > 0)
             {
+                PlayerCanMove(true); //Esto lo hago para que en caso de que en medio del combo quiera cambiar de direccion pueda hacerlo solo al seguir con el siguiente golpe
+                
                 isHitting = true;
 
-                PlayerCanMove(true); //Esto lo hago para que en caso de que en medio del combo quiera cambiar de direccion pueda hacerlo solo al seguir con el siguiente golpe
                 PlayerCanMove(false);
-
-                //hit.SetActive(true);
-                //Invoke("DisableHit", disableTime);
 
                 animator.SetTrigger("Attack" + (combo + 1));
 
