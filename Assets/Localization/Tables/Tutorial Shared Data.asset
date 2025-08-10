@@ -31,6 +31,54 @@ MonoBehaviour:
     m_Key: ComboDescript
     m_Metadata:
       m_Items: []
+  - m_Id: 491678058070016
+    m_Key: Puzzle1Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492041356099584
+    m_Key: Puzzle2Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492045227442176
+    m_Key: Puzzle3Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492050034114560
+    m_Key: Puzzle4Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492406621257728
+    m_Key: PuzzleDescript1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492423868235776
+    m_Key: PuzzleDescript2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492425915056128
+    m_Key: PuzzleDescript3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492427450171392
+    m_Key: PuzzleDescript4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 500987219329024
+    m_Key: JumpTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 500989903683584
+    m_Key: DescendTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 501213724327936
+    m_Key: JumpDescript
+    m_Metadata:
+      m_Items: []
+  - m_Id: 501217012662272
+    m_Key: DescendDescript
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

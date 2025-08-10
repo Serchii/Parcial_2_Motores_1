@@ -8,7 +8,7 @@ using TMPro;
 public class TutorialUIManager : MonoBehaviour
 {
     [Header("Datos del Tutorial")]
-    public TutorialData tutorialData; // Se carga automático
+    public TutorialData tutorialData;
     [SerializeField] private string resourcesFolder = "TutorialData";
 
     [Header("UI Panel")]
@@ -25,6 +25,10 @@ public class TutorialUIManager : MonoBehaviour
     [SerializeField] string titleTranslate;
     [SerializeField] string descriptionTranslate;
     [SerializeField] string tableName = "Tutorial";
+    [SerializeField] string nextTranslate;
+    [SerializeField] string closeTranslate;
+    [SerializeField] string nextKey;
+    [SerializeField] string closeKey;
 
     [Header("Referencia Player")]
     [SerializeField] PlayerMovement playerMovement;
@@ -39,13 +43,14 @@ public class TutorialUIManager : MonoBehaviour
 
     void Start()
     {
-        // Carga automática según el nombre de la escena
         LoadTutorialDataByScene();
 
         if (tutorialPanel != null)
             tutorialPanel.SetActive(false);
 
         EnsurePlayerReferences();
+
+        StartCoroutine(GetTranslateButton(closeKey, nextKey, "UI"));
     }
 
     void LoadTutorialDataByScene()
@@ -53,7 +58,7 @@ public class TutorialUIManager : MonoBehaviour
         if (tutorialData != null) return;
 
         string sceneName = SceneManager.GetActiveScene().name;
-        string fileName = $"NewTutorialData_{sceneName}"; // Ej: NewTutorialData_Level1
+        string fileName = $"NewTutorialData_{sceneName}"; 
 
         tutorialData = Resources.Load<TutorialData>($"{resourcesFolder}/{fileName}");
 
@@ -135,7 +140,7 @@ public class TutorialUIManager : MonoBehaviour
         if (tutorialData == null || tutorialData.steps.Length == 0) return;
 
         tutorialImageUI.sprite = tutorialData.steps[currentStep].tutorialImage;
-        StartCoroutine(GetTranslateText(tutorialData.steps[currentStep].tutorialTitle, tutorialData.steps[currentStep].tutorialDescription));
+        StartCoroutine(GetTranslateText(tutorialData.steps[currentStep].tutorialTitle, tutorialData.steps[currentStep].tutorialDescription, tableName));
 
         AdjustImageSize();
 
@@ -147,7 +152,7 @@ public class TutorialUIManager : MonoBehaviour
             bool isNotLastStep = currentStep < tutorialData.steps.Length - 1;
             TMP_Text nextButtonText = nextButton.GetComponentInChildren<TMP_Text>();
             if (nextButtonText != null)
-                nextButtonText.text = isNotLastStep ? "Next" : "Close";
+                nextButtonText.text = isNotLastStep ? nextTranslate : closeTranslate;
         }
     }
 
@@ -174,7 +179,7 @@ public class TutorialUIManager : MonoBehaviour
             playerAttack.SetCanAttack(value);
     }
 
-    IEnumerator GetTranslateText(string titleKey, string descriptionKey)
+    IEnumerator GetTranslateText(string titleKey, string descriptionKey, string tableName)
     {
         if (titleText == null || descriptionText == null) yield break;
 
@@ -192,5 +197,23 @@ public class TutorialUIManager : MonoBehaviour
 
         titleText.text = titleTranslate;
         descriptionText.text = descriptionTranslate;
+    }
+
+    IEnumerator GetTranslateButton(string closeKey, string NextKey, string tableName)
+    {
+        if (titleText == null || descriptionText == null) yield break;
+
+        closeTranslate = string.Empty;
+        var localizedLine = new LocalizedString(tableName, closeKey);
+        var handle = localizedLine.GetLocalizedStringAsync();
+        yield return handle;
+        closeTranslate = handle.Result;
+
+        nextTranslate = string.Empty;
+        localizedLine = new LocalizedString(tableName, NextKey);
+        handle = localizedLine.GetLocalizedStringAsync();
+        yield return handle;
+        nextTranslate = handle.Result;
+
     }
 }

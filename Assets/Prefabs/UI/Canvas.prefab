@@ -3701,6 +3701,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClueUIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2082341438762057472, guid: bcab26d4938eda44a9fb24f353ce1082, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8866630559696846229, guid: bcab26d4938eda44a9fb24f353ce1082, type: 3}
       propertyPath: notebookUI
       value: 

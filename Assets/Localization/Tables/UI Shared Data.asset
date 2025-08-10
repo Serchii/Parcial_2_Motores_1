@@ -115,6 +115,18 @@ MonoBehaviour:
     m_Key: PressToEnterText
     m_Metadata:
       m_Items: []
+  - m_Id: 8020642066513920
+    m_Key: BackBtn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8020645132550144
+    m_Key: NextBtn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8020767404900352
+    m_Key: CloseBtn
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

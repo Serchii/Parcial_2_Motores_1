@@ -117,6 +117,18 @@ MonoBehaviour:
     m_Localized: Presiona [W] para entrar
     m_Metadata:
       m_Items: []
+  - m_Id: 8020642066513920
+    m_Localized: Atras
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8020645132550144
+    m_Localized: Siguiente
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8020767404900352
+    m_Localized: Cerrar
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

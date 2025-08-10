@@ -34,6 +34,60 @@ MonoBehaviour:
     m_Localized: Puedes pulsar hasta tres veces seguidas para realizar un combo
     m_Metadata:
       m_Items: []
+  - m_Id: 491678058070016
+    m_Localized: 'Tutorial: Tuberias'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492041356099584
+    m_Localized: 'Tutorial: Tuberias'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492045227442176
+    m_Localized: 'Tutorial: Tuberias'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492050034114560
+    m_Localized: 'Tutorial: Tuberias'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492406621257728
+    m_Localized: "Debes conectar todas las tuber\xEDas para solucionar el problema
+      del desag\xFCe. Arrastra los tubos manteniendo presionado el CLIC IZQUIERDO
+      sobre la cuadr\xEDcula."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492423868235776
+    m_Localized: "Puedes arrastrar las tuber\xEDas que no sirvan fuera de la cuadr\xEDcula
+      para que desaparezcan, pero solo las que no estaban desde el principio."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492425915056128
+    m_Localized: "Presiona una vez el clic izquierdo sobre una tuber\xEDa para rotarla
+      y hacer que encaje con las dem\xE1s."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492427450171392
+    m_Localized: "Cuando todas las tuber\xEDas est\xE9n conectadas correctamente,
+      el problema estar\xE1 resuelto. Sin embargo, si alguna tuber\xEDa queda desconectada,
+      el problema persistir\xE1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 500987219329024
+    m_Localized: 'Tutorial: Saltar'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 500989903683584
+    m_Localized: 'Tutorial: Descender'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 501213724327936
+    m_Localized: Presiona ESPACIO para saltar.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 501217012662272
+    m_Localized: Presiona S para descender de una plataforma o escalera.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

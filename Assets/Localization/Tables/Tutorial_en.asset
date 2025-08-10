@@ -34,6 +34,58 @@ MonoBehaviour:
     m_Localized: 'Tutorial: Attack'
     m_Metadata:
       m_Items: []
+  - m_Id: 491678058070016
+    m_Localized: 'Tutorial: Pipes'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492041356099584
+    m_Localized: 'Tutorial: Pipes'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492045227442176
+    m_Localized: 'Tutorial: Pipes'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492050034114560
+    m_Localized: 'Tutorial: Pipes'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492406621257728
+    m_Localized: You need to connect all the pipes to fix the drainage problem. Drag
+      the pipes by holding down the left click over the grid.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492423868235776
+    m_Localized: ou can drag the pipes that are not useful outside the grid to make
+      them disappear, but only those that were not part of the original setup.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492425915056128
+    m_Localized: Press the left click once on a pipe to rotate it and make it fit
+      with the others.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492427450171392
+    m_Localized: When all the pipes are properly connected, the problem will be solved.
+      However, if any pipe remains disconnected, the problem will persist.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 500987219329024
+    m_Localized: 'Tutorial: Jump'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 500989903683584
+    m_Localized: 'Tutorial: Descend'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 501213724327936
+    m_Localized: Press SPACE to jump.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 501217012662272
+    m_Localized: Press S to drop down from a platform or ladder.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
