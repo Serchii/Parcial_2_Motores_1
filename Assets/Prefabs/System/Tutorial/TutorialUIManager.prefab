@@ -55,6 +55,10 @@ MonoBehaviour:
   titleTranslate: 
   descriptionTranslate: 
   tableName: Tutorial
+  nextTranslate: 
+  closeTranslate: 
+  nextKey: NextBtn
+  closeKey: CloseBtn
   playerMovement: {fileID: 0}
   playerAttack: {fileID: 0}
   thumbnailScale: 0.3

@@ -108,7 +108,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5044954543493120
-    m_Key: OutOfTimeText
+    m_Key: ShopClosedText
     m_Metadata:
       m_Items: []
   - m_Id: 6752742084775936

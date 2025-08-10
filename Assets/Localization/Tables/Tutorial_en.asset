@@ -56,7 +56,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 492423868235776
-    m_Localized: ou can drag the pipes that are not useful outside the grid to make
+    m_Localized: You can drag the pipes that are not useful outside the grid to make
       them disappear, but only those that were not part of the original setup.
     m_Metadata:
       m_Items: []

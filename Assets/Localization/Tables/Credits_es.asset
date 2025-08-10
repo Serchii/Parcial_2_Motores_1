@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Credits_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 1299971c77b0f2342aa4ccb843089210, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 88168009728
+    m_Localized: "Dise\xF1o de Juego\nDise\xF1o de Mundo\nLocalizaci\xF3n\nProducci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92727218176
+    m_Localized: "Dise\xF1o de Niveles\nProgramaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 94778232832
+    m_Localized: "M\xFAsica y Dise\xF1o Sonoro"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96724389888
+    m_Localized: "Arte\nDise\xF1o de Personajes"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98905427968
+    m_Localized: "Arte y Audio original\nControl de Calidad\nDise\xF1o de Contenido"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101992435712
+    m_Localized: "Dise\xF1o de Juego\nProgramaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
