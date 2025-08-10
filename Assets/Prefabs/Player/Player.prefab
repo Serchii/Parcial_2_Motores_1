@@ -126,12 +126,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
-  jumpForce: 15
+  jumpForce: 17
   rb: {fileID: 2401344832455833467}
   animator: {fileID: 7608000870342297307}
   canMove: 1
   isGrounded: 0
   canJump: 1
+  dustPS: {fileID: 0}
   groundCheck: {fileID: 855401319772495932}
   groundCheckRadius: 0.45
   groundLayer:
