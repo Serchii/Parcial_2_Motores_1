@@ -465,6 +465,7 @@ Transform:
   m_Children:
   - {fileID: 468177138}
   - {fileID: 1110168656}
+  - {fileID: 1261931025}
   m_Father: {fileID: 1584520321}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &126756809
@@ -820,7 +821,7 @@ Transform:
   m_GameObject: {fileID: 268839743}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.1388888, y: -0.3919897, z: -10.073344}
+  m_LocalPosition: {x: -2.1426427, y: -0.39198935, z: -10.073344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1380,11 +1381,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5061506827413179520, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.308611
+      value: 2.558611
       objectReference: {fileID: 0}
     - target: {fileID: 5061506827413179520, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.9137993
+      value: 9.163799
       objectReference: {fileID: 0}
     - target: {fileID: 5061506827413179520, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1470,11 +1471,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1352511522048200664, guid: 80d303e4e39a13944912a0fa6327f732, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.925468
+      value: 7.920976
       objectReference: {fileID: 0}
     - target: {fileID: 1352511522048200664, guid: 80d303e4e39a13944912a0fa6327f732, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.178964
+      value: -3.6789436
       objectReference: {fileID: 0}
     - target: {fileID: 1352511522048200664, guid: 80d303e4e39a13944912a0fa6327f732, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1510,11 +1511,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1605018852206128527, guid: 80d303e4e39a13944912a0fa6327f732, type: 3}
       propertyPath: m_Size.y
-      value: 1.25
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 1605018852206128527, guid: 80d303e4e39a13944912a0fa6327f732, type: 3}
       propertyPath: m_Offset.y
-      value: 0.62
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 2127164409581646364, guid: 80d303e4e39a13944912a0fa6327f732, type: 3}
       propertyPath: m_Name
@@ -2509,7 +2510,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 53e3119231dcd03419a29cb18ca6d70c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2529,12 +2530,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261931023}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.06, y: 16.99, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 125207101}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1262800560 stripped
 Transform:
@@ -3542,11 +3543,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1352511522048200664, guid: 80d303e4e39a13944912a0fa6327f732, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.54002
+      value: -2.5445118
       objectReference: {fileID: 0}
     - target: {fileID: 1352511522048200664, guid: 80d303e4e39a13944912a0fa6327f732, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.194492
+      value: -3.6944718
       objectReference: {fileID: 0}
     - target: {fileID: 1352511522048200664, guid: 80d303e4e39a13944912a0fa6327f732, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3582,11 +3583,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1605018852206128527, guid: 80d303e4e39a13944912a0fa6327f732, type: 3}
       propertyPath: m_Size.y
-      value: 1.25
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 1605018852206128527, guid: 80d303e4e39a13944912a0fa6327f732, type: 3}
       propertyPath: m_Offset.y
-      value: 0.62
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 2127164409581646364, guid: 80d303e4e39a13944912a0fa6327f732, type: 3}
       propertyPath: m_Name
@@ -4449,4 +4450,3 @@ SceneRoots:
   - {fileID: 503861945}
   - {fileID: 2137529784}
   - {fileID: 2145922240}
-  - {fileID: 1261931025}
