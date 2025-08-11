@@ -24,10 +24,12 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] float attackBufferTime = 0.1f;
     [SerializeField] float attackBufferTimer;
     
-
+    [Header("Sounds and Animations")]
     [SerializeField] Animator animator;
     [SerializeField] AudioClip hitClip;
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip attackClip;
+    [SerializeField] AudioSource hitSource;
+    [SerializeField] AudioSource attackSource;
     [SerializeField] PlayerHealth playerHealth;
 
     [SerializeField] Rigidbody2D rb;
@@ -119,27 +121,35 @@ public class PlayerAttack : MonoBehaviour
     public void ExecuteAttack()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        
+        attackSource.clip = attackClip;
+        PlaySFXHit(attackSource);
+
+        if (hitEnemies.Length > 0)
+        {
+            hitSource.clip = hitClip;
+        }
 
         foreach (Collider2D enemy in hitEnemies)
-        {
-            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-            ShakeEffect shake = enemy.GetComponentInChildren<ShakeEffect>();
-            PlaySFXHit();
-
-            Debug.Log("Shake: " + shake);
-
-            if (enemyHealth != null)
             {
-                Vector2 knockbackDir = enemy.transform.position - transform.position;
-                if (HitstopManager.Instance != null)
-                    HitstopManager.Instance.DoHitstop(hitstopDuration);
+                EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+                ShakeEffect shake = enemy.GetComponentInChildren<ShakeEffect>();
+                PlaySFXHit(hitSource);
 
-                if (shake != null)
-                    shake.Shake();
+                Debug.Log("Shake: " + shake);
 
-                enemyHealth.TakeDamage(attackDamage, knockbackDir, knockbackForce, attackWithKnockback);
+                if (enemyHealth != null)
+                {
+                    Vector2 knockbackDir = enemy.transform.position - transform.position;
+                    if (HitstopManager.Instance != null)
+                        HitstopManager.Instance.DoHitstop(hitstopDuration);
+
+                    if (shake != null)
+                        shake.Shake();
+
+                    enemyHealth.TakeDamage(attackDamage, knockbackDir, knockbackForce, attackWithKnockback);
+                }
             }
-        }
     }
 
 
@@ -199,10 +209,14 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    public void PlaySFXHit()
+    public void PlaySFXHit(AudioSource audioSource)
     {
-        audioSource.clip = hitClip;
-        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        float hitPitch = 0.9f;
+
+        if (combo >= 2)
+            hitPitch = 0.7f;
+        
+        audioSource.pitch = Random.Range(hitPitch - 0.1f, hitPitch + 0.1f);
         audioSource.Play();
     }
 }

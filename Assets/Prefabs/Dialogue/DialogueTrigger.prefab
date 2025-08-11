@@ -152,16 +152,22 @@ MonoBehaviour:
   - House2b_Door2
   - House2b_Door3
   - House2b_Door4
+  dialogues: []
   tableName: Dialogues
   currentDialog: 
   isTrigger: 1
   dialogueTriggered: 0
+  playerMovement: {fileID: 0}
   isPlayerInRange: 0
   didDialogueStart: 0
   lineIndex: 0
   typingTime: 0.03
+  objectsToActivate: []
+  activateObjects: 0
   audioSource: {fileID: 0}
-  dialogVoice: {fileID: 8300000, guid: a87c93547dd214f479605a37e1f23a5f, type: 3}
+  dialogVoice: {fileID: 8300000, guid: 15cf2b1973595d04fb41193148eeec79, type: 3}
+  newMusicClip: {fileID: 0}
+  musicEndDialog: {fileID: 0}
   pitchVoice: 1
 --- !u!82 &7358148423606425112
 AudioSource:

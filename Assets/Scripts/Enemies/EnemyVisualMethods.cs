@@ -9,7 +9,7 @@ public class EnemyVisualMethods : MonoBehaviour
     public void ActivateHit()
     {
         enemyBehaviour.ActivateHit();
-    }   
+    }
 
     public void DeactivateHit()
     {
@@ -19,5 +19,15 @@ public class EnemyVisualMethods : MonoBehaviour
     public void EndAttack()
     {
         enemyBehaviour.EndAttack();
+    }
+
+    public void AnticipationSFX()
+    {
+        enemyBehaviour.PlaySFXAnticipation();
+    }
+
+    public void AttackSFX()
+    {
+        enemyBehaviour.PlaySFXAttack();
     }
 }

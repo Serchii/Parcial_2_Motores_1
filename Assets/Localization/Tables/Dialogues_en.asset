@@ -227,6 +227,14 @@ MonoBehaviour:
     m_Localized: "Henry:\n Police sirens! Time to go!"
     m_Metadata:
       m_Items: []
+  - m_Id: 8814290064183296
+    m_Localized: "Shop owner:\n Sorry, kid, we're renovating."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8814853178855424
+    m_Localized: "Shop owner:\n Come back next week."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

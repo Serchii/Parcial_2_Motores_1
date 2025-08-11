@@ -22,7 +22,10 @@ public class EnemyBehaviour : MonoBehaviour
 
     [Header("Sonidos")]
     [SerializeField] AudioSource audioSource;
-    [SerializeField] AudioClip audioClip;
+    [SerializeField] AudioSource attackSource;
+    [SerializeField] AudioClip hitClip;
+    [SerializeField] AudioClip anticipationClip;
+    [SerializeField] AudioClip attackClip;
 
     [Header("Ataque")]
     [SerializeField] private float _attackCooldown = 1f;
@@ -192,7 +195,6 @@ public class EnemyBehaviour : MonoBehaviour
                 _animator.SetTrigger("Attack");
 
             setIdle = false;
-            Debug.Log("Enemy: TryAttack");
         }
     }
 
@@ -243,8 +245,25 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void PlaySFXHit()
     {
-        audioSource.clip = audioClip;
+        audioSource.clip = hitClip;
+        PlaySFX(audioSource);
+    }
+
+    void PlaySFX(AudioSource audioSource)
+    {
         audioSource.pitch = Random.Range(0.9f, 1.1f);
         audioSource.Play();
+    }
+
+    public void PlaySFXAttack()
+    {
+        attackSource.clip = attackClip;
+        PlaySFX(attackSource);
+    }
+
+    public void PlaySFXAnticipation()
+    {
+        attackSource.clip = anticipationClip;
+        PlaySFX(attackSource);
     }
 }

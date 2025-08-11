@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private List<GameObject> currentOneWayPlatforms = new List<GameObject>();
     [SerializeField] private List<GameObject> temporarilyIgnoredPlatforms = new List<GameObject>();
     [SerializeField] float disableCollisionTime = 0.25f;
+    [SerializeField] GameObject dustEffect;
 
     [Header("Coyote Time")]
     [SerializeField] float coyoteTime = 0.2f;
@@ -189,7 +190,6 @@ public class PlayerMovement : MonoBehaviour
     {
         isKnockedBack = false;
         playerAttack.FinishAttack();
-        Debug.Log("EndKnockbackACAAAAAA");
     }
 
     private void ActivateJump()
@@ -218,9 +218,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void CreateDust()
     {
-        if (dustPS != null)
-        {
-            dustPS.Play();
-        }
+        if(dustEffect != null)
+            Instantiate(dustEffect,groundCheck.transform.position,Quaternion.identity);
     }
 }

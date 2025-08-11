@@ -229,6 +229,14 @@ MonoBehaviour:
       grande.\n Creo que esto se torna cada vez m\xE1s peligroso."
     m_Metadata:
       m_Items: []
+  - m_Id: 8814290064183296
+    m_Localized: "Due\xF1o de la tienda:\n Disculpa muchacho, estamos haciendo reformas."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8814853178855424
+    m_Localized: "Due\xF1o de la tienda:\n Vuelve la proxima semana"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

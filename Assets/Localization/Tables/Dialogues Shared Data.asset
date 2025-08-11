@@ -191,6 +191,14 @@ MonoBehaviour:
     m_Key: ConstructionZone_AfterFight5
     m_Metadata:
       m_Items: []
+  - m_Id: 8814290064183296
+    m_Key: ShopInMaintenance1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8814853178855424
+    m_Key: ShopInMaintenance2
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -19,6 +19,8 @@ public class PlayerHealth : BaseHealth
 
     public event Action<float, float> OnHealthChanged;
     public event Action<int> OnLivesChanged;
+    public event Action OnFlash;
+    public event Action OnShake;
 
     protected override void Start()
     {
@@ -51,7 +53,11 @@ public class PlayerHealth : BaseHealth
         health -= amount;
 
         if (damageFlash != null)
+        {
             damageFlash.Flash();
+            //OnFlash?.Invoke();
+            OnShake?.Invoke();
+        }
 
         if (animator != null)
             animator.SetTrigger("Hurt");

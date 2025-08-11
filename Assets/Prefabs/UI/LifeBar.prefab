@@ -86,6 +86,9 @@ GameObject:
   - component: {fileID: 5612170526500507482}
   - component: {fileID: 8626655470297255403}
   - component: {fileID: 7240017234546210458}
+  - component: {fileID: 2763430944145731027}
+  - component: {fileID: 7344332177169533895}
+  - component: {fileID: 6525777458009181807}
   m_Layer: 5
   m_Name: PlayerIcon
   m_TagString: Untagged
@@ -150,6 +153,58 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2763430944145731027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5294129668076550333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5194843c030acc1438604dc33ae66502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiImage: {fileID: 7240017234546210458}
+  flashMaterial: {fileID: 2100000, guid: 6c6d34157df0d0c4ba4d30e10f456477, type: 2}
+  flashDuration: 0.15
+  playerHealth: {fileID: 0}
+--- !u!114 &7344332177169533895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5294129668076550333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d6fa61ec89c02489f1573526765628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeAmount: 5
+  shakeDuration: 0.15
+  playerHealth: {fileID: 0}
+--- !u!95 &6525777458009181807
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5294129668076550333}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8f64498ca1f759446ac81e490ab77193, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5338901234635719008
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +215,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3911870804855254996}
   - component: {fileID: 1462615872766694091}
-  - component: {fileID: 6611315210974298326}
   m_Layer: 5
   m_Name: LifeBar
   m_TagString: Untagged
@@ -202,22 +256,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fillLifeBar: {fileID: 2228673100065189517}
   playerHealth: {fileID: 0}
---- !u!114 &6611315210974298326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5338901234635719008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa20d6c27f6f82f42b27c6a2ab36156c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  flashImage: 1
-  flashMaterial: {fileID: 0}
-  flashDuration: 0.1
 --- !u!1 &5858204673632794548
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,8 +291,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -40, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -48, y: 0}
+  m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6593174999337031007
 GameObject:
@@ -367,7 +405,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 350, y: -100}
+  m_AnchoredPosition: {x: 400, y: -100}
   m_SizeDelta: {x: 500, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &701520546442705648
