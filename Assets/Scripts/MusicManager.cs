@@ -12,12 +12,14 @@ public class MusicManager : MonoBehaviour
     public AudioClip CombatMusic;
     public AudioClip transitionMusic;
     public AudioClip startMusic;
+    public AudioClip shopMusic;
 
     [SerializeField] string[] streetScenes;
     [SerializeField] string[] puzzleScenes;
     [SerializeField] string[] combatScenes;
     [SerializeField] string[] transitionScenes;
     [SerializeField] string[] startScenes;
+    [SerializeField] string[] shopScenes;
     [SerializeField] string[] stopMusic;
 
     private string currentScene;
@@ -76,6 +78,8 @@ public class MusicManager : MonoBehaviour
             newClip = transitionMusic;
         else if (startScenes.Contains(sceneName))
             newClip = startMusic;
+        else if (shopScenes.Contains(sceneName))
+            newClip = shopMusic;
         else if (stopMusic.Contains(sceneName))
         {
             audioSource.Stop();

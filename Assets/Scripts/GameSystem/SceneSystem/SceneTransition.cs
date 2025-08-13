@@ -1,10 +1,16 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
     [SerializeField] string sceneToLoad;
     [SerializeField] Vector2 spawnPositionInNextScene;
     [SerializeField] bool isDoor;
+
+    [Header("Shop Variables")]
+    [SerializeField] bool isShop;
+    [SerializeField] string shopSceneName;
     [SerializeField] GameObject interactionPromptPrefab;
 
     private GameObject promptInstance;
@@ -19,6 +25,31 @@ public class SceneTransition : MonoBehaviour
     {
         if (isDoor && canEnter && Input.GetButtonDown("Up"))
         {
+            if (isShop)
+            {
+                string loadLastScene;
+                float x;
+                float y;
+                if (SceneManager.GetActiveScene().name != shopSceneName)
+                {
+                    PlayerPrefs.SetString("LoadLastScene", SceneManager.GetActiveScene().name);
+                    PlayerPrefs.SetFloat("SpawnPosXToLoad", transform.position.x);
+                    PlayerPrefs.SetFloat("SpawnPosYToLoad", transform.position.y);
+                }
+                else
+                {
+                    loadLastScene = PlayerPrefs.GetString("LoadLastScene");
+                    x = PlayerPrefs.GetFloat("SpawnPosXToLoad");
+                    y = PlayerPrefs.GetFloat("SpawnPosYToLoad");
+
+                    if (loadLastScene != "")
+                    {
+                        sceneToLoad = loadLastScene;
+                        spawnPositionInNextScene = new Vector2(x, y);
+                    }
+                }
+                
+            }
             HidePrompt();
             PlayerHealth player = FindObjectOfType<PlayerHealth>();
             if (player != null)

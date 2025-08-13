@@ -51,6 +51,7 @@ MonoBehaviour:
   CombatMusic: {fileID: 8300000, guid: abade9e1b7159be42bc61799f036bb5d, type: 3}
   transitionMusic: {fileID: 8300000, guid: aa1a24267eadc4e47bb5c9517779bdeb, type: 3}
   startMusic: {fileID: 8300000, guid: 1612fbde245253e419b978aea890d701, type: 3}
+  shopMusic: {fileID: 8300000, guid: decaa0b2da554664a8690a635301e269, type: 3}
   streetScenes:
   - Lv1_Classroom
   - Lv2_Street_1
@@ -76,6 +77,8 @@ MonoBehaviour:
   startScenes:
   - MainMenu
   - IntroText
+  shopScenes:
+  - ShopTest
   stopMusic:
   - SplashScreen
 --- !u!82 &6820803219538425184
