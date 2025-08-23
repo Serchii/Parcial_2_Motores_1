@@ -759,6 +759,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8839595007545046886, guid: a5d4a6302c31a344e8395a08376c4b86, type: 3}
+      propertyPath: clockUI
+      value: 
+      objectReference: {fileID: 4903294648843828002}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1244,6 +1248,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4903294648843828002 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 715498373279549802, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
+  m_PrefabInstance: {fileID: 5612036522897994312}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7432eaf803725044899e9dcbfb8b8de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &6317468971989100231 stripped

@@ -505,6 +505,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &521026525 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4903294648843828002, guid: d5a95bec148da7e489335384632bc577, type: 3}
+  m_PrefabInstance: {fileID: 1660775446}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7432eaf803725044899e9dcbfb8b8de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,7 +1115,7 @@ Transform:
   m_GameObject: {fileID: 1225043415}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: -2.555, z: 0}
+  m_LocalPosition: {x: -6, y: -2.707, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1467,6 +1478,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8658322516936321182, guid: d5a95bec148da7e489335384632bc577, type: 3}
+      propertyPath: clockUI
+      value: 
+      objectReference: {fileID: 521026525}
     - target: {fileID: 9201135020250795810, guid: d5a95bec148da7e489335384632bc577, type: 3}
       propertyPath: m_Name
       value: Canvas_ShopScene
@@ -1870,7 +1885,7 @@ Transform:
   m_GameObject: {fileID: 2058141633}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05000019, y: -0.46, z: 0}
+  m_LocalPosition: {x: -0.05000019, y: -0.61, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2414,6 +2429,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4312815117929559658, guid: 7dda8ef9983b92945b87ad288e5b5414, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727078185672833702, guid: 7dda8ef9983b92945b87ad288e5b5414, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8901879344821883512, guid: 7dda8ef9983b92945b87ad288e5b5414, type: 3}

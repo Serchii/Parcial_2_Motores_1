@@ -822,6 +822,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 8641013272142191075, guid: 9e9d9854ab8db8349a015c2efad7c5f5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -905,7 +909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7397538139900909611, guid: c967bc6a1c3f7ec42b148daa07ac5eaa, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8495600989126559770, guid: c967bc6a1c3f7ec42b148daa07ac5eaa, type: 3}
       propertyPath: uiPuzzle
@@ -1097,7 +1101,7 @@ Transform:
   m_GameObject: {fileID: 204731719}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -67.1514, y: -6.6539, z: 0}
+  m_LocalPosition: {x: -66.6514, y: -6.6539, z: 0}
   m_LocalScale: {x: 2.734305, y: 14.660245, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3848,7 +3852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5061506827413179520, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23
+      value: -23.25
       objectReference: {fileID: 0}
     - target: {fileID: 5061506827413179520, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4795,6 +4799,10 @@ PrefabInstance:
     - target: {fileID: 339110008461113478, guid: 92cdecbe3a2bd254b90f390d8c5a5abc, type: 3}
       propertyPath: m_Name
       value: EnviromentController
+      objectReference: {fileID: 0}
+    - target: {fileID: 339110008461113478, guid: 92cdecbe3a2bd254b90f390d8c5a5abc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7353005107009281298, guid: 92cdecbe3a2bd254b90f390d8c5a5abc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6457,7 +6465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 632654923707616362, guid: b732297acdd034340a12bd43ae1e37dc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 21.25
+      value: 21.45
       objectReference: {fileID: 0}
     - target: {fileID: 632654923707616362, guid: b732297acdd034340a12bd43ae1e37dc, type: 3}
       propertyPath: m_LocalScale.y

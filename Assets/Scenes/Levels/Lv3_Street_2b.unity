@@ -515,7 +515,7 @@ Transform:
   m_GameObject: {fileID: 83359557}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.369999, y: -6.1278, z: 0}
+  m_LocalPosition: {x: -20.619999, y: -6.1278, z: 0}
   m_LocalScale: {x: 2.5771, y: 13.61391, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3161,7 +3161,7 @@ Transform:
   m_GameObject: {fileID: 1105177452}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -65.45, y: -6.3778, z: 0}
+  m_LocalPosition: {x: -65.2, y: -6.3778, z: 0}
   m_LocalScale: {x: 2.5771, y: 13.61391, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5020,6 +5020,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 8901879344821883512, guid: 7dda8ef9983b92945b87ad288e5b5414, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6235,7 +6239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5061506827413179520, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.489998
+      value: -21.739998
       objectReference: {fileID: 0}
     - target: {fileID: 5061506827413179520, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6422,7 +6426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5061506827413179520, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -64.49
+      value: -64.24
       objectReference: {fileID: 0}
     - target: {fileID: 5061506827413179520, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6466,7 +6470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7502924255400113472, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
       propertyPath: spawnPositionInNextScene.x
-      value: -24
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 7502924255400113472, guid: edb5779c3272c604e9e49bc137c7c0d4, type: 3}
       propertyPath: spawnPositionInNextScene.y

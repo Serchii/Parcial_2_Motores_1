@@ -25,8 +25,28 @@ public class UILifeBar : MonoBehaviour
     {
         if (playerHealth == null) return;
 
-        fillLifeBar.fillAmount = current / max;
-        
+        float percent = current / max;
+
+        fillLifeBar.fillAmount = percent;
+
         Debug.Log($"Vida actual: {current}, Vida Maxima: {max}");
+        
+        if (percent >= 0.6)
+        {
+            ChangeColor(Color.green);
+        }
+        else if (percent >= 0.25)
+        {
+            ChangeColor(Color.yellow);
+        }
+        else
+        {
+            ChangeColor(Color.red);
+        }
+    }
+
+    void ChangeColor(Color color)
+    {
+        fillLifeBar.color = color;
     }
 }
