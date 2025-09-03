@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -27,6 +28,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float disableCollisionTime = 0.25f;
     [SerializeField] GameObject dustEffect;
 
+    [Header("Dash")]
+    [SerializeField] float dashSpeed = 30f;
+    [SerializeField] float dashTime = 0.2f;
+    [SerializeField] float dashCooldown = 1f;
+    [SerializeField] bool canDash = true;
+    [SerializeField] bool isDashing = false;
+    [SerializeField] TrailRenderer trailRenderer;
+    [SerializeField] PlayerHealth playerHealth;
+
     [Header("Coyote Time")]
     [SerializeField] float coyoteTime = 0.2f;
     [SerializeField] float coyoteTimer;
@@ -47,12 +57,15 @@ public class PlayerMovement : MonoBehaviour
         if (animator == null)
             animator = GetComponentInChildren<Animator>();
 
+        if (playerHealth == null)
+            playerHealth = GetComponent<PlayerHealth>();
+
         playerAttack = GetComponent<PlayerAttack>();
     }
 
     void Update()
     {
-        if (!isKnockedBack && canMove)
+        if (!isKnockedBack && canMove && !isDashing)
         {
             moveInput = Input.GetAxisRaw("Horizontal");
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
@@ -70,6 +83,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Jump();
+
+        if (Input.GetButtonDown("Dash") && canDash)
+        {
+            StartCoroutine(Dash());
+        }
 
         FallDownPlatforms();
 
@@ -93,6 +111,30 @@ public class PlayerMovement : MonoBehaviour
             CreateDust();
             coyoteTimer = 0;
         }
+    }
+
+    IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        SetCanMove(false);
+        rb.velocity = new Vector2(transform.localScale.x * dashSpeed, rb.velocity.y);
+        trailRenderer.emitting = true;
+        animator.SetTrigger("Dash");
+        playerHealth.EnableInvincible();
+
+        Debug.Log(transform.localScale.x * dashSpeed);
+
+        yield return new WaitForSeconds(dashTime);
+
+        isDashing = false;
+        SetCanMove(true);
+        trailRenderer.emitting = false;
+        playerHealth.DisableInvincible();
+
+        yield return new WaitForSeconds(dashCooldown);
+
+        canDash = true;
     }
 
     void FallDownPlatforms()

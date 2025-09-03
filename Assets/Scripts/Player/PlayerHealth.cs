@@ -7,6 +7,7 @@ public class PlayerHealth : BaseHealth
     [SerializeField] int lives = 1;
     [SerializeField] Vector3 spawnPoint;
     [SerializeField] Animator animator;
+    [SerializeField] PlayerMovement pm;
     [SerializeField] private DamageFlash damageFlash;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] bool invincible = false;
@@ -25,6 +26,9 @@ public class PlayerHealth : BaseHealth
     protected override void Start()
     {
         spawnPoint = transform.position;
+
+        if (pm == null)
+            pm = GetComponent<PlayerMovement>();
 
         if (animator == null)
             animator = GetComponent<Animator>();
@@ -55,7 +59,6 @@ public class PlayerHealth : BaseHealth
         if (damageFlash != null)
         {
             damageFlash.Flash();
-            //OnFlash?.Invoke();
             OnShake?.Invoke();
         }
 
@@ -63,15 +66,15 @@ public class PlayerHealth : BaseHealth
             animator.SetTrigger("Hurt");
 
         if (health <= 0f)
-            {
-                health = 0f;
-                if (isAlive) Die();
-            }
-            else
-            {
-                EnableInvincible();
-                Invoke(nameof(DisableInvincible), 1.5f);
-            }
+        {
+            health = 0f;
+            if (isAlive) Die();
+        }
+        else
+        {
+            EnableInvincible();
+            Invoke(nameof(DisableInvincible), 1.5f);
+        }
 
         OnHealthChanged?.Invoke(health, maxHealth);
     }
@@ -115,7 +118,7 @@ public class PlayerHealth : BaseHealth
         SetMaxHealth();
     }
 
-    private void DisableInvincible()
+    public void DisableInvincible()
     {
         invincible = false;
         Color color = spriteRenderer.color;
@@ -124,7 +127,7 @@ public class PlayerHealth : BaseHealth
         Debug.Log("DisableInvincible");
     }
 
-    private void EnableInvincible()
+    public void EnableInvincible()
     {
         invincible = true;
         Color color = spriteRenderer.color;
@@ -142,7 +145,7 @@ public class PlayerHealth : BaseHealth
         {
             rb.AddForce(new Vector2(direction.x * force, 0f), ForceMode2D.Impulse);
 
-            PlayerMovement pm = GetComponent<PlayerMovement>();
+            
             if (pm != null)
             {
                 pm.TriggerKnockback(pm.knockbackDuration);

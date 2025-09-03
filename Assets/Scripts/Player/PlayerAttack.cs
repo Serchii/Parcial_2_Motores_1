@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] LayerMask enemyLayers;
     [SerializeField] int combo;
     [SerializeField] float attackDamage = 20f;
+
     [Header("Knockback Variables")]
     [SerializeField] float knockbackForce;
     [SerializeField] float baseForce = 5;    
@@ -57,7 +58,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Attack"))
         {
             attackBufferTimer = attackBufferTime;
         }
@@ -112,8 +113,6 @@ public class PlayerAttack : MonoBehaviour
                 float direction = transform.localScale.x > 0 ? 1f : -1f;
 
                 rb.AddForce(new Vector2(direction * attackPushForce, 0f), ForceMode2D.Impulse);
-
-                //ExecuteAttack();
             }
         }
     }
