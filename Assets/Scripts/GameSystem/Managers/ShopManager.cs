@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
@@ -13,6 +13,12 @@ public class ShopManager : MonoBehaviour
 
     private void PopulateShop()
     {
+        if (_itemsParent == null || _shopItemButtonPrefab == null)
+        {
+            Debug.LogError("⚠️ ShopManager: faltan referencias en el inspector.");
+            return;
+        }
+
         foreach (Transform child in _itemsParent)
         {
             Destroy(child.gameObject);
@@ -20,61 +26,62 @@ public class ShopManager : MonoBehaviour
 
         foreach (ShopItem item in _itemsForSale)
         {
-            if (!PlayerInventory.Instance.HasItem(item.itemId))
-            {
-                SpawnNewItem(item);
-            }
+            SpawnNewItem(item);
         }
     }
 
-    public void SpawnNewItem(ShopItem item)
+    private void SpawnNewItem(ShopItem item)
     {
         GameObject buttonObj = Instantiate(_shopItemButtonPrefab, _itemsParent);
-        buttonObj.SetActive(true); // Asegurate que se active
+        buttonObj.SetActive(true);
 
         ShopItemButton button = buttonObj.GetComponent<ShopItemButton>();
         if (button == null)
         {
-            Debug.LogError("No se encontr� ShopItemButton en el prefab.");
+            Debug.LogError("⚠️ El prefab no tiene ShopItemButton.");
             return;
         }
 
         button.Setup(item, this);
     }
-    private void ReplaceItemButton(ShopItem nextItem, ShopItemButton oldButton)
-    {
-        GameObject newButtonObj = Instantiate(_shopItemButtonPrefab, _itemsParent);
-
-        int index = oldButton.transform.GetSiblingIndex();
-        newButtonObj.transform.SetSiblingIndex(index);
-
-        Destroy(oldButton.gameObject);
-
-        ShopItemButton newButton = newButtonObj.GetComponent<ShopItemButton>();
-        newButton.Setup(nextItem, this);
-    }
 
     public void TryBuyItem(ShopItem item, ShopItemButton button)
     {
-        if (GameManager.Instance.SpendMoney(item.price))
+        if (item == null || button == null)
         {
-            PlayerInventory.Instance.BuyItem(item.itemId);
+            Debug.LogError("⚠️ ShopManager: item o botón es null.");
+            return;
+        }
 
-            PlayerUpgrades.Instance.ApplyUpgrades();
+        if (GameManager.Instance == null || PlayerInventory.Instance == null)
+        {
+            Debug.LogError("⚠️ GameManager o PlayerInventory no existen.");
+            return;
+        }
 
-            if (item.nextUpgrade != null)
-            {
-                ReplaceItemButton(item.nextUpgrade, button);
-            }
-            else
-            {
-                button.DisableButton();
-            }
+        if (PlayerInventory.Instance.HasItem(item.itemId))
+        {
+            Debug.Log("Ya tienes este ítem: " + item.itemName);
+            return;
+        }
+
+        if (!GameManager.Instance.SpendMoney(item.price))
+        {
+            Debug.Log("⚠️ Dinero insuficiente para: " + item.itemName);
+            return;
+        }
+
+        PlayerInventory.Instance.BuyItem(item.itemId);
+
+        if (item.nextUpgrade != null)
+        {
+            button.Setup(item.nextUpgrade, this);
         }
         else
         {
-            Debug.Log("Dinero insuficiente.");
+            button.DisableButton();
         }
-    }
 
+        Debug.Log("✅ Comprado: " + item.itemName);
+    }
 }

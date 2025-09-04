@@ -6,7 +6,25 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; }
+    private static GameManager _instance;
+    public static GameManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<GameManager>();
+                if (_instance == null)
+                {
+                    GameObject gm = new GameObject("GameManager");
+                    _instance = gm.AddComponent<GameManager>();
+                }
+            }
+            return _instance;
+        }
+        private set { _instance = value; }
+    }
+
     public float SavedHealth { get; private set; } = 100f;
     public float SavedMaxHealth { get; private set; } = 100f;
 
@@ -26,24 +44,26 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            LoadMoney();
-            GameSceneManager.OnSceneFullyLoaded += ResetGameState;
-        }
-        else
+        if (_instance != null && _instance != this)
         {
             Destroy(gameObject);
+            return;
         }
+
+        _instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        Debug.Log("GameManager Awake en escena: " + SceneManager.GetActiveScene().name);
+
+        LoadMoney();
+        GameSceneManager.OnSceneFullyLoaded += ResetGameState;
 
         ConfigureCollisions();
     }
 
     private void OnDestroy()
     {
-        if (Instance == this)
+        if (_instance == this)
         {
             GameSceneManager.OnSceneFullyLoaded -= ResetGameState;
         }
@@ -58,13 +78,13 @@ public class GameManager : MonoBehaviour
     public void PlayerDied()
     {
         if (gameOver) return;
-        StartCoroutine(GetTranslateText(loseKey,false));
+        StartCoroutine(GetTranslateText(loseKey, false));
     }
 
     public void YouWon()
     {
         if (youWon) return;
-        StartCoroutine(GetTranslateText(winKey,true));
+        StartCoroutine(GetTranslateText(winKey, true));
     }
 
     IEnumerator GetTranslateText(string dialogueKey, bool won)
@@ -122,6 +142,7 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.Save();
     }
+
     public int GetMoney()
     {
         return Money;
