@@ -8,6 +8,7 @@ public class UIPauseManager : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject resumeButton;
     [SerializeField] TMP_Text title;
+    [SerializeField] GameState currentGameState;
 
     private bool isPaused = false;
 
@@ -27,7 +28,15 @@ public class UIPauseManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Pause") && !GameManager.Instance.IsGameOver())
         {
-            if (!isPaused)
+            currentGameState = GameStateManager.Instance.CurrentGameState;
+            if (currentGameState != GameState.Gameplay && currentGameState != GameState.Paused)
+                return;
+
+            GameState newGameState = currentGameState == GameState.Gameplay ? GameState.Paused : GameState.Gameplay;
+
+            GameStateManager.Instance.SetState(newGameState);
+
+            if (newGameState == GameState.Paused)
                 PauseGame();
             else
                 ResumeGame();
@@ -36,7 +45,7 @@ public class UIPauseManager : MonoBehaviour
 
     public void PauseGame()
     {
-        isPaused = true;
+        GameStateManager.Instance.SetState(GameState.Paused);
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
         title.text = "PAUSED";
@@ -44,7 +53,7 @@ public class UIPauseManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        isPaused = false;
+        GameStateManager.Instance.SetState(GameState.Gameplay);
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
     }
@@ -64,7 +73,7 @@ public class UIPauseManager : MonoBehaviour
 
     public void ShowEndScreen(bool won, string text)
     {
-        isPaused = true;
+        GameStateManager.Instance.SetState(GameState.GameOver);
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
         resumeButton.SetActive(false);
@@ -74,7 +83,7 @@ public class UIPauseManager : MonoBehaviour
     private void OnSceneLoaded()
     {
         // Restauramos el tiempo solo si venimos de un cambio de escena, no si el juego está pausado por GameOver
-        if (Time.timeScale == 0f && !isPaused)
+        if (Time.timeScale == 0f && GameStateManager.Instance.CurrentGameState != GameState.Paused)
         {
             Time.timeScale = 1f;
         }

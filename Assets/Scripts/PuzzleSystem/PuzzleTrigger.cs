@@ -38,26 +38,34 @@ public class PuzzleTrigger : MonoBehaviour
 
     void Update()
     {
-        if (canActivate && Input.GetButtonDown("Interact") && !uiPuzzle.activeSelf)
+        if (GameStateManager.Instance.CurrentGameState == GameState.Gameplay)
         {
-            if (isInteractuable)
+            if (canActivate && Input.GetButtonDown("Interact") && !uiPuzzle.activeSelf)
             {
-                HidePrompt();
-                ActivateObjects();
-                uiPuzzle.SetActive(true);
-                SetPlayerActive(false);
+                if (isInteractuable)
+                {
+                    HidePrompt();
+                    ActivateObjects();
+                    uiPuzzle.SetActive(true);
+                    SetPlayerActive(false);
+                }
+            }
+
+            if (uiPuzzle != null && uiPuzzle.activeSelf && Input.GetButtonDown("Cancel"))
+            {
+                if (isInteractuable)
+                {
+                    uiPuzzle.SetActive(false);
+                    SetPlayerActive(true);
+                }
+
+                if (canActivate) ShowPrompt();
             }
         }
 
-        if (uiPuzzle != null && uiPuzzle.activeSelf && Input.GetButtonDown("Cancel"))
+        if (GameStateManager.Instance.CurrentGameState == GameState.Paused)
         {
-            if (isInteractuable)
-            {
-                uiPuzzle.SetActive(false);
-                SetPlayerActive(true);
-            }
-
-            if (canActivate) ShowPrompt();
+            HidePrompt();
         }
     }
 

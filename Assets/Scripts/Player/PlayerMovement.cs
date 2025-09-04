@@ -61,13 +61,27 @@ public class PlayerMovement : MonoBehaviour
             playerHealth = GetComponent<PlayerHealth>();
 
         playerAttack = GetComponent<PlayerAttack>();
+
+        
+    }
+
+    private void OnEnable()
+    {
+        InputManager.Instance.OnJumpPressed += Jump;
+        InputManager.Instance.OnDashPressed += Dash;
+    }
+
+    private void OnDisable()
+    {
+        InputManager.Instance.OnJumpPressed -= Jump;
+        InputManager.Instance.OnDashPressed -= Dash;
     }
 
     void Update()
     {
         if (!isKnockedBack && canMove && !isDashing)
         {
-            moveInput = Input.GetAxisRaw("Horizontal");
+            moveInput = InputManager.Instance.Horizontal;
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         }
 
@@ -82,16 +96,17 @@ public class PlayerMovement : MonoBehaviour
             coyoteTimer -= Time.deltaTime;
         }
 
-        Jump();
-
-        if (Input.GetButtonDown("Dash") && canDash)
-        {
-            StartCoroutine(Dash());
-        }
-
         FallDownPlatforms();
 
         FlipSprite();
+    }
+
+    void Dash()
+    {
+        if (canDash)
+        {
+            StartCoroutine(SetDash());
+        }
     }
 
     void SetAnimator(float run, bool jump)
@@ -103,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump") && (isGrounded || coyoteTimer > 0) && canJump)
+        if ((isGrounded || coyoteTimer > 0) && canJump)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             canJump = false;
@@ -113,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    IEnumerator Dash()
+    IEnumerator SetDash()
     {
         canDash = false;
         isDashing = true;
@@ -260,7 +275,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void CreateDust()
     {
-        if(dustEffect != null)
-            Instantiate(dustEffect,groundCheck.transform.position,Quaternion.identity);
+        if (dustEffect != null)
+            Instantiate(dustEffect, groundCheck.transform.position, Quaternion.identity);
     }
 }

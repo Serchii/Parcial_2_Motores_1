@@ -58,17 +58,15 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Attack"))
-        {
-            attackBufferTimer = attackBufferTime;
-        }
-        else
-        {
-            attackBufferTimer -= Time.deltaTime;
-        }
+        attackBufferTimer -= Time.deltaTime;
 
         if (playerHealth.IsAlive && !playerMovement.IsKnockedBack && canAttack)
             Combo();
+    }
+
+    void Attack()
+    {
+        attackBufferTimer = attackBufferTime;
     }
 
     void FixedUpdate()
@@ -151,6 +149,15 @@ public class PlayerAttack : MonoBehaviour
             }
     }
 
+    private void OnEnable()
+    {
+        InputManager.Instance.OnAttackPressed += Attack;
+    }
+
+    private void OnDisable()
+    {
+        InputManager.Instance.OnAttackPressed -= Attack;
+    }
 
     void PlayerCanMove(bool value)
     {

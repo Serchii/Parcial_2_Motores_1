@@ -17,7 +17,7 @@ public class UIFollowPlayer : MonoBehaviour
         cam = Camera.main;
         if (cam == null)
         {
-            Debug.LogError("No se encontró ninguna cámara con el tag 'MainCamera'");
+            Debug.LogError("No se encontrï¿½ ninguna cï¿½mara con el tag 'MainCamera'");
         }
     }
 
