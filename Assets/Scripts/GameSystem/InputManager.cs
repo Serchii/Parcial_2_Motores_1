@@ -13,6 +13,8 @@ public class InputManager : MonoBehaviour
     public event Action OnJumpPressed;
     public event Action OnAttackPressed;
     public event Action OnDashPressed;
+    public event Action OnDownPressed;
+    public event Action OnInteractPressed;
 
     private void Awake()
     {
@@ -55,9 +57,19 @@ public class InputManager : MonoBehaviour
             {
                 OnDashPressed?.Invoke();
             }
+
+            if (Input.GetButtonDown("Down"))
+            {
+                OnDownPressed?.Invoke();
+            }
         }
         else
             Horizontal = 0;
+
+        if (Input.GetButtonDown("Interact"))
+        {
+            OnInteractPressed?.Invoke();
+        }
     }
 
     private void OnGameStateChanged(GameState newGameState)

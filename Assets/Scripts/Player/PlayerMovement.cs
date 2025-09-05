@@ -69,12 +69,14 @@ public class PlayerMovement : MonoBehaviour
     {
         InputManager.Instance.OnJumpPressed += Jump;
         InputManager.Instance.OnDashPressed += Dash;
+        InputManager.Instance.OnDownPressed += FallDownPlatforms;
     }
 
     private void OnDisable()
     {
         InputManager.Instance.OnJumpPressed -= Jump;
         InputManager.Instance.OnDashPressed -= Dash;
+        InputManager.Instance.OnDownPressed -= FallDownPlatforms;
     }
 
     void Update()
@@ -83,6 +85,11 @@ public class PlayerMovement : MonoBehaviour
         {
             moveInput = InputManager.Instance.Horizontal;
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        }
+
+        if (GameStateManager.Instance.CurrentGameState == GameState.Dialog)
+        {
+            
         }
 
         SetAnimator(moveInput, !isGrounded);
@@ -95,8 +102,6 @@ public class PlayerMovement : MonoBehaviour
         {
             coyoteTimer -= Time.deltaTime;
         }
-
-        FallDownPlatforms();
 
         FlipSprite();
     }
@@ -154,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FallDownPlatforms()
     {
-        if (Input.GetButtonDown("Down") && isGrounded)
+        if (isGrounded)
         {
             StartCoroutine(DisableCollision());
         }
