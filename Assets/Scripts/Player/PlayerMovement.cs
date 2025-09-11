@@ -87,11 +87,6 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         }
 
-        if (GameStateManager.Instance.CurrentGameState == GameState.Dialog)
-        {
-            
-        }
-
         SetAnimator(moveInput, !isGrounded);
 
         if (isGrounded)
@@ -118,7 +113,6 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetFloat("Run", Mathf.Abs(run));
         animator.SetBool("Jump", jump);
-        Debug.Log($"Run: {run}, Jump: {jump}");
     }
 
     void Jump()

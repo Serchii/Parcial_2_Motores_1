@@ -66,12 +66,18 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (_player == null || _health.IsDead) return;
 
-        if (_stunTime > 0f)
+        if (GameStateManager.Instance.StateMachine.CurrentState != GameStateManager.Instance.Gameplay)
         {
-            _stunTime -= Time.deltaTime;
-            _animator.SetBool("Hurt", false);
+            SetIdle();
             return;
         }
+
+        if (_stunTime > 0f)
+            {
+                _stunTime -= Time.deltaTime;
+                _animator.SetBool("Hurt", false);
+                return;
+            }
 
         distanceToPlayer = Vector2.Distance(transform.position, _player.position);
 

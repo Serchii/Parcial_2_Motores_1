@@ -38,34 +38,28 @@ public class PuzzleTrigger : MonoBehaviour
 
     void Update()
     {
-        if (GameStateManager.Instance.CurrentGameState == GameState.Gameplay)
+        if (canActivate && Input.GetButtonDown("Interact") && !uiPuzzle.activeSelf && GameStateManager.Instance.StateMachine.CurrentState == GameStateManager.Instance.Gameplay)
         {
-            if (canActivate && Input.GetButtonDown("Interact") && !uiPuzzle.activeSelf)
+            if (isInteractuable)
             {
-                if (isInteractuable)
-                {
-                    HidePrompt();
-                    ActivateObjects();
-                    uiPuzzle.SetActive(true);
-                    SetPlayerActive(false);
-                }
-            }
-
-            if (uiPuzzle != null && uiPuzzle.activeSelf && Input.GetButtonDown("Cancel"))
-            {
-                if (isInteractuable)
-                {
-                    uiPuzzle.SetActive(false);
-                    SetPlayerActive(true);
-                }
-
-                if (canActivate) ShowPrompt();
+                HidePrompt();
+                ActivateObjects();
+                uiPuzzle.SetActive(true);
+                //SetPlayerActive(false);
+                GameStateManager.Instance.EnterPuzzle();
             }
         }
 
-        if (GameStateManager.Instance.CurrentGameState == GameState.Paused)
+        if (uiPuzzle != null && uiPuzzle.activeSelf && Input.GetButtonDown("Cancel"))
         {
-            HidePrompt();
+            if (isInteractuable)
+            {
+                uiPuzzle.SetActive(false);
+                //SetPlayerActive(true);
+                GameStateManager.Instance.ExitPuzzle();
+            }
+
+            if (canActivate) ShowPrompt();
         }
     }
 
@@ -121,12 +115,6 @@ public class PuzzleTrigger : MonoBehaviour
         }
     }
 
-    private void SetPlayerActive(bool isActive)
-    {
-        playerMovement.SetCanMove(isActive);
-        playerMovement.GetComponent<PlayerAttack>().SetCanAttack(isActive);
-    }
-
     private void ShowPrompt()
     {
         if (interactionPromptPrefab != null && promptInstance == null)
@@ -161,7 +149,7 @@ public class PuzzleTrigger : MonoBehaviour
     void EndPuzzle()
     {
         uiPuzzle.SetActive(false);
-        SetPlayerActive(true);
+        GameStateManager.Instance.ExitPuzzle();
         HidePrompt();
         Destroy(gameObject);
     }

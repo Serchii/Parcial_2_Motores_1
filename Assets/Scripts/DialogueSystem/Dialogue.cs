@@ -44,10 +44,7 @@ public class Dialogue : MonoBehaviour
 
         if (playerMovement == null)
             playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-    }
 
-    void OnEnable()
-    {
         InputManager.Instance.OnInteractPressed += Dialog;
     }
 
@@ -86,9 +83,8 @@ public class Dialogue : MonoBehaviour
         didDialogueStart = true;
         dialoguePanel.SetActive(true);
         //dialogueMark.SetActive(false);
-        //SetMovePlayer(false);
         lineIndex = 0;
-        GameStateManager.Instance.SetState(GameState.Dialog);
+        GameStateManager.Instance.EnterDialog();
         if (newMusicClip != null)
         {
             MusicManager.Instance.ChangeMusicWithFade(newMusicClip);
@@ -116,8 +112,7 @@ public class Dialogue : MonoBehaviour
         didDialogueStart = false;
         dialoguePanel.SetActive(false);
         //dialogueMark.SetActive(true);
-        //SetMovePlayer(true);
-        GameStateManager.Instance.SetState(GameState.Gameplay);
+        GameStateManager.Instance.ExitDialog();
         Debug.Log($"Music Clip: {musicEndDialog}");
         if (musicEndDialog != null)
         {

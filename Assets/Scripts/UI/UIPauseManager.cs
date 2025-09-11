@@ -1,7 +1,6 @@
-using TMPro;
+/* using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class UIPauseManager : MonoBehaviour
 {
@@ -84,6 +83,89 @@ public class UIPauseManager : MonoBehaviour
     {
         // Restauramos el tiempo solo si venimos de un cambio de escena, no si el juego está pausado por GameOver
         if (Time.timeScale == 0f && GameStateManager.Instance.CurrentGameState != GameState.Paused)
+        {
+            Time.timeScale = 1f;
+        }
+    }
+}
+ */
+
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class UIPauseManager : MonoBehaviour
+{
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject resumeButton;
+    [SerializeField] TMP_Text title;
+
+    void Update()
+    {
+        if (Input.GetButtonDown("Pause") && GameStateManager.Instance.StateMachine.CurrentState == GameStateManager.Instance.Gameplay)
+        {
+            if (GameStateManager.Instance.StateMachine.CurrentState != GameStateManager.Instance.Paused)
+                PauseGame();
+            else
+                ResumeGame();
+        }
+    }
+
+    private void OnEnable()
+    {
+        GameManager.OnGameEnded += ShowEndScreen;
+        GameSceneManager.OnSceneFullyLoaded += OnSceneLoaded;
+        GameStateManager.Instance.Paused.OnPausedGame += PauseGame;
+        GameStateManager.Instance.Paused.OnResumedGame += ResumeGame;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnGameEnded -= ShowEndScreen;
+        GameSceneManager.OnSceneFullyLoaded -= OnSceneLoaded;
+        GameStateManager.Instance.Paused.OnPausedGame -= PauseGame;
+        GameStateManager.Instance.Paused.OnResumedGame -= ResumeGame;
+    }
+
+    public void PauseGame()
+    {
+        pauseMenu.SetActive(true);
+        resumeButton.SetActive(true);
+        title.text = "PAUSED";
+    }
+
+    public void ResumeGame()
+    {
+        GameStateManager.Instance.ExitPause();
+        pauseMenu.SetActive(false);
+    }
+
+    public void RestartGame()
+    {
+        ResumeGame();
+        GameManager.Instance.SetMaxHealth();
+        StartCoroutine(GameSceneManager.Instance.LoadSceneWithTransitionRoutine(SceneManager.GetActiveScene().name));
+    }
+
+    public void ReturnToMenu()
+    {
+        ResumeGame();
+        StartCoroutine(GameSceneManager.Instance.LoadSceneWithTransitionRoutine("MainMenu"));
+    }
+
+    public void ShowEndScreen(bool won, string text)
+    {
+        pauseMenu.SetActive(true);
+        resumeButton.SetActive(false);
+        title.text = text;
+    }
+
+    private void OnSceneLoaded()
+    {
+        // Restauramos el tiempo solo si no estamos en pausa ni en GameOver
+        if (Time.timeScale == 0f &&
+            GameStateManager.Instance.StateMachine.CurrentState != GameStateManager.Instance.Paused &&
+            GameStateManager.Instance.StateMachine.CurrentState != GameStateManager.Instance.GameOver)
         {
             Time.timeScale = 1f;
         }

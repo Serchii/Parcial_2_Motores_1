@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
@@ -19,52 +17,38 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         if (Instance == null)
-        {
             Instance = this;
-        }
+        else
+            Destroy(gameObject);
     }
 
     void Start()
     {
-        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+        // Nos enganchamos al evento de la FSM
+        GameStateManager.Instance.StateMachine.OnStateChanged += OnStateChanged;
     }
 
     void OnDisable()
     {
-        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+        if (GameStateManager.Instance != null)
+            GameStateManager.Instance.StateMachine.OnStateChanged -= OnStateChanged;
     }
 
-
-
-    // Update is called once per frame
     void Update()
     {
         if (gameplay)
         {
             Horizontal = Input.GetAxisRaw("Horizontal");
 
-            if (Input.GetButtonDown("Jump"))
-            {
-                OnJumpPressed?.Invoke();
-            }
-
-            if (Input.GetButtonDown("Attack"))
-            {
-                OnAttackPressed?.Invoke();
-            }
-
-            if (Input.GetButtonDown("Dash"))
-            {
-                OnDashPressed?.Invoke();
-            }
-
-            if (Input.GetButtonDown("Down"))
-            {
-                OnDownPressed?.Invoke();
-            }
+            if (Input.GetButtonDown("Jump")) OnJumpPressed?.Invoke();
+            if (Input.GetButtonDown("Attack")) OnAttackPressed?.Invoke();
+            if (Input.GetButtonDown("Dash")) OnDashPressed?.Invoke();
+            if (Input.GetButtonDown("Down")) OnDownPressed?.Invoke();
         }
         else
+        {
             Horizontal = 0;
+        }
 
         if (Input.GetButtonDown("Interact"))
         {
@@ -72,8 +56,9 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    private void OnGameStateChanged(GameState newGameState)
+    private void OnStateChanged(IState newState)
     {
-        gameplay = newGameState == GameState.Gameplay;
+        // Solo dejamos input habilitado si el estado es GameplayState
+        gameplay = newState is GameplayState;
     }
 }
