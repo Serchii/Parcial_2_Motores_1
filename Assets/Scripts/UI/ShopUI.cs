@@ -17,10 +17,12 @@ public class ShopUI : MonoBehaviour
     public void OpenShop()
     {
         shopPanel.SetActive(true);
+        GameStateManager.Instance.EnterShop();
     }
 
     public void CloseShop()
     {
         shopPanel.SetActive(false);
+        GameStateManager.Instance.ExitShop();
     }
 }

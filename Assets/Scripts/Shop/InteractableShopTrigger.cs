@@ -13,9 +13,25 @@ public class InteractableShopTrigger : MonoBehaviour
     private GameObject promptInstance;
     private bool _playerInRange = false;
 
+    void Start()
+    {
+        GameStateManager.Instance.Paused.OnPausedGame += HidePrompt;
+        GameStateManager.Instance.Paused.OnResumedGame += ShowPrompt;
+        GameStateManager.Instance.Shop.OnShopOpened += HidePrompt;
+        GameStateManager.Instance.Shop.OnShopClosed += ShowPrompt;
+    }
+
+    void OnDisable()
+    {
+        GameStateManager.Instance.Paused.OnPausedGame -= HidePrompt;
+        GameStateManager.Instance.Paused.OnResumedGame -= ShowPrompt;
+        GameStateManager.Instance.Shop.OnShopOpened -= HidePrompt;
+        GameStateManager.Instance.Shop.OnShopClosed -= ShowPrompt;
+    }
+
     void Update()
     {
-        if (_playerInRange && Input.GetButtonDown("Interact"))
+        if (_playerInRange && Input.GetButtonDown("Interact") && GameStateManager.Instance.StateMachine.CurrentState == GameStateManager.Instance.Gameplay)
         {
             ShopUI.Instance.OpenShop();
         }
@@ -42,7 +58,7 @@ public class InteractableShopTrigger : MonoBehaviour
 
     private void ShowPrompt()
     {
-        if (interactionPromptPrefab != null && promptInstance == null)
+        if (interactionPromptPrefab != null && promptInstance == null && _playerInRange)
         {
             Canvas canvas = FindObjectOfType<Canvas>();
             promptInstance = Instantiate(interactionPromptPrefab, canvas.transform);

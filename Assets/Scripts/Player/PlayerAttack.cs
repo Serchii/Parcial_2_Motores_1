@@ -52,6 +52,7 @@ public class PlayerAttack : MonoBehaviour
         if (animator == null)
             animator = GetComponentInChildren<Animator>();
 
+        InputManager.Instance.OnAttackPressed += Attack;
         rb = GetComponent<Rigidbody2D>();
         ApplyUpgrades();
     }
@@ -148,12 +149,7 @@ public class PlayerAttack : MonoBehaviour
                 }
             }
     }
-
-    private void OnEnable()
-    {
-        InputManager.Instance.OnAttackPressed += Attack;
-    }
-
+    
     private void OnDisable()
     {
         InputManager.Instance.OnAttackPressed -= Attack;

@@ -62,11 +62,6 @@ public class PlayerMovement : MonoBehaviour
 
         playerAttack = GetComponent<PlayerAttack>();
 
-        
-    }
-
-    private void OnEnable()
-    {
         InputManager.Instance.OnJumpPressed += Jump;
         InputManager.Instance.OnDashPressed += Dash;
         InputManager.Instance.OnDownPressed += FallDownPlatforms;

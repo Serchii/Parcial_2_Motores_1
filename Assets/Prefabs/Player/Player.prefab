@@ -144,14 +144,14 @@ MonoBehaviour:
   temporarilyIgnoredPlatforms: []
   disableCollisionTime: 1
   dustEffect: {fileID: 4318068340691252433, guid: de83b757c0cc5254da92403c9a2d3b20, type: 3}
-  dashSpeed: 15
+  dashSpeed: 25
   dashTime: 0.1
   dashCooldown: 1
   canDash: 1
   isDashing: 0
   trailRenderer: {fileID: 3436162141547535126}
   playerHealth: {fileID: 0}
-  coyoteTime: 0.2
+  coyoteTime: 0.1
   coyoteTimer: 0
   isKnockedBack: 0
   knockbackDuration: 0.5

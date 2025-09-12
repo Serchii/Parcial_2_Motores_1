@@ -19,11 +19,19 @@ public class SceneTransition : MonoBehaviour
 
     void Start()
     {
+        GameStateManager.Instance.Paused.OnPausedGame += HidePrompt;
+        GameStateManager.Instance.Paused.OnResumedGame += ShowPrompt;
+    }
+
+    void OnDisable()
+    {
+        GameStateManager.Instance.Paused.OnPausedGame -= HidePrompt;
+        GameStateManager.Instance.Paused.OnResumedGame -= ShowPrompt;
     }
 
     void Update()
     {
-        if (isDoor && canEnter && Input.GetButtonDown("Up"))
+        if (isDoor && canEnter && Input.GetButtonDown("Up") && GameStateManager.Instance.StateMachine.CurrentState == GameStateManager.Instance.Gameplay)
         {
             if (isShop)
             {
@@ -92,7 +100,7 @@ public class SceneTransition : MonoBehaviour
 
     private void ShowPrompt()
     {
-        if (interactionPromptPrefab != null && promptInstance == null)
+        if (interactionPromptPrefab != null && promptInstance == null && canEnter)
         {
             Canvas canvas = FindObjectOfType<Canvas>();
             promptInstance = Instantiate(interactionPromptPrefab, canvas.transform);

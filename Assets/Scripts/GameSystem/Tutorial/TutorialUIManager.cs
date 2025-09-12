@@ -21,7 +21,7 @@ public class TutorialUIManager : MonoBehaviour
     public Button prevButton;
     public Button nextButton;
 
-    [Header("Traducción")]
+    [Header("Traducciï¿½n")]
     [SerializeField] string titleTranslate;
     [SerializeField] string descriptionTranslate;
     [SerializeField] string tableName = "Tutorial";
@@ -63,7 +63,7 @@ public class TutorialUIManager : MonoBehaviour
         tutorialData = Resources.Load<TutorialData>($"{resourcesFolder}/{fileName}");
 
         if (tutorialData == null)
-            Debug.LogError($"No se encontró TutorialData en Resources/{resourcesFolder} con el nombre {fileName}");
+            Debug.LogError($"No se encontrï¿½ TutorialData en Resources/{resourcesFolder} con el nombre {fileName}");
     }
 
     void EnsurePlayerReferences()
@@ -88,7 +88,7 @@ public class TutorialUIManager : MonoBehaviour
             tutorialPanel.SetActive(true);
             currentStep = 0;
             ShowStep();
-            SetMovePlayer(false);
+            GameStateManager.Instance.EnterTutorial();
             Time.timeScale = 0f;
         }
         else
@@ -104,7 +104,7 @@ public class TutorialUIManager : MonoBehaviour
         if (tutorialPanel != null)
             tutorialPanel.SetActive(false);
 
-        SetMovePlayer(true);
+        GameStateManager.Instance.ExitTutorial();
         Time.timeScale = 1f;
     }
 

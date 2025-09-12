@@ -34,6 +34,15 @@ public class PuzzleTrigger : MonoBehaviour
         {
             textToShowKey = "InteractText";
         }
+
+        GameStateManager.Instance.Paused.OnPausedGame += HidePrompt;
+        GameStateManager.Instance.Paused.OnResumedGame += ShowPrompt;
+    }
+
+    void OnDisable()
+    {
+        GameStateManager.Instance.Paused.OnPausedGame -= HidePrompt;
+        GameStateManager.Instance.Paused.OnResumedGame -= ShowPrompt;
     }
 
     void Update()
@@ -117,7 +126,7 @@ public class PuzzleTrigger : MonoBehaviour
 
     private void ShowPrompt()
     {
-        if (interactionPromptPrefab != null && promptInstance == null)
+        if (interactionPromptPrefab != null && promptInstance == null && canActivate)
         {
             Canvas canvas = FindObjectOfType<Canvas>();
             promptInstance = Instantiate(interactionPromptPrefab, canvas.transform);

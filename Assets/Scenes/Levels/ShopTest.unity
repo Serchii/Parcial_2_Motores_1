@@ -1128,10 +1128,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3708194927638302730, guid: 3b635c228cd32ec42859a20657829db7, type: 3}
-      propertyPath: shopMusic
-      value: 
-      objectReference: {fileID: 8300000, guid: c6be3cf8124b9364886d448b4e1e9aac, type: 3}
     - target: {fileID: 5673244641328066168, guid: 3b635c228cd32ec42859a20657829db7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.13863778
@@ -1595,7 +1591,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 8882893659418366694, guid: 5b7fa9739cd703141ad1967a3d3337a9, type: 2}
   m_audioClip: {fileID: 8300000, guid: a1280b4c190ccf9418590a2381b437bf, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

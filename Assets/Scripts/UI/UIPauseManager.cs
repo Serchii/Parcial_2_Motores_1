@@ -100,24 +100,14 @@ public class UIPauseManager : MonoBehaviour
     [SerializeField] GameObject resumeButton;
     [SerializeField] TMP_Text title;
 
-    void Update()
-    {
-        if (Input.GetButtonDown("Pause") && GameStateManager.Instance.StateMachine.CurrentState == GameStateManager.Instance.Gameplay)
-        {
-            if (GameStateManager.Instance.StateMachine.CurrentState != GameStateManager.Instance.Paused)
-                PauseGame();
-            else
-                ResumeGame();
-        }
-    }
-
-    private void OnEnable()
+    void Start()
     {
         GameManager.OnGameEnded += ShowEndScreen;
         GameSceneManager.OnSceneFullyLoaded += OnSceneLoaded;
         GameStateManager.Instance.Paused.OnPausedGame += PauseGame;
         GameStateManager.Instance.Paused.OnResumedGame += ResumeGame;
     }
+
 
     private void OnDisable()
     {
@@ -129,6 +119,8 @@ public class UIPauseManager : MonoBehaviour
 
     public void PauseGame()
     {
+        Debug.Log("Pause Game");
+        //GameStateManager.Instance.EnterPause();
         pauseMenu.SetActive(true);
         resumeButton.SetActive(true);
         title.text = "PAUSED";
@@ -136,6 +128,7 @@ public class UIPauseManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        Debug.Log("Resume");
         GameStateManager.Instance.ExitPause();
         pauseMenu.SetActive(false);
     }
@@ -143,6 +136,8 @@ public class UIPauseManager : MonoBehaviour
     public void RestartGame()
     {
         ResumeGame();
+        GameStateManager.Instance.ExitPause();
+        
         GameManager.Instance.SetMaxHealth();
         StartCoroutine(GameSceneManager.Instance.LoadSceneWithTransitionRoutine(SceneManager.GetActiveScene().name));
     }

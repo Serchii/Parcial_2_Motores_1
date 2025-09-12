@@ -55,7 +55,7 @@ public class Dialogue : MonoBehaviour
 
     void Dialog()
     {
-        if (isPlayerInRange && !dialogueTriggered)
+        if ((isPlayerInRange || didDialogueStart) && !dialogueTriggered)
         {
             HandleInputOrSkip();
         }
@@ -126,12 +126,6 @@ public class Dialogue : MonoBehaviour
         {
             ActivateObjects();
         }
-    }
-
-    void SetMovePlayer(bool value)
-    {
-        playerMovement.SetCanMove(value);
-        playerMovement.GetComponent<PlayerAttack>().SetCanAttack(value);
     }
 
     IEnumerator ShowLine()
