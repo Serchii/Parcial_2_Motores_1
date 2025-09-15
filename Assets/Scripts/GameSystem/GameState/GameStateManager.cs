@@ -106,8 +106,13 @@ public class GameplayState : State
 
 public class PausedState : State
 {
+    private bool onOptions = false;
+
+
     public event Action OnPausedGame;
     public event Action OnResumedGame;
+    public event Action OnExitOptions;
+
     public override void OnEnter()
     {
         Debug.Log("Juego Pausado");
@@ -125,8 +130,26 @@ public class PausedState : State
     {
         if (Input.GetButtonDown("Pause"))
         {
-            GameStateManager.Instance.ExitPause();
+            if (onOptions)
+                CloseOptions();
+            else
+                GameStateManager.Instance.ExitPause();
         }
+    }
+
+    public void EnterOptions()
+    {
+        onOptions = true;
+    } 
+    
+    public void ExitOptions()
+    {
+        onOptions = false;
+    } 
+
+    void CloseOptions()
+    {
+        OnExitOptions?.Invoke();
     }
 }
 

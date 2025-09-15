@@ -98,6 +98,7 @@ public class UIPauseManager : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject resumeButton;
+    [SerializeField] GameObject optionsMenu;
     [SerializeField] TMP_Text title;
 
     void Start()
@@ -106,6 +107,7 @@ public class UIPauseManager : MonoBehaviour
         GameSceneManager.OnSceneFullyLoaded += OnSceneLoaded;
         GameStateManager.Instance.Paused.OnPausedGame += PauseGame;
         GameStateManager.Instance.Paused.OnResumedGame += ResumeGame;
+        GameStateManager.Instance.Paused.OnExitOptions += BackToPause;
     }
 
 
@@ -115,6 +117,7 @@ public class UIPauseManager : MonoBehaviour
         GameSceneManager.OnSceneFullyLoaded -= OnSceneLoaded;
         GameStateManager.Instance.Paused.OnPausedGame -= PauseGame;
         GameStateManager.Instance.Paused.OnResumedGame -= ResumeGame;
+        GameStateManager.Instance.Paused.OnExitOptions -= BackToPause;
     }
 
     public void PauseGame()
@@ -123,7 +126,6 @@ public class UIPauseManager : MonoBehaviour
         //GameStateManager.Instance.EnterPause();
         pauseMenu.SetActive(true);
         resumeButton.SetActive(true);
-        title.text = "PAUSED";
     }
 
     public void ResumeGame()
@@ -142,10 +144,26 @@ public class UIPauseManager : MonoBehaviour
         StartCoroutine(GameSceneManager.Instance.LoadSceneWithTransitionRoutine(SceneManager.GetActiveScene().name));
     }
 
+    public void GoToOptions()
+    {
+        if (optionsMenu == null) return;
+
+        optionsMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+        GameStateManager.Instance.Paused.EnterOptions();
+    }
+
     public void ReturnToMenu()
     {
         ResumeGame();
         StartCoroutine(GameSceneManager.Instance.LoadSceneWithTransitionRoutine("MainMenu"));
+    }
+
+    public void BackToPause()
+    {
+        optionsMenu.SetActive(false);
+        pauseMenu.SetActive(true);
+        GameStateManager.Instance.Paused.ExitOptions();
     }
 
     public void ShowEndScreen(bool won, string text)
