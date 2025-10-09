@@ -46,6 +46,7 @@ public class EnemyHealth : BaseHealth
 
         if (getStunned)
         {
+            _animator.SetTrigger("Stun");
             enemyBehaviour?.Stun(stunDuration);
         }
 

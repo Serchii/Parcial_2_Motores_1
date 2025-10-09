@@ -222,6 +222,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         isAttacking = false;
         currentState = State.Idle;
+        Debug.Log("Cecilia la concha de tu madre");
     }
 
     private void FlipSprite()
