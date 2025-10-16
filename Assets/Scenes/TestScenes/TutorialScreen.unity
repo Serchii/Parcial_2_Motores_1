@@ -1994,10 +1994,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1195900570}
     m_Modifications:
-    - target: {fileID: 70664490634534962, guid: 3342bfc1e816b804daa1bfe1010e4282, type: 3}
-      propertyPath: attackPushForce
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 2599494848119084203, guid: 3342bfc1e816b804daa1bfe1010e4282, type: 3}
       propertyPath: m_Name
       value: BossHechoPorSerchii

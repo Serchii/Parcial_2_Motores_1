@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7292049835349241044}
   m_Layer: 8
   m_Name: BossHechoPorSerchii
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,11 +137,11 @@ MonoBehaviour:
   jumpDelay: 1.2
   audioSource: {fileID: 7292049835349241044}
   attackSource: {fileID: 6540789207578005945}
-  hitClip: {fileID: 8300000, guid: 60bfdf773128ba843b80c31437962a56, type: 3}
+  hitClip: {fileID: 8300000, guid: 090bb14f0b114bb438e63939bfa100f4, type: 3}
   anticipationClip: {fileID: 8300000, guid: 6c44a381e9d93644b94008616f806b37, type: 3}
-  attackClip: {fileID: 8300000, guid: 47255d18a400e2343b42f74b08f5a16e, type: 3}
-  _attackCooldown: 2
-  attackPushForce: 15
+  attackClip: {fileID: 8300000, guid: 7092508bbff070943914c1cdf7192442, type: 3}
+  _attackCooldown: 2.5
+  attackPushForce: 12
   attackPoint: {fileID: 4594983513249999688}
   playerLayers:
     serializedVersion: 2
@@ -662,9 +662,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: Player
   damage: 5
-  damageAmount: 5
-  knockbackForce: 15
+  damageAmount: 25
+  knockbackForce: 30
   enemy: {fileID: 5729590559744956783}
+  hitstopDuration: 0.35
 --- !u!1 &7490688388325747423
 GameObject:
   m_ObjectHideFlags: 0
