@@ -31,6 +31,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] AudioClip attackClip;
     [SerializeField] AudioSource hitSource;
     [SerializeField] AudioSource attackSource;
+    [SerializeField] AudioSource shotSource;
     [SerializeField] PlayerHealth playerHealth;
 
     [SerializeField] Rigidbody2D rb;
@@ -217,8 +218,13 @@ public class PlayerAttack : MonoBehaviour
 
         if (combo >= 2)
             hitPitch = 0.7f;
-        
+
         audioSource.pitch = Random.Range(hitPitch - 0.1f, hitPitch + 0.1f);
         audioSource.Play();
+    }
+    
+    public void PlaySFXShot()
+    {
+        PlaySFXHit(shotSource);
     }
 }

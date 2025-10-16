@@ -6,6 +6,7 @@ public class EnemyHit : BaseHit
     [SerializeField] private float damageAmount = 1f;
     [SerializeField] private float knockbackForce = 15f;
     [SerializeField] Transform enemy;
+    [SerializeField] float hitstopDuration = .1f;
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,6 +28,8 @@ public class EnemyHit : BaseHit
                         
                     playerHealth.ApplyKnockback(knockbackDirection, knockbackForce);
                     playerHealth.TakeDamage(damageAmount);
+                    if (HitstopManager.Instance != null)
+                        HitstopManager.Instance.DoHitstop(hitstopDuration);
                 }
             }
         }

@@ -12,6 +12,7 @@ TagManager:
   - DialoguePanel
   - SceneDoor
   - Clue
+  - Boss
   layers:
   - Default
   - TransparentFX

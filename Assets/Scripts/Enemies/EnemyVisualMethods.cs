@@ -4,30 +4,32 @@ using UnityEngine;
 
 public class EnemyVisualMethods : MonoBehaviour
 {
-    [SerializeField] EnemyBehaviour enemyBehaviour;
+    [SerializeField] protected EnemyBehaviour enemyBehaviour;
+
+    protected virtual EnemyBehaviour Behaviour => enemyBehaviour;
 
     public void ActivateHit()
     {
-        enemyBehaviour.ActivateHit();
+        Behaviour.ActivateHit();
     }
 
     public void DeactivateHit()
     {
-        enemyBehaviour.DeactivateHit();
+        Behaviour.DeactivateHit();
     }
 
     public void EndAttack()
     {
-        enemyBehaviour.EndAttack();
+        Behaviour.EndAttack();
     }
 
     public void AnticipationSFX()
     {
-        enemyBehaviour.PlaySFXAnticipation();
+        Behaviour.PlaySFXAnticipation();
     }
 
     public void AttackSFX()
     {
-        enemyBehaviour.PlaySFXAttack();
+        Behaviour.PlaySFXAttack();
     }
 }

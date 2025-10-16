@@ -13,6 +13,7 @@ public class EnemyHealth : BaseHealth
     [SerializeField] EnemyHealthBarUI healthBarPrefab;
     [SerializeField] private EnemyHealthBarUI healthBarInstance;
     [SerializeField] EnemyBehaviour enemyBehaviour;
+    [SerializeField] RangeEnemyBehaviour rangeEnemyBehaviour;
     public bool IsDead => isDead;
 
     protected override void Start()
@@ -30,6 +31,9 @@ public class EnemyHealth : BaseHealth
 
         if (enemyBehaviour == null)
             enemyBehaviour = GetComponent<EnemyBehaviour>();
+
+        if (rangeEnemyBehaviour == null)
+            rangeEnemyBehaviour = GetComponent<RangeEnemyBehaviour>();
             
         Canvas canvas = FindObjectOfType<Canvas>();
         healthBarInstance = Instantiate(healthBarPrefab, canvas.transform);
@@ -44,10 +48,11 @@ public class EnemyHealth : BaseHealth
 
         healthBarInstance.SetHealth(health, maxHealth);
 
-        if (getStunned)
+        if (getStunned && !gameObject.CompareTag("Boss"))
         {
             _animator.SetTrigger("Stun");
             enemyBehaviour?.Stun(stunDuration);
+            rangeEnemyBehaviour?.Stun(stunDuration);
         }
 
         ApplyKnockback(knockbackDirection, knockbackForce);
@@ -55,12 +60,14 @@ public class EnemyHealth : BaseHealth
         if (damageFlash != null)
             damageFlash.Flash();
 
-        if (_animator != null && (!enemyBehaviour.IsAttacking || health <= 0))
+        /*if (_animator != null && ((!enemyBehaviour.IsAttacking || health <= 0)||(!rangeEnemyBehaviour.IsAttacking || health <= 0)))
         {
             _animator.SetTrigger("Hurt");
             enemyBehaviour.DeactivateHit();
             enemyBehaviour.EndAttack();
-        }
+            rangeEnemyBehaviour.DeactivateHit();
+            rangeEnemyBehaviour.EndAttack();
+        }*/
 
         if (health <= 0f)
         {
@@ -95,6 +102,8 @@ public class EnemyHealth : BaseHealth
     private void ApplyKnockback(Vector2 direction, float force)
     {
         if (isDead || _rb == null) return;
+
+        if (gameObject.CompareTag("Boss")) force *= .5f;
 
         _rb.velocity = Vector2.zero;
         Debug.Log($"Direccion: {direction}. Fuerza: {force}");

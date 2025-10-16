@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Dash()
     {
-        if (canDash)
+        if (canDash && !isKnockedBack)
         {
             StartCoroutine(SetDash());
         }
