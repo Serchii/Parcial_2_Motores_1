@@ -6,6 +6,7 @@ public class DetectObjective : MonoBehaviour
     [SerializeField] GameObject[] objetsToDeactivate;
     [SerializeField] PuzzleGridManager puzzle;
     [SerializeField] bool killEnemies;
+    [SerializeField] bool killBoss;
 
     void Start()
     {
@@ -15,13 +16,24 @@ public class DetectObjective : MonoBehaviour
 
     void Update()
     {
-        if(killEnemies)
+        if (killEnemies)
             CheckEnemies();
+        else if (killBoss)
+            CheckBoss();
     }
 
     void CheckEnemies()
     {
         GameObject[] remainingEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (remainingEnemies.Length == 0)
+        {
+            EnemiesEliminated();
+        }
+    }
+
+    void CheckBoss()
+    {
+        GameObject[] remainingEnemies = GameObject.FindGameObjectsWithTag("Boss");
         if (remainingEnemies.Length == 0)
         {
             EnemiesEliminated();
