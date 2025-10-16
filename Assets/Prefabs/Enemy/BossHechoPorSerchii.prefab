@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 3
-  _chaseRange: 7
+  _chaseRange: 12
   _attackRange: 3
   _stunTime: 0
   setIdle: 0
@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46cd6b13ad2d7b34c8417d3df6c9e63d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
-  maxHealth: 500
+  health: 250
+  maxHealth: 250
   _animator: {fileID: 7331246477412911100}
   damageFlash: {fileID: 0}
   _rb: {fileID: 0}

@@ -165,8 +165,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4877109146750976
-    m_Localized: "Propietario:\n \u2026 \n NO ME IMPORTA SI PARTE DEL GRUPO SE FUE
-      A LA COSTA, VE POR TU AUTO Y TR\xC1ELOS COMO SEA."
+    m_Localized: "Propietario:\r\n \u2026 \r\n NO ME IMPORTA SI PARTE DEL GRUPO EST\xC1
+      EN EL FUNERAL, VE POR TU AUTO Y TR\xC1ELOS COMO SEA."
     m_Metadata:
       m_Items: []
   - m_Id: 4877423086211072
@@ -235,6 +235,22 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 8814853178855424
     m_Localized: "Due\xF1o de la tienda:\n Vuelve la proxima semana"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32784372209356800
+    m_Localized: "Henry:\r\n\xBFQu\xE9 fue eso? \xBFHay alguien m\xE1s ah\xED?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32784375422193664
+    m_Localized: "Henry:\r\n\xA1Ser\xE1 mejor que vaya a ver!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32784377741643776
+    m_Localized: "Henry: \r\n\xA1\xBFQui\xE9n mierda eres t\xFA!?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32784864280907776
+    m_Localized: "Boss:\r\n\xA1Tu peor pesadilla, ni\xF1ito!"
     m_Metadata:
       m_Items: []
   references:

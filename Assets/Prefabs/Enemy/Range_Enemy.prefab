@@ -427,6 +427,7 @@ MonoBehaviour:
   damageAmount: 5
   knockbackForce: 15
   enemy: {fileID: 1150747967228492972}
+  hitstopDuration: 0.1
 --- !u!1 &6484971153258538909
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,8 +553,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 3
-  _chaseRange: 9
-  _attackRange: 7
+  _chaseRange: 10
+  _attackRange: 8
   _stunTime: 0
   setIdle: 0
   _jumpForce: 16.75

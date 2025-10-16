@@ -172,23 +172,23 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4879585530941440
-    m_Key: ConstructionZone_AfterFight1
+    m_Key: BossConstruction_AfterFight1
     m_Metadata:
       m_Items: []
   - m_Id: 4881033643757568
-    m_Key: ConstructionZone_AfterFight2
+    m_Key: BossConstruction_AfterFight2
     m_Metadata:
       m_Items: []
   - m_Id: 4879927987474432
-    m_Key: ConstructionZone_AfterFight3
+    m_Key: BossConstruction_AfterFight3
     m_Metadata:
       m_Items: []
   - m_Id: 4880427713630208
-    m_Key: ConstructionZone_AfterFight4
+    m_Key: BossConstruction_AfterFight4
     m_Metadata:
       m_Items: []
   - m_Id: 4880638435463168
-    m_Key: ConstructionZone_AfterFight5
+    m_Key: BossConstruction_AfterFight5
     m_Metadata:
       m_Items: []
   - m_Id: 8814290064183296
@@ -197,6 +197,22 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 8814853178855424
     m_Key: ShopInMaintenance2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32784372209356800
+    m_Key: ConstructionZone_AfterFight1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32784375422193664
+    m_Key: ConstructionZone_AfterFight2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32784377741643776
+    m_Key: BossConstruction_BeforeFight1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32784864280907776
+    m_Key: BossConstruction_BeforeFight2
     m_Metadata:
       m_Items: []
   m_Metadata:

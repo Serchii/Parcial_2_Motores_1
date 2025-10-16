@@ -164,8 +164,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4877109146750976
-    m_Localized: "Homeowner:\n \u2026                \n I DON'T GIVE A FUCK IF PART
-      OF THE GROUP IS ON THE BEACH, GET YOUR CAR AND BRING THEM THE FUCK BACK!"
+    m_Localized: "Homeowner:\r\n\u2026\r\nI DON'T GIVE A FUCK IF PART OF THE GROUP
+      IS AT THE FUNERAL, GET YOUR CAR AND BRING THEM THE FUCK BACK!"
     m_Metadata:
       m_Items: []
   - m_Id: 4877423086211072
@@ -233,6 +233,28 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 8814853178855424
     m_Localized: "Shop owner:\n Come back next week."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32784372209356800
+    m_Localized: 'Henry:
+
+      What''s that sound? Is someone else over there?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32784377741643776
+    m_Localized: "Henry: \r\nWho the hell are you!?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32784375422193664
+    m_Localized: 'Henry:
+
+      I better go check!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32784864280907776
+    m_Localized: 'Boss:
+
+      Your worst nightmare, boy!'
     m_Metadata:
       m_Items: []
   references:

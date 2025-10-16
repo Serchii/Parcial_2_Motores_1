@@ -145,9 +145,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: Player
   damage: 5
-  damageAmount: 5
+  damageAmount: 7.5
   knockbackForce: 15
   enemy: {fileID: 7902357923822169621}
+  hitstopDuration: 0.1
 --- !u!1 &3898078253458379829
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,6 +321,7 @@ MonoBehaviour:
   healthBarPrefab: {fileID: 5741735976444621918, guid: 7ff2146786d65464aa9d47d9fd9ad3da, type: 3}
   healthBarInstance: {fileID: 0}
   enemyBehaviour: {fileID: 0}
+  rangeEnemyBehaviour: {fileID: 0}
 --- !u!82 &2615235376370539646
 AudioSource:
   m_ObjectHideFlags: 0
