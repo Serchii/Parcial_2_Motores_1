@@ -19,3 +19,6 @@ MonoBehaviour:
   - tutorialTitle: ComboTitle
     tutorialImage: {fileID: 21300000, guid: 2cdeff8c1109b3e419a050847f2c7516, type: 3}
     tutorialDescription: ComboDescript
+  - tutorialTitle: DodgeTitle
+    tutorialImage: {fileID: 21300000, guid: f5569fc479549b448b9f38edb62cb280, type: 3}
+    tutorialDescription: DodgeDescript

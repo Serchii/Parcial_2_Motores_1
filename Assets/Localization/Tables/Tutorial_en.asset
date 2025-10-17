@@ -86,6 +86,15 @@ MonoBehaviour:
     m_Localized: Press S to drop down from a platform or ladder.
     m_Metadata:
       m_Items: []
+  - m_Id: 25022276084240384
+    m_Localized: 'Tutorial: Dodge'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25022314424373248
+    m_Localized: You can dodge enemy attacks without taking damage by pressing LEFT
+      SHIFT.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

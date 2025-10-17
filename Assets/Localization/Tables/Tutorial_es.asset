@@ -88,6 +88,15 @@ MonoBehaviour:
     m_Localized: Presiona S para descender de una plataforma o escalera.
     m_Metadata:
       m_Items: []
+  - m_Id: 25022276084240384
+    m_Localized: 'Tutorial: Esquivar'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25022314424373248
+    m_Localized: "Puedes esquivar los ataques enemigos sin sufrir da\xF1o pulsando
+      la tecla MAY\xDAS IZQ."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
