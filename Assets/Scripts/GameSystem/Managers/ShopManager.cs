@@ -6,6 +6,10 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject _shopItemButtonPrefab;
     [SerializeField] private ShopItem[] _itemsForSale;
 
+    [Header("Audio")] // 🎵 NUEVO
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _buySound;
+
     private void Start()
     {
         PopulateShop();
@@ -20,14 +24,10 @@ public class ShopManager : MonoBehaviour
         }
 
         foreach (Transform child in _itemsParent)
-        {
             Destroy(child.gameObject);
-        }
 
         foreach (ShopItem item in _itemsForSale)
-        {
             SpawnNewItem(item);
-        }
     }
 
     private void SpawnNewItem(ShopItem item)
@@ -74,14 +74,25 @@ public class ShopManager : MonoBehaviour
         PlayerInventory.Instance.BuyItem(item.itemId);
 
         if (item.nextUpgrade != null)
-        {
             button.Setup(item.nextUpgrade, this);
+        else
+            button.DisableButton();
+
+        // ✅ Reproducir sonido de compra
+        PlayBuySound();
+
+        Debug.Log("✅ Comprado: " + item.itemName);
+    }
+
+    private void PlayBuySound()
+    {
+        if (_audioSource != null && _buySound != null)
+        {
+            _audioSource.PlayOneShot(_buySound);
         }
         else
         {
-            button.DisableButton();
+            Debug.LogWarning("⚠️ Falta asignar el AudioSource o el AudioClip de compra.");
         }
-
-        Debug.Log("✅ Comprado: " + item.itemName);
     }
 }
