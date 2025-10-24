@@ -86,6 +86,7 @@ public class PlayerHealth : BaseHealth
         lives--;
         OnLivesChanged?.Invoke(lives);
         isAlive = false;
+        animator.SetTrigger("Dead");
 
         if (lives > 0)
         {

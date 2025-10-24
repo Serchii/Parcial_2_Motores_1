@@ -212,6 +212,7 @@ public class RangeEnemyBehaviour : MonoBehaviour
         Vector2 dir = attackPoint.right * facingDirection;
 
         GameObject bullet = Instantiate(bulletPrefab, attackPoint.position, Quaternion.identity);
+        PlaySFXAttack();
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         bullet.transform.rotation = Quaternion.Euler(0, 0, angle);

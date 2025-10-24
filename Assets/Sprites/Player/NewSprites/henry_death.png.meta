@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8e37fb2b383bc9c4db4c3c0742de08c3
+guid: 3c01af19ccd8bc24cae994af06d865b3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: range_enemy_attack_0
+      name: henry_death_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fb5c41af7eeced40b328486910bd754
-      internalID: -223392349
+      spriteID: f885e09417f9c8b4daa30c75ee08e037
+      internalID: -1693712875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: range_enemy_attack_1
+      name: henry_death_1
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7cd322d27b60da4e85f9fd24690ab9b
-      internalID: -754453524
+      spriteID: 823bd832464c0a4409a9acc8d6e4e5fe
+      internalID: -642040431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: range_enemy_attack_2
+      name: henry_death_2
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc13ce54c3ad8fb4d9f277920e56fb38
-      internalID: -533484254
+      spriteID: 9d91ec6d20fc6d1438e9aff0d1e9f7d4
+      internalID: 985446885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: range_enemy_attack_3
+      name: henry_death_3
       rect:
         serializedVersion: 2
         x: 192
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39022bea8e29b7341a2be8022354066f
-      internalID: 520192568
+      spriteID: c56b318934a544248a74c6543ef343b7
+      internalID: -230308884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: range_enemy_attack_4
+      name: henry_death_4
       rect:
         serializedVersion: 2
         x: 256
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 448b5741b1235b644b1d5690358bcc59
-      internalID: -1254773640
+      spriteID: 58fb5a3f1a352fd4680e191e835eec00
+      internalID: 752738454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: range_enemy_attack_5
+      name: henry_death_5
       rect:
         serializedVersion: 2
         x: 320
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6f6142abb8b028409b2ef312b43122d
-      internalID: -858564931
+      spriteID: 17a97f8982ad26047909d0989cc2e8a8
+      internalID: -600227705
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: range_enemy_attack_6
+      name: henry_death_6
       rect:
         serializedVersion: 2
         x: 384
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5bc425b15c578d449bacf348d12385d
-      internalID: -1890467279
+      spriteID: 9d1ff532e6580fc4bbd0768f69fe7670
+      internalID: -731930030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: range_enemy_attack_7
+      name: henry_death_7
       rect:
         serializedVersion: 2
         x: 448
@@ -284,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d994eb8a9dc3d04cbb4e7f4ab9e7b1b
-      internalID: 1704713116
+      spriteID: 28bc0c3a8b1e423409804f0a7ea7a3b2
+      internalID: -1723063099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: range_enemy_attack_8
+      name: henry_death_8
       rect:
         serializedVersion: 2
         x: 512
@@ -305,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a34ae5838018e274d97a00670f2a75fd
-      internalID: 1240932883
+      spriteID: bb307536bb6d39e4f9a75c08fa4e94a9
+      internalID: 886151616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: range_enemy_attack_9
+      name: henry_death_9
       rect:
         serializedVersion: 2
         x: 576
@@ -326,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 390f4400e11bbd84cb80c4f43f05c9ed
-      internalID: -1949251418
+      spriteID: d4a761899a7657c4c894507308f96f7a
+      internalID: 1463143516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: range_enemy_attack_10
+      name: henry_death_10
       rect:
         serializedVersion: 2
         x: 640
@@ -347,92 +347,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3e28882dcf1d114c91756c92acb67ce
-      internalID: -113444036
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: range_enemy_attack_11
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.375, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 96b4a6038f0723047bda66bc184809a0
-      internalID: 1861137127
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: range_enemy_attack_12
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.375, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b12bd5d6c83a2ef4eb13bbab72a92207
-      internalID: 1386438866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: range_enemy_attack_13
-      rect:
-        serializedVersion: 2
-        x: 832
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.375, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e49f76ba31cfa04da4ea5e70239849a
-      internalID: 563930752
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: range_enemy_attack_14
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.375, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 449595d07a647724bad3f1e381651f55
-      internalID: -2010583564
+      spriteID: d9cde283139bc41479f5bcad839bf7ec
+      internalID: -1324072309
       vertices: []
       indices: 
       edges: []
@@ -448,21 +364,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      range_enemy_attack_0: -223392349
-      range_enemy_attack_1: -754453524
-      range_enemy_attack_10: -113444036
-      range_enemy_attack_11: 1861137127
-      range_enemy_attack_12: 1386438866
-      range_enemy_attack_13: 563930752
-      range_enemy_attack_14: -2010583564
-      range_enemy_attack_2: -533484254
-      range_enemy_attack_3: 520192568
-      range_enemy_attack_4: -1254773640
-      range_enemy_attack_5: -858564931
-      range_enemy_attack_6: -1890467279
-      range_enemy_attack_7: 1704713116
-      range_enemy_attack_8: 1240932883
-      range_enemy_attack_9: -1949251418
+      henry_death_0: -1693712875
+      henry_death_1: -642040431
+      henry_death_10: -1324072309
+      henry_death_2: 985446885
+      henry_death_3: -230308884
+      henry_death_4: 752738454
+      henry_death_5: -600227705
+      henry_death_6: -731930030
+      henry_death_7: -1723063099
+      henry_death_8: 886151616
+      henry_death_9: 1463143516
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -73,11 +73,13 @@ public class GameManager : MonoBehaviour
     {
         gameOver = false;
         youWon = false;
+        GameStateManager.Instance.ExitGameOver();
     }
 
     public void PlayerDied()
     {
         if (gameOver) return;
+        GameStateManager.Instance.EnterGameOver();
         StartCoroutine(GetTranslateText(loseKey, false));
     }
 

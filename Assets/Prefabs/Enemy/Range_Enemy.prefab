@@ -565,10 +565,10 @@ MonoBehaviour:
   jumpCheckDistance: 1.2
   jumpDelay: 1.2
   audioSource: {fileID: 0}
-  attackSource: {fileID: 0}
+  attackSource: {fileID: 5323418173714787652}
   hitClip: {fileID: 0}
   anticipationClip: {fileID: 0}
-  attackClip: {fileID: 0}
+  attackClip: {fileID: 8300000, guid: 7b31456e534747c4aab81c52b2ed8e28, type: 3}
   _attackCooldown: 3
   attackPushForce: 3
   bulletPrefab: {fileID: 6547538155338406801, guid: 25d32b0bf4485644ba0312ae21da13a6, type: 3}
@@ -608,7 +608,7 @@ MonoBehaviour:
   attackSource: {fileID: 5323418173714787652}
   hitClip: {fileID: 8300000, guid: 60bfdf773128ba843b80c31437962a56, type: 3}
   anticipationClip: {fileID: 8300000, guid: 6c44a381e9d93644b94008616f806b37, type: 3}
-  attackClip: {fileID: 8300000, guid: 47255d18a400e2343b42f74b08f5a16e, type: 3}
+  attackClip: {fileID: 8300000, guid: 7b31456e534747c4aab81c52b2ed8e28, type: 3}
   _attackCooldown: 2
   attackPushForce: 10
   attackPoint: {fileID: 9114135327981437119}

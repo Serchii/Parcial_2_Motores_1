@@ -156,6 +156,7 @@ public class UIPauseManager : MonoBehaviour
     public void ReturnToMenu()
     {
         ResumeGame();
+        GameStateManager.Instance.ExitPause();
         StartCoroutine(GameSceneManager.Instance.LoadSceneWithTransitionRoutine("MainMenu"));
     }
 
