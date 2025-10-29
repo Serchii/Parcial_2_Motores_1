@@ -34,6 +34,9 @@ public class TutorialUIManager : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerAttack playerAttack;
 
+    [Header("Objetos a activar")]
+    [SerializeField] GameObject[] objectsToActivate;
+
     [Header("Miniatura Settings")]
     [Range(0.1f, 1f)]
     public float thumbnailScale = 0.3f;
@@ -97,6 +100,17 @@ public class TutorialUIManager : MonoBehaviour
         }
     }
 
+    void ActivateObjects()
+    {
+        if (objectsToActivate.Length > 0)
+        {
+            foreach (GameObject obj in objectsToActivate)
+            {
+                obj.SetActive(true);
+            }
+        }
+    }
+
     public void OpenTutorialFromTrigger() => OpenTutorial();
 
     public void OnClickCloseTutorial()
@@ -106,6 +120,7 @@ public class TutorialUIManager : MonoBehaviour
 
         GameStateManager.Instance.ExitTutorial();
         Time.timeScale = 1f;
+        ActivateObjects();
     }
 
     public void OnClickNext()

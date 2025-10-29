@@ -481,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7397538139900909611, guid: c967bc6a1c3f7ec42b148daa07ac5eaa, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8495600989126559770, guid: c967bc6a1c3f7ec42b148daa07ac5eaa, type: 3}
       propertyPath: uiPuzzle
@@ -495,6 +495,14 @@ PrefabInstance:
       propertyPath: textToShowKey
       value: InteractText
       objectReference: {fileID: 0}
+    - target: {fileID: 8495600989126559770, guid: c967bc6a1c3f7ec42b148daa07ac5eaa, type: 3}
+      propertyPath: objectsToActivate.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495600989126559770, guid: c967bc6a1c3f7ec42b148daa07ac5eaa, type: 3}
+      propertyPath: objectsToActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 1394301914}
     - target: {fileID: 8766220687083959195, guid: c967bc6a1c3f7ec42b148daa07ac5eaa, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -596,6 +604,14 @@ PrefabInstance:
       propertyPath: tutorialImageUI
       value: 
       objectReference: {fileID: 1661820455}
+    - target: {fileID: 6661440820561491982, guid: 7c4b3f32bb2ddb04b8dab07cfbeceb45, type: 3}
+      propertyPath: objectsToActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661440820561491982, guid: 7c4b3f32bb2ddb04b8dab07cfbeceb45, type: 3}
+      propertyPath: objectsToActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 1394301914}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -760,6 +776,10 @@ PrefabInstance:
     - target: {fileID: 5457550696499394580, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637961795473972298, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
+      propertyPath: m_Transition
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7286733261846582368, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
       propertyPath: money
@@ -1399,6 +1419,11 @@ RectTransform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5875678114380094136, guid: ff4ddcfbcbce48f4b984bb6ffd8817eb, type: 3}
   m_PrefabInstance: {fileID: 8460180233621204522}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1394301914 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7397538139900909611, guid: c967bc6a1c3f7ec42b148daa07ac5eaa, type: 3}
+  m_PrefabInstance: {fileID: 742547481}
   m_PrefabAsset: {fileID: 0}
 --- !u!60 &1400869412 stripped
 PolygonCollider2D:
