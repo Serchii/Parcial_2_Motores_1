@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsKnockedBack => isKnockedBack;
     public bool CanMove => canMove;
+    public bool IsDashing => isDashing;
 
     void Start()
     {

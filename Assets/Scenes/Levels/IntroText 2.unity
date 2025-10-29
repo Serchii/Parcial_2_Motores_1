@@ -967,9 +967,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1246332136}
-        m_TargetAssemblyTypeName: UIMainMenu, Assembly-CSharp
-        m_MethodName: NextLevel
+      - m_Target: {fileID: 1567845409}
+        m_TargetAssemblyTypeName: TypeWritterEffect, Assembly-CSharp
+        m_MethodName: ContinueButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1312,6 +1312,7 @@ MonoBehaviour:
   dialogueKey: IntroText2
   tableName: Story
   typingSpeed: 0.03
+  ContinueBtn: {fileID: 1246332136}
 --- !u!114 &1567845410
 MonoBehaviour:
   m_ObjectHideFlags: 0

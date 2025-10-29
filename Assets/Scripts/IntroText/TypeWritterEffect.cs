@@ -10,6 +10,7 @@ public class TypeWritterEffect : MonoBehaviour
     [SerializeField] string dialogueKey; // Claves de localización
     [SerializeField] string tableName = "Story"; // Nombre de la String Table
     [SerializeField] float typingSpeed = 0.03f;
+    [SerializeField] UIMainMenu ContinueBtn;
 
     void Start()
     {
@@ -30,6 +31,19 @@ public class TypeWritterEffect : MonoBehaviour
         {
             textComponent.text += c;
             yield return new WaitForSeconds(typingSpeed);
+        }
+    }
+
+    public void ContinueButton()
+    {
+        if (textComponent.text == fullText)
+        {
+            ContinueBtn.NextLevel();
+        }
+        else
+        {
+            StopAllCoroutines();
+            textComponent.text = fullText;
         }
     }
 }

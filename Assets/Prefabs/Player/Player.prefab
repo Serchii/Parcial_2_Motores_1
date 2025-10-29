@@ -199,9 +199,9 @@ MonoBehaviour:
     m_Bits: 256
   combo: 0
   attackDamage: 20
-  knockbackForce: 5
-  baseForce: 5
-  additionalForce: 4
+  knockbackForce: 4
+  baseForce: 4
+  additionalForce: 5
   hit: {fileID: 6025902476113732215}
   hitstopDuration: 0.1
   softHitstopDuration: 0.1

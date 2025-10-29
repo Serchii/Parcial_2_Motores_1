@@ -73,7 +73,7 @@ public class PlayerAttack : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isHitting)
+        if (isHitting && !playerMovement.IsDashing)
         {
             ApplyAttackFriction();
         }

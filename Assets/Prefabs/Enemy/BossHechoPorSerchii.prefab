@@ -169,6 +169,7 @@ MonoBehaviour:
   _rb: {fileID: 0}
   stunDuration: 1
   maxMoney: 15
+  enemyHit: {fileID: 5027785060573648728}
   healthBarPrefab: {fileID: 5741735976444621918, guid: 7ff2146786d65464aa9d47d9fd9ad3da, type: 3}
   healthBarInstance: {fileID: 0}
   enemyBehaviour: {fileID: 0}
@@ -545,8 +546,8 @@ Transform:
   m_GameObject: {fileID: 5027785060573648728}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2142857, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0.341, y: 0, z: 0}
+  m_LocalScale: {x: 0.65, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5729590559744956783}

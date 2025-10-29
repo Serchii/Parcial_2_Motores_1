@@ -8,6 +8,7 @@ public class EnemyHealth : BaseHealth
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float stunDuration = 0.2f;
     [SerializeField] int maxMoney = 15;
+    [SerializeField] GameObject enemyHit;
 
     [Header("Health Bar")]
     [SerializeField] EnemyHealthBarUI healthBarPrefab;
@@ -103,7 +104,15 @@ public class EnemyHealth : BaseHealth
     {
         if (isDead || _rb == null) return;
 
-        if (gameObject.CompareTag("Boss")) force *= .5f;
+        if (gameObject.CompareTag("Boss"))
+        {
+            force *= .7f;
+
+            if(enemyHit != null && enemyHit.activeSelf)
+            {
+                return;
+            }
+        }
 
         _rb.velocity = Vector2.zero;
         Debug.Log($"Direccion: {direction}. Fuerza: {force}");
