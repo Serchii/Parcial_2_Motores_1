@@ -11,6 +11,7 @@ public class PlayerHealth : BaseHealth
     [SerializeField] private DamageFlash damageFlash;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] bool invincible = false;
+    [SerializeField] float percentDamage = 1f;
 
     public float Health => health;
     public float MaxHealth => maxHealth;
@@ -47,14 +48,14 @@ public class PlayerHealth : BaseHealth
 
         OnHealthChanged?.Invoke(health, maxHealth);
 
-        //ApplyUpgrades();
+        ApplyUpgrades();
     }
 
     public override void TakeDamage(float amount)
     {
         if (!isAlive || invincible) return;
 
-        health -= amount;
+        health -= amount * percentDamage;
 
         if (damageFlash != null)
         {
@@ -105,13 +106,6 @@ public class PlayerHealth : BaseHealth
         isAlive = true;
     }
 
-    protected override void SetMaxHealth()
-    {
-        base.SetMaxHealth();
-        Debug.Log("SetMaxHealthPlayer");
-        OnHealthChanged?.Invoke(health, maxHealth);
-    }
-
     public void SetMaxHealthValue(float value)
     {
         Debug.Log("SetMaxHealthValue");
@@ -159,11 +153,11 @@ public class PlayerHealth : BaseHealth
         if (PlayerInventory.Instance != null)
         {
             if (PlayerInventory.Instance.HasItem(ItemID.HelmetUltimate))
-                SetMaxHealthValue(200f);
+                percentDamage = 1;
             else if (PlayerInventory.Instance.HasItem(ItemID.HelmetImproved))
-                SetMaxHealthValue(150f);
+                percentDamage = .8f;
             else
-                SetMaxHealthValue(100f);
+                percentDamage = .6f;
         }
     }
 }

@@ -35,6 +35,126 @@ MonoBehaviour:
     m_Key: EnemyPhrase5
     m_Metadata:
       m_Items: []
+  - m_Id: 628580391915520
+    m_Key: EnemyPhrase6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628583340511232
+    m_Key: EnemyPhrase7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628584342949888
+    m_Key: EnemyPhrase8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628592467316736
+    m_Key: EnemyPhrase9
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628593134211072
+    m_Key: EnemyPhrase10
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628594006626304
+    m_Key: EnemyPhrase11
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628595013259264
+    m_Key: EnemyPhrase12
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628610989363200
+    m_Key: EnemyPhrase13
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628611962441728
+    m_Key: EnemyPhrase14
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628613103292416
+    m_Key: EnemyPhrase15
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628614177034240
+    m_Key: EnemyPhrase16
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628615250776064
+    m_Key: EnemyPhrase17
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628616387432448
+    m_Key: EnemyPhrase18
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628617561837568
+    m_Key: EnemyPhrase19
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628618711076864
+    m_Key: EnemyPhrase20
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629567693328384
+    m_Key: KidnapperPhrase1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629862632591360
+    m_Key: KidnapperPhrase2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629876155027456
+    m_Key: KidnapperPhrase3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629887769055232
+    m_Key: KidnapperPhrase4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629901195022336
+    m_Key: KidnapperPhrase5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629911525593088
+    m_Key: ChiefPhrase1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630423536865280
+    m_Key: ChiefPhrase2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630451751948288
+    m_Key: ChiefPhrase3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630465001754624
+    m_Key: ChiefPhrase4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630474229223424
+    m_Key: ChiefPhrase5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630483897094144
+    m_Key: ChiefPhrase6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630494898753536
+    m_Key: ChiefPhrase7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630613014548480
+    m_Key: ChiefPhrase8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630626373406720
+    m_Key: ChiefPhrase9
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630635865116672
+    m_Key: ChiefPhrase10
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

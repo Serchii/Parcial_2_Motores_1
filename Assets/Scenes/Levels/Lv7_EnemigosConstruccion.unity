@@ -601,6 +601,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[0]
+      value: KidnapperPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[1]
+      value: KidnapperPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[2]
+      value: KidnapperPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[3]
+      value: KidnapperPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[4]
+      value: KidnapperPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[5]
+      value: ChiefPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[6]
+      value: ChiefPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[7]
+      value: ChiefPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[8]
+      value: ChiefPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[9]
+      value: ChiefPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[10]
+      value: ChiefPhrase6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[11]
+      value: ChiefPhrase7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[12]
+      value: ChiefPhrase8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[13]
+      value: ChiefPhrase9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[14]
+      value: ChiefPhrase10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -653,6 +717,70 @@ PrefabInstance:
     - target: {fileID: 1150747967228492972, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[0]
+      value: KidnapperPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[1]
+      value: KidnapperPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[2]
+      value: KidnapperPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[3]
+      value: KidnapperPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[4]
+      value: KidnapperPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[5]
+      value: ChiefPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[6]
+      value: ChiefPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[7]
+      value: ChiefPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[8]
+      value: ChiefPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[9]
+      value: ChiefPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[10]
+      value: ChiefPhrase6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[11]
+      value: ChiefPhrase7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[12]
+      value: ChiefPhrase8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[13]
+      value: ChiefPhrase9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[14]
+      value: ChiefPhrase10
       objectReference: {fileID: 0}
     - target: {fileID: 6484971153258538909, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
       propertyPath: m_Name
@@ -1233,6 +1361,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[0]
+      value: KidnapperPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[1]
+      value: KidnapperPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[2]
+      value: KidnapperPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[3]
+      value: KidnapperPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[4]
+      value: KidnapperPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[5]
+      value: ChiefPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[6]
+      value: ChiefPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[7]
+      value: ChiefPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[8]
+      value: ChiefPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[9]
+      value: ChiefPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[10]
+      value: ChiefPhrase6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[11]
+      value: ChiefPhrase7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[12]
+      value: ChiefPhrase8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[13]
+      value: ChiefPhrase9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[14]
+      value: ChiefPhrase10
+      objectReference: {fileID: 0}
     - target: {fileID: 6484971153258538909, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
       propertyPath: m_Name
       value: Range_Enemy
@@ -1425,6 +1617,70 @@ PrefabInstance:
     - target: {fileID: 7902357923822169621, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[0]
+      value: KidnapperPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[1]
+      value: KidnapperPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[2]
+      value: KidnapperPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[3]
+      value: KidnapperPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[4]
+      value: KidnapperPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[5]
+      value: ChiefPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[6]
+      value: ChiefPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[7]
+      value: ChiefPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[8]
+      value: ChiefPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[9]
+      value: ChiefPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[10]
+      value: ChiefPhrase6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[11]
+      value: ChiefPhrase7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[12]
+      value: ChiefPhrase8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[13]
+      value: ChiefPhrase9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[14]
+      value: ChiefPhrase10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1659,6 +1915,70 @@ PrefabInstance:
     - target: {fileID: 1150747967228492972, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[0]
+      value: KidnapperPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[1]
+      value: KidnapperPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[2]
+      value: KidnapperPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[3]
+      value: KidnapperPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[4]
+      value: KidnapperPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[5]
+      value: ChiefPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[6]
+      value: ChiefPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[7]
+      value: ChiefPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[8]
+      value: ChiefPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[9]
+      value: ChiefPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[10]
+      value: ChiefPhrase6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[11]
+      value: ChiefPhrase7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[12]
+      value: ChiefPhrase8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[13]
+      value: ChiefPhrase9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[14]
+      value: ChiefPhrase10
       objectReference: {fileID: 0}
     - target: {fileID: 6484971153258538909, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
       propertyPath: m_Name
@@ -2774,6 +3094,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[0]
+      value: KidnapperPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[1]
+      value: KidnapperPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[2]
+      value: KidnapperPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[3]
+      value: KidnapperPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[4]
+      value: KidnapperPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[5]
+      value: ChiefPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[6]
+      value: ChiefPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[7]
+      value: ChiefPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[8]
+      value: ChiefPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[9]
+      value: ChiefPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[10]
+      value: ChiefPhrase6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[11]
+      value: ChiefPhrase7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[12]
+      value: ChiefPhrase8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[13]
+      value: ChiefPhrase9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210689692732104793, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[14]
+      value: ChiefPhrase10
+      objectReference: {fileID: 0}
     - target: {fileID: 6484971153258538909, guid: 8ce9c1e5df491154dba05b74f3bf33cf, type: 3}
       propertyPath: m_Name
       value: Range_Enemy (1)
@@ -2991,6 +3375,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[0]
+      value: KidnapperPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[1]
+      value: KidnapperPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[2]
+      value: KidnapperPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[3]
+      value: KidnapperPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[4]
+      value: KidnapperPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[5]
+      value: ChiefPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[6]
+      value: ChiefPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[7]
+      value: ChiefPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[8]
+      value: ChiefPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[9]
+      value: ChiefPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[10]
+      value: ChiefPhrase6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[11]
+      value: ChiefPhrase7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[12]
+      value: ChiefPhrase8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[13]
+      value: ChiefPhrase9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[14]
+      value: ChiefPhrase10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3087,6 +3535,70 @@ PrefabInstance:
     - target: {fileID: 7902357923822169621, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[0]
+      value: KidnapperPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[1]
+      value: KidnapperPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[2]
+      value: KidnapperPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[3]
+      value: KidnapperPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[4]
+      value: KidnapperPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[5]
+      value: ChiefPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[6]
+      value: ChiefPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[7]
+      value: ChiefPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[8]
+      value: ChiefPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[9]
+      value: ChiefPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[10]
+      value: ChiefPhrase6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[11]
+      value: ChiefPhrase7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[12]
+      value: ChiefPhrase8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[13]
+      value: ChiefPhrase9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[14]
+      value: ChiefPhrase10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3622,6 +4134,70 @@ PrefabInstance:
     - target: {fileID: 7902357923822169621, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[0]
+      value: KidnapperPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[1]
+      value: KidnapperPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[2]
+      value: KidnapperPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[3]
+      value: KidnapperPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[4]
+      value: KidnapperPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[5]
+      value: ChiefPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[6]
+      value: ChiefPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[7]
+      value: ChiefPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[8]
+      value: ChiefPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[9]
+      value: ChiefPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[10]
+      value: ChiefPhrase6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[11]
+      value: ChiefPhrase7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[12]
+      value: ChiefPhrase8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[13]
+      value: ChiefPhrase9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[14]
+      value: ChiefPhrase10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4250,6 +4826,70 @@ PrefabInstance:
     - target: {fileID: 7902357923822169621, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[0]
+      value: KidnapperPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[1]
+      value: KidnapperPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[2]
+      value: KidnapperPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[3]
+      value: KidnapperPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[4]
+      value: KidnapperPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[5]
+      value: ChiefPhrase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[6]
+      value: ChiefPhrase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[7]
+      value: ChiefPhrase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[8]
+      value: ChiefPhrase4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[9]
+      value: ChiefPhrase5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[10]
+      value: ChiefPhrase6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[11]
+      value: ChiefPhrase7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[12]
+      value: ChiefPhrase8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[13]
+      value: ChiefPhrase9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060539878606215409, guid: fc0d7fce3eb9e6745bafa1ff76a9033b, type: 3}
+      propertyPath: enemyPhrasesKeys.Array.data[14]
+      value: ChiefPhrase10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

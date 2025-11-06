@@ -25,7 +25,7 @@ public class EnemyHit : BaseHit
 
                     if (shake != null)
                         shake.Shake();
-                        
+
                     playerHealth.ApplyKnockback(knockbackDirection, knockbackForce);
                     playerHealth.TakeDamage(damageAmount);
                     if (HitstopManager.Instance != null)
@@ -33,5 +33,10 @@ public class EnemyHit : BaseHit
                 }
             }
         }
+    }
+    
+    public void SetDamageAmount(float amount)
+    {
+        damageAmount = amount;
     }
 }

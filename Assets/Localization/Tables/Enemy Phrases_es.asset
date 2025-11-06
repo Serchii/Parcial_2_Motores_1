@@ -19,23 +19,143 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 1599170220032
-    m_Localized: Altas llantas, me las llevo
+    m_Localized: "Linda gorra\u2026 l\xE1stima que ya tiene due\xF1o nuevo."
     m_Metadata:
       m_Items: []
   - m_Id: 1927429033984
-    m_Localized: "Ten\xE9 hora, \xF1eri?"
+    m_Localized: "Qu\xE9 bien me quedar\xEDan esas zapatillas."
     m_Metadata:
       m_Items: []
   - m_Id: 1930587344896
-    m_Localized: Que te pasa, gato?
+    m_Localized: "A ver, \xBFqu\xE9 escondes ah\xED?"
     m_Metadata:
       m_Items: []
   - m_Id: 1942599831552
-    m_Localized: "Te va a cab\xE9 el facazo"
+    m_Localized: "\xBFQu\xE9 miras? \xBFBuscas problemas?"
     m_Metadata:
       m_Items: []
   - m_Id: 1980445036544
-    m_Localized: "Ameo una moneda no ten\xE9?"
+    m_Localized: "Uy, justo lo que necesitaba: una v\xEDctima."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628580391915520
+    m_Localized: "Te ves perdido\u2026 y eso me gusta."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628583340511232
+    m_Localized: "No te muevas, esto ser\xE1 r\xE1pido."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628584342949888
+    m_Localized: Deja eso y corre, si te da tiempo.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628592467316736
+    m_Localized: "Eh, eh\u2026 tranquilo, solo quiero tu dinero."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628593134211072
+    m_Localized: "No te preocupes, solo doler\xE1 un poco."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628594006626304
+    m_Localized: "Bonito pantal\xF3n, te quedaba grande igual."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628595013259264
+    m_Localized: "Vaya, alguien con estilo\u2026 y sin suerte."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628610989363200
+    m_Localized: Dame eso antes de que me lo cobre.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628611962441728
+    m_Localized: No me hagas correr, que me enojo.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628613103292416
+    m_Localized: "\xBFSabes cu\xE1nto vale lo que llevas? Yo s\xED."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628614177034240
+    m_Localized: "Buen d\xEDa para perder tus cosas, \xBFno?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628615250776064
+    m_Localized: "Eso que llevas, ahora es m\xEDo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628616387432448
+    m_Localized: "A ver, \xBFqu\xE9 tienes para m\xED?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628617561837568
+    m_Localized: "Deja todo y quiz\xE1 te dejo el orgullo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628618711076864
+    m_Localized: "Qu\xE9 suerte la tuya\u2026 justo me hac\xEDan falta monedas."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629567693328384
+    m_Localized: Mala hora elegiste para aparecer.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629862632591360
+    m_Localized: Vas a aprender a no mirar donde no debes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629876155027456
+    m_Localized: "\xBFTe crees valiente? Perfecto, me encantan los retos."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629887769055232
+    m_Localized: "De aqu\xED no sales caminando."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629901195022336
+    m_Localized: "Tu d\xEDa de suerte termin\xF3."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629911525593088
+    m_Localized: Te ves perdido, turista.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630423536865280
+    m_Localized: "No sabes con qui\xE9n te metes."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630451751948288
+    m_Localized: "\xBFVienes solo? Qu\xE9 mala idea."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630465001754624
+    m_Localized: Esa cara me da ganas de practicar golpes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630474229223424
+    m_Localized: Tranquilo, no todos mueren igual.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630483897094144
+    m_Localized: "\xBFAs\xED que t\xFA eres el h\xE9roe? Qu\xE9 decepci\xF3n."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630494898753536
+    m_Localized: "\xBFY este payaso qui\xE9n es?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630613014548480
+    m_Localized: "Deja que te ense\xF1e c\xF3mo se pelea de verdad."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630626373406720
+    m_Localized: Ya es tarde para correr, amigo.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630635865116672
+    m_Localized: "Mira qui\xE9n apareci\xF3, el h\xE9roe del barrio."
     m_Metadata:
       m_Items: []
   references:

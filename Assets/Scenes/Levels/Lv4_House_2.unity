@@ -609,7 +609,7 @@ Transform:
   m_GameObject: {fileID: 268839743}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9646902, y: 1.0764098, z: -10.073344}
+  m_LocalPosition: {x: 0.97059155, y: 1.0764499, z: -10.073344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3745,7 +3745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7286733261846582368, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
       propertyPath: money
-      value: 300
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 7286733261846582368, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
       propertyPath: initialPieceColor.b

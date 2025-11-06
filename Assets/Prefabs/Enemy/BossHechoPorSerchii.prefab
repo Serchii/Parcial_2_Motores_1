@@ -306,7 +306,7 @@ MonoBehaviour:
   anticipationClip: {fileID: 8300000, guid: 6c44a381e9d93644b94008616f806b37, type: 3}
   attackClip: {fileID: 8300000, guid: 7092508bbff070943914c1cdf7192442, type: 3}
   _attackCooldown: 1.75
-  attackPushForce: 18
+  attackPushForce: 16
   attackPoint: {fileID: 4594983513249999688}
   playerLayers:
     serializedVersion: 2
@@ -320,6 +320,7 @@ MonoBehaviour:
   _animator: {fileID: 7331246477412911100}
   currentState: 0
   bossAttackRange: 5
+  shortAttackPushForce: 6
   attackPoint2: {fileID: 3360162431393286872}
   _attack1Cooldown: 1.75
   _attack2Cooldown: 3
@@ -751,7 +752,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.138, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5729590559744956783}
@@ -868,7 +869,7 @@ MonoBehaviour:
   target: Player
   damage: 5
   damageAmount: 25
-  knockbackForce: 30
+  knockbackForce: 60
   enemy: {fileID: 5729590559744956783}
   hitstopDuration: 0.35
 --- !u!1 &7490688388325747423

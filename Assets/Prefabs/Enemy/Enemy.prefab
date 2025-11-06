@@ -303,6 +303,21 @@ MonoBehaviour:
   - EnemyPhrase3
   - EnemyPhrase4
   - EnemyPhrase5
+  - EnemyPhrase6
+  - EnemyPhrase7
+  - EnemyPhrase8
+  - EnemyPhrase9
+  - EnemyPhrase10
+  - EnemyPhrase11
+  - EnemyPhrase12
+  - EnemyPhrase13
+  - EnemyPhrase14
+  - EnemyPhrase15
+  - EnemyPhrase16
+  - EnemyPhrase17
+  - EnemyPhrase18
+  - EnemyPhrase19
+  - EnemyPhrase20
   enemyTalk: 1
   tableName: Enemy Phrases
   enemyTextPrefab: {fileID: 7674734917584274975, guid: b68644baca3207c42bba378b6e9e0e44, type: 3}

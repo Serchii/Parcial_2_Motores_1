@@ -398,7 +398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6188016875035418746, guid: 3de22e42e175e0940837ad8931df5bb4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.75
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 6188016875035418746, guid: 3de22e42e175e0940837ad8931df5bb4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -828,7 +828,7 @@ Transform:
   m_GameObject: {fileID: 268839743}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3575933, y: 5.7499905, z: -10.073344}
+  m_LocalPosition: {x: -0.3575933, y: 2.7499907, z: -10.073344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2086,17 +2086,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossHechoPorSerchii
       objectReference: {fileID: 0}
-    - target: {fileID: 5059137178290341528, guid: 3342bfc1e816b804daa1bfe1010e4282, type: 3}
-      propertyPath: knockbackForce
-      value: 60
-      objectReference: {fileID: 0}
     - target: {fileID: 5729590559744956783, guid: 3342bfc1e816b804daa1bfe1010e4282, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.866102
       objectReference: {fileID: 0}
     - target: {fileID: 5729590559744956783, guid: 3342bfc1e816b804daa1bfe1010e4282, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.779372
+      value: 2.7793722
       objectReference: {fileID: 0}
     - target: {fileID: 5729590559744956783, guid: 3342bfc1e816b804daa1bfe1010e4282, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2129,10 +2125,6 @@ PrefabInstance:
     - target: {fileID: 5729590559744956783, guid: 3342bfc1e816b804daa1bfe1010e4282, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7115316014805877613, guid: 3342bfc1e816b804daa1bfe1010e4282, type: 3}
-      propertyPath: bossAttackRange
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9644,7 +9636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2717086440908122302, guid: 1d95bb88a2c03324b9efeac9827d27a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.75
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 2717086440908122302, guid: 1d95bb88a2c03324b9efeac9827d27a5, type: 3}
       propertyPath: m_LocalPosition.z

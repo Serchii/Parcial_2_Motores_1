@@ -783,7 +783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7286733261846582368, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
       propertyPath: money
-      value: 150
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7286733261846582368, guid: f4372529af55a4b49be459fe15d5688d, type: 3}
       propertyPath: initialPieceColor.b

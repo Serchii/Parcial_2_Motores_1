@@ -18,6 +18,10 @@ public class BossBehaviour : EnemyBehaviour
     private float _nextAttack2Time = 0f;
     private float _nextAttack3Time = 0f;
 
+    private float attackDamage1 = 25f;
+    private float attackDamage2 = 15f;
+    private float attackDamage3 = 20f;
+
     private enum BossAttackState
     {
         None,
@@ -136,25 +140,25 @@ public class BossBehaviour : EnemyBehaviour
     private void ExecuteAttack1()
     {
         Debug.Log("Jefe ejecutando Ataque 1 (Ataque base)");
+        attackPoint.GetComponent<EnemyHit>().SetDamageAmount(attackDamage1);
         // Llama a la lógica de ataque base de EnemyBehaviour
         TryAttack(); 
-        // EndBossAttack() se llamará desde la animación.
     }
 
     private void ExecuteAttack2()
     {
         Debug.Log("Jefe ejecutando Ataque 2");
+        attackPoint2.GetComponent<EnemyHit>().SetDamageAmount(attackDamage2);
         TryShortAttack(_nextAttack2Time, _attack2Cooldown, 2);
-        // EndBossAttack() se llamará desde la animación.
     }
 
     private void ExecuteAttack3()
     {
         Debug.Log("Jefe ejecutando Ataque 3");
+        attackPoint2.GetComponent<EnemyHit>().SetDamageAmount(attackDamage3);
         TryShortAttack(_nextAttack3Time, _attack3Cooldown, 3);
     }
 
-    // Método para ser llamado cuando un ataque del jefe ha terminado
     public void EndBossAttack()
     {
         _isBossAttacking = false;
