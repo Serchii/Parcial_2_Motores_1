@@ -1,5 +1,8 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine.Localization.Settings;
 
 public class EnemyBehaviour : MonoBehaviour
 {
@@ -41,6 +44,12 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private EnemyHealth _health;
     float distanceToPlayer;
 
+    [Header("Texto de enemigo")]
+    [SerializeField] List<string> enemyPhrasesKeys;
+    [SerializeField] bool enemyTalk = false;
+    [SerializeField] string tableName = "Enemy Phrases";
+    [SerializeField] private GameObject enemyTextPrefab; // Reference to the EnemyTextDisplay prefab
+
     private Rigidbody2D _rb;
     [SerializeField] Animator _animator;
     private float _nextAttackTime = 0f;
@@ -64,7 +73,11 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (_player == null || _health.IsDead) return;
+        if (_player == null || _health.IsDead)
+        {
+            Debug.Log("EnemyBehaviour: Player es nulo o enemigo está muerto. Saliendo de Update.");
+            return;
+        }
 
         if (GameStateManager.Instance.StateMachine.CurrentState != GameStateManager.Instance.Gameplay)
         {
@@ -144,7 +157,17 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void MoveTowardsPlayer()
     {
-        if (_player == null) return;
+        if (_player == null)
+        {
+            Debug.Log("EnemyBehaviour: Player es nulo en MoveTowardsPlayer. Saliendo.");
+            return;
+        }
+
+        if (enemyTalk && distanceToPlayer <= _chaseRange && distanceToPlayer > _attackRange)
+        {
+            ShowEnemyPhrase();
+            enemyTalk = false;
+        }
 
         if (distanceToPlayer <= _attackRange)
         {
@@ -271,5 +294,45 @@ public class EnemyBehaviour : MonoBehaviour
     {
         attackSource.clip = anticipationClip;
         PlaySFX(attackSource);
+    }
+
+    private void ShowEnemyPhrase()
+    {
+        if (enemyPhrasesKeys == null || enemyPhrasesKeys.Count == 0)
+        {
+            return;
+        }
+        if (enemyTextPrefab == null)
+        {
+            return;
+        }
+
+        int randomIndex = Random.Range(0, enemyPhrasesKeys.Count);
+        string key = enemyPhrasesKeys[randomIndex];
+
+        // Get localized string
+        var localizedString = LocalizationSettings.StringDatabase.GetLocalizedString(tableName, key);
+        
+        // Find the main Canvas in the scene
+        Canvas canvas = FindObjectOfType<Canvas>();
+        if (canvas == null)
+        {
+            Debug.LogError("EnemyBehaviour: No se encontró ningún Canvas en la escena. No se puede mostrar el texto del enemigo.");
+            return;
+        }
+
+        // Instantiate the text prefab as a child of the Canvas
+        GameObject textInstance = Instantiate(enemyTextPrefab, canvas.transform);
+        EnemyTextDisplay textDisplay = textInstance.GetComponent<EnemyTextDisplay>();
+
+        if (textDisplay != null)
+        {
+            textDisplay.SetTarget(transform); // Set the enemy as the target to follow
+            textDisplay.ShowText(localizedString);
+        }
+        else
+        {
+            Destroy(textInstance);
+        }
     }
 }

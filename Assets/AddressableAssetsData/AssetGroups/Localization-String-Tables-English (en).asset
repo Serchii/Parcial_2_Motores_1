@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ea59fb3433f50e4bb3a6e13f46aeea0
+    m_Address: Enemy Phrases_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a0991b9d833eaa49a4012b3bd4053e8
     m_Address: Credits_en
     m_ReadOnly: 1

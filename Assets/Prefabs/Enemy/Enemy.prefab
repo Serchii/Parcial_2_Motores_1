@@ -297,6 +297,15 @@ MonoBehaviour:
     m_Bits: 128
   _player: {fileID: 0}
   _health: {fileID: 0}
+  enemyPhrasesKeys:
+  - EnemyPhrase1
+  - EnemyPhrase2
+  - EnemyPhrase3
+  - EnemyPhrase4
+  - EnemyPhrase5
+  enemyTalk: 1
+  tableName: Enemy Phrases
+  enemyTextPrefab: {fileID: 7674734917584274975, guid: b68644baca3207c42bba378b6e9e0e44, type: 3}
   _animator: {fileID: 3281524085536750592}
   currentState: 0
 --- !u!114 &6275704890229466203
@@ -318,6 +327,7 @@ MonoBehaviour:
   _rb: {fileID: 0}
   stunDuration: 1
   maxMoney: 15
+  enemyHit: {fileID: 0}
   healthBarPrefab: {fileID: 5741735976444621918, guid: 7ff2146786d65464aa9d47d9fd9ad3da, type: 3}
   healthBarInstance: {fileID: 0}
   enemyBehaviour: {fileID: 0}

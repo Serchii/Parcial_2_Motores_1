@@ -1685,6 +1685,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7727078185672833702, guid: 7dda8ef9983b92945b87ad288e5b5414, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8901879344821883512, guid: 7dda8ef9983b92945b87ad288e5b5414, type: 3}
       propertyPath: m_Name
       value: ShopLevel
@@ -6453,7 +6457,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6034169278907937, guid: b732297acdd034340a12bd43ae1e37dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -57.0662
+      value: -47.499985
       objectReference: {fileID: 0}
     - target: {fileID: 6034169278907937, guid: b732297acdd034340a12bd43ae1e37dc, type: 3}
       propertyPath: m_LocalPosition.y

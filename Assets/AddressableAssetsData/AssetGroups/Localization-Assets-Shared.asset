@@ -37,6 +37,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d07bb672301b1694a82799e68f24f0d5
+    m_Address: Assets/Localization/Tables/Enemy Phrases Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d8470de539a92f94492dd51ea1d601d3
     m_Address: Assets/Localization/Tables/Tutorial Shared Data.asset
     m_ReadOnly: 1
