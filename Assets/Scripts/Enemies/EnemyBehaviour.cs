@@ -8,10 +8,10 @@ public class EnemyBehaviour : MonoBehaviour
 {
     [Header("Movimiento")]
     [SerializeField] private float _moveSpeed = 2f;
-    [SerializeField] private float _chaseRange = 5f;
-    [SerializeField] private float _attackRange = 1.2f;
+    [SerializeField] protected float _chaseRange = 5f; // Cambiado a protected
+    [SerializeField] protected float _attackRange = 1.2f;
     [SerializeField] private float _stunTime = 0f;
-    [SerializeField] bool setIdle = false;
+    [SerializeField] protected bool setIdle = false;
 
     [Header("Salto")]
     [SerializeField] private float _jumpForce = 7f;
@@ -33,16 +33,16 @@ public class EnemyBehaviour : MonoBehaviour
     [Header("Ataque")]
     [SerializeField] private float _attackCooldown = 1f;
     [SerializeField] private float attackPushForce = 3f;
-    [SerializeField] private Transform attackPoint;
+    [SerializeField] protected Transform attackPoint;
     [SerializeField] private LayerMask playerLayers;
-    private bool isAttacking = false;
+    protected bool isAttacking = false;
 
     public bool IsAttacking => isAttacking;
 
     [Header("Detección")]
     [SerializeField] private Transform _player;
     [SerializeField] private EnemyHealth _health;
-    float distanceToPlayer;
+    protected float distanceToPlayer; // Cambiado a protected para acceso desde clases derivadas
 
     [Header("Texto de enemigo")]
     [SerializeField] List<string> enemyPhrasesKeys;
@@ -50,12 +50,12 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] string tableName = "Enemy Phrases";
     [SerializeField] private GameObject enemyTextPrefab; // Reference to the EnemyTextDisplay prefab
 
-    private Rigidbody2D _rb;
-    [SerializeField] Animator _animator;
+    protected Rigidbody2D _rb;
+    [SerializeField] protected Animator _animator;
     private float _nextAttackTime = 0f;
 
-    [SerializeField] State currentState;
-    private enum State
+    [SerializeField] protected State currentState; // Cambiado a protected
+    protected enum State // Cambiado a protected
     {
         Idle,
         Move,
@@ -111,7 +111,7 @@ public class EnemyBehaviour : MonoBehaviour
             FlipSprite();
     }
 
-    void HandleIdle()
+    protected virtual void HandleIdle() // Cambiado a protected virtual
     {
         if (distanceToPlayer <= _chaseRange)
         {
@@ -124,7 +124,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    void SetIdle()
+    protected virtual void SetIdle() // Cambiado a protected virtual
     {
         if (IsGrounded())
             if (!setIdle)
@@ -143,7 +143,7 @@ public class EnemyBehaviour : MonoBehaviour
         MoveTowardsPlayer();
     }
 
-    void HandleAttack()
+    protected virtual void HandleAttack()
     {
         if (!isAttacking)
             if (!setIdle)
@@ -155,7 +155,7 @@ public class EnemyBehaviour : MonoBehaviour
         TryAttack();
     }
 
-    private void MoveTowardsPlayer()
+    protected virtual void MoveTowardsPlayer()
     {
         if (_player == null)
         {
@@ -212,7 +212,7 @@ public class EnemyBehaviour : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
-    private void TryAttack()
+    protected virtual void TryAttack()
     {
         if (Time.time >= _nextAttackTime)
         {
@@ -236,7 +236,7 @@ public class EnemyBehaviour : MonoBehaviour
         _rb.velocity = new Vector2(direction * attackPushForce, _rb.velocity.y);
     }
 
-    public void DeactivateHit()
+    public virtual void DeactivateHit()
     {
         attackPoint.gameObject.SetActive(false);
     }
@@ -247,7 +247,7 @@ public class EnemyBehaviour : MonoBehaviour
         currentState = State.Idle;
     }
 
-    private void FlipSprite()
+    public void FlipSprite()
     {
         if (_player == null) return;
 
