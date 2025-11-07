@@ -98,7 +98,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4296567279915008
-    m_Localized: MORISTE
+    m_Localized: HAS MUERTO
     m_Metadata:
       m_Items: []
   - m_Id: 4299683312242688
@@ -114,7 +114,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6752742084775936
-    m_Localized: Presiona [W] para entrar
+    m_Localized: Presiona [W] para abrir
     m_Metadata:
       m_Items: []
   - m_Id: 8020642066513920

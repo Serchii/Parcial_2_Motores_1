@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: ShopItems_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: fb40320cf4b47b14689f0d3dbd6869b7, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 28688584704
+    m_Localized: Clock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141523750912
+    m_Localized: Latest generation watch to see the time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 180681773056
+    m_Localized: Expert Certificate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 212323602432
+    m_Localized: Certify that you are an expert plumber and earn 30% more money...Don't
+      ask where we get it from
+    m_Metadata:
+      m_Items: []
+  - m_Id: 267721969664
+    m_Localized: Improved Hammer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 313829953536
+    m_Localized: Nobody knows what a plumber does with a hammer, but nobody questions
+      it either.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 346377752576
+    m_Localized: Improved Helmet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 379428868096
+    m_Localized: Did you know there are helmets shaped like caps? Perfect for plumbing
+      flow.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 400933064704
+    m_Localized: Ultimate Hammer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 423922044928
+    m_Localized: Almost as shiny as it is heavy... Best held with both hands.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 457036075008
+    m_Localized: Ultimate Helmet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 487570608128
+    m_Localized: The only thing that could withstand the blow of an Ultimate Hammer
+      is an Ultimate Helmet.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2059998400512
+    m_Localized: Sold out!
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

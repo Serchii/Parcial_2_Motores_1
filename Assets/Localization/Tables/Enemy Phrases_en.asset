@@ -19,23 +19,143 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 1599170220032
-    m_Localized: frase 1 en ingles
+    m_Localized: "Nice hat\u2026 Too bad it has a new owner now."
     m_Metadata:
       m_Items: []
   - m_Id: 1927429033984
-    m_Localized: frase 2 en ingles
+    m_Localized: Those shoes would look wonderful on me.
     m_Metadata:
       m_Items: []
   - m_Id: 1930587344896
-    m_Localized: frase 3 en ingles
+    m_Localized: Let's see, what're you hiding there?
     m_Metadata:
       m_Items: []
   - m_Id: 1942599831552
-    m_Localized: frase 4 en ingles
+    m_Localized: What're you looking at? Looking for trouble?
     m_Metadata:
       m_Items: []
   - m_Id: 1980445036544
-    m_Localized: frase 5 en ingles
+    m_Localized: "Juicy, exactly what I needed\u2026 a victim."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628580391915520
+    m_Localized: "You look lost\u2026 I like that."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628583340511232
+    m_Localized: Don't move, it'll be quick.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628584342949888
+    m_Localized: Drop that and run, if you have time.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628592467316736
+    m_Localized: "Come on\u2026 Relax, I just want your money."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628593134211072
+    m_Localized: Don't worry, it'll only hurt a little.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628594006626304
+    m_Localized: "Nice trousers\u2026 They didn't fit you anyway."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628595013259264
+    m_Localized: "Wow, you have style\u2026 and no luck!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628610989363200
+    m_Localized: Give me that before I take it myself!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628611962441728
+    m_Localized: Don't make me run, or I'll get mad.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628613103292416
+    m_Localized: Do you know how much that is worth!? I do!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628614177034240
+    m_Localized: Nice day to be losing your stuff, right?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628615250776064
+    m_Localized: "That you're carrying\u2026 It's mine now."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628616387432448
+    m_Localized: Let's see, what do you have for me?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628617561837568
+    m_Localized: Drop everything, and I might leave your pride intact.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628618711076864
+    m_Localized: "Lucky you\u2026 I was in need of money."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629567693328384
+    m_Localized: You really have bad timing!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629862632591360
+    m_Localized: You'll learn to stay away unless invited.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629876155027456
+    m_Localized: You think you're brave? Fine, I love a challenge.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629887769055232
+    m_Localized: You won't leave this place on two feet.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629901195022336
+    m_Localized: Your lucky day is over.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 629911525593088
+    m_Localized: You look lost, tourist.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630423536865280
+    m_Localized: You have no idea who you're messing with.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630451751948288
+    m_Localized: You alone? Bad idea!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630465001754624
+    m_Localized: That face makes me wanna punch you.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630474229223424
+    m_Localized: Easy, not everybody dies the same.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630483897094144
+    m_Localized: So, you're the hero? How disappointing!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630494898753536
+    m_Localized: Who's this clown?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630613014548480
+    m_Localized: Let me teach you how a real man fights.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630626373406720
+    m_Localized: Too late to run now, bro.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630635865116672
+    m_Localized: Look who decided to show up, the neighborhood's hero.
     m_Metadata:
       m_Items: []
   references:

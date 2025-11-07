@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: ImprovedHelmet
   m_EditorClassIdentifier: 
   itemId: 4
-  itemName: Improved Helmet
-  description: Did you know there are helmets shaped like caps? Perfect for plumbing
-    flow.
+  itemNameKey: ImprovedHelmetName
+  descriptionKey: ImprovedHelmetDescription
   price: 75
   icon: {fileID: 21300000, guid: d7dbd463a33d910419b17dec4f02bd05, type: 3}
   nextUpgrade: {fileID: 11400000, guid: a64b90c42cc052e41b56ac395bdebf2e, type: 2}

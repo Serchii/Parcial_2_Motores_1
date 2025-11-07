@@ -204,9 +204,9 @@ public class PlayerAttack : MonoBehaviour
         if (PlayerInventory.Instance != null)
         {
             if (PlayerInventory.Instance.HasItem(ItemID.HammerUltimate))
-                SetAttackDamage(20f);
-            else if (PlayerInventory.Instance.HasItem(ItemID.HammerImproved))
                 SetAttackDamage(15f);
+            else if (PlayerInventory.Instance.HasItem(ItemID.HammerImproved))
+                SetAttackDamage(12.5f);
             else
                 SetAttackDamage(10f);
         }

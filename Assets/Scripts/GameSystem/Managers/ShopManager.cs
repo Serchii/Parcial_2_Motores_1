@@ -61,13 +61,13 @@ public class ShopManager : MonoBehaviour
 
         if (PlayerInventory.Instance.HasItem(item.itemId))
         {
-            Debug.Log("Ya tienes este ítem: " + item.itemName);
+            Debug.Log("Ya tienes este ítem: " + item.itemNameKey);
             return;
         }
 
         if (!GameManager.Instance.SpendMoney(item.price))
         {
-            Debug.Log("⚠️ Dinero insuficiente para: " + item.itemName);
+            Debug.Log("⚠️ Dinero insuficiente para: " + item.itemNameKey);
             return;
         }
 
@@ -81,7 +81,7 @@ public class ShopManager : MonoBehaviour
         // ✅ Reproducir sonido de compra
         PlayBuySound();
 
-        Debug.Log("✅ Comprado: " + item.itemName);
+        Debug.Log("✅ Comprado: " + item.itemNameKey);
     }
 
     private void PlayBuySound()

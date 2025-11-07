@@ -153,11 +153,11 @@ public class PlayerHealth : BaseHealth
         if (PlayerInventory.Instance != null)
         {
             if (PlayerInventory.Instance.HasItem(ItemID.HelmetUltimate))
-                percentDamage = 1;
+                percentDamage = .65f;
             else if (PlayerInventory.Instance.HasItem(ItemID.HelmetImproved))
                 percentDamage = .8f;
             else
-                percentDamage = .6f;
+                percentDamage = 1f;
         }
     }
 }

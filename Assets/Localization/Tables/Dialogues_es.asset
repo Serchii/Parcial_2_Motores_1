@@ -19,14 +19,12 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 47378403328
-    m_Localized: "Henry:\n \xA1\xBFQu\xE9 carajos?! Me debo haber desmayado del cansancio.
-      \xA1Mejor me voy corriendo!"
+    m_Localized: "Henry:\n \xA1\xBFQu\xE9 carajos?! Me debo haber quedado dormido."
     m_Metadata:
       m_Items: []
   - m_Id: 535989653504
     m_Localized: "Henry:\n Mmm, \xA1suena prometedor! Ser\xE1 mejor que me vaya antes
-      de que se den cuenta de que sigo aqu\xED\xAD. Debo encontrar la casa de esa
-      mujer\u2026"
+      de que se den cuenta de que sigo aqu\xED."
     m_Metadata:
       m_Items: []
   - m_Id: 419283144704
@@ -45,13 +43,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3359803132416000
-    m_Localized: "Propietario:\n \xA1Ey, muchacho! Sube y arregla el ba\xF1o. No
-      te metas en las dem\xE1s habitaciones, a la due\xF1a no le gusta nada. \xA1Te
-      pagar\xE9 cuando termines!"
+    m_Localized: "Propietario:\n \xA1Ey, muchacho! Sube y arregla el ba\xF1o."
     m_Metadata:
       m_Items: []
   - m_Id: 3378980756983808
-    m_Localized: "Henry:\n Bueno, al fin termino. Tanto trabajo me dej\xF3 exhausto."
+    m_Localized: "Henry:\n Vaya, termin\xE9 mas r\xE1pido de lo que pens\xE9..."
     m_Metadata:
       m_Items: []
   - m_Id: 4813628221493248
@@ -238,19 +234,41 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 32784372209356800
-    m_Localized: "Henry:\r\n\xBFQu\xE9 fue eso? \xBFHay alguien m\xE1s ah\xED?"
+    m_Localized: "Henry:\r\n \xBFQu\xE9 fue eso? \xBFHay alguien m\xE1s ah\xED?"
     m_Metadata:
       m_Items: []
   - m_Id: 32784375422193664
-    m_Localized: "Henry:\r\n\xA1Ser\xE1 mejor que vaya a ver!"
+    m_Localized: "Henry:\r\n \xA1Ser\xE1 mejor que vaya a ver!"
     m_Metadata:
       m_Items: []
   - m_Id: 32784377741643776
-    m_Localized: "Henry: \r\n\xA1\xBFQui\xE9n mierda eres t\xFA!?"
+    m_Localized: "Henry: \r\n \xA1\xBFQui\xE9n mierda eres!?"
     m_Metadata:
       m_Items: []
   - m_Id: 32784864280907776
-    m_Localized: "Boss:\r\n\xA1Tu peor pesadilla, ni\xF1ito!"
+    m_Localized: "Jefe:\r\n \xA1Tu peor pesadilla, ni\xF1ito!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40709801738047488
+    m_Localized: "Propietario:\n No te metas en las dem\xE1s habitaciones, a la due\xF1a
+      no le gusta nada."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40709823942692864
+    m_Localized: "Propietario:\n \xA1Te pagar\xE9 cuando termines!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40718662721146880
+    m_Localized: "Henry:\n Tal vez pueda tomar algo y relajarme para hacer algo de
+      tiempo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40720687261356032
+    m_Localized: "Henry:\n \xA1Mejor me voy antes que alguien me vea!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40753891410251776
+    m_Localized: "Henry:\n Debo encontrar la casa de esa mujer\u2026"
     m_Metadata:
       m_Items: []
   references:

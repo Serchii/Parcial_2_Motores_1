@@ -19,13 +19,12 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 47378403328
-    m_Localized: "Henry:\n What the hell!? I must\u2019ve passed out from exhaustion.
-      I better leave here immediately!"
+    m_Localized: "Henry:\n What the hell?! I must have fallen asleep."
     m_Metadata:
       m_Items: []
   - m_Id: 535989653504
     m_Localized: "Henry:\n Hmm, that does sound promising! I better leave right away
-      before they notice I\u2019m still here. I must find the house of that woman\u2026"
+      before they notice I\u2019m still here."
     m_Metadata:
       m_Items: []
   - m_Id: 419283144704
@@ -50,7 +49,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3378980756983808
-    m_Localized: "Henry:\n Well, I finally finished. All that work left me exhausted."
+    m_Localized: "Henry:\n Well, I finished faster than I thought..."
     m_Metadata:
       m_Items: []
   - m_Id: 4813628221493248
@@ -73,8 +72,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4819106947207168
-    m_Localized: "Henry:\n Finally. Only one more step to get my license. Only more
-      exam\u2026"
+    m_Localized: "Henry:\n Finally. Only one more step to get my license. Only one
+      more exam\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 4819661035737088
@@ -236,25 +235,40 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 32784372209356800
-    m_Localized: 'Henry:
-
-      What''s that sound? Is someone else over there?'
+    m_Localized: "Henry:\n What's that sound? Is someone else over there?"
     m_Metadata:
       m_Items: []
   - m_Id: 32784377741643776
-    m_Localized: "Henry: \r\nWho the hell are you!?"
+    m_Localized: "Henry: \r\n Who the hell are you!?"
     m_Metadata:
       m_Items: []
   - m_Id: 32784375422193664
-    m_Localized: 'Henry:
-
-      I better go check!'
+    m_Localized: "Henry:\n I better go check!"
     m_Metadata:
       m_Items: []
   - m_Id: 32784864280907776
-    m_Localized: 'Boss:
-
-      Your worst nightmare, boy!'
+    m_Localized: "Boss:\n Your worst nightmare, boy!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40709801738047488
+    m_Localized: "House Owner:\n Please do not mess with other rooms, the woman of
+      the house does not like that."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40709823942692864
+    m_Localized: "House Owner:\n You\u2019ll get the money when you\u2019re done!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40718662721146880
+    m_Localized: "Henry:\n Maybe I can have a drink and relax to kill some time."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40720687261356032
+    m_Localized: "Henry:\n I'd better leave before someone sees me!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40753891410251776
+    m_Localized: "Henry:\n I must find the house of that woman\u2026"
     m_Metadata:
       m_Items: []
   references:

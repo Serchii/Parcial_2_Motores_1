@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Localization.Settings;
 
 public class ShopItemButton : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ShopItemButton : MonoBehaviour
 
     private ShopItem _item;
     private ShopManager _shopManager;
+    string localizedSoldText;
 
     public void Setup(ShopItem item, ShopManager manager)
     {
@@ -24,8 +26,12 @@ public class ShopItemButton : MonoBehaviour
         _item = item;
         _shopManager = manager;
 
-        if (_nameText != null) _nameText.text = item.itemName;
-        if (_descriptionText != null) _descriptionText.text = item.description;
+        // Obtener el texto localizado para el nombre y la descripción
+        string localizedName = LocalizationSettings.StringDatabase.GetLocalizedString("ShopItems", item.itemNameKey);
+        string localizedDescription = LocalizationSettings.StringDatabase.GetLocalizedString("ShopItems", item.descriptionKey);
+
+        if (_nameText != null) _nameText.text = localizedName;
+        if (_descriptionText != null) _descriptionText.text = localizedDescription;
         if (_priceText != null) _priceText.text = $"${item.price}";
         if (_icon != null) _icon.sprite = item.icon;
 
@@ -48,11 +54,13 @@ public class ShopItemButton : MonoBehaviour
 
     public void DisableButton()
     {
+        localizedSoldText = LocalizationSettings.StringDatabase.GetLocalizedString("ShopItems", "SoldOutText");
+        
         if (_buyButton != null)
             _buyButton.interactable = false;
 
         if (_priceText != null)
-            _priceText.text = "Comprado";
+            _priceText.text = localizedSoldText;
 
         if (_nameText != null)
             _nameText.color = Color.gray;
