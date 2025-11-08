@@ -172,12 +172,12 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x * attackFrictionFactor, rb.velocity.y);
     }
 
-    private void FlipSprite()
+    public void FlipSprite()
     {
-        if (moveInput != 0 && !isKnockedBack && canMove)
+        if (InputManager.Instance.Horizontal != 0 && !isKnockedBack && canMove)
         {
             Vector3 scale = transform.localScale;
-            scale.x = Mathf.Abs(scale.x) * Mathf.Sign(moveInput);
+            scale.x = Mathf.Abs(scale.x) * Mathf.Sign(InputManager.Instance.Horizontal);
             transform.localScale = scale;
         }
     }

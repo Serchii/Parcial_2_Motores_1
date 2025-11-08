@@ -127,6 +127,10 @@ MonoBehaviour:
     m_Key: CloseBtn
     m_Metadata:
       m_Items: []
+  - m_Id: 40534386784407552
+    m_Key: PressToDialog
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

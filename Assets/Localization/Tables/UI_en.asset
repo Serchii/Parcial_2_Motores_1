@@ -132,6 +132,10 @@ MonoBehaviour:
     m_Localized: Closed for maintenance
     m_Metadata:
       m_Items: []
+  - m_Id: 40534386784407552
+    m_Localized: Press [E] to continue
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
